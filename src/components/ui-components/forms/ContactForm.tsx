@@ -38,7 +38,7 @@ export default function ContactForm() {
     }
 
     return (
-        <div className="bg-gray-50 border border-black/5 rounded-3xl p-10 md:p-14">
+        <div className="bg-[#f3f3f3]/80 backdrop-blur-md border border-gray-200 rounded-3xl p-10 md:p-14">
             <form
                 onSubmit={handleSubmit}
                 className="grid grid-cols-1 md:grid-cols-2 gap-10"
@@ -53,7 +53,7 @@ export default function ContactForm() {
                         type="text"
                         name="name"
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
 
@@ -66,7 +66,7 @@ export default function ContactForm() {
                         type="email"
                         name="email"
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
 
@@ -79,7 +79,7 @@ export default function ContactForm() {
                         type="text"
                         name="phone"
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
 
@@ -92,7 +92,7 @@ export default function ContactForm() {
                         type="text"
                         name="location"
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
 
@@ -127,7 +127,7 @@ export default function ContactForm() {
                         border transition-all duration-300
                         ${isSelected
                                             ? "bg-black text-white border-black"
-                                            : "bg-white border-black/10 text-gray-600 hover:border-black/40"
+                                        : "bg-white border-gray-200 text-gray-600 hover:border-black/40"
                                         }
                     `}
                                 >
@@ -155,7 +155,7 @@ export default function ContactForm() {
                         name="project"
                         rows={5}
                         onChange={handleChange}
-                        className="w-full rounded-xl border border-black/10 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all resize-none"
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all resize-none"
                     />
                 </div>
 

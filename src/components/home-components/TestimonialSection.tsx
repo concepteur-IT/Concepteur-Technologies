@@ -27,9 +27,9 @@ const testimonials = [
 
 export default function TestimonialSection() {
     return (
-        <section className="relative py-32 bg-gray-50 overflow-hidden">
+        <section className="relative py-32  overflow-hidden">
 
-            <div className="absolute inset-0 bg-linear-to-b from-white via-gray-50 to-white pointer-events-none" />
+            <div className="absolute inset-0 pointer-events-none" />
 
             <div className="relative max-w-5xl mx-auto px-8">
 
@@ -52,7 +52,7 @@ export default function TestimonialSection() {
                 <div className="relative flex items-center">
 
                     {/* Navigation Buttons */}
-                    <button className="testimonial-prev hidden md:flex absolute inset-y-0 my-auto left-0 -translate-x-12 h-11 w-11 items-center justify-center rounded-full border border-black/20 bg-white/70 backdrop-blur-sm text-black/60 transition-all duration-300 hover:border-gray-400 hover:text-black hover:bg-white">
+                    <button className="testimonial-prev hidden md:flex absolute inset-y-0 my-auto left-0 -translate-x-12 h-14 w-14 items-center justify-center rounded-full border border-black/20 bg-black backdrop-blur-sm text-white transition-all duration-300 hover:border-gray-400 hover:text-black hover:bg-white -m-10">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -65,7 +65,7 @@ export default function TestimonialSection() {
                         </svg>
                     </button>
 
-                    <button className="testimonial-next hidden md:flex absolute inset-y-0 my-auto right-0 translate-x-12 h-11 w-11 items-center justify-center rounded-full border border-black/20 bg-white/70 backdrop-blur-sm text-black/60 transition-all duration-300 hover:border-gray-400 hover:text-black hover:bg-white">
+                    <button className="testimonial-next hidden md:flex absolute inset-y-0 my-auto right-0 translate-x-12 h-14 w-14 items-center justify-center rounded-full border border-black/20 bg-black backdrop-blur-sm text-white transition-all duration-300 hover:border-gray-400 hover:text-black hover:bg-white -m-10">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
@@ -103,9 +103,9 @@ export default function TestimonialSection() {
                     >
                         {testimonials.map((item, index) => (
                             <SwiperSlide key={index}>
-                                <div className="text-center min-h-70 space-y-12 pb-20">
+                                <div className="text-center min-h-70 space-y-12 pb-20 bg-[#f3f3f3]/80 backdrop-blur-md border border-gray-200 rounded-2xl mx-5">
 
-                                    <div className="flex justify-center opacity-20">
+                                    <div className="flex justify-center opacity-20 mt-10">
                                         <div className="relative w-12 h-12">
                                             <Image
                                                 src="/quote.avif"

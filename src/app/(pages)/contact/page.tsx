@@ -28,7 +28,7 @@ const page = () => {
           </div>
 
           {/* Centered Form */}
-          <div className="max-w-4xl mx-auto">
+          <div className="mx-auto">
             <ContactForm />
           </div>
 
