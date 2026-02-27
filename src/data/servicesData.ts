@@ -49,24 +49,10 @@ export const servicesData: ServiceData[] = [
     ],
     projects: [
       {
-        title: "AIME",
-        client: "From Brainuminfotech",
-        description:
-          "An AI-powered teaching assistant platform built using GPT and Gemini models, delivering interactive learning experiences and personalized tutoring workflows.",
-        image: "/services/ai.jpg",
-      },
-      {
-        title: "NOMADQUEST",
-        client: "From Brainuminfotech",
-        description:
-          "An AI-driven travel assistant that generates intelligent tour plans, recommendations, and dynamic itineraries using advanced LLM integrations.",
-        image: "/services/ai.jpg",
-      },
-      {
-        title: "AIDO",
+        title: "AIDO RX",
         client: "From AIDO",
         description:
-          "Custom AI agent system designed for task automation, smart responses, and workflow optimization using OpenRouter and Ollama models.",
+          "Custom AI agent system designed for doctors workflow automation, smart responses, and workflow optimization using OpenRouter and Ollama models.",
         image: "/services/ai.jpg",
       },
       {
@@ -77,10 +63,31 @@ export const servicesData: ServiceData[] = [
         image: "/services/ai.jpg",
       },
       {
-        title: "MCP",
-        client: "From Brainuminfotech",
+        title: "NomadQuest MCP",
+        client: "Nomadquest INC",
         description:
-          "Multi-agent AI framework enabling coordinated task execution, contextual memory handling, and scalable AI-driven operations.",
+          "A Model Context Protocol (MCP) system built to enable AI-driven tour and journey bookings through chat models, allowing users to search destinations, view tour details, check hotels, and book flights seamlessly via conversational AI.",
+        image: "/services/ai.jpg",
+      },
+      {
+        title: "KEYSALE CRM",
+        client: "From RETAILBOX SWEDEN",
+        description:
+          "A comprehensive CRM platform for managing suppliers, products, and sales operations, including AI-driven report generation, structured database migration, and real-time sales analytics.",
+        image: "/services/ai.jpg",
+      },
+      {
+        title: "AIME",
+        client: "From Brainium Infotech",
+        description:
+          "One of our developers worked on the development of an AI-powered teaching assistant platform integrating GPT and Gemini models, contributing to interactive learning features and user workflow improvements.",
+        image: "/services/ai.jpg",
+      },
+      {
+        title: "NOMADQUEST",
+        client: "From Brainium Infotech",
+        description:
+          "A React web platform built for Brainium Infotech, with our developer contributing to frontend development, UI implementation, and feature enhancements for the AI-driven travel solution.",
         image: "/services/ai.jpg",
       },
     ],

@@ -1,143 +1,182 @@
-import ServiceFeatureCard from "@/components/ui-components/cards/ServiceFeatureCard";
+"use client";
+
 import LetsTalkBtn from "@/components/ui-components/buttons/LetsTalkBtn";
 import { servicesData } from "@/data/servicesData";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
-export const metadata = {
-  title: "Services | Concepteur Technologies",
-  description: "Explore our comprehensive suite of technology services including AI, Web Development, Mobile Apps, Cloud Infrastructure, and UI/UX Design.",
+// Map service IDs to homepage images
+const serviceImages: Record<string, string> = {
+  ai: "/services/ai-automation.png",
+  web: "/services/website-development.png",
+  mobile: "/services/mobile-app.png",
+  backend: "/services/backend-eng.png",
+  cloud: "/services/cloud-eng.png",
+  ecommerce: "/services/e-commerce.png",
+  uiux: "/services/ux-ui.png",
 };
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white">
-      {/* Hero Section - Refined Typography */}
-      <section className="relative w-full pt-20 pb-24 overflow-hidden">
+    <main className="min-h-screen bg-white mt-15">
+      {/* Hero Section - Clean & Compact */}
+      <section className="relative w-full pt-28 pb-20 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/50 via-transparent to-transparent" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 text-center space-y-6">
-          <div className="inline-block px-4 py-1.5 mb-4 border border-gray-200 rounded-full bg-gray-50/50 backdrop-blur-sm">
-            <p className="text-[10px] md:text-xs uppercase tracking-[0.4em] text-gray-500 font-bold">
+        <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold mb-6">
               Capabilities & Expertise
             </p>
-          </div>
+          </motion.div>
 
-          <h1 className="text-6xl md:text-8xl leading-[1.1] font-bold text-gray-900 tracking-tighter">
-            Engineering the <br />
-            <span className=" bg-clip-text bg-gradient-to-r from-black via-gray-600 to-black">Digital Future</span>
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl leading-[1.1] font-light text-black tracking-tight"
+          >
+            Engineering the{" "}
+            <span className="font-semibold">Digital Future</span>
+          </motion.h1>
 
-          <p className="text-lg md:text-xl text-gray-500 leading-relaxed max-w-2xl mx-auto font-light">
-            High-performance solutions tailored for the next generation of enterprise scale.
-          </p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto pt-2"
+          >
+            High-performance solutions tailored for the next generation of
+            enterprise scale.
+          </motion.p>
         </div>
       </section>
 
-      {/* Services Grid Section - Asymmetric Bento Layout */}
-      <section className="pb-32">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8">
-            
-            {/* 1. Primary Highlight (AI & Automation) - Large Top Left */}
-            <div className="md:col-span-8 group">
-              <ServiceFeatureCard
-                variant="wide"
-                image={servicesData[0].image}
-                title={servicesData[0].title}
-                description={servicesData[0].shortDescription}
-                href={`/services/${servicesData[0].slug}`}
-                className="h-full min-h-[450px]"
-              />
-            </div>
+      {/* Individual Service Sections */}
+      {servicesData.map((service, index) => {
+        const isReversed = index % 2 !== 0;
+        const img = serviceImages[service.id] || service.image;
 
-            {/* 2. Side Accent (Web Dev) - Tall Top Right */}
-            <div className="md:col-span-4">
-              <ServiceFeatureCard
-                image={servicesData[1].image}
-                title={servicesData[1].title}
-                description={servicesData[1].shortDescription}
-                href={`/services/${servicesData[1].slug}`}
-                className="h-full"
-              />
-            </div>
+        return (
+          <section
+            key={service.id}
+            className={`py-20 ${index % 2 === 0 ? "bg-white" : "bg-[#FAFAFA]"} border-t border-gray-100`}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="max-w-6xl mx-auto px-6 md:px-8"
+            >
+              <div
+                className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-20`}
+              >
+                {/* Image Side */}
+                <motion.div
+                  initial={{ opacity: 0, x: isReversed ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className="w-full md:w-1/2"
+                >
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
+                    <Image
+                      src={img}
+                      alt={service.title}
+                      fill
+                      className="object-cover grayscale hover:grayscale-0 transition-all duration-700 hover:scale-105"
+                    />
+                  </div>
+                </motion.div>
 
-            {/* 3. Mid Feature (Mobile Apps) - Square */}
-            <div className="md:col-span-4">
-              <ServiceFeatureCard
-                image={servicesData[2].image}
-                title={servicesData[2].title}
-                description={servicesData[2].shortDescription}
-                href={`/services/${servicesData[2].slug}`}
-                className="h-full"
-              />
-            </div>
+                {/* Content Side */}
+                <motion.div
+                  initial={{ opacity: 0, x: isReversed ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+                  className="w-full md:w-1/2 space-y-6"
+                >
+                  {/* Number tag */}
+                  <span className="text-[11px] uppercase tracking-[0.3em] text-gray-400 font-bold">
+                    0{index + 1} — Service
+                  </span>
 
-            {/* 4. Wide Feature (Infrastructure) - Centered Horizontal */}
-            <div className="md:col-span-8">
-              <ServiceFeatureCard
-                variant="wide"
-                image={servicesData[3].image}
-                title={servicesData[3].title}
-                description={servicesData[3].shortDescription}
-                href={`/services/${servicesData[3].slug}`}
-                className="h-full"
-              />
-            </div>
+                  <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black">
+                    {service.title}
+                  </h2>
 
-            {/* 5. Bottom Left Duo */}
-            <div className="md:col-span-4">
-              <ServiceFeatureCard
-                image={servicesData[4].image}
-                title={servicesData[4].title}
-                description={servicesData[4].shortDescription}
-                href={`/services/${servicesData[4].slug}`}
-                className="h-full"
-              />
-            </div>
+                  <p className="text-[15px] leading-relaxed text-gray-600">
+                    {service.shortDescription}
+                  </p>
 
-             {/* 6. Bottom Right Duo */}
-             <div className="md:col-span-4">
-              <ServiceFeatureCard
-                image={servicesData[5].image}
-                title={servicesData[5].title}
-                description={servicesData[5].shortDescription}
-                href={`/services/${servicesData[5].slug}`}
-                className="h-full"
-              />
-            </div>
+                  {/* Key features */}
+                  <div className="space-y-3 pt-2">
+                    {service.features.slice(0, 4).map((feature) => (
+                      <div key={feature} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 rounded-full bg-black mt-2 shrink-0" />
+                        <span className="text-sm text-gray-600">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
 
-            {/* 7. Design/UX - The "Cap" at the end */}
-            <div className="md:col-span-4">
-               <ServiceFeatureCard
-                image={servicesData[6].image}
-                title={servicesData[6].title}
-                description={servicesData[6].shortDescription}
-                href={`/services/${servicesData[6].slug}`}
-                className="h-full border-t-4 border-black" 
-              />
-            </div>
+                  {/* Stats row */}
+                  <div className="flex gap-8 pt-4 border-t border-gray-100">
+                    {service.stats.slice(0, 3).map((stat) => (
+                      <div key={stat.label}>
+                        <p className="text-2xl font-semibold text-black tracking-tight">
+                          {stat.value}
+                        </p>
+                        <p className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-medium mt-1">
+                          {stat.label}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
 
-          </div>
-        </div>
-      </section>
+                  {/* CTA Link */}
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group inline-flex items-center gap-2 text-sm font-semibold text-black hover:opacity-60 transition-opacity pt-2"
+                  >
+                    Explore {service.title.split(" ")[0]}
+                    <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300" />
+                  </Link>
+                </motion.div>
+              </div>
+            </motion.div>
+          </section>
+        );
+      })}
 
       {/* CTA Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        {/* Right side glow */}
-        <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-1/3 -z-10 opacity-40">
-           <div className="w-96 h-96 bg-gray-200 rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 md:px-8 text-center space-y-10">
-          <h2 className="text-4xl md:text-5xl font-light text-black tracking-tight">
-            Ready to scale your <span className="font-semibold">infrastructure?</span>
-          </h2>
-          <p className="text-gray-600 text-lg">
-            Let's discuss how our technology tailored services can accelerate your business objectives.
+      <section className="py-20 bg-white relative overflow-hidden border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-6 md:px-8 text-center space-y-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-4xl md:text-5xl font-light text-black tracking-tight"
+          >
+            Ready to scale your{" "}
+            <span className="font-semibold">infrastructure?</span>
+          </motion.h2>
+          <p className="text-gray-500 text-lg">
+            Let&apos;s discuss how our technology tailored services can
+            accelerate your business objectives.
           </p>
-          <div className="flex justify-center pt-4">
-             <LetsTalkBtn />
+          <div className="flex justify-center pt-2">
+            <LetsTalkBtn />
           </div>
         </div>
       </section>
