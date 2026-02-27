@@ -25,7 +25,7 @@ const values = [
 const MissionAbout = () => {
     return (
         <section className="py-32">
-            <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-20">
+            <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-20">
 
                 <div className="space-y-6">
                     <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black">
