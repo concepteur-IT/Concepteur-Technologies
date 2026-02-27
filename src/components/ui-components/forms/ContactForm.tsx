@@ -1,266 +1,144 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Swal from "sweetalert2"
-import SubmitBtn from "../buttons/SubmitBtn"
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 
 export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    project: "",
+    services: [] as string[],
+    otherServiceDetail: "",
+  });
 
-    const createQuiz = () => {
-        const a = Math.floor(Math.random() * 8) + 1
-        const b = Math.floor(Math.random() * 8) + 1
-        return { question: `${a} + ${b}`, answer: a + b }
-    }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        location: "",
-        project: "",
-        services: [] as string[],
-    })
-    const [quiz, setQuiz] = useState(createQuiz)
-    const [quizInput, setQuizInput] = useState("")
-    const [loading, setLoading] = useState(false)
+  const handleCheckboxChange = (service: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      services: prev.services.includes(service)
+        ? prev.services.filter((s) => s !== service)
+        : [...prev.services, service],
+    }));
+  };
 
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-    ) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value })
-    }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log(formData);
+  };
 
-    const handleCheckboxChange = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        const { value, checked } = e.target
-        setFormData({
-            ...formData,
-            services: checked
-                ? [...formData.services, value]
-                : formData.services.filter((service) => service !== value),
-        })
-    }
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 w-full">
+      {/* Ultra Compact Grid Fields - 3 Columns on Desktop */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-3">
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name *"
+          required
+          onChange={handleChange}
+          className="w-full bg-transparent border-b border-gray-300 py-1.5 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address *"
+          required
+          onChange={handleChange}
+          className="w-full bg-transparent border-b border-gray-300 py-1.5 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
+        />
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          onChange={handleChange}
+          className="w-full bg-transparent border-b border-gray-300 py-1.5 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
+        />
+      </div>
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault()
-
-        if (Number(quizInput) !== quiz.answer) {
-            await Swal.fire({
-                title: "Quiz answer is incorrect",
-                text: `Please solve ${quiz.question} correctly before sending.`,
-                icon: "warning",
-                confirmButtonText: "Try again",
-                confirmButtonColor: "#111827",
-            })
-            return
-        }
-
-        try {
-            setLoading(true)
-            const response = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
-            })
-
-            const result = await response.json()
-
-            if (!response.ok) {
-                throw new Error(result?.error || "Failed to send message.")
-            }
-
-            await Swal.fire({
-                title: "Message sent successfully",
-                html: `
-                    <p style="margin-bottom: 8px;">Your inquiry has been delivered.</p>
-                    <p style="margin-bottom: 0;">We will reply to <strong>${formData.email}</strong> soon.</p>
-                `,
-                icon: "success",
-                confirmButtonText: "Awesome",
-                confirmButtonColor: "#111827",
-                backdrop: "rgba(17, 24, 39, 0.45)",
-                timer: 5000,
-                timerProgressBar: true,
-            })
-
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                location: "",
-                project: "",
-                services: [],
-            })
-            setQuizInput("")
-            setQuiz(createQuiz())
-        } catch (error) {
-            const message = error instanceof Error ? error.message : "Something went wrong."
-            await Swal.fire({
-                title: "Sending failed",
-                text: message,
-                icon: "error",
-                confirmButtonText: "Close",
-                confirmButtonColor: "#111827",
-            })
-        } finally {
-            setLoading(false)
-        }
-    }
-
-    return (
-        <div className="bg-[#f3f3f3]/80 backdrop-blur-md border border-gray-200 rounded-3xl p-10 md:p-14">
-            <form
-                onSubmit={handleSubmit}
-                className="grid grid-cols-1 md:grid-cols-2 gap-10"
-            >
-
-                {/* Name */}
-                <div className="space-y-3">
-                    <label className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                        Your Name
-                    </label>
-                    <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
-                    />
-                </div>
-
-                {/* Email */}
-                <div className="space-y-3">
-                    <label className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                        Your Email
-                    </label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
-                    />
-                </div>
-
-                {/* Phone */}
-                <div className="space-y-3">
-                    <label className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                        Contact Number
-                    </label>
-                    <input
-                        type="text"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
-                    />
-                </div>
-
-                {/* Location */}
-                <div className="space-y-3">
-                    <label className="text-xs uppercase tracking-[0.25em] text-gray-500">
-                        Location
-                    </label>
-                    <input
-                        type="text"
-                        name="location"
-                        value={formData.location}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
-                    />
-                </div>
-
-                {/* Services Selection */}
-                {/* Services Selection */}
-                <div className="md:col-span-2 space-y-6 pt-2">
-
-                    <p className="text-xs uppercase tracking-[0.25em] text-gray-500">
-                        Choose the services that best fit your needs
-                    </p>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-
-                        {[
-                            "AI & Automation",
-                            "Website Building",
-                            "Mobile App",
-                            "Data Engineering",
-                            "Backend",
-                            "Cloud",
-                            "E-Commerce",
-                            "UI / UX Design",
-                            "Optimization & Support",
-                        ].map((service) => {
-
-                            const isSelected = formData.services.includes(service)
-
-                            return (
-                                <label
-                                    key={service}
-                                    className={`
-                        cursor-pointer text-center rounded-xl px-4 py-3 text-sm
-                        border transition-all duration-300
-                        ${isSelected
-                                            ? "bg-black text-white border-black"
-                                        : "bg-white border-gray-200 text-gray-600 hover:border-black/40"
-                                        }
-                    `}
-                                >
-                                    <input
-                                        type="checkbox"
-                                        value={service}
-                                        checked={isSelected}
-                                        onChange={handleCheckboxChange}
-                                        className="hidden"
-                                    />
-                                    {service}
-                                </label>
-                            )
-                        })}
-
-                    </div>
-
-                </div>
-
-                {/* Textarea */}
-                <div className="md:col-span-2 space-y-3">
-                    <label className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                        Project Description
-                    </label>
-                    <textarea
-                        name="project"
-                        rows={5}
-                        value={formData.project}
-                        onChange={handleChange}
-                        required
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all resize-none"
-                    />
-                </div>
-
-                <div className="space-y-3">
-                    <label className="text-xs uppercase tracking-[0.2em] text-gray-500">
-                        Anti-spam Quiz: {quiz.question} = ?
-                    </label>
-                    <input
-                        type="number"
-                        value={quizInput}
-                        onChange={(e) => setQuizInput(e.target.value)}
-                        required
-                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
-                    />
-                </div>
-
-                {/* Submit */}
-                <div className="md:col-span-2 pt-4">
-                    <SubmitBtn label="Submit Inquiry" loading={loading} />
-                </div>
-
-            </form>
+      {/* Services Filter Pills - Extreme Tighter Tracking */}
+      <div className="space-y-2 pt-1">
+        <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-medium">
+          I am interested in...
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {[
+            "Web Dev",
+            "Mobile App",
+            "AI / Auto",
+            "UI/UX",
+            "Cloud",
+            "E-Commerce",
+            "Other",
+          ].map((service) => {
+            const isSelected = formData.services.includes(service);
+            return (
+              <button
+                key={service}
+                type="button"
+                onClick={() => handleCheckboxChange(service)}
+                className={`
+                                    px-3 py-1 rounded-full text-[11px] font-medium transition-all duration-300 border
+                                    ${isSelected ? "bg-black text-white border-black" : "bg-transparent text-gray-500 border-gray-200 hover:border-black hover:text-black"}
+                                `}
+              >
+                {service}
+              </button>
+            );
+          })}
         </div>
-    )
+
+        {/* Conditionally rendered "Other" text input */}
+        {formData.services.includes("Other") && (
+          <div className="pt-1 mt-1 animate-in fade-in slide-in-from-top-1 duration-300">
+            <input
+              type="text"
+              name="otherServiceDetail"
+              placeholder="Please specify what you are looking for..."
+              onChange={handleChange}
+              value={formData.otherServiceDetail || ""}
+              className="w-full max-w-sm bg-transparent border-b border-gray-300 py-1 space-y-0 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
+            />
+          </div>
+        )}
+      </div>
+
+      {/* Compact Textarea */}
+      <textarea
+        name="project"
+        rows={1}
+        placeholder="Brief project details..."
+        onChange={handleChange}
+        className="w-full bg-transparent border-b border-gray-300 py-1.5 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors resize-none mt-1"
+      />
+
+      {/* Submit Inline */}
+      <div className="flex flex-col md:flex-row items-center justify-between gap-3 pt-3 border-t border-gray-50 mt-1">
+        <button
+          type="submit"
+          className="bg-black text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-neutral-800 transition-colors duration-200"
+        >
+          Send Inquiry
+        </button>
+        <div className="text-center md:text-right flex items-center gap-3">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-medium">
+            Or email:
+          </p>
+          <a
+            href="mailto:info@concepteur.com"
+            className="text-[13px] font-semibold text-black hover:opacity-70 transition-colors"
+          >
+            info@concepteur.com
+          </a>
+        </div>
+      </div>
+    </form>
+  );
 }
