@@ -44,7 +44,7 @@ export default function Logo() {
                 <path
                     d={STAR_PATH}
                     fill="white"
-                    transform="translate(50 50) scale(2.3) translate(-50 -50)"
+                    transform="translate(50 50) scale(2.2) translate(-50 -50)"
                 />
             </svg>
 
