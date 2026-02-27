@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Concepteur IT",
   description: "Enterprise AI & ML Solutions",
   icons: {
-    icon: "/logo.png"
+    icon: "/favicon.ico"
   },
 }
 
