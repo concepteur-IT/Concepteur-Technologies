@@ -2,7 +2,7 @@ import ContactForm from "../ui-components/forms/ContactForm";
 
 export default function ContactSection() {
     return (
-        <section className="relative py-32 bg-white">
+        <section className="relative py-20 bg-white">
             <div className="max-w-6xl mx-auto px-8">
 
                 {/* Section Intro - Centered */}
