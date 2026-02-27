@@ -7,7 +7,7 @@ import TeamAbout from "@/components/about-components/TeamAbout";
 
 export default function AboutPage() {
   return (
-    <main className="bg-white">
+    <main className="bg-white mt-15">
       <HeroAbout />
       <StatsAbout />
       <MissionAbout />

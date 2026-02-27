@@ -5,8 +5,7 @@ const ContactUsBtn = () => {
   return (
       <div>  <Link
           href="/contact"
-          className="border border-black/10 px-6 py-3 rounded-xl hover:border-black transition-colors"
-      >
+          className="border border-gray-400 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300"      >
           Contact Us
       </Link></div>
   )
