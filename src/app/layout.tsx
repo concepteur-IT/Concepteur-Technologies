@@ -2,6 +2,9 @@ import "./globals.css";
 import Footer from "@/components/layout-components/Footer";
 import Navbar from "@/components/layout-components/Navbar";
 import NavigationLoader from "@/components/layout-components/NavigationLoader";
+import GoogleAnalytics from "@/components/layout-components/GoogleAnalytics";
+import CookieConsent from "@/components/layout-components/CookieConsent";
+import ChatBot from "@/components/ui-components/ChatBot";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -27,10 +30,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <GoogleAnalytics />
         <NavigationLoader />
         <Navbar />
         <div className="pt-0">{children}</div>
         <Footer />
+        <CookieConsent />
+        <ChatBot />
       </body>
     </html>
   );

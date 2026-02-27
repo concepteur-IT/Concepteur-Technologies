@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function NavigationLoader() {
   const pathname = usePathname();
@@ -16,7 +17,7 @@ export default function NavigationLoader() {
       setLoading(false);
       // Keep visible briefly for fade-out
       setTimeout(() => setVisible(false), 500);
-    }, 600);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, [pathname]);
@@ -24,96 +25,36 @@ export default function NavigationLoader() {
   if (!visible) return null;
 
   return (
-    <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500 ${
-        loading ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
-    >
-      {/* Spiral Globe Loader */}
-      <div className="relative w-16 h-16">
-        <svg
-          viewBox="0 0 100 100"
-          className="w-full h-full animate-spin"
-          style={{ animationDuration: "2s" }}
+    <AnimatePresence>
+      {loading && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center bg-white"
         >
-          {/* Outer ring */}
-          <circle
-            cx="50"
-            cy="50"
-            r="42"
-            fill="none"
-            stroke="black"
-            strokeWidth="1.5"
-            opacity="0.15"
-          />
-
-          {/* Spinning arc 1 — main */}
-          <circle
-            cx="50"
-            cy="50"
-            r="42"
-            fill="none"
-            stroke="black"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeDasharray="60 204"
-          />
-
-          {/* Inner orbit ring */}
-          <ellipse
-            cx="50"
-            cy="50"
-            rx="28"
-            ry="42"
-            fill="none"
-            stroke="black"
-            strokeWidth="1"
-            opacity="0.12"
-            className="animate-[spin_3s_linear_reverse_infinite]"
-          />
-
-          {/* Spiral meridian 1 */}
-          <ellipse
-            cx="50"
-            cy="50"
-            rx="14"
-            ry="42"
-            fill="none"
-            stroke="black"
-            strokeWidth="1"
-            opacity="0.1"
-          />
-
-          {/* Equator line */}
-          <ellipse
-            cx="50"
-            cy="50"
-            rx="42"
-            ry="12"
-            fill="none"
-            stroke="black"
-            strokeWidth="1"
-            opacity="0.1"
-          />
-
-          {/* Spinning arc 2 — counter orbit */}
-          <ellipse
-            cx="50"
-            cy="50"
-            rx="28"
-            ry="42"
-            fill="none"
-            stroke="black"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeDasharray="40 180"
-            className="animate-[spin_2.5s_linear_reverse_infinite]"
-          />
-
-          {/* Center dot */}
-          <circle cx="50" cy="50" r="3" fill="black" />
-        </svg>
-      </div>
-    </div>
+          {/* Minimalist Spinner */}
+          <div className="relative flex items-center justify-center">
+            {/* Outer rotating ring */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              className="absolute w-12 h-12 rounded-full border-[2px] border-gray-200 border-t-black border-r-black"
+            />
+            {/* Inner pulsing dot */}
+            <motion.div
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{
+                repeat: Infinity,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
+              className="w-2 h-2 bg-black rounded-full"
+            />
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
