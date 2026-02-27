@@ -27,7 +27,7 @@ const testimonials = [
 
 export default function TestimonialSection() {
     return (
-        <section className="relative py-32  overflow-hidden">
+        <section className="relative py-20  overflow-hidden">
 
             <div className="absolute inset-0 pointer-events-none" />
 
