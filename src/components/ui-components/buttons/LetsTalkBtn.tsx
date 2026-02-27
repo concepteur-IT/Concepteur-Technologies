@@ -6,7 +6,7 @@ const LetsTalkBtn = () => {
         <div>
             <Link
                 href="/contact"
-                className="bg-black text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors duration-200"
+                className="bg-black text-white font-semibold px-6 py-2.5 rounded-lg hover:bg-neutral-700 transition-colors duration-200"
             >
                 {'Let\'s Talk'}
             </Link>

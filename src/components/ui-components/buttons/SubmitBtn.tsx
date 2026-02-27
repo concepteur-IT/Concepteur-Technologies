@@ -19,7 +19,7 @@ export default function SubmitBtn({
   bg-black text-white font-medium tracking-wide
   px-7 py-3 rounded-xl
   transition-all duration-300
-  hover:bg-neutral-800 hover:-translate-y-1px
+  hover:bg-neutral-700 hover:-translate-y-1px
   active:translate-y-0
   disabled:opacity-60 disabled:cursor-not-allowed
 "

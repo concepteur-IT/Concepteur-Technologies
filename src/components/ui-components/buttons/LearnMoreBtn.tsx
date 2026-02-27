@@ -6,7 +6,7 @@ const LearnMoreBtn = () => {
         <div>
             <Link
                 href="/about"
-                className="border border-gray-400 text-gray-800 px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-100 transition duration-300"
+                className="border border-gray-400 text-gray-800 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition duration-300"
             >
                 Learn More
             </Link>
