@@ -1,7 +1,7 @@
 .logo {
     display: flex;
     align-items: center;
-    transform: scale(0.6);
+    transform: scale(0.45);
     /* adjust this value */
     transform-origin: left center;
 }
@@ -20,10 +20,10 @@
 }
 
 .word {
-    font-size: 48px;
+    font-size: 50px;
     font-weight: 600;
     color: #0f1115;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
 }
 
 .tm {

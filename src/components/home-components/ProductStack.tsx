@@ -17,7 +17,7 @@ export default function ProductStack() {
     ]
 
     return (
-        <section className="relative py-24 bg-white">
+        <section className="relative py-20 bg-white">
             <div className="max-w-7xl mx-auto px-8">
 
                 {/* Section Intro */}

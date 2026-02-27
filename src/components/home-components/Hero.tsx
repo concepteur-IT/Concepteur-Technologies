@@ -18,12 +18,11 @@ export default function Hero() {
                 <div className="max-w-xl space-y-10">
 
                     <h1 className="text-4xl md:text-6xl leading-tight font-semibold text-gray-900">
-                        Powering the Future <br />
-                        of AI & Development
+                        Shaping tomorrow&apos;s breakthroughs, today with AI.
                     </h1>
 
                     <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                        Concepture transforms AI into real-world business breakthroughs.
+                        Concepteur transforms AI into real-world business breakthroughs, converting emerging intelligence into structured systems. We don’t just build AI — we engineer outcomes.
                     </p>
 
                     <div className="flex items-center gap-4 pt-4">

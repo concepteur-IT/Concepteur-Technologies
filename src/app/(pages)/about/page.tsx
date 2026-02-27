@@ -1,9 +1,17 @@
-import React from 'react'
+import CTAAbout from "@/components/about-components/CTAAbout"
+import HeroAbout from "@/components/about-components/HeroAbout"
+import MissionAbout from "@/components/about-components/MissionAbout"
+import StatsAbout from "@/components/about-components/StatsAbout"
+import TeamAbout from "@/components/about-components/TeamAbout"
 
-const page = () => {
+export default function AboutPage() {
   return (
-    <div>page</div>
+    <main className="bg-white">
+      <HeroAbout />
+      <StatsAbout />
+      <MissionAbout />
+      <TeamAbout />
+      <CTAAbout />
+    </main>
   )
 }
-
-export default page

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "Concepteur IT",
   description: "Enterprise AI & ML Solutions",
   icons: {
-    icon: "/logo.png"
+    icon: "/favicon.ico"
   },
 }
 
@@ -27,7 +27,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
-        <div className="pt-20">
+        <div className="pt-0">
           {children}
         </div>
         <Footer />
