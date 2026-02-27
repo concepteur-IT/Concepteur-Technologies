@@ -1,9 +1,16 @@
 "use client"
 
 import { useState } from "react"
+import Swal from "sweetalert2"
 import SubmitBtn from "../buttons/SubmitBtn"
 
 export default function ContactForm() {
+
+    const createQuiz = () => {
+        const a = Math.floor(Math.random() * 8) + 1
+        const b = Math.floor(Math.random() * 8) + 1
+        return { question: `${a} + ${b}`, answer: a + b }
+    }
 
     const [formData, setFormData] = useState({
         name: "",
@@ -13,6 +20,9 @@ export default function ContactForm() {
         project: "",
         services: [] as string[],
     })
+    const [quiz, setQuiz] = useState(createQuiz)
+    const [quizInput, setQuizInput] = useState("")
+    const [loading, setLoading] = useState(false)
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,9 +42,70 @@ export default function ContactForm() {
         })
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(formData)
+
+        if (Number(quizInput) !== quiz.answer) {
+            await Swal.fire({
+                title: "Quiz answer is incorrect",
+                text: `Please solve ${quiz.question} correctly before sending.`,
+                icon: "warning",
+                confirmButtonText: "Try again",
+                confirmButtonColor: "#111827",
+            })
+            return
+        }
+
+        try {
+            setLoading(true)
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            })
+
+            const result = await response.json()
+
+            if (!response.ok) {
+                throw new Error(result?.error || "Failed to send message.")
+            }
+
+            await Swal.fire({
+                title: "Message sent successfully",
+                html: `
+                    <p style="margin-bottom: 8px;">Your inquiry has been delivered.</p>
+                    <p style="margin-bottom: 0;">We will reply to <strong>${formData.email}</strong> soon.</p>
+                `,
+                icon: "success",
+                confirmButtonText: "Awesome",
+                confirmButtonColor: "#111827",
+                backdrop: "rgba(17, 24, 39, 0.45)",
+                timer: 5000,
+                timerProgressBar: true,
+            })
+
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                location: "",
+                project: "",
+                services: [],
+            })
+            setQuizInput("")
+            setQuiz(createQuiz())
+        } catch (error) {
+            const message = error instanceof Error ? error.message : "Something went wrong."
+            await Swal.fire({
+                title: "Sending failed",
+                text: message,
+                icon: "error",
+                confirmButtonText: "Close",
+                confirmButtonColor: "#111827",
+            })
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
@@ -52,7 +123,9 @@ export default function ContactForm() {
                     <input
                         type="text"
                         name="name"
+                        value={formData.name}
                         onChange={handleChange}
+                        required
                         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
@@ -65,7 +138,9 @@ export default function ContactForm() {
                     <input
                         type="email"
                         name="email"
+                        value={formData.email}
                         onChange={handleChange}
+                        required
                         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
@@ -78,7 +153,9 @@ export default function ContactForm() {
                     <input
                         type="text"
                         name="phone"
+                        value={formData.phone}
                         onChange={handleChange}
+                        required
                         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
@@ -91,7 +168,9 @@ export default function ContactForm() {
                     <input
                         type="text"
                         name="location"
+                        value={formData.location}
                         onChange={handleChange}
+                        required
                         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
@@ -134,6 +213,7 @@ export default function ContactForm() {
                                     <input
                                         type="checkbox"
                                         value={service}
+                                        checked={isSelected}
                                         onChange={handleCheckboxChange}
                                         className="hidden"
                                     />
@@ -154,14 +234,29 @@ export default function ContactForm() {
                     <textarea
                         name="project"
                         rows={5}
+                        value={formData.project}
                         onChange={handleChange}
+                        required
                         className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all resize-none"
+                    />
+                </div>
+
+                <div className="space-y-3">
+                    <label className="text-xs uppercase tracking-[0.2em] text-gray-500">
+                        Anti-spam Quiz: {quiz.question} = ?
+                    </label>
+                    <input
+                        type="number"
+                        value={quizInput}
+                        onChange={(e) => setQuizInput(e.target.value)}
+                        required
+                        className="w-full rounded-xl border border-gray-200 bg-white px-4 py-3 focus:outline-none focus:ring-2 focus:ring-black/20 focus:border-black transition-all"
                     />
                 </div>
 
                 {/* Submit */}
                 <div className="md:col-span-2 pt-4">
-                    <SubmitBtn label="Submit Inquiry" />
+                    <SubmitBtn label="Submit Inquiry" loading={loading} />
                 </div>
 
             </form>
