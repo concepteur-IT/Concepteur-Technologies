@@ -1,6 +1,7 @@
 import "./globals.css";
 import Footer from "@/components/layout-components/Footer";
 import Navbar from "@/components/layout-components/Navbar";
+import NavigationLoader from "@/components/layout-components/NavigationLoader";
 import { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -14,9 +15,9 @@ export const metadata: Metadata = {
   title: "Concepteur IT",
   description: "Enterprise AI & ML Solutions",
   icons: {
-    icon: "/favicon.ico"
+    icon: "/favicon.ico",
   },
-}
+};
 
 export default function RootLayout({
   children,
@@ -26,10 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <NavigationLoader />
         <Navbar />
-        <div className="pt-0">
-          {children}
-        </div>
+        <div className="pt-0">{children}</div>
         <Footer />
       </body>
     </html>

@@ -1,33 +1,22 @@
 import ContactForm from "../ui-components/forms/ContactForm";
 
 export default function ContactSection() {
-    return (
-        <section className="relative py-20 bg-white">
-            <div className="max-w-6xl mx-auto px-8">
+  return (
+    <section className="py-12 md:py-16 bg-white border-t border-gray-100">
+      <div className="max-w-3xl mx-auto px-6 md:px-8">
+        {/* Centered Clean Header */}
+        <div className="text-center mb-10 space-y-4">
+          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold">
+            Start a Conversation
+          </p>
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-black">
+            Let's Build Something Meaningful.
+          </h2>
+        </div>
 
-                {/* Section Intro - Centered */}
-                <div className="max-w-4xl mx-auto mb-20 text-center space-y-6">
-
-                    <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-                        Start a Conversation
-                    </p>
-
-                    <h2 className="text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-                        Let’s Build Something{" "}
-                        <span className="font-semibold">Meaningful Together.</span>
-                    </h2>
-
-                    <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-                        Tell us about your vision, your goals, or your challenges.
-                        We’ll respond with clarity and direction.
-                    </p>
-
-                </div>
-
-                {/* Form Component */}
-                <ContactForm />
-
-            </div>
-        </section>
-    )
+        {/* Pure Form Directly on Grid */}
+        <ContactForm />
+      </div>
+    </section>
+  );
 }
