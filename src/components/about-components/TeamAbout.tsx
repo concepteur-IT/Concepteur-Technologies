@@ -8,7 +8,7 @@ const team = [
     { initials: "AD", name: "Arpan Das", role: "Software Engineer" },
     { initials: "AR", name: "Antar Roy", role: "Software Engineer" },
     { initials: "RS", name: "Rohit Saha", role: "Junior Software Engineer" },
-    { initials: "RG", name: "Rick Goswami", role: "Engineering Intern" },
+    { initials: "RG", name: "Rick Goswami", role: "Junior Software Engineer" },
 ];
 
 const TeamAbout = () => {

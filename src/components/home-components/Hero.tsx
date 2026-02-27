@@ -4,7 +4,7 @@ import LearnMoreBtn from "../ui-components/buttons/LearnMoreBtn"
 
 export default function Hero() {
     return (
-        <section className="relative w-full overflow-hidden  flex items-center">
+        <section className="relative w-full overflow-hidden  flex items-center min-h-screen">
 
             {/* Background gradient (valid Tailwind syntax) */}
             {/* <div className="absolute inset-0 -z-10 bg-linear-to-b from-white via-[#f3f3f3] to-[#e9e9e9]" /> */}

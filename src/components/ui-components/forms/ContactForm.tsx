@@ -107,14 +107,15 @@ export default function ContactForm() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 
                         {[
-                            "AI & Intelligent Automation",
-                            "Website Development",
+                            "AI & Automation",
+                            "Website Building",
                             "Mobile App",
-                            "Backend & Data Engineering",
-                            "Cloud & Infrastructure",
+                            "Data Engineering",
+                            "Backend",
+                            "Cloud",
                             "E-Commerce",
                             "UI / UX Design",
-                            "Continuous Optimization & Support",
+                            "Optimization & Support",
                         ].map((service) => {
 
                             const isSelected = formData.services.includes(service)

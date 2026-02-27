@@ -1,21 +1,20 @@
-import ContactForm from "../ui-components/forms/ContactForm";
+import React from 'react'
 
-export default function ContactSection() {
+const ContactHero = () => {
     return (
-        <section className="relative py-20 bg-white">
-            <div className="max-w-5xl mx-auto px-8">
+        <section className="py-20">
+            <div className="max-w-7xl mx-auto px-8">
 
-                {/* Section Intro - Centered */}
-                <div className="max-w-4xl mx-auto mb-20 text-center space-y-6">
+                <div className="max-w-4xl mx-auto text-center space-y-6">
 
                     <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-                        Start a Conversation
+                        Contact
                     </p>
 
-                    <h2 className="text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
                         Let’s Build Something{" "}
                         <span className="font-semibold">Meaningful Together.</span>
-                    </h2>
+                    </h1>
 
                     <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
                         Tell us about your vision, your goals, or your challenges.
@@ -24,10 +23,10 @@ export default function ContactSection() {
 
                 </div>
 
-                {/* Form Component */}
-                <ContactForm />
-
             </div>
         </section>
+
     )
 }
+
+export default ContactHero

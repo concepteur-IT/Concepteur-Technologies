@@ -67,8 +67,8 @@ export default function ProductStack() {
 
                     {/* Elegant "Filling" tile for odd-numbered grids */}
                     <div className="hidden lg:flex items-center justify-center p-10 bg-gray-50/30 border-r border-b border-black/6">
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-gray-300 font-bold rotate-90">
-                            Stack
+                        <span className="text-[12px] uppercase tracking-[0.2em] text-gray-800 font-bold rotate-90">
+                            + More
                         </span>
                     </div>
                 </div>
