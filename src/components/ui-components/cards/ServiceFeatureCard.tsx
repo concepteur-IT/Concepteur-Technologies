@@ -1,10 +1,13 @@
 import Image from "next/image"
+import Link from "next/link"
 
 interface Props {
     image: string
     title: string
     description: string
     variant?: "wide" | "default"
+    href?: string
+    className?: string
 }
 
 export default function ServiceFeatureCard({
@@ -12,6 +15,8 @@ export default function ServiceFeatureCard({
     title,
     description,
     variant = "default",
+    href,
+    className = "",
 }: Props) {
 
     const heightStyles =
@@ -19,11 +24,8 @@ export default function ServiceFeatureCard({
             ? "min-h-[220px]"
             : "min-h-[220px]";
 
-    return (
-        <div
-            className={`group relative overflow-hidden rounded-2xl bg-black transition-all duration-500 hover:shadow-xl ${heightStyles} w-full`}
-        >
-
+    const content = (
+        <>
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
@@ -54,6 +56,25 @@ export default function ServiceFeatureCard({
 
             {/* Border */}
             <div className="absolute inset-0 rounded-2xl border border-white/10 transition-colors duration-500 group-hover:border-white/30" />
+        </>
+    );
+
+    if (href) {
+        return (
+            <Link
+                href={href}
+                className={`group block relative overflow-hidden rounded-2xl bg-black transition-all duration-500 hover:shadow-xl ${heightStyles} w-full ${className}`}
+            >
+                {content}
+            </Link>
+        )
+    }
+
+    return (
+        <div
+            className={`group relative overflow-hidden rounded-2xl bg-black transition-all duration-500 hover:shadow-xl ${heightStyles} w-full ${className}`}
+        >
+            {content}
         </div>
     )
 }
