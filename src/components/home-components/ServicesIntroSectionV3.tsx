@@ -2,8 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+
+const easeBezier: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const services = [
   {
@@ -72,7 +74,7 @@ const services = [
   },
 ];
 
-const gridVariants = {
+const gridVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -82,12 +84,15 @@ const gridVariants = {
   },
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.55,
+      ease: easeBezier,
+    },
   },
 };
 
@@ -99,16 +104,15 @@ export default function ServicesIntroSectionV3() {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.75, ease: easeBezier }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Minimalist, Black & White Header */}
         <motion.div
           className="max-w-4xl mx-auto mb-12 md:mb-20 text-center space-y-5 md:space-y-6"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: easeBezier }}
         >
           <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
             Our Capabilities
@@ -125,7 +129,6 @@ export default function ServicesIntroSectionV3() {
           </p>
         </motion.div>
 
-        {/* Compact, Clean Grid (4x2 on Desktop) - not just a standard card */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-6 sm:gap-y-10 md:gap-y-12"
           variants={gridVariants}
@@ -140,7 +143,6 @@ export default function ServicesIntroSectionV3() {
                 aria-label={`Explore ${service.title}`}
                 className="group relative flex flex-col cursor-pointer max-w-md mx-auto sm:max-w-none border border-gray-200 rounded-xl p-3 shadow-sm sm:border-0 sm:rounded-none sm:p-0 sm:shadow-none"
               >
-                {/* Image box: strictly grayscale normally, full color strictly on hover */}
                 <div className="w-full h-28 sm:h-auto sm:aspect-[4/3] overflow-hidden mb-3 sm:mb-5 bg-gray-50 relative rounded-lg sm:rounded-none">
                   <Image
                     src={service.image}
@@ -150,13 +152,12 @@ export default function ServicesIntroSectionV3() {
                   />
                 </div>
 
-                {/* Text Layout (clean separation) */}
                 <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4">
                   <span className="text-[11px] sm:text-xs font-semibold text-gray-300 mt-0 sm:mt-1">
                     0{index + 1}
                   </span>
                   <div>
-                    <h3 className="text-base sm:text-lg font-medium text-black leading-tight mb-1.5 sm:mb-2 transition-colors">
+                    <h3 className="text-base sm:text-lg font-medium text-black leading-tight mb-1.5 sm:mb-2">
                       {service.title}
                     </h3>
                     <p className="text-[13px] sm:text-sm text-gray-500 leading-relaxed sm:pr-2 line-clamp-3">
@@ -169,19 +170,18 @@ export default function ServicesIntroSectionV3() {
           ))}
         </motion.div>
 
-        {/* Mobile CTA */}
         <motion.div
           className="mt-12 flex justify-center md:hidden"
           initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.55, ease: easeBezier }}
         >
           <Link
             href="/services"
             className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-black pb-1 border-b border-black w-max"
           >
-            All Services{" "}
+            All Services
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Link>
         </motion.div>

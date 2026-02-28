@@ -2,7 +2,9 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+
+const easeBezier: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const faqs = [
   {
@@ -27,7 +29,7 @@ const faqs = [
   },
 ];
 
-const listVariants = {
+const listVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
@@ -37,12 +39,15 @@ const listVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 14 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    transition: {
+      duration: 0.5,
+      ease: easeBezier,
+    },
   },
 };
 
@@ -59,7 +64,7 @@ export default function FAQAccordion() {
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.75, ease: easeBezier }}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
@@ -67,7 +72,7 @@ export default function FAQAccordion() {
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.7, ease: easeBezier }}
         >
           <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
             F.A.Q
@@ -87,7 +92,7 @@ export default function FAQAccordion() {
             initial={{ opacity: 0, scaleX: 0.7 }}
             whileInView={{ opacity: 1, scaleX: 1 }}
             viewport={{ once: true, amount: 1 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.55, ease: easeBezier }}
           />
           <motion.div
             className="space-y-3 sm:space-y-0"
@@ -111,13 +116,21 @@ export default function FAQAccordion() {
                     aria-expanded={isOpen}
                   >
                     <h3
-                      className={`text-base sm:text-xl md:text-2xl font-medium tracking-tight pr-4 md:pr-8 transition-colors duration-300 text-center sm:text-left ${isOpen ? "text-black" : "text-gray-600 group-hover:text-black"}`}
+                      className={`text-base sm:text-xl md:text-2xl font-medium tracking-tight pr-4 md:pr-8 transition-colors duration-300 text-center sm:text-left ${
+                        isOpen
+                          ? "text-black"
+                          : "text-gray-600 group-hover:text-black"
+                      }`}
                     >
                       {faq.question}
                     </h3>
 
                     <div
-                      className={`relative flex items-center justify-center w-8 h-8 rounded-full border transition-colors duration-300 flex-shrink-0 ${isOpen ? "border-black bg-black text-white" : "border-gray-300 text-black group-hover:border-black"}`}
+                      className={`relative flex items-center justify-center w-8 h-8 rounded-full border transition-colors duration-300 flex-shrink-0 ${
+                        isOpen
+                          ? "border-black bg-black text-white"
+                          : "border-gray-300 text-black group-hover:border-black"
+                      }`}
                     >
                       {isOpen ? (
                         <Minus className="w-4 h-4" />
@@ -128,7 +141,11 @@ export default function FAQAccordion() {
                   </button>
 
                   <div
-                    className={`grid transition-all duration-500 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mb-5 sm:mb-8" : "grid-rows-[0fr] opacity-0"}`}
+                    className={`grid transition-all duration-500 ease-in-out ${
+                      isOpen
+                        ? "grid-rows-[1fr] opacity-100 mb-5 sm:mb-8"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
                   >
                     <div className="overflow-hidden">
                       <p className="text-[15px] sm:text-base md:text-lg text-gray-500 leading-relaxed text-center sm:text-left px-2 sm:pr-8 md:pr-12 sm:pl-0">
