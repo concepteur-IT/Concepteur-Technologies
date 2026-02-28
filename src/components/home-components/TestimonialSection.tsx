@@ -1,104 +1,94 @@
 "use client";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
-import { Quote } from "lucide-react";
 import { motion } from "framer-motion";
-
-// Needed for pure continuous marquee effect in Swiper
-import "swiper/css";
+import { Quote } from "lucide-react";
 
 import { testimonialsData as testimonials } from "@/data/testimonialsData";
 
 export default function TestimonialSection() {
   return (
-    <motion.section
-      className="py-16 md:py-24 bg-white overflow-hidden"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-        {/* Section Header aligned with Services/Product pattern */}
-        <motion.div
-          className="max-w-4xl mx-auto mb-12 md:mb-16 text-center space-y-5 md:space-y-6"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-            Client Recognition
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-            Trusted by <span className="font-semibold">Industry Leaders</span>
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Our clients rely on disciplined engineering and strategic thinking
-            to drive measurable growth.
-          </p>
-        </motion.div>
-      </div>
+    <section className="relative py-32 bg-white overflow-hidden">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-8">
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
+            <span className="text-xs font-semibold text-gray-900 uppercase tracking-widest">
+              Client Recognition
+            </span>
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-6"
+          >
+            Trusted by the best.
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-500 font-light leading-relaxed"
+          >
+            Our partners rely on disciplined engineering and strategic thinking
+            to drive measurable, lasting growth. Here is what they have to say.
+          </motion.p>
+        </div>
 
-      <motion.div
-        className="relative w-full max-w-6xl px-4 sm:px-6 md:px-8 mx-auto"
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-      >
-
-        <Swiper
-          modules={[Autoplay]}
-          slidesPerView={1.08}
-          spaceBetween={12}
-          breakpoints={{
-            640: { slidesPerView: 1.2, spaceBetween: 16 },
-            768: { slidesPerView: 2, spaceBetween: 22 },
-            1024: { slidesPerView: 3, spaceBetween: 24 },
-          }}
-          loop
-          speed={700}
-          allowTouchMove
-          grabCursor
-          autoplay={{
-            delay: 3200,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-          }}
-          className="w-full h-full py-2 md:py-4"
-        >
+        {/* Grid - Replaced Swiper with a premium static grid which fits 3 items perfectly */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
           {testimonials.map((item, index) => (
-            <SwiperSlide key={index} className="h-auto">
-              <div className="flex flex-col h-full justify-between p-3 sm:p-6 md:p-8 border border-gray-200 rounded-xl sm:rounded-2xl hover:border-gray-300 transition-colors bg-white shadow-sm">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{
+                delay: index * 0.15,
+                duration: 0.7,
+                ease: "easeOut",
+              }}
+              className="group relative flex flex-col p-10 bg-white rounded-2xl border border-gray-200 shadow-sm hover:border-gray-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+            >
+              {/* Large Watermark Quote Icon */}
+              <div className="absolute top-8 right-8 text-black opacity-[0.02] transform transition-transform duration-700 group-hover:scale-110 group-hover:opacity-[0.04]">
+                <Quote size={100} className="rotate-180" strokeWidth={1.5} />
+              </div>
+
+              <div className="relative flex-1">
+                <Quote className="w-6 h-6 text-black mb-8 opacity-20" />
+                <p className="text-lg text-gray-600 font-light leading-relaxed mb-10 group-hover:text-black transition-colors duration-300">
+                  "{item.quote}"
+                </p>
+              </div>
+
+              <div className="relative flex items-center gap-4 pt-6 border-t border-gray-100">
+                <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center shrink-0">
+                  <span className="text-base font-semibold text-white">
+                    {item.author.charAt(0)}
+                  </span>
+                </div>
                 <div>
-                  <Quote className="w-5 h-5 sm:w-6 sm:h-6 text-black opacity-10 mb-4 sm:mb-6 rotate-180 mx-auto sm:mx-0" />
-                  <p className="text-[15px] sm:text-base md:text-lg font-light text-gray-900 leading-relaxed mb-6 sm:mb-8 md:mb-10 text-center sm:text-left">
-                    &ldquo;{item.quote}&rdquo;
+                  <h3 className="text-base font-semibold text-black tracking-tight">
+                    {item.author}
+                  </h3>
+                  <p className="text-sm text-gray-500 font-medium mt-0.5">
+                    {item.company}
                   </p>
                 </div>
-
-                <div className="flex items-center justify-center sm:justify-start gap-3 sm:gap-4">
-                  <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center flex-shrink-0">
-                    <span className="text-sm font-semibold text-white">
-                      {item.author.charAt(0)}
-                    </span>
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-sm font-semibold text-black uppercase tracking-wider">
-                      {item.author}
-                    </h3>
-                    <p className="text-xs text-gray-500 tracking-widest mt-0.5">
-                      {item.company}
-                    </p>
-                  </div>
-                </div>
               </div>
-            </SwiperSlide>
+            </motion.div>
           ))}
-        </Swiper>
-      </motion.div>
-    </motion.section>
+        </div>
+      </div>
+    </section>
   );
 }

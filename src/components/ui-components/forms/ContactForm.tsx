@@ -122,17 +122,6 @@ export default function ContactForm() {
         >
           Send Inquiry
         </button>
-        <div className="text-center md:text-right flex items-center gap-3">
-          <p className="text-[11px] uppercase tracking-[0.2em] text-gray-400 font-medium">
-            Or email:
-          </p>
-          <a
-            href="mailto:info@concepteur.com"
-            className="text-sm font-semibold text-black hover:opacity-70 transition-colors"
-          >
-            info@concepteur.com
-          </a>
-        </div>
       </div>
     </form>
   );

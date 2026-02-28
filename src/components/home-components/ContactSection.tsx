@@ -1,30 +1,17 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { MapPin, Mail } from "lucide-react";
 import ContactForm from "../ui-components/forms/ContactForm";
 
 export default function ContactSection() {
   return (
-    <motion.section
-      className="py-16 md:py-24 bg-white"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-        <motion.div
-          className="max-w-4xl mx-auto text-center mb-10 md:mb-14 space-y-5 md:space-y-6"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
+    <section className="py-24 bg-white border-t border-gray-100">
+      <div className="max-w-6xl mx-auto px-6 md:px-8">
+        {/* Centered Clean Header */}
+        <div className="text-center mb-16 space-y-4 max-w-2xl mx-auto">
+          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold">
             Start a Conversation
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-            Let&apos;s Build Something <span className="font-semibold">Meaningful</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black">
+            Let's Build Something Meaningful.
           </h2>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Share your vision and priorities. We will respond with a practical
@@ -32,15 +19,62 @@ export default function ContactSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          className="max-w-5xl mx-auto border border-gray-200 rounded-2xl md:rounded-3xl bg-white shadow-sm p-5 sm:p-7 md:p-10"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.65, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <ContactForm />
-        </motion.div>
+        {/* 2-Column Grid matching the premium contact page layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          {/* Form Section */}
+          <div className="lg:col-span-8">
+            <ContactForm />
+          </div>
+
+          {/* Address / Contact Info Section */}
+          <div className="lg:col-span-4 flex flex-col gap-10 lg:pl-10 lg:border-l border-gray-100">
+            {/* Address Block */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center shrink-0">
+                  <MapPin className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
+                  Headquarters
+                </h3>
+              </div>
+              <div className="pl-11">
+                <p className="text-gray-600 font-light leading-relaxed text-lg">
+                  Bara Kajipara, Sukh Sagar Road,
+                  <br />
+                  741222.
+                  <br />
+                  Chakdaha, Nadia.
+                </p>
+              </div>
+            </div>
+
+            <hr className="border-gray-100" />
+
+            {/* Direct Contact */}
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-8 h-8 rounded-full bg-black flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 text-white" />
+                </div>
+                <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
+                  Direct Contact
+                </h3>
+              </div>
+              <div className="pl-11 flex flex-col gap-2">
+                <a
+                  href="mailto:info@concepteur.com"
+                  className="text-gray-600 font-light text-lg hover:text-black transition-colors block"
+                >
+                  info@concepteur.com
+                </a>
+                <p className="text-gray-600 font-light text-lg">
+                  +91 90000 00000
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </motion.section>
   );

@@ -1,5 +1,61 @@
 export const caseStudies = [
   {
+    id: "aido",
+    slug: "aido",
+    title: "AIDO",
+    description:
+      "Next-Generation Clinical Diagnostics & Automated Triage System",
+    tags: ["Healthcare IT", "Medical", "System Integration"],
+    tag: "Medical",
+    metrics: {
+      users: "Clinical",
+      growth: "99.9% Uptime",
+      retention: "HIPAA Compliant",
+    },
+    heroImage: "/case-studies/aido-1.png",
+    client: "AIDO Medical inc.",
+    platform: "Cloud EHR Hybrid",
+    role: "System Architecture",
+    year: "2026",
+    color: "from-teal-900 to-sky-600",
+  },
+  {
+    slug: "thinkerslane",
+    title: "Thinkerslane",
+    template: "template1",
+    tag: "EdTech Platform",
+    shortDesc: "Reimagining digital education through structured coaching.",
+    gradient: "from-red-900 to-black",
+    results: {
+      speed: "2x",
+      errors: "-75%",
+      sales: "Global",
+    },
+    heroImage: "/case-studies/thinkerslane.png",
+    client: "Thinkerslane inc.",
+    platform: "Web Application",
+    role: "Full-Stack Development",
+    stack: "Next.js, Node.js, PostgreSQL",
+  },
+  {
+    slug: "suprokash",
+    title: "Suprokash",
+    template: "template1",
+    tag: "Mobile App",
+    shortDesc: "Retail bookstore billing ecosystem & operations.",
+    gradient: "from-gray-900 to-black",
+    results: {
+      speed: "3x",
+      errors: "-90%",
+      sales: "Digital",
+    },
+    heroImage: "/case-studies/suprokash.png",
+    client: "Suprokash Bookstore",
+    platform: "React Native + API",
+    role: "Full-Stack Development",
+    stack: "React Native, CodeIgniter 4, MySQL",
+  },
+  {
     slug: "toyosupport",
     title: "Toyosupport.ca ",
     template: "template1",
@@ -12,13 +68,12 @@ export const caseStudies = [
       users: "50k+",
       saved: "40hrs",
     },
-    heroImage:
-      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600",
+    heroImage: "/case-studies/toyosupport.ca.png",
 
-    client: "Toyo Tires, Canada",
+    client: "Toyo Tires, Canada ( FROM BRAINIUM INFOTECH PVT LTD)",
     platform: "WordPress Multisite +",
     role: "Full-stack Developer, Data Migration Specialist",
-    stack: "React, Node.js, Python, TensorFlow, AWS",
+    stack: "Wordpress Multisite++, Mysql",
     challenge: [
       {
         text: "Centralize training, promo tools, and showroom materials",
@@ -66,7 +121,6 @@ export const caseStudies = [
         ],
       },
     ],
-
     features: [
       {
         title: "Multisite Login",
@@ -98,7 +152,6 @@ export const caseStudies = [
       },
     ],
   },
-
   {
     slug: "toyotires",
     title: "Toyotires.ca ",
@@ -391,7 +444,6 @@ export const caseStudies = [
         title: "100% On-Premise",
         desc: "Zero patient data leaves hospital infrastructure",
       },
-      ,
     ],
   },
 ];
