@@ -5,17 +5,17 @@ import { timelineData } from "@/data/timelineData";
 
 export default function OurJourney() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+    <section className="py-16 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-20 space-y-4">
+        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-20 space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold">
             Our Journey
           </p>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-black">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-black">
             The Road to Concepteur.
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed pt-2">
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed pt-2">
             A relentless pursuit of engineering excellence, from a small remote
             team to an international hybrid powerhouse.
           </p>

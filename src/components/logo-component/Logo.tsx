@@ -1,13 +1,22 @@
 "use client"
 
+import type { CSSProperties } from "react"
 import styles from "./Logo.module.css"
 
-export default function Logo() {
+type LogoProps = {
+    scale?: number
+    mobileCenter?: boolean
+}
+
+export default function Logo({ scale = 0.45, mobileCenter = false }: LogoProps) {
 
     const STAR_PATH =
         "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z"
     return (
-        <div className={styles.logo}>
+        <div
+            className={`${styles.logo} ${mobileCenter ? styles.mobileCenter : ""}`}
+            style={{ "--logo-scale": scale } as CSSProperties}
+        >
             {/* First Circle */}
             <svg
                 className={styles.circle}

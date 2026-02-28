@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 export default function TermsOfServicePage() {
     return (
-        <main className="relative w-full overflow-hidden">
+        <main className="relative w-full overflow-hidden mt-12 sm:mt-14 md:mt-15">
 
             {/* Background Gradient */}
             <div className="absolute inset-0 -z-10 bg-linear-to-b from-white via-[#f3f3f3] to-[#e9e9e9]" />
@@ -16,14 +16,14 @@ export default function TermsOfServicePage() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-200 h-100 bg-gradient-radial from-black/5 to-transparent blur-3xl opacity-30" />
 
             {/* Hero */}
-            <section className="max-w-7xl mx-auto px-8 pt-28 pb-20">
-                <h1 className="text-5xl md:text-6xl font-semibold text-black tracking-tight">
+            <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-24 md:pt-28 pb-12 md:pb-20">
+                <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-black tracking-tight">
                     Terms of Service
                 </h1>
 
                 <div className="mt-6 h-0.75 w-20 bg-black rounded-full" />
 
-                <p className="mt-8 text-lg text-gray-600 max-w-2xl leading-relaxed">
+                <p className="mt-6 md:mt-8 text-base md:text-lg text-gray-600 max-w-2xl leading-relaxed">
                     These terms govern your access to and use of Concepteur’s website,
                     services, and digital solutions. Please read them carefully.
                 </p>
@@ -34,9 +34,9 @@ export default function TermsOfServicePage() {
             </section>
 
             {/* Content Card */}
-            <section className="pb-28">
-                <div className="max-w-4xl mx-auto px-8">
-                    <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm p-12 space-y-14 text-gray-700 leading-relaxed">
+            <section className="pb-16 md:pb-28">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    <div className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-sm p-6 sm:p-8 md:p-12 space-y-10 md:space-y-14 text-gray-700 leading-relaxed">
 
                         {/* 1 */}
                         <div className="space-y-5">
@@ -127,7 +127,7 @@ export default function TermsOfServicePage() {
                         </div>
 
                         {/* Contact Block */}
-                        <div className="border border-gray-200 rounded-xl p-8 bg-white">
+                        <div className="border border-gray-200 rounded-xl p-5 sm:p-8 bg-white">
                             <h3 className="text-xl font-semibold text-black mb-4">
                                 Questions?
                             </h3>
