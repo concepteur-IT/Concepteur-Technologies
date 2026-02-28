@@ -3,8 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, ArrowUpRight, TrendingUp, Users, Award } from "lucide-react";
-import { caseStudies } from "@/app/lib/case-studies";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  TrendingUp,
+  Users,
+  Award,
+} from "lucide-react";
+import { caseStudies } from "@/data/case-studies";
 import Image from "next/image";
 
 export default function CaseStudiesPage() {
@@ -36,13 +42,18 @@ export default function CaseStudiesPage() {
               className="max-w-3xl"
             >
               <div className="inline-block mb-8 px-4 py-2 bg-gray-50 border border-gray-200 rounded-full">
-                <span className="text-sm font-medium text-gray-600">Our Portfolio</span>
+                <span className="text-sm font-medium text-gray-600">
+                  Our Portfolio
+                </span>
               </div>
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[0.9] mb-8">
-                Work that <br /> defines the <br /> <span className="text-gray-400">standard.</span>
+                Work that <br /> defines the <br />{" "}
+                <span className="text-gray-400">standard.</span>
               </h1>
               <p className="text-lg md:text-xl text-gray-500 max-w-xl leading-relaxed font-light">
-                We engineer digital experiences that drive measurable growth. Explore our portfolio of transformative platforms, AI integrations, and resilient architectures.
+                We engineer digital experiences that drive measurable growth.
+                Explore our portfolio of transformative platforms, AI
+                integrations, and resilient architectures.
               </p>
             </motion.div>
 
@@ -54,10 +65,8 @@ export default function CaseStudiesPage() {
               className="hidden lg:block relative h-full min-h-[450px]"
             >
               <div className="absolute inset-0 rounded-[2rem] bg-gray-50 overflow-hidden flex items-center justify-center p-6 border border-gray-100/80 shadow-[inset_0_0_100px_rgba(0,0,0,0.02)]">
-
                 {/* The Fake "Browser" or "App" Window */}
                 <div className="w-full h-full relative rounded-2xl bg-white shadow-2xl shadow-gray-200/50 overflow-hidden border border-gray-100 flex flex-col group cursor-pointer">
-
                   {/* Fake Header */}
                   <div className="h-10 border-b border-gray-100 flex items-center px-4 gap-2 bg-gray-50/50 shrink-0">
                     <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
@@ -65,7 +74,9 @@ export default function CaseStudiesPage() {
                     <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
                     <div className="mx-auto flex items-center gap-1.5 px-3 py-1 bg-white border border-gray-100 rounded-md shadow-sm">
                       <div className="w-2 h-2 rounded-sm bg-gray-800" />
-                      <span className="text-[10px] font-mono text-gray-400">Featured Study</span>
+                      <span className="text-[10px] font-mono text-gray-400">
+                        Featured Study
+                      </span>
                     </div>
                   </div>
 
@@ -84,17 +95,29 @@ export default function CaseStudiesPage() {
 
                   {/* Content Area */}
                   <div className="p-6 flex flex-col flex-1 bg-white relative">
-                    <h4 className="text-xl font-semibold mb-2 text-gray-900 line-clamp-1">{caseStudies[0].title}</h4>
-                    <p className="text-sm text-gray-500 line-clamp-2 mb-4 font-light">{caseStudies[0].shortDesc}</p>
+                    <h4 className="text-xl font-semibold mb-2 text-gray-900 line-clamp-1">
+                      {caseStudies[0].title}
+                    </h4>
+                    <p className="text-sm text-gray-500 line-clamp-2 mb-4 font-light">
+                      {caseStudies[0].shortDesc}
+                    </p>
 
                     <div className="mt-auto grid grid-cols-2 gap-4">
                       <div>
-                        <div className="text-lg font-semibold text-gray-900">{caseStudies[0].results?.growth}</div>
-                        <div className="text-[10px] uppercase font-medium tracking-widest text-gray-400">Growth</div>
+                        <div className="text-lg font-semibold text-gray-900">
+                          {caseStudies[0].results?.growth}
+                        </div>
+                        <div className="text-[10px] uppercase font-medium tracking-widest text-gray-400">
+                          Growth
+                        </div>
                       </div>
                       <div>
-                        <div className="text-lg font-semibold text-gray-900">{caseStudies[0].results?.users}</div>
-                        <div className="text-[10px] uppercase font-medium tracking-widest text-gray-400">Scale</div>
+                        <div className="text-lg font-semibold text-gray-900">
+                          {caseStudies[0].results?.users}
+                        </div>
+                        <div className="text-[10px] uppercase font-medium tracking-widest text-gray-400">
+                          Scale
+                        </div>
                       </div>
                     </div>
 
@@ -108,7 +131,6 @@ export default function CaseStudiesPage() {
                       <ArrowRight className="w-5 h-5 -rotate-45" />
                     </motion.div>
                   </div>
-
                 </div>
               </div>
             </motion.div>
@@ -121,20 +143,30 @@ export default function CaseStudiesPage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="flex flex-col gap-2">
-              <span className="text-4xl font-semibold">{caseStudies.length}</span>
-              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">Projects</span>
+              <span className="text-4xl font-semibold">
+                {caseStudies.length}
+              </span>
+              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
+                Projects
+              </span>
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-4xl font-semibold">100%</span>
-              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">Success Rate</span>
+              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
+                Success Rate
+              </span>
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-4xl font-semibold">12+</span>
-              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">Industries</span>
+              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
+                Industries
+              </span>
             </div>
             <div className="flex flex-col gap-2">
               <span className="text-4xl font-semibold">Global</span>
-              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">Reach</span>
+              <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
+                Reach
+              </span>
             </div>
           </div>
         </div>
@@ -143,20 +175,22 @@ export default function CaseStudiesPage() {
       {/* ================= FILTER & STUDIES ================= */}
       <section className="py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-6">
-
           {/* Controls */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20 pb-8 border-b border-gray-100">
-            <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400">Selected Case Studies</h2>
+            <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400">
+              Selected Case Studies
+            </h2>
 
             <div className="flex flex-wrap gap-2">
               {filters.map((filter) => (
                 <button
                   key={filter}
                   onClick={() => setActiveFilter(filter)}
-                  className={`px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300 ${activeFilter === filter
-                    ? "bg-gray-900 text-white shadow-md shadow-gray-200"
-                    : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200"
-                    }`}
+                  className={`px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300 ${
+                    activeFilter === filter
+                      ? "bg-gray-900 text-white shadow-md shadow-gray-200"
+                      : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200"
+                  }`}
                 >
                   {filter}
                 </button>
@@ -178,11 +212,15 @@ export default function CaseStudiesPage() {
                   className="group"
                 >
                   <Link href={`/case-studies/${item.slug}`} className="block">
-                    <div className={`grid md:grid-cols-12 gap-10 md:gap-16 items-center ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''
-                      }`}>
-
+                    <div
+                      className={`grid md:grid-cols-12 gap-10 md:gap-16 items-center ${
+                        index % 2 !== 0 ? "md:flex-row-reverse" : ""
+                      }`}
+                    >
                       {/* Image Side - Reduced Size to fix "picture is too big" */}
-                      <div className={`col-span-12 md:col-span-5 ${index % 2 !== 0 ? 'md:order-last' : ''}`}>
+                      <div
+                        className={`col-span-12 md:col-span-5 ${index % 2 !== 0 ? "md:order-last" : ""}`}
+                      >
                         <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
                           <Image
                             src={item.heroImage}
@@ -215,14 +253,18 @@ export default function CaseStudiesPage() {
                           </p>
 
                           <div className="grid grid-cols-3 gap-6 border-t border-gray-100 pt-8 mb-10 max-w-xl">
-                            {Object.entries(item.results || {}).map(([key, value]) => (
-                              <div key={key}>
-                                <div className="text-2xl font-semibold text-gray-900 mb-1">{value}</div>
-                                <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                  {key}
+                            {Object.entries(item.results || {}).map(
+                              ([key, value]) => (
+                                <div key={key}>
+                                  <div className="text-2xl font-semibold text-gray-900 mb-1">
+                                    {value}
+                                  </div>
+                                  <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    {key}
+                                  </div>
                                 </div>
-                              </div>
-                            ))}
+                              ),
+                            )}
                           </div>
 
                           <div className="inline-flex items-center gap-3 text-sm font-semibold text-gray-900 group-hover:gap-5 transition-all duration-300">
@@ -231,7 +273,6 @@ export default function CaseStudiesPage() {
                           </div>
                         </div>
                       </div>
-
                     </div>
                   </Link>
                 </motion.div>
@@ -240,25 +281,33 @@ export default function CaseStudiesPage() {
 
             {filteredStudies.length === 0 && (
               <div className="text-center py-20">
-                <p className="text-gray-500 text-lg">No case studies found for this category.</p>
+                <p className="text-gray-500 text-lg">
+                  No case studies found for this category.
+                </p>
               </div>
             )}
           </div>
-
         </div>
       </section>
 
       {/* ================= CTA ================= */}
       <section className="py-32 bg-gray-50 border-t border-gray-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-8">Ready to build your next big thing?</h2>
-          <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-light">Let's discuss how our engineering team can architect a scalable, robust solution tailored exactly to your specific business needs.</p>
-          <Link href="/contact" className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors shadow-lg shadow-gray-200">
+          <h2 className="text-4xl md:text-5xl font-semibold mb-8">
+            Ready to build your next big thing?
+          </h2>
+          <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-light">
+            Let's discuss how our engineering team can architect a scalable,
+            robust solution tailored exactly to your specific business needs.
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 bg-gray-900 text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors shadow-lg shadow-gray-200"
+          >
             Start a project <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
-
     </div>
   );
 }
