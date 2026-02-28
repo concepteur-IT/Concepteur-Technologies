@@ -3,28 +3,31 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  TrendingUp,
-  Users,
-  Award,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import Image from "next/image";
+import AidoCaseStudy from "./aido/page";
 
 export default function CaseStudiesPage() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter]: any = useState("All");
+  const [activeIndex, setActiveIndex] = useState(3);
 
   const filters = [
     "All",
-    ...Array.from(new Set(caseStudies.map((item) => item.tag))),
+    ...Array.from(new Set(caseStudies.map((item) => item.tag).filter(Boolean))),
   ];
 
   const filteredStudies =
     activeFilter === "All"
       ? caseStudies
       : caseStudies.filter((study) => study.tag === activeFilter);
+
+  // Safe Index tracking to prevent out of bounds when filtering
+  const safeIndex = Math.min(
+    activeIndex,
+    Math.max(0, filteredStudies.length - 1),
+  );
+  const activeItem = filteredStudies[safeIndex];
 
   return (
     <div className="bg-white min-h-screen text-gray-900 selection:bg-gray-200">
@@ -68,69 +71,35 @@ export default function CaseStudiesPage() {
                 {/* The Fake "Browser" or "App" Window */}
                 <div className="w-full h-full relative rounded-2xl bg-white shadow-2xl shadow-gray-200/50 overflow-hidden border border-gray-100 flex flex-col group cursor-pointer">
                   {/* Fake Header */}
-                  <div className="h-10 border-b border-gray-100 flex items-center px-4 gap-2 bg-gray-50/50 shrink-0">
-                    <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-gray-200" />
-                    <div className="mx-auto flex items-center gap-1.5 px-3 py-1 bg-white border border-gray-100 rounded-md shadow-sm">
-                      <div className="w-2 h-2 rounded-sm bg-gray-800" />
-                      <span className="text-[10px] font-mono text-gray-400">
-                        Featured Study
+                  <div className="h-7 border-b border-gray-100 flex items-center px-3 gap-1.5 bg-gray-50/50 shrink-0 relative z-50">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-white border border-gray-200" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
+                    <div className="ml-auto flex items-center">
+                      <span className="text-[9px] font-bold text-gray-700 uppercase tracking-widest">
+                        Featured Case Study
                       </span>
                     </div>
                   </div>
 
-                  {/* Image Area */}
-                  <div className="relative h-48 w-full bg-gray-100 shrink-0 overflow-hidden">
-                    <Image
-                      src={caseStudies[0].heroImage}
-                      alt="Featured"
-                      fill
-                      className="object-cover grayscale-[40%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                    />
-                    <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded border border-white/20 text-[10px] font-semibold tracking-wider uppercase shadow-sm">
-                      {caseStudies[0].client}
+                  {/* Scrollable Content Area */}
+                  <div className="flex-1 overflow-y-auto overflow-x-hidden w-full h-full relative bg-white scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                    <div className="scale-[0.35] origin-top-left w-[285%] h-[285%]">
+                      <AidoCaseStudy isEmbedded={true} />
                     </div>
                   </div>
 
-                  {/* Content Area */}
-                  <div className="p-6 flex flex-col flex-1 bg-white relative">
-                    <h4 className="text-xl font-semibold mb-2 text-gray-900 line-clamp-1">
-                      {caseStudies[0].title}
-                    </h4>
-                    <p className="text-sm text-gray-500 line-clamp-2 mb-4 font-light">
-                      {caseStudies[0].shortDesc}
-                    </p>
-
-                    <div className="mt-auto grid grid-cols-2 gap-4">
-                      <div>
-                        <div className="text-lg font-semibold text-gray-900">
-                          {caseStudies[0].results?.growth}
-                        </div>
-                        <div className="text-[10px] uppercase font-medium tracking-widest text-gray-400">
-                          Growth
-                        </div>
-                      </div>
-                      <div>
-                        <div className="text-lg font-semibold text-gray-900">
-                          {caseStudies[0].results?.users}
-                        </div>
-                        <div className="text-[10px] uppercase font-medium tracking-widest text-gray-400">
-                          Scale
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Floating Action Button */}
+                  {/* Floating Action Button */}
+                  <Link href="/case-studies/aido">
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
                       transition={{ delay: 1, type: "spring" }}
-                      className="absolute -top-6 right-6 w-12 h-12 bg-gray-900 rounded-full text-white flex items-center justify-center shadow-lg group-hover:-translate-y-1 transition-transform duration-300"
+                      className="absolute bottom-8 right-8 w-14 h-14 bg-slate-900 hover:bg-[#4247f3] rounded-full text-white flex items-center justify-center shadow-2xl hover:-translate-y-1 transition-all duration-300 z-50 cursor-pointer border border-white/20"
                     >
-                      <ArrowRight className="w-5 h-5 -rotate-45" />
+                      <ArrowUpRight className="w-6 h-6" />
                     </motion.div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </motion.div>
@@ -198,92 +167,206 @@ export default function CaseStudiesPage() {
             </div>
           </div>
 
-          {/* Grid */}
-          <div className="space-y-24">
-            <AnimatePresence mode="wait">
-              {filteredStudies.map((item, index) => (
-                <motion.div
-                  key={item.slug}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-                  exit={{ opacity: 0, y: -20, transition: { duration: 0.2 } }}
-                  className="group"
-                >
-                  <Link href={`/case-studies/${item.slug}`} className="block">
-                    <div
-                      className={`grid md:grid-cols-12 gap-10 md:gap-16 items-center ${
-                        index % 2 !== 0 ? "md:flex-row-reverse" : ""
-                      }`}
-                    >
-                      {/* Image Side - Reduced Size to fix "picture is too big" */}
-                      <div
-                        className={`col-span-12 md:col-span-5 ${index % 2 !== 0 ? "md:order-last" : ""}`}
+          {/* 3D Cover Flow Carousel */}
+          <div className="w-full pt-16">
+            {filteredStudies.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-gray-500 text-lg font-light">
+                  No case studies found for this category.
+                </p>
+              </div>
+            ) : (
+              <div className="flex flex-col items-center">
+                {/* Active Info Headers (Simulating the Artfy text placement) */}
+                <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-end mb-12 px-4 drop-shadow-sm">
+                  <div className="max-w-md">
+                    <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-tight mb-4">
+                      Drive into <br /> creativity with our <br />
+                      <span className="italic font-light text-gray-400">
+                        digital portfolio
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="max-w-md md:text-right mt-6 md:mt-0">
+                    <p className="text-sm font-light text-gray-500 leading-relaxed max-w-xs ml-auto">
+                      Explore our curated case studies across various
+                      industries, and immerse yourself in architectures that
+                      elevate digital expression.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Sub title for active center item */}
+                <div className="text-center mb-6 h-16">
+                  <h3 className="text-2xl font-serif text-gray-900 tracking-tight">
+                    {activeItem?.title}
+                  </h3>
+                  <p className="text-xs uppercase tracking-widest text-gray-400 mt-1">
+                    {activeItem?.client}
+                  </p>
+                </div>
+
+                {/* Carousel Track */}
+                <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden [perspective:1200px] mb-12">
+                  {filteredStudies.map((item, index) => {
+                    const distance = index - safeIndex;
+                    const absDistance = Math.abs(distance);
+                    const isActive = distance === 0;
+
+                    // Calculate transforms based on distance from center
+                    const xOffset = distance * 65; // percentage of self width
+                    const rotateY = distance * -20; // 20deg tilt
+                    const scale = Math.max(0.65, 1 - absDistance * 0.15); // Scale down items on the side
+                    const zIndex = 50 - absDistance;
+
+                    // Limit visibility to save performance
+                    const opacity =
+                      absDistance > 2
+                        ? 0
+                        : isActive
+                          ? 1
+                          : 1 - absDistance * 0.25;
+
+                    return (
+                      <motion.div
+                        key={item.slug}
+                        onClick={() => setActiveIndex(index)}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={1}
+                        onDragEnd={(e, { offset, velocity }) => {
+                          const swipeThreshold = 50;
+                          if (offset.x < -swipeThreshold) {
+                            setActiveIndex((prev) =>
+                              Math.min(filteredStudies.length - 1, prev + 1),
+                            );
+                          } else if (offset.x > swipeThreshold) {
+                            setActiveIndex((prev) => Math.max(0, prev - 1));
+                          }
+                        }}
+                        initial={false}
+                        animate={{
+                          x: `${xOffset}%`,
+                          scale: scale,
+                          rotateY: rotateY,
+                          zIndex: zIndex,
+                          opacity: opacity,
+                        }}
+                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className={`absolute w-64 md:w-80 lg:w-96 aspect-[3/4] rounded-3xl p-3 cursor-grab active:cursor-grabbing transition-all duration-700 ${isActive ? "bg-white/40 backdrop-blur-2xl border border-white/50" : "bg-white/10 backdrop-blur-md border border-white/10"}`}
+                        style={{
+                          transformStyle: "preserve-3d",
+                        }}
                       >
-                        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shadow-sm">
+                        {/* Inner Image Container (creating the blurry glass border effect) */}
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-100 shadow-inner">
                           <Image
                             src={item.heroImage}
                             alt={item.title}
                             fill
-                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 grayscale-[40%] group-hover:grayscale-0"
+                            className={`object-cover transition-all duration-700 pointer-events-none ${isActive ? "grayscale-0 scale-100" : "grayscale blur-[2px] opacity-60 scale-[1.02]"}`}
+                            priority={isActive}
                           />
-                        </div>
-                      </div>
 
-                      {/* Content Side - Larger portion to emphasize content */}
-                      <div className="col-span-12 md:col-span-7 px-4 md:px-0">
-                        <div className="flex flex-col h-full justify-center">
-                          <div className="flex flex-wrap items-center gap-4 mb-6">
-                            <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+                          {/* Integrated Bottom Gradient & Details */}
+                          <div className="absolute inset-x-0 bottom-0 h-2/3 flex flex-col justify-end p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none transition-opacity duration-500">
+                            <span className="text-[10px] font-semibold text-white/70 uppercase tracking-widest mb-1.5 drop-shadow-sm">
                               {item.client}
                             </span>
-                            <span className="w-8 h-px bg-gray-200" />
-                            <span className="text-xs font-medium px-3 py-1 bg-gray-50 border border-gray-200 text-gray-600 rounded-full">
-                              {item.tag}
-                            </span>
-                          </div>
+                            <h4 className="text-xl md:text-2xl font-serif text-white tracking-tight mb-4 drop-shadow-md">
+                              {item.title}
+                            </h4>
 
-                          <h3 className="text-3xl md:text-5xl font-semibold mb-6 group-hover:text-gray-600 transition-colors duration-300 tracking-tight">
-                            {item.title}
-                          </h3>
-
-                          <p className="text-gray-500 text-lg leading-relaxed mb-8 font-light max-w-2xl">
-                            {item.shortDesc}
-                          </p>
-
-                          <div className="grid grid-cols-3 gap-6 border-t border-gray-100 pt-8 mb-10 max-w-xl">
-                            {Object.entries(item.results || {}).map(
-                              ([key, value]) => (
-                                <div key={key}>
-                                  <div className="text-2xl font-semibold text-gray-900 mb-1">
-                                    {value}
-                                  </div>
-                                  <div className="text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    {key}
-                                  </div>
+                            {/* Link Button */}
+                            <div className="pointer-events-auto mt-auto">
+                              {isActive ? (
+                                <Link
+                                  href={`/case-studies/${item.slug}`}
+                                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-medium text-white hover:bg-white hover:text-black transition-all cursor-pointer shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]"
+                                  onClick={(e) => setActiveIndex(index)}
+                                >
+                                  View Case Study
+                                  <ArrowUpRight className="w-3.5 h-3.5" />
+                                </Link>
+                              ) : (
+                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm border border-white/5 rounded-full text-xs font-medium text-white/50 transition-all">
+                                  View Case Study
+                                  <ArrowUpRight className="w-3.5 h-3.5" />
                                 </div>
-                              ),
-                            )}
-                          </div>
-
-                          <div className="inline-flex items-center gap-3 text-sm font-semibold text-gray-900 group-hover:gap-5 transition-all duration-300">
-                            Read Case Study
-                            <ArrowRight className="w-5 h-5" />
+                              )}
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+                      </motion.div>
+                    );
+                  })}
+                </div>
 
-            {filteredStudies.length === 0 && (
-              <div className="text-center py-20">
-                <p className="text-gray-500 text-lg">
-                  No case studies found for this category.
-                </p>
+                {/* Navigation Controls */}
+                <div className="flex items-center justify-center gap-6 mb-24">
+                  <button
+                    onClick={() => setActiveIndex(Math.max(0, safeIndex - 1))}
+                    disabled={safeIndex === 0}
+                    className="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:bg-black hover:text-white hover:border-black transition-all disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-gray-500 disabled:hover:border-gray-200 shadow-sm"
+                  >
+                    <ArrowLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() =>
+                      setActiveIndex(
+                        Math.min(filteredStudies.length - 1, safeIndex + 1),
+                      )
+                    }
+                    disabled={safeIndex === filteredStudies.length - 1}
+                    className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 hover:scale-105 transition-all disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:scale-100 disabled:hover:bg-gray-200 shadow-xl"
+                  >
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Active Item Details & About the Gallery */}
+
+                <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row gap-12 md:gap-24 items-start pb-16 px-6">
+                  <div className="shrink-0 w-full md:w-1/3">
+                    <h2 className="text-3xl font-serif text-gray-900 leading-tight">
+                      About Our
+                      <br />{" "}
+                      <span className="italic font-light text-gray-400">
+                        Case Studies
+                      </span>
+                    </h2>
+                  </div>
+                  <div className="flex-1 space-y-6">
+                    <p className="text-gray-600 font-medium text-lg leading-relaxed">
+                      A detailed showcase of our delivered solutions,
+                      highlighting architecture decisions, technology stacks,
+                      and measurable business outcomes across industries.
+                    </p>
+                    <p className="text-gray-500 font-light text-base leading-relaxed">
+                      This section presents a curated collection of our
+                      delivered projects across AI systems, scalable web
+                      platforms, mobile applications, backend architectures, and
+                      cloud infrastructure. Each case study provides a
+                      structured overview of the business objective, technical
+                      strategy, architecture design, and measurable outcomes. We
+                      outline the challenges addressed, the technologies
+                      implemented, and the performance improvements achieved.
+                      Rather than surface-level summaries, these case studies
+                      highlight real-world execution — scalable systems,
+                      production-ready deployments, and long-term maintainable
+                      architectures built to support business growth.
+                    </p>
+                    <div className="pt-4">
+                      <Link
+                        href={`/case-studies/${activeItem.slug}`}
+                        className="inline-flex items-center gap-2 text-sm font-semibold tracking-wider text-gray-900 hover:text-gray-500 transition-colors uppercase"
+                      >
+                        Read Component Dive
+                        <ArrowUpRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             )}
           </div>

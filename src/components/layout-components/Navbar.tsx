@@ -9,7 +9,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   const navItems = [
-    { name: "About Us", href: "/about" },
+    { name: "Who We Are", href: "/who-we-are" },
     { name: "Services", href: "/services" },
     { name: "Case Studies", href: "/case-studies" },
     // { name: "Blog", href: "/blog" }
