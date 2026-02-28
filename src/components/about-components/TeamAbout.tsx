@@ -4,17 +4,17 @@ import { teamData as team } from "@/data/teamData";
 
 const TeamAbout = () => {
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+    <section className="py-16 md:py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Intro */}
-        <div className="max-w-2xl mx-auto text-center mb-20 space-y-4">
+        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-20 space-y-4">
           <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold">
             Meet the Team
           </p>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-black">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-black">
             The Minds Behind the Mission.
           </h2>
-          <p className="text-gray-500 text-lg leading-relaxed pt-2">
+          <p className="text-gray-500 text-base md:text-lg leading-relaxed pt-2">
             A cohesive group of architects, engineers, and designers dedicated
             to building robust, elegant, and highly scalable solutions for
             modern businesses.

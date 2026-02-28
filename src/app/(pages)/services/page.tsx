@@ -20,14 +20,14 @@ const serviceImages: Record<string, string> = {
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-white mt-15">
+    <main className="min-h-screen bg-white mt-12 sm:mt-14 md:mt-15">
       {/* Hero Section - Clean & Compact */}
-      <section className="relative w-full pt-28 pb-20 overflow-hidden">
+      <section className="relative w-full pt-24 sm:pt-28 pb-14 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/50 via-transparent to-transparent" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 md:space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl leading-[1.1] font-light text-black tracking-tight"
+            className="text-3xl sm:text-4xl md:text-7xl leading-[1.1] font-light text-black tracking-tight"
           >
             Engineering the{" "}
             <span className="font-semibold">Digital Future</span>
@@ -52,7 +52,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto pt-2"
+            className="text-base md:text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto pt-1 md:pt-2"
           >
             High-performance solutions tailored for the next generation of
             enterprise scale.
@@ -68,14 +68,14 @@ export default function ServicesPage() {
         return (
           <section
             key={service.id}
-            className={`py-20 ${index % 2 === 0 ? "bg-white" : "bg-[#FAFAFA]"} border-t border-gray-100`}
+            className={`py-14 md:py-20 ${index % 2 === 0 ? "bg-white" : "bg-[#FAFAFA]"} border-t border-gray-100`}
           >
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.7, ease: "easeOut" }}
-              className="max-w-6xl mx-auto px-6 md:px-8"
+              className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8"
             >
               <div
                 className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-12 md:gap-20`}
@@ -111,7 +111,7 @@ export default function ServicesPage() {
                     0{index + 1} — Service
                   </span>
 
-                  <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-black">
                     {service.title}
                   </h2>
 
@@ -130,7 +130,7 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Stats row */}
-                  <div className="flex gap-8 pt-4 border-t border-gray-100">
+                  <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4 border-t border-gray-100">
                     {service.stats.slice(0, 3).map((stat) => (
                       <div key={stat.label}>
                         <p className="text-2xl font-semibold text-black tracking-tight">
@@ -159,19 +159,19 @@ export default function ServicesPage() {
       })}
 
       {/* CTA Section */}
-      <section className="py-20 bg-white relative overflow-hidden border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-6 md:px-8 text-center space-y-8">
+      <section className="py-16 md:py-20 bg-white relative overflow-hidden border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-7 md:space-y-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-light text-black tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight"
           >
             Ready to scale your{" "}
             <span className="font-semibold">infrastructure?</span>
           </motion.h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-gray-500 text-base md:text-lg">
             Let&apos;s discuss how our technology tailored services can
             accelerate your business objectives.
           </p>

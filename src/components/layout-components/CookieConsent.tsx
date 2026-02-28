@@ -46,20 +46,20 @@ export default function CookieConsent() {
             animate={{ y: 0, opacity: 1, scale: 1 }}
             exit={{ y: 120, opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-0 left-0 right-0 z-[9998] px-4 pb-6 md:px-8 md:pb-8"
+            className="fixed bottom-0 left-0 right-0 z-[9998] px-3 sm:px-4 pb-3 sm:pb-6 md:px-8 md:pb-8"
           >
             <div className="max-w-3xl mx-auto bg-white border border-gray-200 rounded-3xl shadow-[0_24px_80px_rgba(0,0,0,0.12)] overflow-hidden">
               {/* Top Accent Strip */}
               <div className="h-1 bg-gradient-to-r from-black via-gray-400 to-black" />
 
-              <div className="p-8 md:p-10">
+              <div className="p-5 sm:p-6 md:p-10">
                 {/* Header */}
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-12 h-12 bg-black rounded-xl flex items-center justify-center shrink-0">
+                <div className="flex items-start gap-3 sm:gap-4 mb-5 md:mb-6">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-black rounded-xl flex items-center justify-center shrink-0">
                     <Cookie className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-black tracking-tight">
+                    <h3 className="text-lg sm:text-xl font-semibold text-black tracking-tight">
                       Your Privacy Matters
                     </h3>
                     <p className="text-sm text-gray-500 mt-1">
@@ -70,7 +70,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Policy Details Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 mb-6 md:mb-8">
                   <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
                     <Shield className="w-5 h-5 text-black mt-0.5 shrink-0" />
                     <div>
@@ -100,7 +100,7 @@ export default function CookieConsent() {
                 </div>
 
                 {/* Disclaimer */}
-                <p className="text-[11px] text-gray-400 leading-relaxed mb-6">
+                <p className="text-[11px] text-gray-400 leading-relaxed mb-5 md:mb-6">
                   By clicking &ldquo;Accept All&rdquo;, you consent to the use
                   of cookies for analytics and site improvement. We never sell
                   your personal data. You can change your preferences at any

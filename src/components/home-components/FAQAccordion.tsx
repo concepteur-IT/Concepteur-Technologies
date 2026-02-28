@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -26,6 +27,25 @@ const faqs = [
   },
 ];
 
+const listVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.07,
+      delayChildren: 0.06,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
 export default function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
@@ -34,72 +54,94 @@ export default function FAQAccordion() {
   };
 
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24">
-          {/* Left Side: Sticky Title */}
-          <div className="lg:w-1/3">
-            <div className="sticky top-32">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium mb-6">
-                F.A.Q
-              </p>
-              <h2 className="text-4xl md:text-5xl font-light tracking-tight text-black leading-tight">
-                Answers to <br className="hidden lg:block" />
-                <span className="font-semibold">Common Questions.</span>
-              </h2>
-              <p className="mt-6 text-gray-500 text-lg leading-relaxed max-w-sm">
-                Clarity before execution. Discover how our engineering standards
-                align with your operational goals.
-              </p>
-            </div>
-          </div>
+    <motion.section
+      className="py-16 md:py-24 bg-white"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+        <motion.div
+          className="max-w-4xl mx-auto mb-10 md:mb-14 text-center space-y-5 md:space-y-6"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
+            F.A.Q
+          </p>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
+            Answers to <span className="font-semibold">Common Questions</span>
+          </h2>
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+            Clarity before execution. Discover how our engineering standards
+            align with your operational goals.
+          </p>
+        </motion.div>
 
-          {/* Right Side: Accordion List */}
-          <div className="lg:w-2/3 flex flex-col pt-4">
-            <div className="border-t border-black">
-              {faqs.map((faq, index) => {
-                const isOpen = openIndex === index;
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            className="w-16 sm:w-20 h-px bg-black mx-auto mb-4 sm:mb-6"
+            initial={{ opacity: 0, scaleX: 0.7 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true, amount: 1 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <motion.div
+            className="space-y-3 sm:space-y-0"
+            variants={listVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
 
-                return (
-                  <div key={index} className="group border-b border-gray-200">
-                    <button
-                      onClick={() => toggleAccordion(index)}
-                      className="w-full flex items-center justify-between py-8 text-left focus:outline-none transition-colors"
-                      aria-expanded={isOpen}
+              return (
+                <motion.div
+                  key={index}
+                  className="group border border-gray-200 rounded-xl px-4 sm:px-0 sm:rounded-none sm:border-0 sm:border-b sm:border-gray-200"
+                  variants={itemVariants}
+                >
+                  <button
+                    onClick={() => toggleAccordion(index)}
+                    className="w-full flex items-center justify-between py-4 sm:py-6 md:py-8 text-left focus:outline-none transition-colors"
+                    aria-expanded={isOpen}
+                  >
+                    <h3
+                      className={`text-base sm:text-xl md:text-2xl font-medium tracking-tight pr-4 md:pr-8 transition-colors duration-300 text-center sm:text-left ${isOpen ? "text-black" : "text-gray-600 group-hover:text-black"}`}
                     >
-                      <h3
-                        className={`text-xl md:text-2xl font-medium tracking-tight pr-8 transition-colors duration-300 ${isOpen ? "text-black" : "text-gray-600 group-hover:text-black"}`}
-                      >
-                        {faq.question}
-                      </h3>
-
-                      <div
-                        className={`relative flex items-center justify-center w-8 h-8 rounded-full border transition-colors duration-300 flex-shrink-0 ${isOpen ? "border-black bg-black text-white" : "border-gray-300 text-black group-hover:border-black"}`}
-                      >
-                        {isOpen ? (
-                          <Minus className="w-4 h-4" />
-                        ) : (
-                          <Plus className="w-4 h-4" />
-                        )}
-                      </div>
-                    </button>
+                      {faq.question}
+                    </h3>
 
                     <div
-                      className={`grid transition-all duration-500 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mb-8" : "grid-rows-[0fr] opacity-0"}`}
+                      className={`relative flex items-center justify-center w-8 h-8 rounded-full border transition-colors duration-300 flex-shrink-0 ${isOpen ? "border-black bg-black text-white" : "border-gray-300 text-black group-hover:border-black"}`}
                     >
-                      <div className="overflow-hidden">
-                        <p className="text-lg text-gray-500 leading-relaxed pr-8 md:pr-12">
-                          {faq.answer}
-                        </p>
-                      </div>
+                      {isOpen ? (
+                        <Minus className="w-4 h-4" />
+                      ) : (
+                        <Plus className="w-4 h-4" />
+                      )}
+                    </div>
+                  </button>
+
+                  <div
+                    className={`grid transition-all duration-500 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100 mb-5 sm:mb-8" : "grid-rows-[0fr] opacity-0"}`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="text-[15px] sm:text-base md:text-lg text-gray-500 leading-relaxed text-center sm:text-left px-2 sm:pr-8 md:pr-12 sm:pl-0">
+                        {faq.answer}
+                      </p>
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

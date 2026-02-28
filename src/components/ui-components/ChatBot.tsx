@@ -1,13 +1,11 @@
-"use client";
+﻿"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-  MessageSquareText,
   X,
   Send,
   Loader2,
-  Sparkles,
   User,
   Mail,
   ArrowRight,
@@ -79,7 +77,7 @@ const CuteRobot = ({ className }: { className?: string }) => (
         repeatDelay: 1,
         ease: "easeInOut",
       }}
-      style={{ transformOrigin: "15px 50px" }}
+      style={{ originX: 0.15, originY: 0.5 }}
     />
     <path
       d="M 85 50 Q 95 60 90 70"
@@ -93,6 +91,7 @@ const CuteRobot = ({ className }: { className?: string }) => (
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showGreetingBubble, setShowGreetingBubble] = useState(true);
 
   // Auth State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -145,6 +144,14 @@ export default function ChatBot() {
       }
     }
   }, [isOpen, messages.length]);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setShowGreetingBubble(false);
+    }, 5000);
+
+    return () => window.clearTimeout(timer);
+  }, []);
 
   // Auto-scroll to bottom of chat
   useEffect(() => {
@@ -217,16 +224,18 @@ export default function ChatBot() {
       }
 
       setMessages((prev) => [...prev, { role: "model", text: data.text }]);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
+      const message =
+        err instanceof Error ? err.message : "Failed to fetch response";
       setMessages((prev) => [
         ...prev,
         {
           role: "model",
           text:
-            err.message === "Failed to fetch response"
+            message === "Failed to fetch response"
               ? "I'm having trouble connecting to my servers right now."
-              : err.message,
+              : message,
         },
       ]);
     } finally {
@@ -239,26 +248,29 @@ export default function ChatBot() {
       {/* Floating Toggle Button & Greeting Bubble */}
       <AnimatePresence>
         {!isOpen && (
-          <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-end gap-4">
+          <div className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 flex items-end gap-3 sm:gap-4 max-w-[calc(100vw-0.75rem)]">
             {/* Waving Greeting Bubble */}
-            <motion.div
-              initial={{ opacity: 0, x: 20, scale: 0.8 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{
-                delay: 1,
-                type: "spring",
-                stiffness: 200,
-                damping: 20,
-              }}
-              className="relative hidden md:flex items-center bg-white px-4 py-3 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100"
-            >
-              <span className="text-sm font-medium text-black pr-1">
-                Hey, ready to start your project? 👋
-              </span>
-              {/* Little triangle pointer pointing right */}
-              <div className="absolute right-[-6px] bottom-4 w-3 h-3 bg-white border-r border-b border-gray-100 transform -rotate-45" />
-            </motion.div>
+            <AnimatePresence>
+              {showGreetingBubble && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20, scale: 0.9 }}
+                  animate={{ opacity: 1, x: 0, scale: 1 }}
+                  exit={{ opacity: 0, x: 90, scale: 0.95 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 220,
+                    damping: 24,
+                  }}
+                  className="relative flex items-center max-w-[17rem] sm:max-w-[22rem] bg-white px-4 py-3 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100"
+                >
+                  <span className="text-xs sm:text-sm font-medium text-black pr-1">
+                    Hey, ready to start your project?
+                  </span>
+                  {/* Little triangle pointer pointing right */}
+                  <div className="absolute right-[-6px] bottom-4 w-3 h-3 bg-white border-r border-b border-gray-100 transform -rotate-45" />
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Circular Bot Button */}
             <motion.button
@@ -268,10 +280,10 @@ export default function ChatBot() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
-              className="w-16 h-16 bg-black text-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.25)] flex items-center justify-center hover:bg-neutral-800 transition-colors shrink-0 outline-none"
+              className="w-14 h-14 sm:w-16 sm:h-16 bg-black text-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.25)] flex items-center justify-center hover:bg-neutral-800 transition-colors shrink-0 outline-none"
               aria-label="Open AI Assistant"
             >
-              <CuteRobot className="w-9 h-9" />
+              <CuteRobot className="w-8 h-8 sm:w-9 sm:h-9" />
             </motion.button>
           </div>
         )}
@@ -285,7 +297,7 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 w-[calc(100vw-3rem)] md:w-[380px] h-[550px] max-h-[85vh] bg-white border border-gray-200 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden"
+            className="fixed bottom-3 left-3 right-3 sm:bottom-6 sm:left-auto sm:right-6 md:bottom-8 md:right-8 z-50 h-[550px] max-h-[88vh] sm:w-[420px] sm:max-w-[calc(100vw-3rem)] md:w-[380px] bg-white border border-gray-200 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-black p-4 flex items-center justify-between z-10 relative">
@@ -318,11 +330,11 @@ export default function ChatBot() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="flex-1 overflow-y-auto bg-[#FAFAFA] flex flex-col p-6"
+                className="flex-1 overflow-y-auto bg-[#FAFAFA] flex flex-col p-4 sm:p-6"
               >
                 <div className="flex-1 flex flex-col justify-center">
-                  <div className="mb-8 text-center">
-                    <h4 className="text-xl font-semibold text-black mb-2 tracking-tight">
+                  <div className="mb-6 sm:mb-8 text-center">
+                    <h4 className="text-lg sm:text-xl font-semibold text-black mb-2 tracking-tight">
                       Before starting...
                     </h4>
                     <p className="text-sm text-gray-500 leading-relaxed">
@@ -394,7 +406,7 @@ export default function ChatBot() {
                 className="flex-1 flex flex-col min-h-0 bg-[#FAFAFA]"
               >
                 {/* Message List */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-4">
                   {messages.map((msg, idx) => (
                     <div
                       key={idx}
@@ -403,7 +415,7 @@ export default function ChatBot() {
                       }`}
                     >
                       <div
-                        className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-[14px] leading-relaxed break-words ${
+                        className={`max-w-[88%] rounded-2xl px-3.5 sm:px-4 py-2.5 text-[13px] sm:text-[14px] leading-relaxed break-words ${
                           msg.role === "user"
                             ? "bg-black text-white rounded-br-sm shadow-sm"
                             : "bg-white border border-gray-200 text-gray-800 rounded-bl-sm shadow-sm"
@@ -425,7 +437,7 @@ export default function ChatBot() {
                 </div>
 
                 {/* Input Area */}
-                <div className="p-4 bg-white border-t border-gray-100 z-10 shrink-0">
+                <div className="p-3 sm:p-4 bg-white border-t border-gray-100 z-10 shrink-0">
                   <form
                     onSubmit={handleChatSubmit}
                     className="relative flex items-center"

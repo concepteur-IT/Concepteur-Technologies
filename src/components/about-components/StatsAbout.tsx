@@ -55,7 +55,7 @@ function StatItem({
         ${withBorder ? "md:border-l md:border-black/10 md:pl-12" : ""}
       `}
     >
-      <h3 className="text-4xl md:text-5xl font-light tracking-tight text-black">
+      <h3 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-black">
         {count}
         {suffix}
       </h3>
@@ -91,12 +91,12 @@ const StatsAbout = () => {
 
   return (
     <section className="py-0">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div
           ref={sectionRef}
-          className="bg-[#f3f3f3]/80 backdrop-blur-md rounded-3xl py-16 px-8 md:px-16"
+          className="bg-[#f3f3f3]/80 backdrop-blur-md rounded-2xl md:rounded-3xl py-10 sm:py-12 md:py-16 px-4 sm:px-6 md:px-16"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
             {stats.map((stat, index) => (
               <StatItem
                 key={stat.label}

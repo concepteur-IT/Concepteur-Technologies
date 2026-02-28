@@ -6,9 +6,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
-  TrendingUp,
-  Users,
-  Award,
 } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import Image from "next/image";
@@ -27,13 +24,13 @@ export default function CaseStudiesPage() {
       : caseStudies.filter((study) => study.tag === activeFilter);
 
   return (
-    <div className="bg-white min-h-screen text-gray-900 selection:bg-gray-200">
+    <div className="bg-white min-h-screen text-gray-900 selection:bg-gray-200 mt-12 sm:mt-14 md:mt-15">
       {/* ================= HERO ================= */}
-      <section className="relative px-6 pt-32 pb-20 md:pt-48 md:pb-24 overflow-hidden">
+      <section className="relative px-4 sm:px-6 pt-24 md:pt-36 lg:pt-48 pb-14 md:pb-24 overflow-hidden">
         <div className="absolute top-0 right-0 -z-10 w-[40rem] h-[40rem] bg-gray-50 rounded-full blur-3xl opacity-50 translate-x-1/2 -translate-y-1/2" />
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
             {/* Left Side Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -46,11 +43,11 @@ export default function CaseStudiesPage() {
                   Our Portfolio
                 </span>
               </div>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[0.9] mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter leading-[0.92] mb-6 md:mb-8">
                 Work that <br /> defines the <br />{" "}
                 <span className="text-gray-400">standard.</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-500 max-w-xl leading-relaxed font-light">
+              <p className="text-base md:text-xl text-gray-500 max-w-xl leading-relaxed font-light">
                 We engineer digital experiences that drive measurable growth.
                 Explore our portfolio of transformative platforms, AI
                 integrations, and resilient architectures.
@@ -139,11 +136,11 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* ================= STATS SUMMARY ================= */}
-      <section className="py-12 border-y border-gray-100 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-10 md:py-12 border-y border-gray-100 bg-gray-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="flex flex-col gap-2">
-              <span className="text-4xl font-semibold">
+              <span className="text-3xl sm:text-4xl font-semibold">
                 {caseStudies.length}
               </span>
               <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
@@ -151,19 +148,19 @@ export default function CaseStudiesPage() {
               </span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-4xl font-semibold">100%</span>
+              <span className="text-3xl sm:text-4xl font-semibold">100%</span>
               <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
                 Success Rate
               </span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-4xl font-semibold">12+</span>
+              <span className="text-3xl sm:text-4xl font-semibold">12+</span>
               <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
                 Industries
               </span>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="text-4xl font-semibold">Global</span>
+              <span className="text-3xl sm:text-4xl font-semibold">Global</span>
               <span className="text-sm text-gray-500 font-medium uppercase tracking-widest">
                 Reach
               </span>
@@ -173,10 +170,10 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* ================= FILTER & STUDIES ================= */}
-      <section className="py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
+      <section className="py-14 md:py-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           {/* Controls */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-20 pb-8 border-b border-gray-100">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-8 mb-12 md:mb-20 pb-8 border-b border-gray-100">
             <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400">
               Selected Case Studies
             </h2>
@@ -199,7 +196,7 @@ export default function CaseStudiesPage() {
           </div>
 
           {/* Grid */}
-          <div className="space-y-24">
+          <div className="space-y-16 md:space-y-24">
             <AnimatePresence mode="wait">
               {filteredStudies.map((item, index) => (
                 <motion.div
@@ -232,7 +229,7 @@ export default function CaseStudiesPage() {
                       </div>
 
                       {/* Content Side - Larger portion to emphasize content */}
-                      <div className="col-span-12 md:col-span-7 px-4 md:px-0">
+                      <div className="col-span-12 md:col-span-7 px-0 md:px-0">
                         <div className="flex flex-col h-full justify-center">
                           <div className="flex flex-wrap items-center gap-4 mb-6">
                             <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">
@@ -244,15 +241,15 @@ export default function CaseStudiesPage() {
                             </span>
                           </div>
 
-                          <h3 className="text-3xl md:text-5xl font-semibold mb-6 group-hover:text-gray-600 transition-colors duration-300 tracking-tight">
+                          <h3 className="text-2xl sm:text-3xl md:text-5xl font-semibold mb-4 md:mb-6 group-hover:text-gray-600 transition-colors duration-300 tracking-tight">
                             {item.title}
                           </h3>
 
-                          <p className="text-gray-500 text-lg leading-relaxed mb-8 font-light max-w-2xl">
+                          <p className="text-gray-500 text-base md:text-lg leading-relaxed mb-6 md:mb-8 font-light max-w-2xl">
                             {item.shortDesc}
                           </p>
 
-                          <div className="grid grid-cols-3 gap-6 border-t border-gray-100 pt-8 mb-10 max-w-xl">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 border-t border-gray-100 pt-6 md:pt-8 mb-8 md:mb-10 max-w-xl">
                             {Object.entries(item.results || {}).map(
                               ([key, value]) => (
                                 <div key={key}>
@@ -291,13 +288,13 @@ export default function CaseStudiesPage() {
       </section>
 
       {/* ================= CTA ================= */}
-      <section className="py-32 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl md:text-5xl font-semibold mb-8">
+      <section className="py-16 md:py-32 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold mb-6 md:mb-8">
             Ready to build your next big thing?
           </h2>
-          <p className="text-lg text-gray-500 mb-12 max-w-2xl mx-auto font-light">
-            Let's discuss how our engineering team can architect a scalable,
+          <p className="text-base md:text-lg text-gray-500 mb-8 md:mb-12 max-w-2xl mx-auto font-light">
+            Let&apos;s discuss how our engineering team can architect a scalable,
             robust solution tailored exactly to your specific business needs.
           </p>
           <Link

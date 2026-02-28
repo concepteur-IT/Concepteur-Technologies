@@ -18,8 +18,8 @@ export default async function CaseStudyDetailPage({
   }
 
   return (
-    <div className="bg-white min-h-screen pt-24 pb-32 text-gray-900">
-      <div className="max-w-4xl mx-auto px-6">
+    <div className="bg-white min-h-screen mt-12 sm:mt-14 md:mt-15 pt-8 sm:pt-10 md:pt-12 pb-16 md:pb-32 text-gray-900">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Back Button */}
         <Link
           href="/case-studies"
@@ -30,22 +30,22 @@ export default async function CaseStudyDetailPage({
         </Link>
 
         {/* Header Section */}
-        <header className="mb-16">
+        <header className="mb-12 md:mb-16">
           <div className="inline-block mb-6 px-4 py-2 bg-gray-100 rounded-full border border-gray-200">
             <span className="text-xs font-semibold uppercase tracking-wider text-gray-700">
               {study.tag}
             </span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-semibold leading-tight tracking-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-semibold leading-tight tracking-tight mb-5 md:mb-6">
             {study.title}
           </h1>
-          <p className="text-xl text-gray-600 leading-relaxed max-w-3xl">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
             {study.shortDesc}
           </p>
         </header>
 
         {/* Hero Image */}
-        <div className="relative w-full aspect-[21/9] rounded-2xl overflow-hidden mb-16 shadow-lg border border-gray-100 bg-gray-50">
+        <div className="relative w-full aspect-[16/10] sm:aspect-[21/9] rounded-2xl overflow-hidden mb-12 md:mb-16 shadow-lg border border-gray-100 bg-gray-50">
           <Image
             src={study.heroImage}
             alt={study.title}
@@ -55,7 +55,7 @@ export default async function CaseStudyDetailPage({
         </div>
 
         {/* Overview Grid */}
-        <div className="grid md:grid-cols-4 gap-8 py-10 border-y border-gray-100 mb-20">
+        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 py-8 md:py-10 border-y border-gray-100 mb-12 md:mb-20">
           <div>
             <h4 className="text-sm font-medium text-gray-500 mb-2">Client</h4>
             <p className="font-medium text-gray-900">{study.client}</p>
@@ -75,19 +75,19 @@ export default async function CaseStudyDetailPage({
         </div>
 
         {/* Content Body */}
-        <div className="grid md:grid-cols-12 gap-16">
+        <div className="grid md:grid-cols-12 gap-10 md:gap-16">
           {/* Main Content */}
-          <div className="md:col-span-8 space-y-20">
+          <div className="md:col-span-8 space-y-12 md:space-y-20">
             {/* The Challenge */}
             <section>
-              <h2 className="text-3xl font-semibold mb-8">The Challenge</h2>
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 md:mb-8">The Challenge</h2>
               <ul className="space-y-6">
                 {study.challenge.map((c, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <span className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center font-semibold text-sm mt-1">
                       0{i + 1}
                     </span>
-                    <p className="text-lg text-gray-700 leading-relaxed">
+                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                       {c.text}
                     </p>
                   </li>
@@ -97,12 +97,12 @@ export default async function CaseStudyDetailPage({
 
             {/* The Solution */}
             <section>
-              <h2 className="text-3xl font-semibold mb-8">The Solution</h2>
-              <div className="space-y-12">
+              <h2 className="text-2xl md:text-3xl font-semibold mb-6 md:mb-8">The Solution</h2>
+              <div className="space-y-8 md:space-y-12">
                 {study.solution?.map((sol, i) => (
                   <div
                     key={i}
-                    className="bg-gray-50 p-8 rounded-2xl border border-gray-100"
+                    className="bg-gray-50 p-5 sm:p-8 rounded-2xl border border-gray-100"
                   >
                     <div className="text-xs font-semibold tracking-widest text-gray-500 uppercase mb-3">
                       {sol.label}
@@ -127,7 +127,7 @@ export default async function CaseStudyDetailPage({
 
           {/* Sidebar / Results */}
           <div className="md:col-span-4">
-            <div className="sticky top-32 p-8 bg-gray-900 text-white rounded-2xl shadow-xl">
+            <div className="md:sticky md:top-32 p-6 md:p-8 bg-gray-900 text-white rounded-2xl shadow-xl">
               <h3 className="text-xl font-semibold mb-8 border-b border-gray-800 pb-4">
                 Key Results
               </h3>
