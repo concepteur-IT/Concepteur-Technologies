@@ -24,10 +24,10 @@ const values = [
 
 const MissionAbout = () => {
   return (
-    <section className="py-32">
-      <div className="max-w-6xl mx-auto px-8 grid md:grid-cols-2 gap-20">
+    <section className="py-16 md:py-32">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 grid md:grid-cols-2 gap-10 md:gap-20">
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-black">
             Our Mission
           </h2>
 
@@ -52,7 +52,7 @@ const MissionAbout = () => {
         </div>
 
         <div className="space-y-6">
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-black">
             What Drives Us
           </h2>
 

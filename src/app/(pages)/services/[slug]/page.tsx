@@ -35,25 +35,25 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
   }
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white mt-12 sm:mt-14 md:mt-15">
       {/* Dynamic Hero Section */}
-      <section className="relative w-full pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden flex items-center">
+      <section className="relative w-full pt-24 sm:pt-28 md:pt-40 pb-14 md:pb-28 overflow-hidden flex items-center">
         {/* Subtle Background Glow */}
         <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-30">
           <div className="w-[800px] h-[800px] bg-gray-200 rounded-full blur-[100px] translate-y-[-20%] translate-x-[20%]" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="space-y-8 max-w-2xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-20 items-center">
+          <div className="space-y-6 md:space-y-8 max-w-2xl">
             <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium animate-fade-in">
               Service Details
             </p>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl leading-tight font-semibold text-gray-900 tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight font-semibold text-gray-900 tracking-tight">
               {service.title}
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            <p className="text-base md:text-xl text-gray-600 leading-relaxed">
               {service.fullDescription}
             </p>
           </div>
@@ -71,12 +71,12 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       </section>
 
       {/* Metrics / Stats Section */}
-      <section className="py-16 bg-[#1a1a1a] text-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <section className="py-12 md:py-16 bg-[#1a1a1a] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20 text-center">
             {service.stats?.map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center justify-center pt-8 md:pt-0 first:pt-0">
-                <h4 className="text-4xl md:text-5xl font-light tracking-tight mb-2">{stat.value}</h4>
+                <h4 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">{stat.value}</h4>
                 <p className="text-sm uppercase tracking-[0.2em] text-gray-400">{stat.label}</p>
               </div>
             ))}
@@ -85,8 +85,8 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       </section>
 
       {/* Details Section (Features & Benefits) */}
-      <section className="py-20 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
+      <section className="py-14 md:py-20 bg-gray-50/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24">
             
             {/* Features Col */}
             <div className="space-y-8">
@@ -97,7 +97,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
                     {service.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start gap-4">
                             <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
-                            <span className="text-lg text-gray-800 leading-relaxed">{feature}</span>
+                            <span className="text-base md:text-lg text-gray-800 leading-relaxed">{feature}</span>
                         </li>
                     ))}
                 </ul>
@@ -112,7 +112,7 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
                     {service.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-start gap-4">
                             <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
-                            <span className="text-lg text-gray-800 leading-relaxed">{benefit}</span>
+                            <span className="text-base md:text-lg text-gray-800 leading-relaxed">{benefit}</span>
                         </li>
                     ))}
                 </ul>
@@ -123,20 +123,20 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
 
       {/* Icon-Driven Case Studies / Impact Section */}
       {service.projects && service.projects.length > 0 && (
-        <section className="py-24 bg-white relative">
-          <div className="max-w-7xl mx-auto px-6 md:px-8">
-            <div className="mb-20 text-center max-w-3xl mx-auto">
+        <section className="py-16 md:py-24 bg-white relative">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium mb-4">
                 Proven Impact
               </p>
-              <h2 className="text-4xl md:text-5xl font-light text-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight">
                 Engineering <span className="font-semibold">Excellence</span>
               </h2>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16">
               {service.projects.map((project, idx) => (
-                <div key={idx} className="group flex flex-col sm:flex-row gap-6 p-8 rounded-2xl bg-gray-50/50 border border-gray-100 transition-colors hover:bg-gray-50">
+                <div key={idx} className="group flex flex-col sm:flex-row gap-5 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-gray-50/50 border border-gray-100 transition-colors hover:bg-gray-50">
                   {/* Clean SVG Icon replacement for Images */}
                   <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-black text-white">
                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -160,13 +160,13 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       )}
 
       {/* CTA Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6 md:px-8 text-center space-y-10">
-          <h2 className="text-4xl md:text-5xl font-light text-black tracking-tight">
+      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-8 md:space-y-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight">
             Ready to integrate <span className="font-semibold">{service.title}</span>?
           </h2>
-          <p className="text-gray-600 text-lg">
-            Let's discuss how we can engineer this solution tailored precisely to your operational needs.
+          <p className="text-gray-600 text-base md:text-lg">
+            Let&apos;s discuss how we can engineer this solution tailored precisely to your operational needs.
           </p>
           <div className="flex justify-center pt-4">
              <LetsTalkBtn />
