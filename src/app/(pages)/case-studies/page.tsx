@@ -258,22 +258,37 @@ export default function CaseStudiesPage() {
                           transformStyle: "preserve-3d",
                         }}
                       >
-                        {/* Inner Image Container (creating the blurry glass border effect) */}
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden bg-gray-100 shadow-inner">
-                          <Image
-                            src={item.heroImage}
-                            alt={item.title}
-                            fill
-                            className={`object-cover transition-all duration-700 pointer-events-none ${isActive ? "grayscale-0 scale-100" : "grayscale blur-[2px] opacity-60 scale-[1.02]"}`}
-                            priority={isActive}
+                        {/* Inner Card Container (Grid Pattern Background) */}
+                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner bg-slate-50 border border-slate-200 flex flex-col group">
+                          {/* Aesthetic Abstract Grid */}
+                          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+
+                          {/* Subtle Radial Gradient Overlay for depth */}
+                          <div
+                            className={`absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.8)_100%)] transition-opacity duration-1000 ${isActive ? "opacity-100" : "opacity-50"}`}
                           />
 
-                          {/* Integrated Bottom Gradient & Details */}
-                          <div className="absolute inset-x-0 bottom-0 h-2/3 flex flex-col justify-end p-5 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none transition-opacity duration-500">
-                            <span className="text-[10px] font-semibold text-white/70 uppercase tracking-widest mb-1.5 drop-shadow-sm">
+                          {/* Active Hover Accent */}
+                          <div
+                            className={`absolute -right-12 -top-12 w-48 h-48 bg-slate-400/10 blur-3xl rounded-full transition-all duration-1000 ${isActive ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}
+                          />
+
+                          {/* Top Tag */}
+                          <div
+                            className="absolute top-5 left-5 z-10 transition-opacity duration-500"
+                            style={{ opacity: isActive ? 1 : 0.5 }}
+                          >
+                            <span className="px-3 py-1 bg-white/90 backdrop-blur-md border border-slate-200 rounded-full text-[9px] font-bold text-slate-500 uppercase tracking-widest shadow-sm">
+                              {item.tag || "Case Study"}
+                            </span>
+                          </div>
+
+                          {/* Integrated Bottom Details */}
+                          <div className="absolute inset-x-0 bottom-0 h-1/2 flex flex-col justify-end p-6 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none transition-opacity duration-500 z-10">
+                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 drop-shadow-sm">
                               {item.client}
                             </span>
-                            <h4 className="text-xl md:text-2xl font-serif text-white tracking-tight mb-4 drop-shadow-md">
+                            <h4 className="text-2xl md:text-3xl font-serif text-slate-900 tracking-tight mb-5 leading-tight">
                               {item.title}
                             </h4>
 
@@ -282,14 +297,14 @@ export default function CaseStudiesPage() {
                               {isActive ? (
                                 <Link
                                   href={`/case-studies/${item.slug}`}
-                                  className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-medium text-white hover:bg-white hover:text-black transition-all cursor-pointer shadow-[0_4px_14px_0_rgba(0,0,0,0.1)]"
+                                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-full text-xs font-semibold text-white hover:bg-slate-700 hover:border-slate-700 transition-all cursor-pointer shadow-md group-hover:shadow-lg"
                                   onClick={(e) => setActiveIndex(index)}
                                 >
                                   View Case Study
                                   <ArrowUpRight className="w-3.5 h-3.5" />
                                 </Link>
                               ) : (
-                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-sm border border-white/5 rounded-full text-xs font-medium text-white/50 transition-all">
+                                <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-full text-xs font-semibold text-slate-400 transition-all cursor-default">
                                   View Case Study
                                   <ArrowUpRight className="w-3.5 h-3.5" />
                                 </div>

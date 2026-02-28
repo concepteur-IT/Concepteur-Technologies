@@ -13,11 +13,7 @@ export default function ContactSection() {
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black">
             Let's Build Something Meaningful.
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Share your vision and priorities. We will respond with a practical
-            roadmap tailored to your business goals.
-          </p>
-        </motion.div>
+        </div>
 
         {/* 2-Column Grid matching the premium contact page layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
@@ -76,6 +72,6 @@ export default function ContactSection() {
           </div>
         </div>
       </div>
-    </motion.section>
+    </section>
   );
 }
