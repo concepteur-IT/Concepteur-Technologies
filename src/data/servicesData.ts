@@ -76,20 +76,6 @@ export const servicesData: ServiceData[] = [
           "A comprehensive CRM platform for managing suppliers, products, and sales operations, including AI-driven report generation, structured database migration, and real-time sales analytics.",
         image: "/services/ai.jpg",
       },
-      {
-        title: "AIME",
-        client: "From Brainium Infotech",
-        description:
-          "One of our developers worked on the development of an AI-powered teaching assistant platform integrating GPT and Gemini models, contributing to interactive learning features and user workflow improvements.",
-        image: "/services/ai.jpg",
-      },
-      {
-        title: "NOMADQUEST",
-        client: "From Brainium Infotech",
-        description:
-          "A React web platform built for Brainium Infotech, with our developer contributing to frontend development, UI implementation, and feature enhancements for the AI-driven travel solution.",
-        image: "/services/ai.jpg",
-      },
     ],
   },
   {
@@ -123,27 +109,6 @@ export const servicesData: ServiceData[] = [
     ],
     projects: [
       {
-        title: "Toyo Support",
-        client: "From Brainuminfotech",
-        description:
-          "Developed a fully customized WordPress website with optimized performance, structured content architecture, and scalable backend management.",
-        image: "/services/web.jpg",
-      },
-      {
-        title: "The 1 And Only Publishing",
-        client: "From Brainuminfotech",
-        description:
-          "Built a hybrid platform using React, Laravel, and WordPress, integrating dynamic frontend components with a scalable backend API architecture.",
-        image: "/services/web.jpg",
-      },
-      {
-        title: "Gemsby",
-        client: "From Brainuminfotech",
-        description:
-          "Engineered a high-performance eCommerce platform using React and Phalcon, focusing on speed optimization and modular backend services.",
-        image: "/services/backend.jpg",
-      },
-      {
         title: "Thinkerslane",
         client: "From Thinkerslane",
         description:
@@ -156,13 +121,6 @@ export const servicesData: ServiceData[] = [
         description:
           "Built a scalable retail platform using Angular and Yii framework, implementing secure APIs and dynamic product management systems.",
         image: "/services/backend.jpg",
-      },
-      {
-        title: "Stuffy Rider",
-        client: "From Brainuminfotech",
-        description:
-          "Created a robust commerce platform powered by Laravel and CodeIgniter with optimized database handling and seamless checkout integration.",
-        image: "/services/web.jpg",
       },
     ],
   },
@@ -222,20 +180,6 @@ export const servicesData: ServiceData[] = [
         client: "Retail Platform",
         description:
           "Engineered an Ionic-based commerce application with secure payment workflows and scalable backend API integration.",
-        image: "/services/mobile.jpg",
-      },
-      {
-        title: "Mindfully",
-        client: "Wellness Platform",
-        description:
-          "Created a React Native mobile application focused on structured user flows and backend-driven content delivery.",
-        image: "/services/mobile.jpg",
-      },
-      {
-        title: "Stuffy Rider",
-        client: "E-Commerce Brand",
-        description:
-          "Integrated React Native mobile commerce flows with secure payment APIs and dynamic order tracking systems.",
         image: "/services/mobile.jpg",
       },
       {
@@ -380,27 +324,6 @@ export const servicesData: ServiceData[] = [
           "Built a scalable retail platform using Angular and Yii with custom cart logic, secure payments, and dynamic product management APIs.",
         image: "/services/ecommerce.jpg",
       },
-      {
-        title: "Gemsby",
-        client: "From Brainuminfotech",
-        description:
-          "Developed a high-performance e-commerce backend using Phalcon with React frontend integration and optimized product query handling.",
-        image: "/services/ecommerce.jpg",
-      },
-      {
-        title: "Stuffy Rider",
-        client: "From Brainuminfotech",
-        description:
-          "Engineered a Laravel-based commerce system with structured APIs for products, orders, and payment workflows.",
-        image: "/services/ecommerce.jpg",
-      },
-      {
-        title: "The 1 And Only Publishing",
-        client: "From Brainuminfotech",
-        description:
-          "Developed a hybrid React, Laravel, and WordPress commerce system with custom APIs handling products, digital content delivery, and secure payment processing.",
-        image: "/services/ecommerce.jpg",
-      },
     ],
   },
   {
@@ -436,13 +359,6 @@ export const servicesData: ServiceData[] = [
         client: "From RETAILBOX SWEDEN",
         description:
           "Designed and implemented a structured retail management interface integrated with secure backend APIs and dynamic product controls.",
-        image: "/services/uiux.jpg",
-      },
-      {
-        title: "AIME",
-        client: "From Brainuminfotech",
-        description:
-          "Developed an interactive learning interface powered by real-time AI responses with structured content navigation and user-centric workflows.",
         image: "/services/uiux.jpg",
       },
       {
