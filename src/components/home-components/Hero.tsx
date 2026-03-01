@@ -8,7 +8,7 @@ import LearnMoreBtn from "../ui-components/buttons/LearnMoreBtn";
 export default function Hero() {
   return (
     <motion.section
-      className="relative w-full overflow-hidden flex items-center py-12 sm:py-16 md:py-20"
+      className="relative w-full overflow-hidden flex items-center py-8 sm:py-12 md:py-16"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.35 }}
@@ -24,7 +24,7 @@ export default function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16">
         <motion.div
-          className="max-w-xl space-y-7 md:space-y-10 text-center md:text-left"
+          className="max-w-xl space-y-5 md:space-y-8 text-center md:text-left"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.45 }}

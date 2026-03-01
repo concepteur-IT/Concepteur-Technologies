@@ -3,10 +3,10 @@ import ContactForm from "../ui-components/forms/ContactForm";
 
 export default function ContactSection() {
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
+    <section className="py-12 md:py-16 bg-white border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
         {/* Centered Clean Header */}
-        <div className="text-center mb-12 md:mb-16 space-y-5 md:space-y-6 max-w-4xl mx-auto">
+        <div className="text-center mb-8 md:mb-12 space-y-4 md:space-y-5 max-w-4xl mx-auto">
           <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
             Start a Conversation
           </p>

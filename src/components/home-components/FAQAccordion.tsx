@@ -60,7 +60,7 @@ export default function FAQAccordion() {
 
   return (
     <motion.section
-      className="py-16 md:py-24 bg-white"
+      className="py-12 md:py-16 bg-white"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -68,7 +68,7 @@ export default function FAQAccordion() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
-          className="max-w-4xl mx-auto mb-10 md:mb-14 text-center space-y-5 md:space-y-6"
+          className="max-w-4xl mx-auto mb-8 md:mb-10 text-center space-y-4 md:space-y-5"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}

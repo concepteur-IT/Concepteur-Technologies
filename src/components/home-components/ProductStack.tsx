@@ -45,7 +45,7 @@ export default function ProductStack() {
 
   return (
     <motion.section
-      className="relative py-16 md:py-20 bg-white"
+      className="relative py-12 md:py-16 bg-white"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -53,7 +53,7 @@ export default function ProductStack() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
-          className="max-w-4xl mx-auto mb-12 md:mb-20 text-center space-y-5 md:space-y-6"
+          className="max-w-4xl mx-auto mb-8 md:mb-12 text-center space-y-4 md:space-y-5"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}

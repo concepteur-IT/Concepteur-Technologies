@@ -99,7 +99,7 @@ const cardVariants: Variants = {
 export default function ServicesIntroSectionV3() {
   return (
     <motion.section
-      className="py-16 md:py-24 bg-white"
+      className="py-12 md:py-16 bg-white"
       id="services"
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -108,7 +108,7 @@ export default function ServicesIntroSectionV3() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         <motion.div
-          className="max-w-4xl mx-auto mb-12 md:mb-20 text-center space-y-5 md:space-y-6"
+          className="max-w-4xl mx-auto mb-8 md:mb-12 text-center space-y-4 md:space-y-5"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}

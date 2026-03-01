@@ -7,10 +7,10 @@ import { testimonialsData as testimonials } from "@/data/testimonialsData";
 
 export default function TestimonialSection() {
   return (
-    <section className="relative py-32 bg-white overflow-hidden">
+    <section className="relative py-12 md:py-16 bg-white overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 md:px-8">
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-14 md:mb-20 space-y-5 md:space-y-6">
+        <div className="text-center max-w-4xl mx-auto mb-8 md:mb-12 space-y-4 md:space-y-5">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
