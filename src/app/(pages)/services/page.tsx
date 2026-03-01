@@ -71,13 +71,13 @@ export default function ServicesPage() {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/50 via-transparent to-transparent" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 text-center space-y-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 md:space-y-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold mb-6">
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
               Capabilities & Expertise
             </p>
           </motion.div>
@@ -86,7 +86,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl leading-[1.1] font-light text-black tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl leading-tight font-light text-black tracking-tight"
           >
             Engineering the{" "}
             <span className="font-semibold">Digital Future</span>
@@ -96,7 +96,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg text-gray-500 leading-relaxed max-w-2xl mx-auto pt-2"
+            className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
           >
             High-performance solutions tailored for the next generation of
             enterprise scale.
@@ -203,18 +203,27 @@ export default function ServicesPage() {
 
       {/* CTA Section */}
       <section className="py-20 bg-white relative overflow-hidden border-t border-gray-100">
-        <div className="max-w-3xl mx-auto px-6 md:px-8 text-center space-y-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-5 md:space-y-6">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium"
+          >
+            Next Step
+          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-light text-black tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl font-light text-black tracking-tight leading-tight"
           >
             Ready to scale your{" "}
             <span className="font-semibold">infrastructure?</span>
           </motion.h2>
-          <p className="text-gray-500 text-lg">
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             Let&apos;s discuss how our technology tailored services can
             accelerate your business objectives.
           </p>
