@@ -6,13 +6,18 @@ export default function ContactSection() {
     <section className="py-24 bg-white border-t border-gray-100">
       <div className="max-w-6xl mx-auto px-6 md:px-8">
         {/* Centered Clean Header */}
-        <div className="text-center mb-16 space-y-4 max-w-2xl mx-auto">
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold">
+        <div className="text-center mb-12 md:mb-16 space-y-5 md:space-y-6 max-w-4xl mx-auto">
+          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
             Start a Conversation
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black">
-            Let's Build Something Meaningful.
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
+            Let&apos;s build something{" "}
+            <span className="font-semibold">meaningful and scalable.</span>
           </h2>
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+            Share your idea, goals, or technical scope. We&apos;ll shape the
+            right roadmap and execution approach from day one.
+          </p>
         </div>
 
         {/* 2-Column Grid matching the premium contact page layout */}

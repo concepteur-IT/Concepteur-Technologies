@@ -10,33 +10,31 @@ export default function TestimonialSection() {
     <section className="relative py-32 bg-white overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6 md:px-8">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <motion.div
+        <div className="text-center max-w-4xl mx-auto mb-14 md:mb-20 space-y-5 md:space-y-6">
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 mb-6"
+            className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
-            <span className="text-xs font-semibold text-gray-900 uppercase tracking-widest">
-              Client Recognition
-            </span>
-          </motion.div>
+            Client Recognition
+          </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-black mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight"
           >
-            Trusted by the best.
+            Trusted by teams that value{" "}
+            <span className="font-semibold">precision and impact.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-500 font-light leading-relaxed"
+            className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
           >
             Our partners rely on disciplined engineering and strategic thinking
             to drive measurable, lasting growth. Here is what they have to say.
@@ -66,7 +64,7 @@ export default function TestimonialSection() {
               <div className="relative flex-1">
                 <Quote className="w-6 h-6 text-black mb-8 opacity-20" />
                 <p className="text-lg text-gray-600 font-light leading-relaxed mb-10 group-hover:text-black transition-colors duration-300">
-                  "{item.quote}"
+                  &ldquo;{item.quote}&rdquo;
                 </p>
               </div>
 

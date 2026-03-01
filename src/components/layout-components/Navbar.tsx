@@ -48,12 +48,12 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-[#f3f3f3] border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-2 sm:px-6 md:px-8 h-12 sm:h-14 md:h-15 flex items-center justify-between gap-2 sm:gap-3">
+      <div className="relative max-w-7xl mx-auto px-2 sm:px-6 md:px-8 h-12 sm:h-14 md:h-15 flex items-center justify-between gap-2 sm:gap-3">
         {/* Logo */}
         <Link
           href="/"
           aria-label="Go to homepage"
-          className="flex items-center flex-1 min-w-0 max-w-[calc(100%-84px)] sm:max-w-none overflow-hidden"
+          className="flex items-center flex-1 min-w-0 max-w-[calc(100%-84px)] sm:max-w-none overflow-hidden md:flex-none md:overflow-visible z-10"
           onClick={handleLogoClick}
         >
           <div className="sm:hidden">
@@ -64,8 +64,8 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Nav */}
-        <nav className="hidden md:flex items-center space-x-10 text-[14px] font-medium">
+        {/* Centered Desktop Nav */}
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[14px] font-medium">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
 
@@ -88,9 +88,12 @@ export default function Navbar() {
               </Link>
             );
           })}
-
-          <LetsTalkBtn />
         </nav>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center z-10">
+          <LetsTalkBtn />
+        </div>
 
         {/* Mobile Menu Toggle */}
         <button

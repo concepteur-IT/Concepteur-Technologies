@@ -8,14 +8,14 @@ export default function OurJourney() {
     <section className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
         {/* Header */}
-        <div className="max-w-2xl mx-auto text-center mb-12 md:mb-20 space-y-4">
-          <p className="text-xs uppercase tracking-[0.3em] text-gray-400 font-bold">
+        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-20 space-y-5 md:space-y-6">
+          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
             Our Journey
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-black">
-            The Road to Concepteur.
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
+            The Road to <span className="font-semibold">Concepteur.</span>
           </h2>
-          <p className="text-gray-500 text-base md:text-lg leading-relaxed pt-2">
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             A relentless pursuit of engineering excellence, from a small remote
             team to an international hybrid powerhouse.
           </p>
@@ -30,7 +30,9 @@ export default function OurJourney() {
             return (
               <div key={item.year} className="contents">
                 {/* Left Column */}
-                <div className={`flex ${isLeft ? "justify-end" : ""} py-6`}>
+                <div
+                  className={`hidden md:flex ${isLeft ? "justify-end" : ""} py-6`}
+                >
                   {isLeft ? (
                     <motion.div
                       initial={{ opacity: 0, x: -40 }}
@@ -97,7 +99,9 @@ export default function OurJourney() {
                 </div>
 
                 {/* Right Column */}
-                <div className={`flex ${!isLeft ? "justify-start" : ""} py-6`}>
+                <div
+                  className={`hidden md:flex ${!isLeft ? "justify-start" : ""} py-6`}
+                >
                   {!isLeft ? (
                     <motion.div
                       initial={{ opacity: 0, x: 40 }}
