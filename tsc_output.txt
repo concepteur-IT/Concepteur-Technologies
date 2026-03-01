@@ -1,0 +1,17 @@
+.next/dev/types/validator.ts(71,39): error TS2307: Cannot find module '../../../src/app/(pages)/case-studies/demo/page.js' or its corresponding type declarations.
+src/app/(pages)/case-studies/toyosupport/page.tsx(81,13): error TS2322: Type 'string | undefined' is not assignable to type 'string | StaticImport'.
+  Type 'undefined' is not assignable to type 'string | StaticImport'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(100,35): error TS2339: Property 'growth' does not exist on type '{ speed: string; errors: string; sales: string; transformation?: undefined; aiEcosystems?: undefined; paymentSecurity?: undefined; } | { transformation: string; aiEcosystems: string; paymentSecurity: string; speed?: undefined; errors?: undefined; sales?: undefined; }'.
+  Property 'growth' does not exist on type '{ speed: string; errors: string; sales: string; transformation?: undefined; aiEcosystems?: undefined; paymentSecurity?: undefined; }'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(108,35): error TS2339: Property 'users' does not exist on type '{ speed: string; errors: string; sales: string; transformation?: undefined; aiEcosystems?: undefined; paymentSecurity?: undefined; } | { transformation: string; aiEcosystems: string; paymentSecurity: string; speed?: undefined; errors?: undefined; sales?: undefined; }'.
+  Property 'users' does not exist on type '{ speed: string; errors: string; sales: string; transformation?: undefined; aiEcosystems?: undefined; paymentSecurity?: undefined; }'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(121,32): error TS2339: Property 'split' does not exist on type 'string | string[]'.
+  Property 'split' does not exist on type 'string[]'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(121,49): error TS7006: Parameter 'tech' implicitly has an 'any' type.
+src/app/(pages)/case-studies/toyosupport/page.tsx(121,55): error TS7006: Parameter 'i' implicitly has an 'any' type.
+src/app/(pages)/case-studies/toyosupport/page.tsx(170,29): error TS2339: Property 'text' does not exist on type 'string'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(215,32): error TS2339: Property 'label' does not exist on type '{ title: string; points: string[]; }'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(248,24): error TS2339: Property 'features' does not exist on type '{ title: string; tag: string; shortDesc: string; id: string; slug: string; description: string; tags: string[]; metrics: { users: string; growth: string; retention: string; }; heroImage: string; client: string; ... 15 more ...; architecturalImpact?: undefined; } | { ...; } | { ...; } | { ...; }'.
+  Property 'features' does not exist on type '{ title: string; tag: string; shortDesc: string; id: string; slug: string; description: string; tags: string[]; metrics: { users: string; growth: string; retention: string; }; heroImage: string; client: string; ... 15 more ...; architecturalImpact?: undefined; }'.
+src/app/(pages)/case-studies/toyosupport/page.tsx(248,39): error TS7006: Parameter 'feat' implicitly has an 'any' type.
+src/app/(pages)/case-studies/toyosupport/page.tsx(248,45): error TS7006: Parameter 'i' implicitly has an 'any' type.

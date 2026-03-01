@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import { teamData } from "@/data/teamData";
@@ -9,7 +10,7 @@ import Navbar from "@/components/layout-components/Navbar";
 const baseStudy =
   caseStudies.find((c) => c.slug === "toyosupport") || caseStudies[0];
 
-const study = {
+const study: any = {
   ...baseStudy,
   title: "Toyotires.ca",
   tag: "Enterprise Platform",
@@ -24,6 +25,8 @@ const projectTeam = [
 ].filter(Boolean) as typeof teamData;
 
 export default function ToyotiresCaseStudy() {
+  redirect("/case-studies");
+
   return (
     <main className="bg-white min-h-screen text-gray-900 pb-32">
       <Navbar />
@@ -78,7 +81,7 @@ export default function ToyotiresCaseStudy() {
       <section className="mt-8 mb-32">
         <div className="w-full aspect-video md:aspect-[21/9] lg:aspect-[3/1] relative bg-gray-100 shadow-sm border-y border-gray-200 overflow-hidden group">
           <Image
-            src={study.heroImage}
+            src={study.heroImage || ""}
             alt={study.title}
             fill
             className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
@@ -118,7 +121,10 @@ export default function ToyotiresCaseStudy() {
                 Technology Stack
               </h3>
               <div className="flex flex-wrap gap-2">
-                {study?.stack?.split(", ").map((tech, i) => (
+                {(Array.isArray(study?.stack)
+                  ? study.stack
+                  : study?.stack?.split(", ") || []
+                ).map((tech: string, i: number) => (
                   <span
                     key={i}
                     className="px-3 py-1.5 bg-gray-50 text-gray-600 text-xs font-semibold rounded-md border border-gray-200"
@@ -161,13 +167,13 @@ export default function ToyotiresCaseStudy() {
                 What We Set Out to Achieve
               </h2>
               <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
-                {study.challenge?.map((goal, i) => (
+                {study.challenge?.map((goal: any, i: number) => (
                   <div key={i} className="flex gap-4">
                     <span className="text-xs font-bold text-gray-300 mt-1">
                       {(i + 1).toString().padStart(2, "0")}
                     </span>
                     <p className="text-gray-600 leading-relaxed font-light text-lg m-0">
-                      {goal.text}
+                      {goal.text || goal}
                     </p>
                   </div>
                 ))}
@@ -205,14 +211,14 @@ export default function ToyotiresCaseStudy() {
             <div className="mb-24">
               {study.solution && (
                 <div className="space-y-16">
-                  {study.solution.map((sol, index) => (
+                  {study.solution?.map((sol: any, index: number) => (
                     <div
                       key={index}
                       className="grid md:grid-cols-12 gap-8 md:gap-12 items-start border-b border-gray-50 pb-16 last:border-0 last:pb-0"
                     >
                       <div className="md:col-span-5">
                         <h4 className="text-[11px] font-medium uppercase tracking-[0.2em] text-gray-400 mb-2">
-                          {sol.label}
+                          {sol.label || sol.title}
                         </h4>
                         <h3 className="text-2xl font-semibold text-gray-900 m-0 leading-tight">
                           {sol.title}
@@ -220,7 +226,7 @@ export default function ToyotiresCaseStudy() {
                       </div>
                       <div className="md:col-span-7 pt-1 md:pt-0">
                         <ul className="list-none space-y-4 m-0 p-0">
-                          {sol.points.map((point, i) => (
+                          {sol.points?.map((point: any, i: number) => (
                             <li
                               key={i}
                               className="flex gap-4 text-gray-600 font-light text-lg"
@@ -245,7 +251,7 @@ export default function ToyotiresCaseStudy() {
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-x-12 gap-y-10">
-                {study.features?.map((feat, i) => (
+                {study.features?.map((feat: any, i: number) => (
                   <div key={i} className="group">
                     <h4 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
                       {feat?.title}
