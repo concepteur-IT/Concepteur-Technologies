@@ -6,6 +6,7 @@ import { useEffect, useState, type MouseEvent } from "react";
 import { Menu, X } from "lucide-react";
 import Logo from "@/components/logo-component/Logo";
 import LetsTalkBtn from "../ui-components/buttons/LetsTalkBtn";
+import { servicesData } from "@/data/servicesData";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -39,9 +40,11 @@ export default function Navbar() {
   }, [pathname]);
 
   const navItems = [
-    { name: "Who We Are", href: "/who-we-are" },
-    { name: "Services", href: "/services" },
+    { name: "Company", href: "/company" },
+    { name: "Capabilities", href: "/capabilities" },
+    { name: "Solutions", href: "/solutions" },
     { name: "Case Studies", href: "/case-studies" },
+    { name: "Our Edge", href: "/our-edge" },
     // { name: "Blog", href: "/blog" }
     // { name: "Contact", href: "/contact" },
   ];
@@ -65,19 +68,57 @@ export default function Navbar() {
         </Link>
 
         {/* Centered Desktop Nav */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10 text-[14px] font-medium">
+        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center h-full gap-10 text-[14px] font-medium">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
+
+            if (item.name === "Capabilities") {
+              return (
+                <div
+                  key={item.href}
+                  className="group relative h-full flex items-center cursor-pointer"
+                >
+                  <Link
+                    href={item.href}
+                    className={`
+                      relative transition-colors duration-200 py-4
+                      ${isActive ? "text-black" : "text-gray-600 hover:text-black"}
+                      
+                      after:absolute after:left-0 after:-bottom-1
+                      after:h-[1.5px] after:bg-black
+                      after:transition-all after:duration-300
+                      
+                      ${isActive ? "after:w-full" : "after:w-0 hover:after:w-1/2 group-hover:after:w-1/2"}
+                    `}
+                  >
+                    {item.name}
+                  </Link>
+
+                  {/* Square Minimalist Dropdown */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[280px] bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col p-2 shadow-sm pointer-events-none group-hover:pointer-events-auto">
+                    {servicesData.map((service) => (
+                      <Link
+                        key={service.id}
+                        href={`/capabilities/${service.slug}`}
+                        className="px-4 py-3 text-[13px] text-gray-500 hover:text-black hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
+                      >
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`
-                  relative transition-colors duration-200
+                  relative transition-colors duration-200 flex items-center h-full
                   ${isActive ? "text-black" : "text-gray-600 hover:text-black"}
                   
-                  after:absolute after:left-0 after:-bottom-1
+                  after:absolute after:left-0 after:bottom-[calc(50%-12px)]
                   after:h-[1.5px] after:bg-black
                   after:transition-all after:duration-300
                   
@@ -99,12 +140,18 @@ export default function Navbar() {
         <button
           type="button"
           onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-          className="md:hidden inline-flex flex-none shrink-0 items-center justify-center w-[76px] h-10 rounded-lg border border-gray-300 text-black hover:bg-gray-100 transition-colors"
+          className="md:hidden inline-flex flex-none shrink-0 items-center justify-center w-[76px] h-10 rounded-none border border-black text-black hover:bg-black hover:text-white transition-colors"
           aria-expanded={isMobileMenuOpen}
           aria-controls="mobile-nav"
-          aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
         >
-          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isMobileMenuOpen ? (
+            <X className="w-5 h-5" />
+          ) : (
+            <Menu className="w-5 h-5" />
+          )}
         </button>
       </div>
 

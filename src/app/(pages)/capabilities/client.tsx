@@ -62,7 +62,7 @@ const serviceImages: Record<string, string> = {
   uiux: "/services/ux-ui.png",
 };
 
-export default function ServicesPage() {
+export default function CapabilitiesClient() {
   return (
     <main className="min-h-screen bg-white mt-15">
       {/* Hero Section - Clean & Compact */}
@@ -122,7 +122,10 @@ export default function ServicesPage() {
               className="max-w-6xl mx-auto px-6 md:px-8"
             >
               {/* Entire Card acts as a giant clickable area */}
-              <Link href={`/services/${service.slug}`} className="group block">
+              <Link
+                href={`/capabilities/${service.slug}`}
+                className="group block"
+              >
                 <div
                   className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-10 md:gap-16`}
                 >

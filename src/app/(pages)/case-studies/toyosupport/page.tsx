@@ -5,7 +5,6 @@ import { redirect } from "next/navigation";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import { teamData } from "@/data/teamData";
-import Navbar from "@/components/layout-components/Navbar";
 
 const baseStudy =
   caseStudies.find((c) => c.slug === "toyosupport") || caseStudies[0];
@@ -29,8 +28,6 @@ export default function ToyotiresCaseStudy() {
 
   return (
     <main className="bg-white min-h-screen text-gray-900 pb-32">
-      <Navbar />
-
       {/* Back Navigation */}
       <div className="pt-22 pb-4  border-gray-100 bg-white/80 backdrop-blur-md sticky top-0 z-40 lg:relative lg:top-auto lg:z-auto">
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">

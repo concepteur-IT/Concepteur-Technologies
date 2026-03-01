@@ -94,7 +94,7 @@ const StatsAbout = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <div
           ref={sectionRef}
-          className="bg-[#f3f3f3]/80 backdrop-blur-md rounded-2xl md:rounded-3xl py-10 sm:py-12 md:py-16 px-4 sm:px-6 md:px-16"
+          className="bg-[#f3f3f3]/80 backdrop-blur-md rounded-none py-10 sm:py-12 md:py-16 px-4 sm:px-6 md:px-16"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
             {stats.map((stat, index) => (

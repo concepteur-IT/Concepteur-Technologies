@@ -11,7 +11,7 @@ const LetsTalkBtn = ({ onClick }: LetsTalkBtnProps) => {
     <Link
       href="/contact"
       onClick={onClick}
-      className="inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-sm sm:text-base font-semibold px-5 sm:px-6 py-2.5 rounded-lg hover:bg-neutral-800 transition-colors duration-200"
+      className="inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-sm font-medium h-[44px] px-6 border border-transparent rounded-none transition-all duration-200 ease-in-out hover:bg-white hover:text-black hover:border-black active:opacity-90"
     >
       {"Let's Talk"}
     </Link>

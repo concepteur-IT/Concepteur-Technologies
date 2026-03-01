@@ -3,6 +3,9 @@
 import { useState } from "react";
 
 export default function ContactForm() {
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -118,9 +121,10 @@ export default function ContactForm() {
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-5 border-t border-gray-100">
         <button
           type="submit"
-          className="w-full sm:w-auto bg-black text-white px-7 py-3 rounded-lg text-sm font-semibold hover:bg-neutral-800 transition-colors duration-200"
+          disabled={status === "loading"}
+          className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-sm font-medium h-[44px] px-6 border border-transparent rounded-none transition-all duration-200 ease-in-out hover:bg-white hover:text-black hover:border-black active:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Send Inquiry
+          {status === "loading" ? "Sending..." : "Send Inquiry"}
         </button>
       </div>
     </form>

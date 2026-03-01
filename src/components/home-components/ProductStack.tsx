@@ -121,10 +121,10 @@ export default function ProductStack() {
           transition={{ duration: 0.55, ease: easeBezier }}
         >
           <Link
-            href="/services"
+            href="/capabilities"
             className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-gray-500 transition-colors duration-300 hover:text-black"
           >
-            See All Services
+            See All Capabilities
             <span className="h-px w-8 bg-gray-400 transition-all duration-300 group-hover:w-14 group-hover:bg-black" />
           </Link>
         </motion.div>

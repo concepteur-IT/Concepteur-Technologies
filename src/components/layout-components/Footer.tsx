@@ -16,7 +16,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-linear-to-b from-[#f5f5f5]/90 to-[#eaeaea]/90 backdrop-blur-md border-t border-gray-200">
+    <footer className="w-full bg-[#f3f3f3] border-t border-gray-200 mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-14 md:py-20">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12 md:gap-16 text-center md:text-left">
           <div className="space-y-6 max-w-sm mx-auto md:mx-0 flex flex-col items-center md:items-start">
@@ -35,32 +35,62 @@ export default function Footer() {
             </p>
           </div>
 
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
             <div className="space-y-4 md:space-y-6">
-              <h3 className="text-lg font-bold text-black">Company</h3>
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-3 md:block md:space-y-4 text-sm text-gray-600">
+              <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
+                Navigation
+              </h3>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
                 <li>
-                  <Link href="/" className="hover:text-black">
+                  <Link href="/" className="hover:text-black transition-colors">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/who-we-are" className="hover:text-black">
-                    Who we are
+                  <Link
+                    href="/company"
+                    className="hover:text-black transition-colors"
+                  >
+                    Company
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-black">
-                    Services
+                  <Link
+                    href="/capabilities"
+                    className="hover:text-black transition-colors"
+                  >
+                    Capabilities
                   </Link>
                 </li>
                 <li>
-                  <Link href="/case-studies" className="hover:text-black">
+                  <Link
+                    href="/solutions"
+                    className="hover:text-black transition-colors"
+                  >
+                    Solutions
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/case-studies"
+                    className="hover:text-black transition-colors"
+                  >
                     Case Studies
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" className="hover:text-black">
+                  <Link
+                    href="/our-edge"
+                    className="hover:text-black transition-colors"
+                  >
+                    Our Edge
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/contact"
+                    className="hover:text-black transition-colors"
+                  >
                     Contact
                   </Link>
                 </li>
@@ -68,60 +98,62 @@ export default function Footer() {
             </div>
 
             <div className="space-y-4 md:space-y-6">
-              <h3 className="text-lg font-bold text-black">Services</h3>
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-3 md:block md:space-y-4 text-sm text-gray-600">
+              <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
+                Capabilities
+              </h3>
+              <ul className="grid grid-cols-2 gap-x-5 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
                 <li>
                   <Link
-                    href="/services/ai-intelligent-automation"
-                    className="hover:text-black"
+                    href="/capabilities/intelligent-automation-ai"
+                    className="hover:text-black transition-colors"
                   >
                     AI and Automation
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/next-gen-web-platforms"
-                    className="hover:text-black"
+                    href="/capabilities/next-gen-web-platforms"
+                    className="hover:text-black transition-colors"
                   >
                     Website Development
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/cross-platform-mobile-apps"
-                    className="hover:text-black"
+                    href="/capabilities/cross-platform-mobile-apps"
+                    className="hover:text-black transition-colors"
                   >
                     Mobile App Development
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/api-driven-ecommerce-systems"
-                    className="hover:text-black"
+                    href="/capabilities/api-driven-ecommerce-systems"
+                    className="hover:text-black transition-colors"
                   >
                     E-Commerce
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/api-first-backend-architecture"
-                    className="hover:text-black"
+                    href="/capabilities/api-first-backend-architecture"
+                    className="hover:text-black transition-colors"
                   >
                     Server-side and Database
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/product-ui-ux-design"
-                    className="hover:text-black"
+                    href="/capabilities/product-ui-ux-design"
+                    className="hover:text-black transition-colors"
                   >
                     UI and UX Design
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/services/cloud-infrastructure"
-                    className="hover:text-black"
+                    href="/capabilities/cloud-infrastructure"
+                    className="hover:text-black transition-colors"
                   >
                     Cloud and Infrastructure
                   </Link>
@@ -129,21 +161,35 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className="space-y-4 md:space-y-6 sm:col-span-2 md:col-span-1">
-              <h3 className="text-lg font-bold text-black">Get In Touch</h3>
-              <ul className="space-y-3 md:space-y-4 text-sm text-gray-600">
-                <li>info@concepteurit.com</li>
-                <li>Kolkata, India</li>
+            <div className="space-y-4 md:space-y-6">
+              <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
+                Get In Touch
+              </h3>
+              <ul className="space-y-3 md:space-y-3 text-sm text-gray-500 font-medium">
+                <li>
+                  <a
+                    href="mailto:info@concepteur.com"
+                    className="hover:text-black transition-colors block"
+                  >
+                    info@concepteur.com
+                  </a>
+                </li>
+                <li>+91 9832996894</li>
+                <li className="leading-relaxed">
+                  Bara Kajipara, Sukh Sagar Road,
+                  <br />
+                  741222. Chakdaha, Nadia.
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="border-t border-gray-300">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 md:py-8 flex flex-col items-center md:flex-row md:justify-between text-sm text-gray-500 gap-4">
+      <div className="border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 flex flex-col items-center md:flex-row md:justify-between text-sm text-gray-500 font-medium gap-4">
           <p className="text-center md:text-left">
-            Copyright 2025 Concepture. All rights reserved.
+            © 2025 Concepteur Technologies. All rights reserved.
           </p>
 
           <div className="grid grid-cols-1 gap-y-2 w-full max-w-xs md:flex md:w-auto md:max-w-none md:items-center md:justify-end md:gap-6">

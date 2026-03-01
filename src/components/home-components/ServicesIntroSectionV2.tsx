@@ -91,10 +91,10 @@ export default function ServicesIntroSectionV2() {
         {/* Bottom CTA */}
         <div className="mt-16 flex items-center justify-center">
           <Link
-            href="/services"
+            href="/capabilities"
             className="group flex items-center gap-3 rounded-full bg-black px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-gray-800 hover:shadow-lg hover:shadow-black/20"
           >
-            Explore All Services
+            Explore All Capabilities
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Link>
         </div>

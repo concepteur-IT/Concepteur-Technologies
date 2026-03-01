@@ -55,7 +55,7 @@ const ContactContact = () => {
                   info@concepteur.com
                 </a>
                 <p className="text-gray-600 font-light text-lg">
-                  +91 90000 00000
+                  +91 9832996894
                 </p>
               </div>
             </div>

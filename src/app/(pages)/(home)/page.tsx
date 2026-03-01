@@ -5,6 +5,16 @@ import ServicesIntroSectionV3 from "@/components/home-components/ServicesIntroSe
 import TestimonialSection from "@/components/home-components/TestimonialSection";
 import FAQAccordion from "@/components/home-components/FAQAccordion";
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Concepteur Technologies | Enterprise AI & Engineering Solutions",
+  description:
+    "Engineering-led AI technology company delivering scalable systems, intelligent automation, and enterprise-grade digital solutions.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 const page = () => {
   return (

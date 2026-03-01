@@ -12,8 +12,7 @@ const TeamAbout = () => {
             Meet the Team
           </p>
           <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-            The Minds Behind{" "}
-            <span className="font-semibold">the Mission.</span>
+            The Minds Behind <span className="font-semibold">the Mission.</span>
           </h2>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
             A cohesive group of architects, engineers, and designers dedicated
@@ -30,7 +29,7 @@ const TeamAbout = () => {
               className="group flex items-center gap-5 border-t border-gray-100 pt-6"
             >
               {/* Black Square Initials */}
-              <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-[13px] tracking-widest shrink-0 rounded-sm">
+              <div className="w-12 h-12 bg-black text-white flex items-center justify-center font-semibold text-[13px] tracking-widest shrink-0 rounded-none">
                 {member.initials}
               </div>
 

@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import Navbar from "@/components/layout-components/Navbar";
 import { caseStudies } from "@/data/case-studies";
 
 export default function NomadQuestCaseStudy() {
@@ -14,8 +13,6 @@ export default function NomadQuestCaseStudy() {
 
   return (
     <div className="bg-white min-h-screen text-black selection:bg-black selection:text-white font-sans">
-      <Navbar />
-
       {/* Back Button */}
       <div className="pt-32 px-6 max-w-7xl mx-auto">
         <Link

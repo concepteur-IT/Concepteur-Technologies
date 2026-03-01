@@ -10,7 +10,6 @@ import {
   CheckCircle2,
   ArrowUpRight,
 } from "lucide-react";
-import Navbar from "@/components/layout-components/Navbar";
 
 export default function AidoCaseStudy({
   isEmbedded = false,
@@ -33,8 +32,6 @@ export default function AidoCaseStudy({
     >
       {!isEmbedded && (
         <>
-          <Navbar />
-
           {/* Back Button */}
           <div className="pt-32 px-6 max-w-7xl mx-auto">
             <Link

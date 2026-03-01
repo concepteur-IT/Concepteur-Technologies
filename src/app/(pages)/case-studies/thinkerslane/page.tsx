@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, Square } from "lucide-react";
-import Navbar from "@/components/layout-components/Navbar";
 
 export function SectionHeader({
   number,
@@ -43,8 +42,6 @@ export default function ThinkerslaneCaseStudy() {
 
   return (
     <div className="bg-white min-h-screen text-black selection:bg-black selection:text-white font-sans">
-      <Navbar />
-
       {/* Back Button */}
       <div className="pt-32 px-6 max-w-7xl mx-auto">
         <Link

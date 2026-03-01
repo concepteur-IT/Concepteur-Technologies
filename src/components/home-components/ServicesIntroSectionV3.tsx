@@ -14,7 +14,7 @@ const services = [
     description:
       "Machine learning models, generative AI systems, and automation frameworks designed for measurable advantage.",
     image: "/services/ai-automation.png",
-    href: "/services/ai-intelligent-automation",
+    href: "/capabilities/ai-intelligent-automation",
   },
   {
     id: "web",
@@ -22,7 +22,7 @@ const services = [
     description:
       "Performance-optimized web platforms engineered for user engagement and global scale.",
     image: "/services/website-development.png",
-    href: "/services/next-gen-web-platforms",
+    href: "/capabilities/next-gen-web-platforms",
   },
   {
     id: "mobile",
@@ -30,7 +30,7 @@ const services = [
     description:
       "Native and cross-platform mobile experiences built for reliability and continuous growth.",
     image: "/services/mobile-app.png",
-    href: "/services/cross-platform-mobile-apps",
+    href: "/capabilities/cross-platform-mobile-apps",
   },
   {
     id: "backend",
@@ -38,7 +38,7 @@ const services = [
     description:
       "Secure APIs, scalable server architecture, and high-performance database systems.",
     image: "/services/backend-eng.png",
-    href: "/services/api-first-backend-architecture",
+    href: "/capabilities/api-first-backend-architecture",
   },
   {
     id: "cloud",
@@ -46,7 +46,7 @@ const services = [
     description:
       "Cloud-native deployment, DevOps automation, and resilient global infrastructure.",
     image: "/services/cloud-eng.png",
-    href: "/services/cloud-infrastructure",
+    href: "/capabilities/cloud-infrastructure",
   },
   {
     id: "ecommerce",
@@ -54,7 +54,7 @@ const services = [
     description:
       "Conversion-focused online platforms built for the demands of modern digital commerce.",
     image: "/services/e-commerce.png",
-    href: "/services/api-driven-ecommerce-systems",
+    href: "/capabilities/api-driven-ecommerce-systems",
   },
   {
     id: "ux",
@@ -62,7 +62,7 @@ const services = [
     description:
       "Strategic interface design systems that radically elevate product aesthetics and usability.",
     image: "/services/ux-ui.png",
-    href: "/services/product-ui-ux-design",
+    href: "/capabilities/product-ui-ux-design",
   },
   {
     id: "support",
@@ -178,10 +178,10 @@ export default function ServicesIntroSectionV3() {
           transition={{ duration: 0.55, ease: easeBezier }}
         >
           <Link
-            href="/services"
+            href="/capabilities"
             className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-black pb-1 border-b border-black w-max"
           >
-            All Services
+            All Capabilities
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
           </Link>
         </motion.div>

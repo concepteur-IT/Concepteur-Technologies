@@ -80,12 +80,12 @@ export default function OurJourney() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true, margin: "-60px" }}
                     transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
-                    className={`w-16 h-16 rounded-md flex items-center justify-center z-10 my-2 shrink-0 relative ${
+                    className={`w-16 h-16 rounded-none flex items-center justify-center z-10 my-2 shrink-0 relative ${
                       isGoal ? "bg-white border-2 border-black" : "bg-black"
                     }`}
                   >
                     {isGoal && (
-                      <span className="absolute inset-0 rounded-md border-2 border-black animate-ping opacity-20" />
+                      <span className="absolute inset-0 rounded-none border-2 border-black animate-ping opacity-20" />
                     )}
                     <span
                       className={`text-[13px] font-bold tracking-wider ${isGoal ? "text-black" : "text-white"}`}
@@ -144,10 +144,10 @@ export default function OurJourney() {
                     whileInView={{ scale: 1, opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3 }}
-                    className={`w-14 h-14 rounded-md flex items-center justify-center shrink-0 relative ${isGoal ? "bg-white border-2 border-black" : "bg-black"}`}
+                    className={`w-14 h-14 rounded-none flex items-center justify-center shrink-0 relative ${isGoal ? "bg-white border-2 border-black" : "bg-black"}`}
                   >
                     {isGoal && (
-                      <span className="absolute inset-0 rounded-md border-2 border-black animate-ping opacity-20" />
+                      <span className="absolute inset-0 rounded-none border-2 border-black animate-ping opacity-20" />
                     )}
                     <span
                       className={`text-xs font-bold tracking-wider ${isGoal ? "text-black" : "text-white"}`}
