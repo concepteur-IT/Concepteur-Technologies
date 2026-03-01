@@ -4,7 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  CheckCircle2,
+  ArrowUpRight,
+} from "lucide-react";
 import Navbar from "@/components/layout-components/Navbar";
 
 export default function AidoCaseStudy({
@@ -52,15 +57,18 @@ export default function AidoCaseStudy({
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter text-slate-900 leading-[1.1] mb-6">
-              AIDO - AI-powered prescription creator
+              AIDO – AI-Powered Medical Prescription Creator
             </h1>
           </div>
 
           <div className="lg:col-span-4 pb-4">
             <p className="text-lg text-slate-500 font-light leading-relaxed">
-              We partnered with AIDO to engineer a robust AI-driven healthcare
-              platform, streamlining patient intake and maximizing clinical
-              efficiency.
+              AIDO is a clinical-grade AI prescription creation platform
+              designed to help doctors generate structured, compliant, and
+              digitally shareable prescriptions in seconds. Our mandate was to
+              architect and engineer a production-ready system optimized for
+              speed, accuracy, and scalability in real-world medical
+              environments.
             </p>
           </div>
         </div>
@@ -68,7 +76,7 @@ export default function AidoCaseStudy({
 
       {/* ================= HERO IMAGE ================= */}
       <section className="max-w-7xl mx-auto px-6 mb-24">
-        <div className="relative aspect-[16/9] w-full bg-slate-100 overflow-hidden group">
+        <div className="relative h-[300px] md:h-[400px] lg:h-[450px] w-full bg-slate-100 overflow-hidden group">
           <Image
             src="/case-studies/aido-1.png"
             alt="AIDO Platform Dashboard"
@@ -84,21 +92,25 @@ export default function AidoCaseStudy({
             <span className="block text-xs uppercase tracking-widest text-slate-400 mb-2">
               Client
             </span>
-            <span className="text-slate-900 font-medium">AIDO Medical</span>
+            <span className="text-slate-900 font-medium">
+              AIDO Healthcare Technologies
+            </span>
           </div>
           <div>
             <span className="block text-xs uppercase tracking-widest text-slate-400 mb-2">
               Role
             </span>
             <span className="text-slate-900 font-medium">
-              Platform Architecture
+              Product Architecture, AI Engineering, Full-Stack Development
             </span>
           </div>
           <div>
             <span className="block text-xs uppercase tracking-widest text-slate-400 mb-2">
               Industry
             </span>
-            <span className="text-slate-900 font-medium">Healthcare IT</span>
+            <span className="text-slate-900 font-medium">
+              Digital Health / HealthTech
+            </span>
           </div>
           <div>
             <span className="block text-xs uppercase tracking-widest text-slate-400 mb-2">
@@ -113,6 +125,51 @@ export default function AidoCaseStudy({
             </Link>
           </div>
         </div>
+
+        {/* Developer Meta */}
+        <div className="mt-12 p-8 border border-slate-200 bg-slate-50 flex flex-col md:flex-row gap-8 items-start md:items-center justify-between">
+          <div>
+            <h3 className="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-2">
+              Lead Developer
+            </h3>
+            <Link
+              href="https://www.linkedin.com/in/proparna-das/"
+              target="_blank"
+              className="text-xl font-medium text-slate-900 hover:text-[#4247f3] transition-colors inline-flex items-center gap-2"
+            >
+              Proparna Das <ArrowUpRight className="w-4 h-4" />
+            </Link>
+          </div>
+          <div className="flex-1 md:max-w-2xl">
+            <h3 className="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-3">
+              Technologies & Contributions
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                "Flutter",
+                "Node.js",
+                "AI",
+                "LangChain",
+                "LangGraph",
+                "AI Agent",
+                "Ollama",
+                "Nest JS",
+                "Server",
+                "AI Optimization",
+                "Prompt Engineering",
+                "Admin System",
+                "Workflow",
+              ].map((tech) => (
+                <span
+                  key={tech}
+                  className="px-3 py-1 bg-white border border-slate-200 text-xs text-slate-600 font-medium rounded-full whitespace-nowrap"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* ================= THE CHALLENGE ================= */}
@@ -125,32 +182,39 @@ export default function AidoCaseStudy({
           </div>
           <div className="lg:col-span-8">
             <p className="text-xl md:text-2xl text-slate-600 font-light leading-relaxed mb-12">
-              Clinical intake workflows were notoriously bogged down by
-              redundant paperwork and fragmented data silos. AIDO needed a
-              foundational architecture to bridge the gap between archaic
-              databases and modern AI automation.
+              In high-volume clinical environments, prescription writing remains
+              one of the most repetitive and time-consuming physician tasks.
+              Manual workflows increase the risk of dosage inconsistencies,
+              abbreviation ambiguity, and formatting variability across
+              providers.
+              <br />
+              <br />
+              AIDO required a system capable of generating standardized,
+              compliant, and clinically structured prescriptions while
+              maintaining physician control and workflow speed.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-12">
               <div>
                 <div className="h-px w-12 bg-[#4247f3] mb-6" />
                 <h3 className="text-lg font-medium text-slate-900 mb-3">
-                  Data Silos
+                  Inconsistent Prescription Formatting
                 </h3>
                 <p className="text-slate-500 font-light leading-relaxed">
-                  Legacy EHR systems lacked interoperability, forcing clinical
-                  staff into manual data entry across multiple disconnected
-                  interfaces.
+                  Doctors follow personal shorthand styles, resulting in
+                  non-standardized outputs that complicate pharmacy processing
+                  and patient understanding.
                 </p>
               </div>
               <div>
                 <div className="h-px w-12 bg-[#4247f3] mb-6" />
                 <h3 className="text-lg font-medium text-slate-900 mb-3">
-                  Triage Latency
+                  Time & Cognitive Load
                 </h3>
                 <p className="text-slate-500 font-light leading-relaxed">
-                  Without automated prioritization, critical patient queues were
-                  managed chronologically rather than by medical severity.
+                  Repeated medication entry, dosage structuring, and instruction
+                  formatting increase consultation time and reduce overall
+                  clinic throughput.
                 </p>
               </div>
             </div>
@@ -185,13 +249,14 @@ export default function AidoCaseStudy({
               </div>
               <div>
                 <h3 className="text-xl font-medium text-slate-900 mb-4">
-                  Unified Provider Dashboard
+                  Intelligent Prescription Engine
                 </h3>
                 <p className="text-lg text-slate-500 font-light leading-relaxed">
-                  We engineered a unified React-based interface that aggregates
-                  patient data, medical history, and clinical notes into a
-                  single optimized view, drastically reducing administrative
-                  overlay.
+                  We engineered a structured prescription generation engine that
+                  converts clinical inputs into standardized medical
+                  prescriptions. The system enforces consistent drug naming
+                  conventions, dosage logic, frequency structuring, and
+                  instruction formatting.
                 </p>
               </div>
             </div>
@@ -202,12 +267,12 @@ export default function AidoCaseStudy({
               </div>
               <div>
                 <h3 className="text-xl font-medium text-slate-900 mb-4">
-                  AI-Driven Diagnostics Assistance
+                  Clinical Rule Layer
                 </h3>
                 <p className="text-lg text-slate-500 font-light leading-relaxed">
-                  By constructing an API layer capable of interfacing with
-                  advanced ML models, the platform flags high-risk anomalies,
-                  ensuring critical cases are prioritized systematically.
+                  A configurable rule-based validation layer ensures dosage
+                  coherence, prevents incomplete entries, and flags potential
+                  logical inconsistencies before final prescription generation.
                 </p>
               </div>
             </div>
@@ -218,12 +283,13 @@ export default function AidoCaseStudy({
               </div>
               <div>
                 <h3 className="text-xl font-medium text-slate-900 mb-4">
-                  Smart Queue Integration
+                  Doctor-Centric UX Architecture
                 </h3>
                 <p className="text-lg text-slate-500 font-light leading-relaxed">
-                  We developed a scheduling matrix that dynamically adjusts
-                  clinic queues based on live severity scores, eliminating
-                  wait-room flooding and preventing resource exhaustion.
+                  The interface was designed for minimal friction. Physicians
+                  can create, edit, duplicate, and finalize prescriptions within
+                  seconds using an optimized workflow tailored for real clinic
+                  speed.
                 </p>
               </div>
             </div>
@@ -239,30 +305,30 @@ export default function AidoCaseStudy({
 
         <div className="grid md:grid-cols-3 gap-y-12 gap-x-8">
           <div className="text-center">
-            <div className="text-5xl font-bold text-slate-900 mb-4">100%</div>
+            <div className="text-5xl font-bold text-slate-900 mb-4">3x</div>
             <div className="text-sm uppercase tracking-widest text-[#4247f3] font-semibold mb-2">
-              Paperless
+              Faster Prescription Creation
             </div>
             <p className="text-slate-500 font-light text-sm">
-              Forms fully digitized
+              Compared to traditional manual workflows
             </p>
           </div>
           <div className="text-center md:border-l md:border-r border-slate-200">
-            <div className="text-5xl font-bold text-slate-900 mb-4">&lt;2%</div>
+            <div className="text-5xl font-bold text-slate-900 mb-4">100%</div>
             <div className="text-sm uppercase tracking-widest text-[#4247f3] font-semibold mb-2">
-              Rejection Rate
+              Structured Output
             </div>
             <p className="text-slate-500 font-light text-sm">
-              On automated insurance claims
+              Standardized and digitally shareable prescriptions
             </p>
           </div>
           <div className="text-center">
-            <div className="text-5xl font-bold text-slate-900 mb-4">3x</div>
+            <div className="text-5xl font-bold text-slate-900 mb-4">0</div>
             <div className="text-sm uppercase tracking-widest text-[#4247f3] font-semibold mb-2">
-              Faster Triage
+              Formatting Variability
             </div>
             <p className="text-slate-500 font-light text-sm">
-              Through intelligent queuing
+              Uniform structure across all providers
             </p>
           </div>
         </div>
@@ -278,10 +344,9 @@ export default function AidoCaseStudy({
           </div>
           <div className="lg:col-span-8">
             <p className="text-lg text-slate-600 font-light leading-relaxed mb-12">
-              To support the rapid synchronization requirements of a clinical
-              environment, we built a highly decoupled, serverless microservices
-              architecture. This structure allowed patient data streams to be
-              processed in parallel.
+              The AIDO platform was engineered with a modular backend
+              architecture to support real-time prescription generation,
+              structured storage, and secure medical record management.
             </p>
             <div className="grid sm:grid-cols-2 gap-8">
               <div className="bg-slate-50 p-8 border border-slate-200">
@@ -289,11 +354,12 @@ export default function AidoCaseStudy({
                   01
                 </span>
                 <h3 className="text-lg font-medium text-slate-900 mb-3 block">
-                  Data Ingestion
+                  Data Input Layer
                 </h3>
                 <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Secure API gateways handle HL7 FHIR streams from legacy
-                  Electronic Health Records, encrypting them in transit.
+                  Clinical inputs are captured via optimized UI components and
+                  transmitted through secure API gateways to the processing
+                  layer.
                 </p>
               </div>
               <div className="bg-slate-50 p-8 border border-slate-200">
@@ -301,11 +367,12 @@ export default function AidoCaseStudy({
                   02
                 </span>
                 <h3 className="text-lg font-medium text-slate-900 mb-3 block">
-                  AI Processing
+                  AI Structuring Engine
                 </h3>
                 <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Real-time ML models perform anomaly detection on the incoming
-                  data, flagging high-risk records instantly.
+                  The AI engine interprets clinical entries and generates
+                  structured prescription objects using deterministic medical
+                  formatting logic.
                 </p>
               </div>
               <div className="bg-slate-50 p-8 border border-slate-200">
@@ -313,12 +380,12 @@ export default function AidoCaseStudy({
                   03
                 </span>
                 <h3 className="text-lg font-medium text-slate-900 mb-3 block">
-                  State Management
+                  Validation & State Control
                 </h3>
                 <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Optimized Redis caching ensures that the active triage queue
-                  is updated globally across all provider dashboards without
-                  database locking.
+                  Server-side validation ensures compliance with required
+                  prescription fields before finalization. Session state
+                  management enables rapid edits without data loss.
                 </p>
               </div>
               <div className="bg-slate-50 p-8 border border-slate-200">
@@ -326,11 +393,12 @@ export default function AidoCaseStudy({
                   04
                 </span>
                 <h3 className="text-lg font-medium text-slate-900 mb-3 block">
-                  Archival
+                  Secure Archival
                 </h3>
                 <p className="text-slate-500 font-light text-sm leading-relaxed">
-                  Patient sessions are systematically appended to a compliant,
-                  cold-storage database for long-term historical analysis.
+                  All finalized prescriptions are securely stored in encrypted
+                  databases with patient-linked indexing for future retrieval
+                  and audit.
                 </p>
               </div>
             </div>
@@ -348,39 +416,39 @@ export default function AidoCaseStudy({
           </div>
           <div className="lg:col-span-8">
             <p className="text-lg text-slate-600 font-light leading-relaxed mb-8">
-              The introduction of the AIDO platform completely transformed daily
-              clinical operations, yielding measurable improvements in both
-              workflow velocity and data accuracy.
+              AIDO transitioned from concept to a production-ready AI
+              prescription platform capable of supporting real clinical
+              deployment.
             </p>
             <ul className="space-y-6">
               <li className="flex gap-4 items-start">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#4247f3] mt-2.5 shrink-0" />
                 <p className="text-slate-600 font-light">
                   <strong className="font-medium text-slate-900">
-                    Zero Downtime Deployments:
+                    Production-Grade Architecture:
                   </strong>{" "}
-                  Migrated pilot clinics to the new system concurrently without
-                  interrupting emergency workflows.
+                  Built a scalable infrastructure capable of supporting
+                  multi-clinic deployment without performance degradation.
                 </p>
               </li>
               <li className="flex gap-4 items-start">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#4247f3] mt-2.5 shrink-0" />
                 <p className="text-slate-600 font-light">
                   <strong className="font-medium text-slate-900">
-                    Reduced Physician Burnout:
+                    Clinical Efficiency Gains:
                   </strong>{" "}
-                  Provider dashboard optimization reduced average screen time
-                  per patient significantly, freeing up clinical hours.
+                  Reduced average prescription writing time significantly,
+                  allowing physicians to focus more on patient interaction.
                 </p>
               </li>
               <li className="flex gap-4 items-start">
                 <div className="w-1.5 h-1.5 rounded-full bg-[#4247f3] mt-2.5 shrink-0" />
                 <p className="text-slate-600 font-light">
                   <strong className="font-medium text-slate-900">
-                    Scalable Infrastructure:
+                    Structured Medical Records:
                   </strong>{" "}
-                  The cloud-native architecture natively supports scaling to
-                  hundreds of additional clinic locations.
+                  Enabled consistent digital prescription history for long-term
+                  patient management and analytics.
                 </p>
               </li>
             </ul>
@@ -400,7 +468,7 @@ export default function AidoCaseStudy({
                 Next Project
               </span>
               <h2 className="text-4xl md:text-6xl font-medium text-slate-900 group-hover:text-[#4247f3] transition-colors">
-                Explore Directory
+                Explore More Case Studies
               </h2>
             </div>
             <div className="w-16 h-16 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-[#4247f3] group-hover:border-[#4247f3] group-hover:text-white transition-all">

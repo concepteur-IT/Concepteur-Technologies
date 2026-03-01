@@ -167,7 +167,7 @@ export default function CaseStudiesPage() {
             </div>
           </div>
 
-          {/* 3D Cover Flow Carousel */}
+          {/* 2D Minimal Grid Layout */}
           <div className="w-full pt-16">
             {filteredStudies.length === 0 ? (
               <div className="text-center py-20">
@@ -178,17 +178,17 @@ export default function CaseStudiesPage() {
             ) : (
               <div className="flex flex-col items-center">
                 {/* Active Info Headers (Simulating the Artfy text placement) */}
-                <div className="w-full max-w-7xl flex flex-col md:flex-row justify-between items-end mb-12 px-4 drop-shadow-sm">
+                <div className="w-full flex flex-col md:flex-row justify-between items-end mb-16 px-4">
                   <div className="max-w-md">
-                    <h2 className="text-4xl md:text-5xl font-serif text-gray-900 leading-tight mb-4">
+                    <h2 className="text-4xl md:text-5xl font-serif text-black leading-tight mb-4">
                       Drive into <br /> creativity with our <br />
-                      <span className="italic font-light text-gray-400">
+                      <span className="italic font-light text-gray-500">
                         digital portfolio
                       </span>
                     </h2>
                   </div>
                   <div className="max-w-md md:text-right mt-6 md:mt-0">
-                    <p className="text-sm font-light text-gray-500 leading-relaxed max-w-xs ml-auto">
+                    <p className="text-sm font-light text-gray-600 leading-relaxed max-w-xs ml-auto">
                       Explore our curated case studies across various
                       industries, and immerse yourself in architectures that
                       elevate digital expression.
@@ -196,147 +196,61 @@ export default function CaseStudiesPage() {
                   </div>
                 </div>
 
-                {/* Sub title for active center item */}
-                <div className="text-center mb-6 h-16">
-                  <h3 className="text-2xl font-serif text-gray-900 tracking-tight">
-                    {activeItem?.title}
-                  </h3>
-                  <p className="text-xs uppercase tracking-widest text-gray-400 mt-1">
-                    {activeItem?.client}
-                  </p>
-                </div>
+                {/* Grid Layout */}
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
+                  {filteredStudies.map((item, index) => (
+                    <motion.div
+                      key={item.slug}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="group border border-black bg-white flex flex-col h-[450px] relative transition-all duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+                    >
+                      {/* Top Tag */}
+                      <div className="p-6 border-b border-black flex justify-between items-center bg-gray-50">
+                        <span className="text-xs font-mono font-bold text-black uppercase tracking-widest">
+                          {item.tag || "Case Study"}
+                        </span>
+                        <span className="text-xs font-mono text-gray-500">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
 
-                {/* Carousel Track */}
-                <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden [perspective:1200px] mb-12">
-                  {filteredStudies.map((item, index) => {
-                    const distance = index - safeIndex;
-                    const absDistance = Math.abs(distance);
-                    const isActive = distance === 0;
-
-                    // Calculate transforms based on distance from center
-                    const xOffset = distance * 65; // percentage of self width
-                    const rotateY = distance * -20; // 20deg tilt
-                    const scale = Math.max(0.65, 1 - absDistance * 0.15); // Scale down items on the side
-                    const zIndex = 50 - absDistance;
-
-                    // Limit visibility to save performance
-                    const opacity =
-                      absDistance > 2
-                        ? 0
-                        : isActive
-                          ? 1
-                          : 1 - absDistance * 0.25;
-
-                    return (
-                      <motion.div
-                        key={item.slug}
-                        onClick={() => setActiveIndex(index)}
-                        drag="x"
-                        dragConstraints={{ left: 0, right: 0 }}
-                        dragElastic={1}
-                        onDragEnd={(e, { offset, velocity }) => {
-                          const swipeThreshold = 50;
-                          if (offset.x < -swipeThreshold) {
-                            setActiveIndex((prev) =>
-                              Math.min(filteredStudies.length - 1, prev + 1),
-                            );
-                          } else if (offset.x > swipeThreshold) {
-                            setActiveIndex((prev) => Math.max(0, prev - 1));
-                          }
-                        }}
-                        initial={false}
-                        animate={{
-                          x: `${xOffset}%`,
-                          scale: scale,
-                          rotateY: rotateY,
-                          zIndex: zIndex,
-                          opacity: opacity,
-                        }}
-                        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                        className={`absolute w-64 md:w-80 lg:w-96 aspect-[3/4] rounded-3xl p-3 cursor-grab active:cursor-grabbing transition-all duration-700 ${isActive ? "bg-white/40 backdrop-blur-2xl border border-white/50" : "bg-white/10 backdrop-blur-md border border-white/10"}`}
-                        style={{
-                          transformStyle: "preserve-3d",
-                        }}
-                      >
-                        {/* Inner Card Container (Grid Pattern Background) */}
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-inner bg-slate-50 border border-slate-200 flex flex-col group">
-                          {/* Aesthetic Abstract Grid */}
-                          <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-
-                          {/* Subtle Radial Gradient Overlay for depth */}
-                          <div
-                            className={`absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(248,250,252,0.8)_100%)] transition-opacity duration-1000 ${isActive ? "opacity-100" : "opacity-50"}`}
-                          />
-
-                          {/* Active Hover Accent */}
-                          <div
-                            className={`absolute -right-12 -top-12 w-48 h-48 bg-slate-400/10 blur-3xl rounded-full transition-all duration-1000 ${isActive ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}
-                          />
-
-                          {/* Top Tag */}
-                          <div
-                            className="absolute top-5 left-5 z-10 transition-opacity duration-500"
-                            style={{ opacity: isActive ? 1 : 0.5 }}
-                          >
-                            <span className="px-3 py-1 bg-white/90 backdrop-blur-md border border-slate-200 rounded-full text-[9px] font-bold text-slate-500 uppercase tracking-widest shadow-sm">
-                              {item.tag || "Case Study"}
-                            </span>
-                          </div>
-
-                          {/* Integrated Bottom Details */}
-                          <div className="absolute inset-x-0 bottom-0 h-1/2 flex flex-col justify-end p-6 bg-gradient-to-t from-white via-white/90 to-transparent pointer-events-none transition-opacity duration-500 z-10">
-                            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-2 drop-shadow-sm">
-                              {item.client}
-                            </span>
-                            <h4 className="text-2xl md:text-3xl font-serif text-slate-900 tracking-tight mb-5 leading-tight">
-                              {item.title}
-                            </h4>
-
-                            {/* Link Button */}
-                            <div className="pointer-events-auto mt-auto">
-                              {isActive ? (
-                                <Link
-                                  href={`/case-studies/${item.slug}`}
-                                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 border border-slate-800 rounded-full text-xs font-semibold text-white hover:bg-slate-700 hover:border-slate-700 transition-all cursor-pointer shadow-md group-hover:shadow-lg"
-                                  onClick={(e) => setActiveIndex(index)}
-                                >
-                                  View Case Study
-                                  <ArrowUpRight className="w-3.5 h-3.5" />
-                                </Link>
-                              ) : (
-                                <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 rounded-full text-xs font-semibold text-slate-400 transition-all cursor-default">
-                                  View Case Study
-                                  <ArrowUpRight className="w-3.5 h-3.5" />
-                                </div>
-                              )}
-                            </div>
-                          </div>
+                      {/* Content Area */}
+                      <div className="p-8 flex-1 flex flex-col justify-between">
+                        <div>
+                          <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-4">
+                            {item.client}
+                          </span>
+                          <h3 className="text-2xl font-serif text-black leading-snug mb-4">
+                            {item.title}
+                          </h3>
+                          {item.shortDesc && (
+                            <p className="text-sm text-gray-600 font-light line-clamp-3 leading-relaxed">
+                              {item.shortDesc}
+                            </p>
+                          )}
                         </div>
-                      </motion.div>
-                    );
-                  })}
-                </div>
 
-                {/* Navigation Controls */}
-                <div className="flex items-center justify-center gap-6 mb-24">
-                  <button
-                    onClick={() => setActiveIndex(Math.max(0, safeIndex - 1))}
-                    disabled={safeIndex === 0}
-                    className="w-12 h-12 rounded-full border border-gray-200 bg-white flex items-center justify-center text-gray-500 hover:bg-black hover:text-white hover:border-black transition-all disabled:opacity-30 disabled:hover:bg-white disabled:hover:text-gray-500 disabled:hover:border-gray-200 shadow-sm"
-                  >
-                    <ArrowLeft className="w-5 h-5" />
-                  </button>
-                  <button
-                    onClick={() =>
-                      setActiveIndex(
-                        Math.min(filteredStudies.length - 1, safeIndex + 1),
-                      )
-                    }
-                    disabled={safeIndex === filteredStudies.length - 1}
-                    className="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center hover:bg-gray-800 hover:scale-105 transition-all disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:scale-100 disabled:hover:bg-gray-200 shadow-xl"
-                  >
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
+                        {/* Button Layer */}
+                        <div className="mt-8 pt-6 border-t border-black/10">
+                          {item.slug !== "coming-soon" ? (
+                            <Link
+                              href={`/case-studies/${item.slug}`}
+                              className="inline-flex items-center justify-between w-full px-6 py-4 bg-black text-white text-xs font-mono font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors"
+                            >
+                              View Case Study
+                              <ArrowUpRight className="w-4 h-4 ml-4" />
+                            </Link>
+                          ) : (
+                            <div className="inline-flex items-center justify-between w-full px-6 py-4 bg-gray-100 text-gray-400 text-xs font-mono font-bold uppercase tracking-widest border border-gray-200 cursor-not-allowed">
+                              In Progress
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
 
                 {/* Active Item Details & About the Gallery */}

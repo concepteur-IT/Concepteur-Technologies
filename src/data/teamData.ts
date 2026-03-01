@@ -61,6 +61,12 @@ export const teamData: TeamMember[] = [
     linkedin: "https://www.linkedin.com/feed/",
   },
   {
+    initials: "SB",
+    name: "Sandip Basu",
+    role: "Junior UI/UX Designer",
+    linkedin: "https://www.linkedin.com/feed/",
+  },
+  {
     initials: "RG",
     name: "Rick Goswami",
     role: "Junior Sofware Engineer",

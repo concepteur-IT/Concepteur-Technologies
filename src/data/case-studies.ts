@@ -3,6 +3,7 @@ export const caseStudies = [
     id: "aido",
     slug: "aido",
     title: "AIDO",
+    shortDesc: "Next-Generation Clinical Diagnostics & Automated Triage System",
     description:
       "Next-Generation Clinical Diagnostics & Automated Triage System",
     tags: ["Healthcare IT", "Medical", "System Integration"],
@@ -56,394 +57,149 @@ export const caseStudies = [
     stack: "React Native, CodeIgniter 4, MySQL",
   },
   {
-    slug: "toyosupport",
-    title: "Toyosupport.ca ",
+    slug: "nomadquest-mcp-travel-architecture",
+    title: "NomadQuest AI – Redefining Travel Infrastructure with MCP",
     template: "template1",
-    tag: "Enterprise Platform",
-    shortDesc: "Training & reward ecosystem for dealers.",
-    gradient: "from-cyan-500 to-blue-500",
-
+    tag: "AI / Travel Infrastructure",
+    shortDesc:
+      "A complete architectural transformation from REST-based services to a modular, AI-native MCP-powered travel platform with secure Stripe-integrated payments.",
+    gradient: "from-indigo-600 to-sky-600",
+    country: "Canada",
     results: {
-      growth: "300%",
-      users: "50k+",
-      saved: "40hrs",
+      transformation: "REST → MCP Architecture",
+      aiEcosystems: "5+ AI Platforms Validated",
+      paymentSecurity: "AI-Isolated Stripe Workflow",
     },
-    heroImage: "/case-studies/toyosupport.ca.png",
 
-    client: "Toyo Tires, Canada ( FROM BRAINIUM INFOTECH PVT LTD)",
-    platform: "WordPress Multisite +",
-    role: "Full-stack Developer, Data Migration Specialist",
-    stack: "Wordpress Multisite++, Mysql",
+    client: "NomadQuest AI",
+    domain: "www.nomadguest.ai",
+    platform:
+      "Node.js MCP Architecture + Azure API Management + Duffel APIs + Next.js Payment Module",
+    role: "System Architect, MCP Implementation Lead, AI Integration & Secure Payment Designer",
+
+    stack: [
+      "Node.js",
+      "Model Context Protocol (MCP)",
+      "Azure API Management",
+      "Duffel Flight APIs",
+      "Stripe",
+      "Next.js",
+      "Claude",
+      "Azure OpenAI",
+      "Gemini",
+      "LibreChat",
+      "OpenWebUI",
+    ],
+
+    overview:
+      "NomadQuest AI initially launched as a travel planning platform powered by a traditional Node.js backend, REST APIs, and a React frontend. While Phase 1 successfully enabled AI-driven itinerary planning, increasing system complexity required a more scalable and AI-native foundation. In Phase 2, the platform was fully re-architected using Model Context Protocol (MCP), replacing the conventional API-driven stack with modular MCP tools, unified Azure API Management, and secure AI-triggered Stripe payments. The result is a future-ready travel infrastructure built for intelligent automation, modular growth, and enterprise-grade security.",
+
+    phaseComparison: {
+      phase1:
+        "Phase 1 was originally developed by **Brainium Infotech Inc**, utilizing a Node.js backend with REST APIs and a React frontend to enable AI-powered trip recommendations and itinerary planning. As the platform evolved, the client sought to transition beyond the traditional REST-based architecture toward a more scalable, AI-native MCP framework — which led them to partner with us for the Phase 2 transformation.",
+      phase2:
+        "Fully MCP-driven architecture built in Node.js, consolidating Duffel APIs into modular MCP tools and exposing a unified Azure APIM endpoint for multi-AI integration and secure payment orchestration.",
+    },
+
     challenge: [
-      {
-        text: "Centralize training, promo tools, and showroom materials",
-        image: "/project.png",
-      },
-      {
-        text: "Migrate legacy data from CodeIgniter & Magento",
-        image: "/project2.png",
-      },
-      {
-        text: "Build a reward-based training system",
-        image: "/project3.png",
-      },
-      {
-        text: "Ensure bilingual accessibility",
-        image: "/project1.png",
-      },
+      "Scaling beyond a traditional REST-based architecture that was not designed for AI-native orchestration.",
+      "Managing highly detailed and nested Duffel API payloads that were difficult for AI systems to interpret reliably.",
+      "Orchestrating multiple travel APIs without duplication or fragmented endpoint management.",
+      "Enabling AI-assisted payments without exposing sensitive passenger or payment data.",
+      "Handling Duffel offer intent IDs securely across user sessions to prevent booking-payment mismatches.",
+      "Transforming raw technical API responses into clear, user-friendly AI travel outputs.",
     ],
 
     solution: [
       {
-        label: "Data Migration",
-        title: "Migrating Legacy Systems",
+        title: "MCP-Based Modular Flight Architecture",
         points: [
-          "Custom plugin for CSV-based user migration from CodeIgniter",
-          "Magento → WooCommerce product & order migration",
-          "Preserved user-product-order relationships",
+          "Rebuilt each Duffel API as an independent MCP tool.",
+          "Created a unified MCP endpoint consolidating all travel operations.",
+          "Established a modular system ready for expansion beyond flight services.",
         ],
       },
       {
-        label: "Reward System Integration",
-        title: "Learning That Pays Off",
+        title: "Schema-First Payload Engineering",
         points: [
-          "Wallet credits earned via course completion",
-          "Redeemable in WooCommerce store",
+          "Designed structured schemas for complex Duffel request and response payloads.",
+          "Enabled consistent interpretation across AI models including Claude, Azure OpenAI, Gemini, LibreChat, and OpenWebUI.",
+          "Improved reliability, debugging efficiency, and long-term maintainability.",
         ],
       },
       {
-        label: "UX Enhancements",
-        title: "Features That Elevate Experience",
+        title: "Azure API Management Integration",
         points: [
-          "Instagram feed integration",
-          "Custom reset password plugin with tracking",
-          "Full bilingual interface",
+          "Managed Duffel APIs through Azure APIM for validation and schema enforcement.",
+          "Handled payload transformations and caching at the gateway layer.",
+          "Exposed a single scalable endpoint for AI model connectivity.",
+        ],
+      },
+      {
+        title: "Secure AI-Connected Stripe Payments",
+        points: [
+          "Developed a Next.js-based payment module generating Stripe Checkout URLs tied to Duffel offer intent IDs.",
+          "Ensured AI triggered payment workflows without accessing sensitive user or passenger data.",
+          "Returned only payment success or failure confirmation to the AI layer.",
+          "Maintained compliance, privacy, and transaction integrity.",
+        ],
+      },
+      {
+        title: "Session & Intent Validation Framework",
+        points: [
+          "Linked Duffel offer intent IDs to secure user sessions.",
+          "Prevented payment misalignment and booking inconsistencies.",
+          "Guaranteed that every transaction corresponded to the correct flight selection.",
+        ],
+      },
+      {
+        title: "Response Optimization Layer",
+        points: [
+          "Converted complex Duffel raw responses into structured, human-readable travel insights.",
+          "Enhanced AI conversational clarity and actionability.",
         ],
       },
     ],
-    features: [
-      {
-        title: "Multisite Login",
-        desc: "Seamless access across environments",
-      },
-      {
-        title: "Reward System",
-        desc: "Wallet credits tied to training",
-      },
-      {
-        title: "Legacy Migration",
-        desc: "Preserved relationships from old systemsWallets credits tied to training",
-      },
-      {
-        title: "Multilingual Support",
-        desc: "English–French interface",
-      },
-      {
-        title: "Resource Management",
-        desc: "Drag-and-drop, instant updates",
-      },
-      {
-        title: "Instagram Integration",
-        desc: "Real-time engagement",
-      },
-      {
-        title: "Real-time Engagement",
-        desc: "Role control, bulk updates",
-      },
-    ],
-  },
-  {
-    slug: "toyotires",
-    title: "Toyotires.ca ",
-    template: "template1",
-    tag: "AI / Healthcare",
-    shortDesc: "AI-powered handwritten prescription system.",
-    gradient: "from-rose-500 to-pink-500",
 
-    results: {
-      growth: "92%",
-      users: "Hospitals",
-      saved: "0 API Cost",
+    aiValidation: {
+      modelsIntegrated: [
+        "Claude",
+        "Azure OpenAI",
+        "Gemini",
+        "LibreChat",
+        "OpenWebUI",
+      ],
+      description:
+        "The unified MCP endpoint was validated across multiple AI ecosystems to ensure robustness, interoperability, and long-term adaptability to evolving AI platforms.",
     },
-    heroImage:
-      "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600",
 
-    client: "Toyo Tires, Canada",
-    platform: "WordPress Multisite +",
-    role: "Full-stack Developer, Data Migration Specialist",
-
-    stack: "React, Node.js, Python, TensorFlow, AWS",
-    challenge: [
-      {
-        text: "Centralize training, promo tools, and showroom materials",
-        image: "/project.png",
-      },
-      {
-        text: "Migrate legacy data from CodeIgniter & Magento",
-        image: "/project2.png",
-      },
-      {
-        text: "Build a reward-based training system",
-        image: "/project3.png",
-      },
-      {
-        text: "Ensure bilingual accessibility",
-        image: "/project1.png",
-      },
-    ],
-
-    solution: [
-      {
-        label: "Data Migration",
-        title: "Migrating Legacy Systems",
-        points: [
-          "Custom plugin for CSV-based user migration from CodeIgniter",
-          "Magento → WooCommerce product & order migration",
-          "Preserved user-product-order relationships",
-        ],
-      },
-      {
-        label: "Reward System Integration",
-        title: "Learning That Pays Off",
-        points: [
-          "Wallet credits earned via course completion",
-          "Redeemable in WooCommerce store",
-        ],
-      },
-      {
-        label: "UX Enhancements",
-        title: "Features That Elevate Experience",
-        points: [
-          "Instagram feed integration",
-          "Custom reset password plugin with tracking",
-          "Full bilingual interface",
-        ],
-      },
-    ],
-
-    features: [
-      {
-        title: "Multisite Login",
-        desc: "Seamless access across environments",
-      },
-      {
-        title: "Reward System",
-        desc: "Wallet credits tied to training",
-      },
-      {
-        title: "Legacy Migration",
-        desc: "Preserved relationships from old systemsWallets credits tied to training",
-      },
-      {
-        title: "Multilingual Support",
-        desc: "English–French interface",
-      },
-      {
-        title: "Resource Management",
-        desc: "Drag-and-drop, instant updates",
-      },
-      {
-        title: "Instagram Integration",
-        desc: "Real-time engagement",
-      },
-      {
-        title: "Real-time Engagement",
-        desc: "Role control, bulk updates",
-      },
-    ],
+    architecturalImpact: {
+      objective: [
+        "Consolidated multiple Duffel APIs into modular MCP tools.",
+        "Introduced schema-driven reliability for AI payload handling.",
+        "Established secure AI-triggered Stripe payment workflows.",
+        "Created a reusable Node.js service structure with caching and environment key management.",
+      ],
+      strategic: [
+        "Positioned NomadQuest AI as a scalable AI-native travel infrastructure.",
+        "Reduced orchestration complexity through unified MCP endpoints.",
+        "Enhanced user trust through privacy-first payment isolation.",
+        "Prepared the platform for expansion into additional travel modules beyond flights.",
+      ],
+    },
   },
 
   {
-    slug: "zoebook.com",
-    title: "zoebook.com",
-    template: "template1",
-    tag: "AI / Healthcare",
-    shortDesc: "AI-powered handwritten prescription system.",
-    gradient: "from-rose-500 to-pink-500",
-
-    results: {
-      growth: "92%",
-      users: "Hospitals",
-      saved: "0 API Cost",
-    },
-
-    heroImage:
-      "https://zoebook.com/public/images/front/new-front-image/banner-img.png",
-
-    client: "zoebook, USA",
-    platform: "WordPress Multisite +",
-    role: "Full-stack Developer, Data Migration Specialist",
-
-    stack: "React, Node.js, laravel, TensorFlow, AWS",
-    challenge: [
-      {
-        text: "Centralize training, promo tools, and showroom materials",
-        image: "/project.png",
-      },
-      {
-        text: "Migrate legacy data from CodeIgniter & Magento",
-        image: "/project2.png",
-      },
-      {
-        text: "Build a reward-based training system",
-        image: "/project3.png",
-      },
-      {
-        text: "Ensure bilingual accessibility",
-        image: "/project1.png",
-      },
-    ],
-
-    solution: [
-      {
-        label: "Data Migration",
-        title: "Migrating Legacy Systems",
-        points: [
-          "Custom plugin for CSV-based user migration from CodeIgniter",
-          "Magento → WooCommerce product & order migration",
-          "Preserved user-product-order relationships",
-        ],
-      },
-      {
-        label: "Reward System Integration",
-        title: "Learning That Pays Off",
-        points: [
-          "Wallet credits earned via course completion",
-          "Redeemable in WooCommerce store",
-        ],
-      },
-      {
-        label: "UX Enhancements",
-        title: "Features That Elevate Experience",
-        points: [
-          "Instagram feed integration",
-          "Custom reset password plugin with tracking",
-          "Full bilingual interface",
-        ],
-      },
-    ],
-
-    features: [
-      {
-        title: "Multisite Login",
-        desc: "Seamless access across environments",
-      },
-      {
-        title: "Reward System",
-        desc: "Wallet credits tied to training",
-      },
-      {
-        title: "Legacy Migration",
-        desc: "Preserved relationships from old systemsWallets credits tied to training",
-      },
-      {
-        title: "Multilingual Support",
-        desc: "English–French interface",
-      },
-      {
-        title: "Resource Management",
-        desc: "Drag-and-drop, instant updates",
-      },
-      {
-        title: "Instagram Integration",
-        desc: "Real-time engagement",
-      },
-      {
-        title: "Real-time Engagement",
-        desc: "Role control, bulk updates",
-      },
-    ],
-  },
-
-  {
-    slug: "ai-medical-ocr",
-    title: "AI Medical Handwriting OCR",
-    heroTag: "Case Study",
-    template: "template2",
-    tag: "AI / Healthcare",
-    shortDesc: "AI-powered handwritten prescription recognition system.",
-    gradient: "from-rose-500 to-pink-500",
-
-    results: {
-      growth: "92%",
-      users: "Hospitals",
-      saved: "0 API Cost",
-    },
-    heroImage: "https://aido.ind.in/assets/images/aido-pic1.svg",
-    heroDescription:
-      "Transforming illegible prescriptions into structured digital records using local AI processing.",
-    client: "Regional Healthcare Network",
-    platform: "On-Premise AI Infrastructure",
-    role: "AI Engineer & System Architect",
-    stack:
-      "Python, PyTorch, Vision Transformers, LLM (7B), OpenCV, HL7 FHIR, macOS Edge Deployment",
-
-    challenge: [
-      {
-        text: "Illegible handwritten prescriptions causing medication errors",
-        image: "/project1.png",
-      },
-      {
-        text: "High recurring costs of cloud-based OCR APIs",
-        image: "/project1.png",
-      },
-      {
-        text: "HIPAA compliance and strict patient data privacy laws",
-        image: "/project1.png",
-      },
-      {
-        text: "Need for structured FHIR-compatible healthcare data output",
-        image: "/project1.png",
-      },
-    ],
-
-    solution: [
-      {
-        label: "Vision AI",
-        title: "Transformer-Based OCR Engine",
-        points: [
-          "Fine-tuned TrOCR-inspired vision transformer model",
-          "Adaptive binarization and skew correction preprocessing",
-          "Context-aware recognition across full prescription forms",
-        ],
-      },
-      {
-        label: "Medical LLM Layer",
-        title: "Intelligent Validation & Correction",
-        points: [
-          "Locally hosted 7B parameter medical language model",
-          "Automatic expansion of medical abbreviations (BID, PRN, QD)",
-          "Dosage validation against pharmaceutical database",
-        ],
-      },
-      {
-        label: "Structured Output",
-        title: "FHIR-Compliant JSON Architecture",
-        points: [
-          "Extracted structured fields: medication, dosage, frequency",
-          "HL7 FHIR compatible output schema",
-          "Seamless integration with EHR & pharmacy systems",
-        ],
-      },
-    ],
-
-    features: [
-      {
-        title: "92% Accuracy",
-        desc: "Real-world handwritten prescription recognition rate",
-      },
-      {
-        title: "0 API Cost",
-        desc: "Fully local AI inference — no third-party billing",
-      },
-      {
-        title: "3x Faster Processing",
-        desc: "Reduced pharmacy transcription time",
-      },
-      {
-        title: "100% On-Premise",
-        desc: "Zero patient data leaves hospital infrastructure",
-      },
-    ],
+    id: "coming-soon",
+    slug: "coming-soon",
+    title: "More Case Studies Coming Soon",
+    shortDesc:
+      "Currently writing and documenting more of our past projects. Check back later!",
+    tag: "Coming Soon",
+    client: "Various",
+    platform: "Various Platforms",
+    role: "In Progress",
+    year: "2026",
+    heroImage: "", // No image
   },
 ];
