@@ -15,7 +15,7 @@ export const teamData: TeamMember[] = [
   {
     initials: "PD",
     name: "Provat Das",
-    role: "Operations Head",
+    role: "Director of Operations",
     linkedin: "https://linkedin.com",
   },
   {

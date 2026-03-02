@@ -1,6 +1,7 @@
 "use client";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -16,46 +17,69 @@ const jsonLd = {
 
 export default function SolutionsPage() {
   return (
-    <main className="bg-white text-black font-sans selection:bg-black selection:text-white min-h-screen">
+    <main className="bg-white text-black font-sans selection:bg-black selection:text-white min-h-screen mt-15">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* SECTION 1: HERO - Compact Typography */}
-      <section className="pt-32 pb-16 md:pt-40 md:pb-24 px-6 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
-          <div className="md:w-5/12">
-            <h1 className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">
+      {/* SECTION 1: HERO - Clean & Compact */}
+      <section className="relative w-full pt-28 pb-20 overflow-hidden border-b border-gray-100">
+        <div className="absolute inset-0 -z-10">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/50 via-transparent to-transparent" />
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 md:space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
               Solutions
-            </h1>
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight leading-[1.1] mb-6">
-              Transforming Complexity <br />
-              <span className="text-gray-500 font-light">
-                Into Scalable Advantage
-              </span>
-            </h2>
-          </div>
-          <div className="md:w-7/12 flex flex-col justify-end text-base md:text-lg font-light text-gray-700 space-y-6">
+            </p>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-3xl sm:text-4xl md:text-6xl leading-tight font-light text-black tracking-tight"
+          >
+            Transforming Complexity <br className="hidden md:block" />
+            <span className="font-semibold">Into Scalable Advantage</span>
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto space-y-4"
+          >
             <p>
               At Concepteur Technologies, solutions are not predefined packages.
               <span className="font-medium text-black ml-1">
                 They are engineered responses to real business challenges.
               </span>
             </p>
-            <p className="leading-relaxed">
-              We combine system architecture, disciplined engineering, and
-              AI-enhanced execution to design solutions that improve
-              performance, reduce operational overhead, and prepare
-              organizations for long-term scale.
-            </p>
-            <div className="inline-block border-l-2 border-black pl-4">
-              <p className="text-[12px] font-semibold uppercase tracking-widest text-black">
-                Each solution area represents a strategic capability — built
-                around measurable impact, not trends.
-              </p>
+            <div className="pt-8 pb-2">
+              <div className="relative border-l-2 border-black pl-5 md:pl-8 text-left mx-auto max-w-2xl bg-gradient-to-r from-gray-50/50 to-transparent py-4 pr-4">
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-4 font-light">
+                  We combine system architecture, disciplined engineering, and
+                  AI-enhanced execution to design solutions that improve
+                  performance, reduce operational overhead, and prepare
+                  organizations for long-term scale.
+                </p>
+                <div className="flex items-center gap-3">
+                  <span className="w-4 h-px bg-gray-300"></span>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black m-0">
+                    Each solution area represents a strategic capability — built
+                    around measurable impact, not trends.
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
