@@ -9,13 +9,13 @@ export const teamData: TeamMember[] = [
   {
     initials: "MC",
     name: "Mandira Chakraborty",
-    role: "Founder & CEO",
+    role: "Director",
     linkedin: "https://linkedin.com",
   },
   {
     initials: "PD",
     name: "Provat Das",
-    role: "Senior lead Software Architect",
+    role: "Operations Head",
     linkedin: "https://linkedin.com",
   },
   {
