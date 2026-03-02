@@ -44,8 +44,8 @@ export const servicesData: ServiceData[] = [
     ],
     stats: [
       { label: "AI Models Used", value: "12+" },
-      { label: "Avg. Efficiency Gain", value: "280%" },
-      { label: "Processes Automated", value: "110+" },
+      { label: "Avg. Efficiency Gain", value: "97%" },
+      { label: "Processes Automated", value: "5+" },
     ],
     projects: [
       {
@@ -103,9 +103,9 @@ export const servicesData: ServiceData[] = [
       "API-First Frontend Integration",
     ],
     stats: [
-      { label: "Web Platforms Built", value: "41+" },
-      { label: "Uptime Guaranteed", value: "99.99%" },
-      { label: "Avg. Load Time", value: "< 0.8s" },
+      { label: "Web Platforms Built", value: "18+" },
+      { label: "Uptime Guaranteed", value: "100%" },
+      { label: "Avg. Load Time", value: "< 3s" },
     ],
     projects: [
       {
@@ -150,8 +150,8 @@ export const servicesData: ServiceData[] = [
     ],
     stats: [
       { label: "Mobile Apps Built", value: "7+" },
-      { label: "API Integrations", value: "40+" },
-      { label: "Crash-Free Stability", value: "99%+" },
+      { label: "API Integrations", value: "210+" },
+      { label: "Crash-Free Stability", value: "98%+" },
     ],
     projects: [
       {
@@ -266,9 +266,9 @@ export const servicesData: ServiceData[] = [
       "Continuous Integration & Continuous Deployment (CI/CD)",
     ],
     stats: [
-      { label: "Migrations Completed", value: "20+" },
-      { label: "Infrastructure Cost Savings", value: "40%" },
-      { label: "Deploy Time Reduction", value: "85%" },
+      { label: "Migrations Completed", value: "6+" },
+      { label: "Infrastructure Cost Savings", value: "37%" },
+      { label: "Deploy Time Reduction", value: "92%" },
     ],
     projects: [
       {
@@ -312,9 +312,9 @@ export const servicesData: ServiceData[] = [
       "Inventory & Stock Synchronization",
     ],
     stats: [
-      { label: "Commerce Platforms Built", value: "15+" },
-      { label: "Payment Systems Integrated", value: "20+" },
-      { label: "Orders Processed via APIs", value: "80K+" },
+      { label: "Commerce Platforms Built", value: "8+" },
+      { label: "Payment Systems Integrated", value: "3+" },
+      { label: "Orders Processed via APIs", value: "100+" },
     ],
     projects: [
       {
@@ -349,9 +349,9 @@ export const servicesData: ServiceData[] = [
       "AI Product Interface Design",
     ],
     stats: [
-      { label: "Interfaces Designed", value: "40+" },
-      { label: "Dashboards Built", value: "25+" },
-      { label: "Production Deployments", value: "30+" },
+      { label: "Interfaces Designed", value: "6+" },
+      { label: "Dashboards Built", value: "11+" },
+      { label: "Production Deployments", value: "15+" },
     ],
     projects: [
       {
