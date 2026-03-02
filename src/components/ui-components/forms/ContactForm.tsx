@@ -31,9 +31,51 @@ export default function ContactForm() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
+    setStatus("loading");
+
+    const selectedServices = formData.services.includes("Other")
+      ? [
+          ...formData.services.filter((service) => service !== "Other"),
+          formData.otherServiceDetail
+            ? `Other: ${formData.otherServiceDetail}`
+            : "Other",
+        ]
+      : formData.services;
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          location: formData.company,
+          project: formData.project,
+          services: selectedServices,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Unable to send inquiry");
+      }
+
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        project: "",
+        services: [],
+        otherServiceDetail: "",
+      });
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+    }
   };
 
   return (
@@ -42,6 +84,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="name"
+          value={formData.name}
           placeholder="Your Name *"
           required
           onChange={handleChange}
@@ -50,6 +93,7 @@ export default function ContactForm() {
         <input
           type="email"
           name="email"
+          value={formData.email}
           placeholder="Email Address *"
           required
           onChange={handleChange}
@@ -58,6 +102,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="phone"
+          value={formData.phone}
           placeholder="Phone Number"
           onChange={handleChange}
           className="w-full bg-transparent border-b border-gray-300 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors"
@@ -112,8 +157,10 @@ export default function ContactForm() {
 
       <textarea
         name="project"
+        value={formData.project}
         rows={3}
         placeholder="Brief project details..."
+        required
         onChange={handleChange}
         className="w-full bg-transparent border-b border-gray-300 py-3 text-base text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors resize-none"
       />
@@ -126,6 +173,16 @@ export default function ContactForm() {
         >
           {status === "loading" ? "Sending..." : "Send Inquiry"}
         </button>
+        {status === "success" && (
+          <p className="text-sm text-green-700">
+            Inquiry sent successfully. We&apos;ll get back to you soon.
+          </p>
+        )}
+        {status === "error" && (
+          <p className="text-sm text-red-600">
+            Unable to send inquiry right now. Please try again.
+          </p>
+        )}
       </div>
     </form>
   );

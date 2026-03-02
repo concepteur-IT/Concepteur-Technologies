@@ -3,10 +3,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type MouseEvent } from "react";
+import { Mail, MapPin } from "lucide-react";
 import Logo from "@/components/logo-component/Logo";
+import WhatsAppIcon from "../ui-components/icons/WhatsAppIcon";
 
 export default function Footer() {
   const pathname = usePathname();
+  const mapsUrl = "https://maps.app.goo.gl/KnKUJXcJ6CHmmFHn7";
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (pathname === "/") {
@@ -169,16 +172,39 @@ export default function Footer() {
                 <li>
                   <a
                     href="mailto:info@concepteur.com"
-                    className="hover:text-black transition-colors block"
+                    className="hover:text-black transition-colors inline-flex items-center gap-2"
                   >
-                    info@concepteur.com
+                    <Mail className="w-4 h-4 shrink-0" />
+                    <span>info@concepteur.com</span>
                   </a>
                 </li>
-                <li>+91 9832996894</li>
-                <li className="leading-relaxed">
-                  Bara Kajipara, Sukh Sagar Road,
-                  <br />
-                  741222. Chakdaha, Nadia.
+                <li>
+                  <a
+                    href="https://wa.me/919832996894"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-black transition-colors inline-flex items-center gap-2"
+                    aria-label="Chat on WhatsApp at +91 9832996894"
+                  >
+                    <WhatsAppIcon className="w-5 h-5 shrink-0" />
+                    <span>+91 9832996894</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="leading-relaxed hover:text-black transition-colors inline-flex items-start gap-2"
+                    aria-label="Open headquarters location in Google Maps"
+                  >
+                    <MapPin className="w-4 h-4 mt-1 shrink-0" />
+                    <span>
+                      Bara Kajipara, Sukh Sagar Road,
+                      <br />
+                      741222. Chakdaha, Nadia.
+                    </span>
+                  </a>
                 </li>
               </ul>
             </div>

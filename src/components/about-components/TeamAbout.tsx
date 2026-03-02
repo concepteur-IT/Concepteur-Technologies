@@ -1,5 +1,4 @@
 import React from "react";
-import { Linkedin, ArrowUpRight } from "lucide-react";
 import { teamData as team } from "@/data/teamData";
 
 const TeamAbout = () => {
@@ -42,21 +41,6 @@ const TeamAbout = () => {
                 </p>
               </div>
 
-              {/* Optional LinkedIn Button & External Arrow */}
-              {member.linkedin && (
-                <div className="ml-2">
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-black hover:opacity-60 transition-opacity block"
-                    aria-label={`${member.name} LinkedIn`}
-                  >
-                    <Linkedin className="w-[18px] h-[18px]" />
-                    <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-black transition-colors" />
-                  </a>
-                </div>
-              )}
             </div>
           ))}
         </div>
