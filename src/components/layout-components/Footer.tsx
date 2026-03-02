@@ -107,7 +107,7 @@ export default function Footer() {
               <ul className="grid grid-cols-2 gap-x-5 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
                 <li>
                   <Link
-                    href="/capabilities/intelligent-automation-ai"
+                    href="/capabilities/ai-intelligent-automation"
                     className="hover:text-black transition-colors"
                   >
                     AI and Automation
