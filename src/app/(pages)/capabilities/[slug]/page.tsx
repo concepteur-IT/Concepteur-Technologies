@@ -10,10 +10,14 @@ export function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
-  
+
   if (!service) {
     return {
       title: "Service Not Found | Concepteur Technologies",
@@ -26,7 +30,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ServiceDetail({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ServiceDetail({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const service = servicesData.find((s) => s.slug === slug);
 
@@ -75,9 +83,16 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20 text-center">
             {service.stats?.map((stat, idx) => (
-              <div key={idx} className="flex flex-col items-center justify-center pt-8 md:pt-0 first:pt-0">
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">{stat.value}</h4>
-                <p className="text-sm uppercase tracking-[0.2em] text-gray-400">{stat.label}</p>
+              <div
+                key={idx}
+                className="flex flex-col items-center justify-center pt-8 md:pt-0 first:pt-0"
+              >
+                <h4 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">
+                  {stat.value}
+                </h4>
+                <p className="text-sm uppercase tracking-[0.2em] text-gray-400">
+                  {stat.label}
+                </p>
               </div>
             ))}
           </div>
@@ -87,37 +102,39 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       {/* Details Section (Features & Benefits) */}
       <section className="py-14 md:py-20 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24">
-            
-            {/* Features Col */}
-            <div className="space-y-8">
-                <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-medium pb-4 border-b border-gray-200">
-                    Core Capabilities
-                </h3>
-                <ul className="space-y-6">
-                    {service.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-4">
-                            <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
-                            <span className="text-base md:text-lg text-gray-800 leading-relaxed">{feature}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+          {/* Features Col */}
+          <div className="space-y-8">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-medium pb-4 border-b border-gray-200">
+              Core Capabilities
+            </h3>
+            <ul className="space-y-6">
+              {service.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
+                  <span className="text-base md:text-lg text-gray-800 leading-relaxed">
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-            {/* Benefits Col */}
-            <div className="space-y-8">
-                <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-medium pb-4 border-b border-gray-200">
-                    Business Impact
-                </h3>
-                <ul className="space-y-6">
-                    {service.benefits.map((benefit, idx) => (
-                        <li key={idx} className="flex items-start gap-4">
-                            <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
-                            <span className="text-base md:text-lg text-gray-800 leading-relaxed">{benefit}</span>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
+          {/* Benefits Col */}
+          <div className="space-y-8">
+            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-medium pb-4 border-b border-gray-200">
+              Business Impact
+            </h3>
+            <ul className="space-y-6">
+              {service.benefits.map((benefit, idx) => (
+                <li key={idx} className="flex items-start gap-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
+                  <span className="text-base md:text-lg text-gray-800 leading-relaxed">
+                    {benefit}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -129,25 +146,51 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium mb-4">
                 Proven Impact
               </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight mb-4">
                 Engineering <span className="font-semibold">Excellence</span>
               </h2>
+              <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed mx-auto">
+                <span className="text-black font-medium">
+                  Many of our projects are delivered under non-disclosure
+                  agreements.
+                </span>
+                <br className="hidden md:block" />
+                The systems presented here illustrate the scope, architecture,
+                and impact of our work while respecting client confidentiality.
+              </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16">
               {service.projects.map((project, idx) => (
-                <div key={idx} className="group flex flex-col sm:flex-row gap-5 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-gray-50/50 border border-gray-100 transition-colors hover:bg-gray-50">
+                <div
+                  key={idx}
+                  className="group flex flex-col sm:flex-row gap-5 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-gray-50/50 border border-gray-100 transition-colors hover:bg-gray-50"
+                >
                   {/* Clean SVG Icon replacement for Images */}
                   <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-black text-white">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                     </svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="28"
+                      height="28"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
                   </div>
 
                   {/* Content */}
                   <div className="space-y-3">
-                    <p className="text-xs font-medium text-gray-500 uppercase tracking-widest">{project.client}</p>
-                    <h3 className="text-xl font-medium text-black">{project.title}</h3>
+                    <p className="text-xs font-medium text-gray-500 uppercase tracking-widest">
+                      {project.client}
+                    </p>
+                    <h3 className="text-xl font-medium text-black">
+                      {project.title}
+                    </h3>
                     <p className="text-gray-600 leading-relaxed text-sm">
                       {project.description}
                     </p>
@@ -163,17 +206,18 @@ export default async function ServiceDetail({ params }: { params: Promise<{ slug
       <section className="py-16 md:py-24 bg-white relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-8 md:space-y-10">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight">
-            Ready to integrate <span className="font-semibold">{service.title}</span>?
+            Ready to integrate{" "}
+            <span className="font-semibold">{service.title}</span>?
           </h2>
           <p className="text-gray-600 text-base md:text-lg">
-            Let&apos;s discuss how we can engineer this solution tailored precisely to your operational needs.
+            Let&apos;s discuss how we can engineer this solution tailored
+            precisely to your operational needs.
           </p>
           <div className="flex justify-center pt-4">
-             <LetsTalkBtn />
+            <LetsTalkBtn />
           </div>
         </div>
       </section>
-
     </main>
   );
 }

@@ -72,7 +72,7 @@ export const caseStudies = [
     },
 
     client: "NomadQuest AI",
-    domain: "www.nomadguest.ai",
+    domain: "https://www.f6s.com/company/nomadquest-ai-inc#about",
     platform:
       "Node.js MCP Architecture + Azure API Management + Duffel APIs + Next.js Payment Module",
     role: "System Architect, MCP Implementation Lead, AI Integration & Secure Payment Designer",
@@ -187,6 +187,25 @@ export const caseStudies = [
         "Prepared the platform for expansion into additional travel modules beyond flights.",
       ],
     },
+  },
+  {
+    slug: "ekaai100",
+    title: "Ekaai100",
+    template: "template1",
+    tag: "Web Application",
+    shortDesc:
+      "Decorator Booking Platform providing seamless inquiry workflows and dynamic profile galleries.",
+    gradient: "from-gray-900 to-black",
+    results: {
+      discovery: "Centralized",
+      leads: "Improved",
+      performance: "Optimized",
+    },
+    heroImage: "/case-studies/ekaai100.png",
+    client: "Ekaai100 / Beeline",
+    platform: "WordPress Web Architecture",
+    role: "Web App Development",
+    stack: "WordPress, CPT, MySQL",
   },
 
   {
