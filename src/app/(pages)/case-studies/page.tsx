@@ -11,5 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <CaseStudiesClient />;
+  return (
+    <main className="bg-white mt-12 sm:mt-14 md:mt-15">
+      <CaseStudiesClient />
+    </main>
+  );
 }

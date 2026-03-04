@@ -68,22 +68,23 @@ export default function TestimonialSection() {
                 </p>
               </div>
 
-              <div className="relative pt-6 border-t border-gray-100 space-y-4">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center shrink-0">
-                    <span className="text-base font-semibold text-white">
-                      {item.author.charAt(0)}
-                    </span>
+              <div className="relative pt-6 border-t border-gray-100">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-4 min-w-0">
+                    <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center shrink-0">
+                      <span className="text-base font-semibold text-white">
+                        {item.author.charAt(0)}
+                      </span>
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-base font-semibold text-black tracking-tight truncate">
+                        {item.author}
+                      </h3>
+                      <p className="text-sm text-gray-500 font-medium mt-0.5 truncate">
+                        {item.company}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-base font-semibold text-black tracking-tight">
-                      {item.author}
-                    </h3>
-                    <p className="text-sm text-gray-500 font-medium mt-0.5">
-                      {item.company}
-                    </p>
-                  </div>
-                </div>
 
                 <a
                   href={item.liveUrl}
