@@ -30,7 +30,7 @@ export const testimonialsData: Testimonial[] = [
   {
     quote:
       "They were easy to communicate with, quick with updates, and handled the work without making things complicated. The project turned out exactly how we wanted. Would happily collaborate again.",
-    company: "Signal",
+    company: "Signal Over Noise",
     author: "Bilal Raja",
     liveUrl: "https://signalovernoise.io/",
   },

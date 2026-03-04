@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Quote } from "lucide-react";
+import { Quote } from "lucide-react";
 
 import { testimonialsData as testimonials } from "@/data/testimonialsData";
 
@@ -83,21 +83,21 @@ export default function TestimonialSection() {
                       <p className="text-sm text-gray-500 font-medium mt-0.5 truncate">
                         {item.company}
                       </p>
+                      {item.liveUrl && (
+                        <a
+                          href={item.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[11px] text-gray-400 hover:text-gray-600 transition-colors mt-0.5 block truncate"
+                          aria-label={`Open ${item.company} website`}
+                        >
+                          {item.liveUrl
+                            .replace(/^https?:\/\/(www\.)?/, "")
+                            .replace(/\/$/, "")}
+                        </a>
+                      )}
                     </div>
                   </div>
-
-                  {/* {item.liveUrl && (
-                    <a
-                      href={item.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.1em] font-semibold text-gray-600 hover:text-black hover:bg-gray-50 border border-gray-200 px-3 py-2 rounded-full transition-colors shrink-0"
-                      aria-label={`Open ${item.company} website`}
-                    >
-                      Visit Site
-                      <ArrowUpRight className="w-3.5 h-3.5" />
-                    </a>
-                  )} */}
                 </div>
               </div>
             </motion.div>
