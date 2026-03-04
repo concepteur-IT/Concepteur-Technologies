@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/data/case-studies";
 import Image from "next/image";
-import AidoCaseStudy from "./aido/page";
 
 export default function CaseStudiesClient() {
   const [activeFilter, setActiveFilter]: any = useState("All");
@@ -82,11 +81,6 @@ export default function CaseStudiesClient() {
                   </div>
 
                   {/* Scrollable Content Area */}
-                  <div className="flex-1 overflow-y-auto overflow-x-hidden w-full h-full relative bg-white scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                    <div className="scale-[0.35] origin-top-left w-[285%] h-[285%]">
-                      <AidoCaseStudy isEmbedded={true} />
-                    </div>
-                  </div>
 
                   {/* Floating Action Button */}
                   <Link href="/case-studies/aido">
