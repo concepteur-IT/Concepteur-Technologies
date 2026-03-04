@@ -18,6 +18,7 @@ export const testimonialsData: Testimonial[] = [
       "It was a great experience working with them. The team is highly skilled and cooperative. They understood our requirements and delivered the project with good quality. Hoping to work with them in the future.",
     company: "Plug & Play",
     author: "Stephen Gray",
+    liveUrl: "",
   },
   {
     quote:
