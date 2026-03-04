@@ -167,37 +167,4 @@ export const caseStudies = [
       ],
     },
   },
-  {
-    slug: "ekaai100",
-    title: "Ekaai100",
-    template: "template1",
-    tag: "Web Application",
-    shortDesc:
-      "Decorator Booking Platform providing seamless inquiry workflows and dynamic profile galleries.",
-    gradient: "from-gray-900 to-black",
-    results: {
-      discovery: "Centralized",
-      leads: "Improved",
-      performance: "Optimized",
-    },
-    heroImage: "/case-studies/ekaai100.png",
-    client: "Ekaai100 / Beeline",
-    platform: "WordPress Web Architecture",
-    role: "Web App Development",
-    stack: "WordPress, CPT, MySQL",
-  },
-
-  {
-    id: "coming-soon",
-    slug: "coming-soon",
-    title: "More Case Studies Coming Soon",
-    shortDesc:
-      "Currently writing and documenting more of our past projects. Check back later!",
-    tag: "Coming Soon",
-    client: "Various",
-    platform: "Various Platforms",
-    role: "In Progress",
-    year: "2026",
-    heroImage: "", // No image
-  },
 ];
