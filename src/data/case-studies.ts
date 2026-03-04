@@ -1,26 +1,5 @@
 export const caseStudies = [
   {
-    id: "aido",
-    slug: "aido",
-    title: "AIDO",
-    shortDesc: "Next-Generation Clinical Diagnostics & Automated Triage System",
-    description:
-      "Next-Generation Clinical Diagnostics & Automated Triage System",
-    tags: ["Healthcare IT", "Medical", "System Integration"],
-    tag: "Medical",
-    metrics: {
-      users: "Clinical",
-      growth: "99.9% Uptime",
-      retention: "HIPAA Compliant",
-    },
-    heroImage: "/case-studies/aido-1.png",
-    client: "AIDO Medical inc.",
-    platform: "Cloud EHR Hybrid",
-    role: "System Architecture",
-    year: "2026",
-    color: "from-teal-900 to-sky-600",
-  },
-  {
     slug: "thinkerslane",
     title: "Thinkerslane",
     template: "template1",
