@@ -92,8 +92,8 @@ export default function TestimonialSection() {
                   className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-black hover:text-gray-600 transition-colors"
                   aria-label={`Open ${item.company} website`}
                 >
-                  Open URL
-                  <ArrowUpRight className="w-3.5 h-3.5" />
+                  {item.liveUrl}
+                  <ArrowUpRight className="w-3 h-3" />
                 </a>
               </div>
             </motion.div>
