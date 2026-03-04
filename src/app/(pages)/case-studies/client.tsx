@@ -8,6 +8,10 @@ import { caseStudies } from "@/data/case-studies";
 
 const easeBezier: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const SHOW_FEATURED_CASE_STUDY = false;
+const SECTION_Y_SPACING = "py-20 md:py-24";
+const HEADING_BLOCK_SPACING =
+  "max-w-4xl mx-auto text-center space-y-5 md:space-y-6";
+const HEADING_BLOCK_MARGIN = "mb-10 md:mb-16";
 
 function CountStat({
   value,
@@ -158,7 +162,7 @@ export default function CaseStudiesClient() {
   return (
     <div className="bg-white min-h-screen text-gray-900 selection:bg-gray-200">
       <motion.section
-        className="relative py-12 md:py-16 bg-white overflow-hidden"
+        className="relative py-20 md:py-32 bg-white overflow-hidden"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
@@ -167,42 +171,26 @@ export default function CaseStudiesClient() {
         <div className="absolute top-0 right-0 -z-10 w-[34rem] h-[34rem] bg-gray-50 rounded-full blur-3xl opacity-70 translate-x-1/3 -translate-y-1/3" />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 items-center">
-            <div className="lg:col-span-7 text-center lg:text-left">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-                Case Studies
-              </p>
-              <h1 className="mt-4 text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-                Real Systems.{" "}
-                <span className="font-semibold">Measurable Outcomes.</span>
-              </h1>
-              <p className="mt-5 text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl lg:max-w-xl mx-auto lg:mx-0">
-                Explore product builds, platform transformations, and
-                engineering rollouts designed for reliability, scale, and
-                long-term business growth.
-              </p>
-            </div>
-
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="cube-scene" aria-hidden="true">
-                <div className="cube-shadow" />
-                <div className="cube">
-                  <div className="face front">AI</div>
-                  <div className="face back">API</div>
-                  <div className="face right">WEB</div>
-                  <div className="face left">MCP</div>
-                  <div className="face top">CLOUD</div>
-                  <div className="face bottom">DATA</div>
-                </div>
-              </div>
-            </div>
+          <div className="max-w-4xl mx-auto text-center space-y-5 md:space-y-6">
+            <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
+              Case Studies
+            </p>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
+              Real Systems.{" "}
+              <span className="font-semibold">Measurable Outcomes.</span>
+            </h1>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              Explore product builds, platform transformations, and engineering
+              rollouts designed for reliability, scale, and long-term business
+              growth.
+            </p>
           </div>
         </div>
       </motion.section>
 
       {SHOW_FEATURED_CASE_STUDY && <FeaturedCaseStudyDisabled />}
 
-      <section className="py-0">
+      <section className={SECTION_Y_SPACING}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div
             ref={statsRef}
@@ -225,14 +213,14 @@ export default function CaseStudiesClient() {
       </section>
 
       <motion.section
-        className="py-12 md:py-16 bg-white"
+        className={`${SECTION_Y_SPACING} bg-white`}
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7, ease: easeBezier }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="max-w-4xl mx-auto mb-8 md:mb-12 text-center space-y-4 md:space-y-5">
+          <div className={`${HEADING_BLOCK_SPACING} ${HEADING_BLOCK_MARGIN}`}>
             <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
               Filtered Showcase
             </p>
@@ -246,7 +234,7 @@ export default function CaseStudiesClient() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mb-10 md:mb-12">
+          <div className="flex flex-wrap justify-center gap-2 mb-10 md:mb-16">
             {filters.map((filter) => (
               <button
                 key={filter}
@@ -280,7 +268,7 @@ export default function CaseStudiesClient() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.45, delay: index * 0.05, ease: easeBezier }}
-                    className={`group border rounded-xl p-5 md:p-6 bg-white transition-all duration-300 ${
+                    className={`group h-[430px] sm:h-[450px] md:h-[470px] border rounded-xl p-5 md:p-6 bg-white flex flex-col transition-all duration-300 ${
                       isActive
                         ? "border-black/35 shadow-[0_12px_40px_rgba(0,0,0,0.08)]"
                         : "border-gray-200 hover:border-gray-300 hover:shadow-[0_10px_28px_rgba(0,0,0,0.06)]"
@@ -289,30 +277,33 @@ export default function CaseStudiesClient() {
                     <button
                       type="button"
                       onClick={() => setActiveSlug(item.slug)}
-                      className="w-full text-left"
+                      className="w-full text-left flex-1 min-h-0"
                     >
                       <span className="text-[11px] uppercase tracking-[0.2em] text-gray-500 font-medium">
                         {item.tag || "Case Study"}
                       </span>
-                      <h3 className="mt-3 text-2xl font-light tracking-tight text-black leading-snug">
-                        {item.title}
-                      </h3>
-                      <p className="mt-2 text-sm uppercase tracking-[0.2em] text-gray-400">
-                        {item.client}
-                      </p>
-                      {item.shortDesc && (
-                        <p className="mt-4 text-sm text-gray-600 leading-relaxed line-clamp-4">
-                          {item.shortDesc}
+
+                      <div className="mt-4 h-full min-h-0 overflow-y-auto pr-1 [scrollbar-width:thin] [scrollbar-color:rgba(0,0,0,0.3)_transparent]">
+                        <h3 className="text-2xl font-light tracking-tight text-black leading-snug">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-sm uppercase tracking-[0.2em] text-gray-400">
+                          {item.client}
                         </p>
-                      )}
+                        {item.shortDesc && (
+                          <p className="mt-4 text-sm text-gray-600 leading-relaxed">
+                            {item.shortDesc}
+                          </p>
+                        )}
+                      </div>
                     </button>
 
                     <div className="pt-5 mt-5 border-t border-gray-200">
                       <Link
                         href={`/case-studies/${item.slug}`}
-                        className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-black hover:text-gray-600 transition-colors"
+                        className="inline-flex items-center justify-between w-full gap-2 text-sm font-semibold uppercase tracking-wider text-black hover:text-gray-600 transition-colors"
                       >
-                        View Case Study
+                        <span>View Case Study</span>
                         <ArrowUpRight className="w-4 h-4" />
                       </Link>
                     </div>
@@ -326,14 +317,14 @@ export default function CaseStudiesClient() {
 
       {activeStudy && (
         <motion.section
-          className="py-12 md:py-16 bg-white"
+          className={`${SECTION_Y_SPACING} bg-white`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: easeBezier }}
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="max-w-4xl mx-auto text-center space-y-4 md:space-y-5 mb-8 md:mb-10">
+            <div className={`${HEADING_BLOCK_SPACING} ${HEADING_BLOCK_MARGIN}`}>
               <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
                 Project Lens
               </p>
@@ -372,14 +363,14 @@ export default function CaseStudiesClient() {
       )}
 
       <motion.section
-        className="py-12 md:py-16 bg-white"
+        className={`${SECTION_Y_SPACING} bg-white`}
         initial={{ opacity: 0, y: 18 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.65, ease: easeBezier }}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 text-center">
-          <div className="max-w-4xl mx-auto space-y-4 md:space-y-5">
+          <div className={`${HEADING_BLOCK_SPACING}`}>
             <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
               Next Build
             </p>
@@ -403,128 +394,6 @@ export default function CaseStudiesClient() {
           </div>
         </div>
       </motion.section>
-
-      <style jsx>{`
-        .cube-scene {
-          position: relative;
-          width: 190px;
-          height: 190px;
-          perspective: 1000px;
-        }
-
-        .cube {
-          position: absolute;
-          inset: 0;
-          transform-style: preserve-3d;
-          animation: spinCube 16s linear infinite;
-        }
-
-        .face {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 13px;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #111827;
-          border: 1px solid rgba(17, 24, 39, 0.18);
-          background: linear-gradient(
-            140deg,
-            rgba(255, 255, 255, 0.93),
-            rgba(243, 244, 246, 0.72)
-          );
-          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.06);
-          backdrop-filter: blur(2px);
-        }
-
-        .front {
-          transform: translateZ(95px);
-        }
-        .back {
-          transform: rotateY(180deg) translateZ(95px);
-        }
-        .right {
-          transform: rotateY(90deg) translateZ(95px);
-        }
-        .left {
-          transform: rotateY(-90deg) translateZ(95px);
-        }
-        .top {
-          transform: rotateX(90deg) translateZ(95px);
-        }
-        .bottom {
-          transform: rotateX(-90deg) translateZ(95px);
-        }
-
-        .cube-shadow {
-          position: absolute;
-          left: 50%;
-          bottom: -30px;
-          width: 130px;
-          height: 28px;
-          transform: translateX(-50%);
-          border-radius: 9999px;
-          background: radial-gradient(
-            ellipse at center,
-            rgba(0, 0, 0, 0.22),
-            rgba(0, 0, 0, 0.02)
-          );
-          filter: blur(7px);
-          animation: pulseShadow 4.2s ease-in-out infinite;
-        }
-
-        @keyframes spinCube {
-          0% {
-            transform: rotateX(-18deg) rotateY(0deg);
-          }
-          50% {
-            transform: rotateX(-18deg) rotateY(180deg);
-          }
-          100% {
-            transform: rotateX(-18deg) rotateY(360deg);
-          }
-        }
-
-        @keyframes pulseShadow {
-          0%,
-          100% {
-            transform: translateX(-50%) scale(1);
-            opacity: 0.82;
-          }
-          50% {
-            transform: translateX(-50%) scale(0.9);
-            opacity: 0.45;
-          }
-        }
-
-        @media (max-width: 767px) {
-          .cube-scene {
-            width: 150px;
-            height: 150px;
-          }
-          .front {
-            transform: translateZ(75px);
-          }
-          .back {
-            transform: rotateY(180deg) translateZ(75px);
-          }
-          .right {
-            transform: rotateY(90deg) translateZ(75px);
-          }
-          .left {
-            transform: rotateY(-90deg) translateZ(75px);
-          }
-          .top {
-            transform: rotateX(90deg) translateZ(75px);
-          }
-          .bottom {
-            transform: rotateX(-90deg) translateZ(75px);
-          }
-        }
-      `}</style>
     </div>
   );
 }
