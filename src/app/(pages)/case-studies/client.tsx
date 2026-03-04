@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
@@ -9,6 +9,33 @@ import Image from "next/image";
 export default function CaseStudiesClient() {
   const [activeFilter, setActiveFilter]: any = useState("All");
   const [activeIndex, setActiveIndex] = useState(3);
+  const [previewContentHeight, setPreviewContentHeight] = useState(2400);
+  const [previewViewportHeight, setPreviewViewportHeight] = useState(2400);
+  const previewViewportRef = useRef<HTMLDivElement>(null);
+  const previewFrameRef = useRef<HTMLIFrameElement>(null);
+  const featuredCaseStudy =
+    caseStudies.find(
+      (study) => study.slug === "nomadquest-mcp-travel-architecture",
+    ) ?? caseStudies[0];
+  const featuredCaseStudyHref = `/case-studies/${featuredCaseStudy.slug}`;
+  const previewTravel = Math.max(0, previewContentHeight - previewViewportHeight);
+  const previewDuration = Math.max(18, previewTravel / 45);
+
+  const handleFeaturedPreviewLoad = () => {
+    const viewportHeight = previewViewportRef.current?.clientHeight ?? 0;
+    setPreviewViewportHeight(viewportHeight);
+
+    const frameDoc = previewFrameRef.current?.contentDocument;
+    const measuredHeight =
+      frameDoc?.documentElement?.scrollHeight ?? frameDoc?.body?.scrollHeight;
+
+    if (measuredHeight) {
+      setPreviewContentHeight(Math.max(measuredHeight, viewportHeight + 1));
+      return;
+    }
+
+    setPreviewContentHeight(Math.max(2400, viewportHeight + 1));
+  };
 
   const filters = [
     "All",
@@ -81,9 +108,36 @@ export default function CaseStudiesClient() {
                   </div>
 
                   {/* Scrollable Content Area */}
+                  <div
+                    ref={previewViewportRef}
+                    className="relative flex-1 overflow-hidden bg-gradient-to-br from-gray-50 to-white"
+                  >
+                    <motion.iframe
+                      ref={previewFrameRef}
+                      src={featuredCaseStudyHref}
+                      title={`${featuredCaseStudy.client} full route preview`}
+                      onLoad={handleFeaturedPreviewLoad}
+                      loading="lazy"
+                      className="w-full border-0 pointer-events-none select-none"
+                      style={{ height: previewContentHeight }}
+                      animate={previewTravel > 0 ? { y: [0, -previewTravel] } : { y: 0 }}
+                      transition={
+                        previewTravel > 0
+                          ? {
+                              duration: previewDuration,
+                              ease: "linear",
+                              repeat: Infinity,
+                              repeatType: "reverse",
+                            }
+                          : { duration: 0.2 }
+                      }
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white/95 via-white/60 to-transparent" />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 via-white/60 to-transparent" />
+                  </div>
 
                   {/* Floating Action Button */}
-                  <Link href="/case-studies/aido">
+                  <Link href={featuredCaseStudyHref}>
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
