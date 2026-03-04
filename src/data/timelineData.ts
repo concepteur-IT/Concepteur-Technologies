@@ -46,7 +46,7 @@ export const timelineData: TimelineItem[] = [
     year: "2025",
     title: "Evolution to Concepteur",
     description:
-      "Ampit officially evolves and rebrands to Concepteur. We open our first physical headquarters and launch our in-office presence.",
+      "Ampit officially evolves and rebrands to Concepteur. We open our first physical Office and launch our in-office presence.",
   },
   {
     year: "2026",

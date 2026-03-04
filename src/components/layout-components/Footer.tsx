@@ -196,11 +196,11 @@ export default function Footer() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="leading-relaxed hover:text-black transition-colors inline-flex items-start gap-2"
-                    aria-label="Open headquarters location in Google Maps"
+                    aria-label="Open Office location in Google Maps"
                   >
                     <MapPin className="w-4 h-4 mt-1 shrink-0" />
                     <span>
-                      Bara Kajipara, Sukh Sagar Road,
+                      Kajipara, Sukh Sagar Road,
                       <br />
                       741222. Chakdaha, Nadia.
                     </span>

@@ -86,17 +86,16 @@ export default function TestimonialSection() {
                     </div>
                   </div>
 
-                  <a
-                    href={item.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 rounded-full border border-gray-200 bg-gray-50 px-3 py-2 text-[10px] uppercase tracking-[0.16em] font-semibold text-gray-700 hover:bg-black hover:border-black hover:text-white transition-all duration-300 shrink-0"
-                    aria-label={`Open ${item.company} website`}
-                  >
-                    Visit
-                    <ArrowUpRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
+                <a
+                  href={item.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-black hover:text-gray-600 transition-colors"
+                  aria-label={`Open ${item.company} website`}
+                >
+                  {item.liveUrl}
+                  <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
             </motion.div>
           ))}
