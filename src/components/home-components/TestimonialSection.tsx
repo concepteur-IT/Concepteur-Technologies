@@ -54,7 +54,7 @@ export default function TestimonialSection() {
                 duration: 0.7,
                 ease: "easeOut",
               }}
-              className="group relative flex flex-col p-10 bg-white rounded-2xl border border-gray-200 shadow-sm hover:border-gray-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+              className="group relative flex flex-col p-8 sm:p-10 bg-white rounded-2xl border border-gray-200 shadow-sm hover:border-gray-300 hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full"
             >
               {/* Large Watermark Quote Icon */}
               <div className="absolute top-8 right-8 text-black opacity-[0.02] transform transition-transform duration-700 group-hover:scale-110 group-hover:opacity-[0.04]">
@@ -68,12 +68,12 @@ export default function TestimonialSection() {
                 </p>
               </div>
 
-              <div className="relative pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-between gap-4">
+              <div className="relative pt-6 border-t border-gray-100 mt-auto">
+                <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex items-center gap-4 min-w-0">
                     <div className="w-12 h-12 rounded-full bg-black flex items-center justify-center shrink-0">
                       <span className="text-base font-semibold text-white">
-                        {item.author.charAt(0)}
+                        {item.author ? item.author.charAt(0) : "C"}
                       </span>
                     </div>
                     <div className="min-w-0">
@@ -86,16 +86,19 @@ export default function TestimonialSection() {
                     </div>
                   </div>
 
-                <a
-                  href={item.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.2em] font-semibold text-black hover:text-gray-600 transition-colors"
-                  aria-label={`Open ${item.company} website`}
-                >
-                  {item.liveUrl}
-                  <ArrowUpRight className="w-3 h-3" />
-                </a>
+                  {/* {item.liveUrl && (
+                    <a
+                      href={item.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.1em] font-semibold text-gray-600 hover:text-black hover:bg-gray-50 border border-gray-200 px-3 py-2 rounded-full transition-colors shrink-0"
+                      aria-label={`Open ${item.company} website`}
+                    >
+                      Visit Site
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )} */}
+                </div>
               </div>
             </motion.div>
           ))}
