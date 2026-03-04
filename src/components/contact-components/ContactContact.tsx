@@ -24,7 +24,7 @@ const ContactContact = () => {
                   <MapPin className="w-4 h-4 text-white" />
                 </div>
                 <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
-                  Headquarters
+                  Office
                 </h3>
               </div>
               <div className="pl-11">
@@ -33,11 +33,11 @@ const ContactContact = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-600 font-light leading-relaxed text-lg hover:text-black transition-colors inline-flex items-start gap-2"
-                  aria-label="Open headquarters location in Google Maps"
+                  aria-label="Open Office location in Google Maps"
                 >
                   <MapPin className="w-4 h-4 mt-1 shrink-0" />
                   <span>
-                    Bara Kajipara, Sukh Sagar Road,
+                    Kajipara, Sukh Sagar Road,
                     <br />
                     741222.
                     <br />
