@@ -2,6 +2,7 @@ export type Testimonial = {
   quote: string;
   company: string;
   author: string;
+  liveUrl: string;
 };
 
 export const testimonialsData: Testimonial[] = [
@@ -10,6 +11,7 @@ export const testimonialsData: Testimonial[] = [
       "It's been over two years now working together, and we've had a great experience throughout. The CRM system has been reliable and fits well into our daily workflow. Whenever we need updates or support, the team is there and responds quickly. We're not going anywhere — looking forward to continuing this partnership.",
     company: "Keysale",
     author: "Par Gustaffson",
+    liveUrl: "https://google.com",
   },
   {
     quote:
@@ -40,5 +42,6 @@ export const testimonialsData: Testimonial[] = [
       "From the beginning, the collaboration has been straightforward and dependable. Communication is clear, deadlines are respected, and support is always available when we need it.",
     company: "Suprokash Publication",
     author: "Suprokash",
+    liveUrl: "https://google.com",
   },
 ];
