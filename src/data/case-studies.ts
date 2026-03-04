@@ -186,18 +186,4 @@ export const caseStudies = [
     role: "Web App Development",
     stack: "WordPress, CPT, MySQL",
   },
-
-  {
-    id: "coming-soon",
-    slug: "coming-soon",
-    title: "More Case Studies Coming Soon",
-    shortDesc:
-      "Currently writing and documenting more of our past projects. Check back later!",
-    tag: "Coming Soon",
-    client: "Various",
-    platform: "Various Platforms",
-    role: "In Progress",
-    year: "2026",
-    heroImage: "", // No image
-  },
 ];
