@@ -1,191 +1,185 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-
-const easeBezier: [number, number, number, number] = [0.22, 1, 0.36, 1];
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const services = [
   {
     id: "ai",
     title: "AI & Intelligent Automation",
-    description:
-      "Machine learning models, generative AI systems, and automation frameworks designed for measurable advantage.",
-    image: "/services/ai-automation.png",
+    desc: "We design and deploy AI-powered systems that automate complex workflows, extract insights from data, and enhance decision-making — enabling your business to scale with intelligence.",
+    image: "/service/ai.jpg",
     href: "/capabilities/ai-intelligent-automation",
   },
   {
     id: "web",
     title: "Website Development",
-    description:
-      "Performance-optimized web platforms engineered for user engagement and global scale.",
-    image: "/services/website-development.png",
+    desc: "From high-performance marketing sites to full-scale web applications, we build fast, accessible, and beautifully crafted digital experiences using modern frameworks.",
+    image: "/service/website.jpg",
     href: "/capabilities/next-gen-web-platforms",
   },
   {
     id: "mobile",
-    title: "Mobile App",
-    description:
-      "Native and cross-platform mobile experiences built for reliability and continuous growth.",
-    image: "/services/mobile-app.png",
+    title: "Mobile App Development",
+    desc: "We build cross-platform mobile applications for iOS and Android that are intuitive, performant, and aligned with your product vision.",
+    image: "/service/mobile.jpg",
     href: "/capabilities/cross-platform-mobile-apps",
   },
   {
     id: "backend",
     title: "Backend & Data Engineering",
-    description:
-      "Secure APIs, scalable server architecture, and high-performance database systems.",
-    image: "/services/backend-eng.png",
+    desc: "Robust APIs, scalable databases, and data pipelines — we architect backend systems that power your product at any scale.",
+    image: "/service/backend.jpg",
     href: "/capabilities/api-first-backend-architecture",
   },
   {
     id: "cloud",
     title: "Cloud & Infrastructure",
-    description:
-      "Cloud-native deployment, DevOps automation, and resilient global infrastructure.",
-    image: "/services/cloud-eng.png",
+    desc: "From cloud-native deployments to DevOps pipelines, we build resilient, secure, and cost-optimised infrastructure on AWS, GCP, and Azure.",
+    image: "/services/cloud.png",
     href: "/capabilities/cloud-infrastructure",
   },
   {
-    id: "ecommerce",
+    id: "ecom",
     title: "E-Commerce",
-    description:
-      "Conversion-focused online platforms built for the demands of modern digital commerce.",
-    image: "/services/e-commerce.png",
+    desc: "We build conversion-focused digital storefronts and commerce platforms with seamless checkout flows, integrations, and performance at their core.",
+    image: "/services/ecommerce.png",
     href: "/capabilities/api-driven-ecommerce-systems",
   },
   {
     id: "ux",
     title: "UI / UX Design",
-    description:
-      "Strategic interface design systems that radically elevate product aesthetics and usability.",
-    image: "/services/ux-ui.png",
+    desc: "Thoughtful interface design and design systems that balance aesthetics with usability — crafted to create meaningful experiences for your users.",
+    image: "/services/uiux.png",
     href: "/capabilities/product-ui-ux-design",
   },
   {
     id: "support",
     title: "Continuous Optimization",
-    description:
-      "Ongoing optimization and support to keep your systems performing at their absolute peak.",
-    image: "/services/contact.png",
+    desc: "Ongoing performance monitoring, iterative improvements, and technical support to keep your product reliable, fast, and ahead of the curve.",
+    image: "/services/support.jpg",
     href: "/contact",
   },
 ];
 
-const gridVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: easeBezier,
-    },
-  },
-};
-
 export default function ServicesIntroSectionV3() {
+  const [activeId, setActiveId] = useState(services[0].id);
+  const active = services.find((s) => s.id === activeId)!;
+
   return (
-    <motion.section
-      className="py-12 md:py-16 bg-white"
-      id="services"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, ease: easeBezier }}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-        <motion.div
-          className="max-w-4xl mx-auto mb-8 md:mb-12 text-center space-y-4 md:space-y-5"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: easeBezier }}
-        >
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-            Our Capabilities
-          </p>
-
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-            Technology Services Built with{" "}
-            <span className="font-semibold">Precision & Intelligence</span>
-          </h2>
-
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            We architect scalable systems, intelligent automation, and refined
-            digital platforms that power long-term business transformation.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-7 gap-y-6 sm:gap-y-10 md:gap-y-12"
-          variants={gridVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          {services.map((service, index) => (
-            <motion.div key={service.id} variants={cardVariants}>
-              <Link
-                href={service.href}
-                aria-label={`Explore ${service.title}`}
-                className="group relative flex flex-col cursor-pointer max-w-md mx-auto sm:max-w-none border border-gray-200 rounded-xl p-3 shadow-sm sm:border-0 sm:rounded-none sm:p-0 sm:shadow-none"
+    <section className="w-full bg-white py-20 md:py-28" id="services">
+      <div className="w-full px-5 md:px-[15%]">
+        {/* Two-column layout */}
+        <div className="flex flex-col md:flex-row gap-12 md:gap-16">
+          {/* LEFT: label + heading + description + service list */}
+          <div className="md:w-[40%] flex flex-col gap-8 shrink-0">
+            <div className="flex flex-col gap-5">
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="text-sm text-gray-400 font-medium"
               >
-                <div className="w-full h-28 sm:h-auto sm:aspect-[4/3] overflow-hidden mb-3 sm:mb-5 bg-gray-50 relative rounded-lg sm:rounded-none">
+                (CT 02) — CAPABILITIES
+              </motion.p>
+              <motion.h2
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.05 }}
+                className="text-3xl sm:text-4xl font-normal text-gray-900 leading-[1.1] tracking-tight"
+              >
+                Technology services built with precision &amp; intelligence.
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="text-sm text-gray-500 leading-relaxed"
+              >
+                Our capabilities span across disciplines — from AI automation
+                and web platforms to mobile apps and cloud infrastructure.
+              </motion.p>
+            </div>
+
+            {/* Service list */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="flex flex-col"
+            >
+              {services.map((service) => (
+                <button
+                  key={service.id}
+                  onMouseEnter={() => setActiveId(service.id)}
+                  onClick={() => setActiveId(service.id)}
+                  className={`text-left py-3.5 border-b border-gray-200 text-normal transition-colors duration-150 ${
+                    activeId === service.id
+                      ? "text-gray-900"
+                      : "text-gray-400 hover:text-gray-700 font-normal"
+                  }`}
+                >
+                  {service.title}
+                </button>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT: active service panel */}
+          <div className="flex-1 min-w-0">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={active.id}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="flex flex-col gap-6"
+              >
+                {/* Image */}
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm bg-gray-100">
                   <Image
-                    src={service.image}
-                    alt={service.title}
+                    src={active.image}
+                    alt={active.title}
                     fill
-                    className="object-cover grayscale transition-all duration-700 ease-in-out group-hover:grayscale-0 group-hover:scale-105"
+                    className="object-cover"
                   />
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-4">
-                  <span className="text-[11px] sm:text-xs font-semibold text-gray-300 mt-0 sm:mt-1">
-                    0{index + 1}
-                  </span>
-                  <div>
-                    <h3 className="text-base sm:text-lg font-medium text-black leading-tight mb-1.5 sm:mb-2">
-                      {service.title}
-                    </h3>
-                    <p className="text-[13px] sm:text-sm text-gray-500 leading-relaxed sm:pr-2 line-clamp-3">
-                      {service.description}
-                    </p>
+                {/* Title + description + CTA */}
+                <div className="flex flex-col gap-4">
+                  <h3 className="text-2xl font-normal text-gray-900 tracking-tight">
+                    {active.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 leading-relaxed max-w-lg">
+                    {active.desc}
+                  </p>
+                  <div className="flex items-center gap-3 pt-1">
+                    <Link
+                      href={active.href}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-white bg-gray-900 px-5 py-2.5 hover:bg-gray-700 transition-colors duration-200"
+                    >
+                      Explore Service <span>↗</span>
+                    </Link>
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 border border-gray-300 px-5 py-2.5 hover:bg-gray-100 transition-colors duration-200"
+                    >
+                      Get in Touch
+                    </Link>
                   </div>
                 </div>
-              </Link>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          className="mt-12 flex justify-center md:hidden"
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.55, ease: easeBezier }}
-        >
-          <Link
-            href="/capabilities"
-            className="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest text-black pb-1 border-b border-black w-max"
-          >
-            All Capabilities
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </Link>
-        </motion.div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

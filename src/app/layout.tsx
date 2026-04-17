@@ -6,11 +6,22 @@ import GoogleAnalytics from "@/components/layout-components/GoogleAnalytics";
 import CookieConsent from "@/components/layout-components/CookieConsent";
 import ChatBot from "@/components/ui-components/ChatBot";
 import { Metadata } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const satoshi = localFont({
+  src: [
+    {
+      path: "./Satoshi-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./Satoshi-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  variable: "--font-satoshi",
   display: "swap",
 });
 
@@ -61,7 +72,7 @@ export default function RootLayout({
   };
   return (
     <html lang="en">
-      <body className={`${inter.className} overflow-x-hidden bg-white`}>
+      <body className={`${satoshi.className} overflow-x-hidden bg-white`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

@@ -7,7 +7,7 @@ export default function ContactSection() {
 
   return (
     <section className="py-12 md:py-16 bg-white border-t border-gray-100">
-      <div className="max-w-6xl mx-auto px-6 md:px-8">
+      <div className="w-full px-5 md:px-[15%]">
         {/* Centered Clean Header */}
         <div className="text-center mb-8 md:mb-12 space-y-4 md:space-y-5 max-w-4xl mx-auto">
           <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">

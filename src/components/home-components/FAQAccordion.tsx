@@ -66,7 +66,7 @@ export default function FAQAccordion() {
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.75, ease: easeBezier }}
     >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+      <div className="w-full px-5 md:px-[15%]">
         <motion.div
           className="max-w-4xl mx-auto mb-8 md:mb-10 text-center space-y-4 md:space-y-5"
           initial={{ opacity: 0, y: 18 }}

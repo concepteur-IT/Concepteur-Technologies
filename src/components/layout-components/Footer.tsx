@@ -7,6 +7,18 @@ import { Mail, MapPin } from "lucide-react";
 import Logo from "@/components/logo-component/Logo";
 import WhatsAppIcon from "../ui-components/icons/WhatsAppIcon";
 
+const SlideLink = ({ href, children }: { href: string; children: string }) => (
+  <Link
+    href={href}
+    className="group relative h-[18px] overflow-hidden inline-block text-gray-500"
+  >
+    <div className="flex flex-col transition-transform duration-[180ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2">
+      <span className="h-[18px] flex items-center whitespace-nowrap">{children}</span>
+      <span className="h-[18px] flex items-center whitespace-nowrap text-black">{children}</span>
+    </div>
+  </Link>
+);
+
 export default function Footer() {
   const pathname = usePathname();
   const mapsUrl = "https://maps.app.goo.gl/KnKUJXcJ6CHmmFHn7";
@@ -43,60 +55,14 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
                 Navigation
               </h3>
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
-                <li>
-                  <Link href="/" className="hover:text-black transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/company"
-                    className="hover:text-black transition-colors"
-                  >
-                    Company
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities"
-                    className="hover:text-black transition-colors"
-                  >
-                    Capabilities
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions"
-                    className="hover:text-black transition-colors"
-                  >
-                    Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/case-studies"
-                    className="hover:text-black transition-colors"
-                  >
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/our-edge"
-                    className="hover:text-black transition-colors"
-                  >
-                    Our Edge
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-black transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
+              <ul className="grid grid-cols-2 gap-x-6 gap-y-3 md:block md:space-y-3 text-sm font-medium">
+                <li><SlideLink href="/">Home</SlideLink></li>
+                <li><SlideLink href="/company">Company</SlideLink></li>
+                <li><SlideLink href="/capabilities">Capabilities</SlideLink></li>
+                <li><SlideLink href="/solutions">Solutions</SlideLink></li>
+                <li><SlideLink href="/case-studies">Case Studies</SlideLink></li>
+                <li><SlideLink href="/our-edge">Our Edge</SlideLink></li>
+                <li><SlideLink href="/contact">Contact</SlideLink></li>
               </ul>
             </div>
 
@@ -104,63 +70,14 @@ export default function Footer() {
               <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
                 Capabilities
               </h3>
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
-                <li>
-                  <Link
-                    href="/capabilities/ai-intelligent-automation"
-                    className="hover:text-black transition-colors"
-                  >
-                    AI and Automation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/next-gen-web-platforms"
-                    className="hover:text-black transition-colors"
-                  >
-                    Website Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/cross-platform-mobile-apps"
-                    className="hover:text-black transition-colors"
-                  >
-                    Mobile App Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/api-driven-ecommerce-systems"
-                    className="hover:text-black transition-colors"
-                  >
-                    E-Commerce
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/api-first-backend-architecture"
-                    className="hover:text-black transition-colors"
-                  >
-                    Server-side and Database
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/product-ui-ux-design"
-                    className="hover:text-black transition-colors"
-                  >
-                    UI and UX Design
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/cloud-infrastructure"
-                    className="hover:text-black transition-colors"
-                  >
-                    Cloud and Infrastructure
-                  </Link>
-                </li>
+              <ul className="grid grid-cols-2 gap-x-5 gap-y-3 md:block md:space-y-3 text-sm font-medium">
+                <li><SlideLink href="/capabilities/ai-intelligent-automation">AI and Automation</SlideLink></li>
+                <li><SlideLink href="/capabilities/next-gen-web-platforms">Website Development</SlideLink></li>
+                <li><SlideLink href="/capabilities/cross-platform-mobile-apps">Mobile App Development</SlideLink></li>
+                <li><SlideLink href="/capabilities/api-driven-ecommerce-systems">E-Commerce</SlideLink></li>
+                <li><SlideLink href="/capabilities/api-first-backend-architecture">Server-side and Database</SlideLink></li>
+                <li><SlideLink href="/capabilities/product-ui-ux-design">UI and UX Design</SlideLink></li>
+                <li><SlideLink href="/capabilities/cloud-infrastructure">Cloud and Infrastructure</SlideLink></li>
               </ul>
             </div>
 
@@ -217,20 +134,9 @@ export default function Footer() {
           <p className="text-center md:text-left">
             © 2025 Concepteur Technologies. All rights reserved.
           </p>
-
           <div className="grid grid-cols-1 gap-y-2 w-full max-w-xs md:flex md:w-auto md:max-w-none md:items-center md:justify-end md:gap-6">
-            <Link
-              href="/privacy-policy"
-              className="hover:text-black transition-colors text-center md:text-left"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="hover:text-black transition-colors text-center md:text-left"
-            >
-              Terms of Service
-            </Link>
+            <SlideLink href="/privacy-policy">Privacy Policy</SlideLink>
+            <SlideLink href="/terms-of-service">Terms of Service</SlideLink>
           </div>
         </div>
       </div>
