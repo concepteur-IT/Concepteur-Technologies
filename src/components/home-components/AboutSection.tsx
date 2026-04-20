@@ -19,7 +19,7 @@ export default function AboutSection() {
               transition={{ duration: 0.5 }}
               className="text-sm text-gray-400 font-medium"
             >
-              (CT 01) — ABOUT
+              — ABOUT
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}

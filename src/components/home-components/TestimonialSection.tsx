@@ -23,7 +23,6 @@ export default function TestimonialSection() {
   return (
     <section className="w-full bg-white py-20 md:py-28">
       <div className="w-full px-5 md:px-[15%]">
-
         {/* Top: label + heading + description */}
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-16 mb-12 md:mb-16">
           <motion.p
@@ -33,7 +32,7 @@ export default function TestimonialSection() {
             transition={{ duration: 0.5 }}
             className="text-sm text-gray-400 font-medium shrink-0 md:w-[220px] md:pt-1"
           >
-            (CT 05) — CLIENTS
+            — CLIENTS
           </motion.p>
 
           <div className="flex-1 space-y-5">
@@ -53,7 +52,10 @@ export default function TestimonialSection() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-sm text-gray-400 leading-relaxed max-w-2xl"
             >
-              Our clients range from startups to enterprise teams. Each partnership is grounded in clear communication, professional rigour, and a shared belief in technology that stands the test of time.
+              Our clients range from startups to enterprise teams. Each
+              partnership is grounded in clear communication, professional
+              rigour, and a shared belief in technology that stands the test of
+              time.
             </motion.p>
           </div>
         </div>
@@ -90,9 +92,11 @@ export default function TestimonialSection() {
                     &ldquo;{item.quote}&rdquo;
                   </p>
                   <div className="flex items-center gap-4">
-                    <span className="w-2 h-2 rounded-full bg-red-500 shrink-0" />
+                    <span className="w-6 h-px bg-gray-900 shrink-0" />
                     <div>
-                      <p className="text-sm font-medium text-gray-900">{item.author}</p>
+                      <p className="text-sm font-medium text-gray-900">
+                        {item.author}
+                      </p>
                       <p className="text-sm text-gray-400">
                         {item.company}
                         {item.liveUrl && (
@@ -104,7 +108,9 @@ export default function TestimonialSection() {
                               rel="noopener noreferrer"
                               className="hover:text-gray-700 transition-colors"
                             >
-                              {item.liveUrl.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}
+                              {item.liveUrl
+                                .replace(/^https?:\/\/(www\.)?/, "")
+                                .replace(/\/$/, "")}
                             </a>
                           </>
                         )}
@@ -126,7 +132,9 @@ export default function TestimonialSection() {
                 onClick={() => go(i)}
                 aria-label={`Go to slide ${i + 1}`}
                 className={`rounded-full transition-all duration-300 ${
-                  i === current ? "w-6 h-2 bg-gray-900" : "w-2 h-2 bg-gray-300 hover:bg-gray-500"
+                  i === current
+                    ? "w-6 h-2 bg-gray-900"
+                    : "w-2 h-2 bg-gray-300 hover:bg-gray-500"
                 }`}
               />
             ))}
@@ -149,7 +157,6 @@ export default function TestimonialSection() {
             </button>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,8 +33,18 @@ export default function ContactForm() {
     }));
   };
 
+  const handleCaptchaChange = (token: string | null) => {
+    setCaptchaToken(token);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    if (!captchaToken) {
+      alert("Please verify that you are not a robot.");
+      return;
+    }
+
     setStatus("loading");
 
     const selectedServices = formData.services.includes("Other")
@@ -55,6 +67,7 @@ export default function ContactForm() {
           location: formData.company,
           project: formData.project,
           services: selectedServices,
+          captchaToken: captchaToken,
         }),
       });
 
@@ -169,9 +182,9 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-sm font-medium h-[44px] px-6 border border-transparent rounded-none transition-all duration-200 ease-in-out hover:bg-white hover:text-black hover:border-black active:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-xs font-bold uppercase tracking-widest h-[52px] px-8 border border-black transition-all duration-300 hover:bg-transparent hover:text-black custom-notch-tl-br disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {status === "loading" ? "Sending..." : "Send Inquiry"}
+          {status === "loading" ? "SENDING..." : "SEND INQUIRY"}
         </button>
         {status === "success" && (
           <p className="text-sm text-green-700">
@@ -183,6 +196,15 @@ export default function ContactForm() {
             Unable to send inquiry right now. Please try again.
           </p>
         )}
+      </div>
+
+      {/* Invisible Recaptcha or Standard View */}
+      <div className="pt-2">
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "dummy_key_to_satisfy_build"}
+          onChange={handleCaptchaChange}
+          theme="light"
+        />
       </div>
     </form>
   );

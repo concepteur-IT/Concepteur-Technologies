@@ -15,6 +15,13 @@ export const testimonialsData: Testimonial[] = [
   },
   {
     quote:
+      "Concepteur made the entire process very smooth for us. They understood our requirements clearly and delivered exactly what we were looking for. Everything works properly, and managing our daily operations has become much easier now. They were responsive, professional, and easy to work with throughout the project. I appreciate their support and dedication.",
+    company: "Thinkerslane",
+    author: "Ashim Das",
+    liveUrl: "https://thinkerslane.com/",
+  },
+  {
+    quote:
       "It was a great experience working with them. The team is highly skilled and cooperative. They understood our requirements and delivered the project with good quality. Hoping to work with them in the future.",
     company: "Plug & Play",
     author: "Stephen Gray",
@@ -33,13 +40,6 @@ export const testimonialsData: Testimonial[] = [
     company: "Signal Over Noise",
     author: "Bilal Raja",
     liveUrl: "https://signalovernoise.io/",
-  },
-  {
-    quote:
-      "Concepteur made the entire process very smooth for us. They understood our requirements clearly and delivered exactly what we were looking for. Everything works properly, and managing our daily operations has become much easier now. They were responsive, professional, and easy to work with throughout the project. I appreciate their support and dedication.",
-    company: "Thinkerslane",
-    author: "Ashim Das",
-    liveUrl: "https://thinkerslane.com/",
   },
   {
     quote:

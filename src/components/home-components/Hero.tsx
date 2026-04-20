@@ -18,39 +18,8 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-6xl text-gray-900 leading-[1.1] mb-8">
-              Shaping tomorrow&apos;s breakthroughs, today with{" "}
-              <span className="relative inline-block font-bold">
-                AI
-                {/* Brush stroke underline */}
-                {/* <motion.svg
-                  aria-hidden="true"
-                  viewBox="0 0 80 12"
-                  preserveAspectRatio="none"
-                  className="absolute left-0 -bottom-1 w-full overflow-visible pointer-events-none"
-                  style={{ height: "0.35em" }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.85, duration: 0.1 }}
-                >
-                  <motion.path
-                    d="M2 8 C10 4, 22 10, 35 7 C48 4, 58 10, 68 7 C72 5.5, 76 8, 78 7"
-                    fill="none"
-                    stroke="#eaada0"
-                    strokeWidth="5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    initial={{ pathLength: 0 }}
-                    animate={{ pathLength: 1 }}
-                    transition={{
-                      duration: 0.55,
-                      delay: 0.9,
-                      ease: [0.22, 1, 0.36, 1],
-                    }}
-                  />
-                </motion.svg> */}
-              </span>
-              .
+            <h1 className="text-5xl sm:text-6xl md:text-7xl text-gray-900 leading-[1.05] mb-8">
+              Systems that think, built to scale for real-world complexity.
             </h1>
 
             <Link
@@ -82,34 +51,63 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            <p className="text-sm sm:text-base text-gray-500 leading-relaxed">
-              At Concepteur, technology is guided by precision and purpose. Our
-              work blends engineering rigour with human-centered design,
-              creating systems that endure. From AI automation to
-              enterprise-grade digital infrastructure, we focus on delivering
-              outcomes that integrate seamlessly with your business and stand
-              the test of time.
+            <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-6">
+              We design and engineer scalable systems — from intelligent
+              automation to robust backend and cloud infrastructure — built for
+              real-world performance, not just prototypes.
             </p>
+
+            <div className="space-y-2 text-sm text-gray-500">
+              {[
+                "Production-ready systems",
+                "Scalable architecture",
+                "End-to-end delivery",
+              ].map((item, i) => (
+                <p
+                  key={i}
+                  className="flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
+                >
+                  <span className="text-gray-400">—</span>
+                  <span>{item}</span>
+                </p>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
 
       {/* Full-width image */}
       <motion.div
-        className="w-full px-5 md:px-[15%] pb-16 sm:pb-20 md:pb-24"
+        className="w-full px-5 md:px-[15%] pb-16 sm:pb-20 md:pb-24 group cursor-pointer"
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden rounded-sm">
           <Image
-            src="/hero/lower.jpg"
+            src="/hero/lower.png"
             alt="Concepteur Technologies — engineering-led AI solutions"
             width={1400}
             height={700}
-            className="w-full h-[320px] sm:h-[440px] md:h-[560px] object-cover"
+            className="w-full h-[320px] sm:h-[440px] md:h-[560px] object-cover transition-transform duration-700 ease-[0.22,1,0.36,1] group-hover:scale-105"
             priority
           />
+
+          {/* Top-Left Notch Overlay */}
+          <svg
+            className="absolute top-0 left-0 w-[50px] h-[50px] pointer-events-none text-white fill-current transition-all duration-[600ms] origin-top-left scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 ease-[0.22,1,0.36,1]"
+            viewBox="0 0 50 50"
+          >
+            <path d="M 0 0 L 38.73 0 A 10 10 0 0 0 29.05 7.5 A 30 30 0 0 1 7.5 29.05 A 10 10 0 0 0 0 38.73 Z" />
+          </svg>
+
+          {/* Bottom-Right Notch Overlay */}
+          <svg
+            className="absolute bottom-0 right-0 w-[50px] h-[50px] pointer-events-none text-white fill-current transition-all duration-[600ms] origin-bottom-right scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 ease-[0.22,1,0.36,1]"
+            viewBox="0 0 50 50"
+          >
+            <path d="M 50 50 L 11.27 50 A 10 10 0 0 0 20.95 42.5 A 30 30 0 0 1 42.5 20.95 A 10 10 0 0 0 50 11.27 Z" />
+          </svg>
         </div>
       </motion.div>
     </section>

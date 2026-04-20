@@ -6,27 +6,33 @@ import styles from "./Logo.module.css";
 type LogoProps = {
   scale?: number;
   mobileCenter?: boolean;
+  theme?: "light" | "dark";
 };
 
 export default function Logo({
   scale = 0.45,
   mobileCenter = false,
+  theme = "light",
 }: LogoProps) {
   const STAR_PATH =
     "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z";
+  
+  const circleColor = theme === "dark" ? "#ffffff" : "#0f1115";
+  const starLineColor = theme === "dark" ? "#0f1115" : "white";
+
   return (
     <div
-      className={`${styles.logo} ${mobileCenter ? styles.mobileCenter : ""}`}
+      className={`${styles.logo} ${mobileCenter ? styles.mobileCenter : ""} ${theme === "dark" ? styles.darkTheme : styles.lightTheme}`}
       style={{ "--logo-scale": scale } as CSSProperties}
     >
       {/* First Circle */}
       <svg className={styles.circle} viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" fill="#0f1115" />
+        <circle cx="50" cy="50" r="48" fill={circleColor} />
 
         {/* Small Star */}
         <path
           d={STAR_PATH}
-          fill="white"
+          fill={starLineColor}
           transform="translate(50 50) scale(1.3) translate(-50 -50)"
         />
 
@@ -35,7 +41,7 @@ export default function Logo({
           y1="50"
           x2="98"
           y2="50"
-          stroke="white"
+          stroke={starLineColor}
           strokeWidth="4"
           strokeLinecap="round"
         />
@@ -43,12 +49,12 @@ export default function Logo({
 
       {/* Second Circle */}
       <svg className={styles.circle} viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="48" fill="#0f1115" />
+        <circle cx="50" cy="50" r="48" fill={circleColor} />
 
         {/* Large Star */}
         <path
           d={STAR_PATH}
-          fill="white"
+          fill={starLineColor}
           transform="translate(50 50) scale(2.2) translate(-50 -50)"
         />
       </svg>

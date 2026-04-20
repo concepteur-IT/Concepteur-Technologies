@@ -72,7 +72,7 @@ export default function RootLayout({
   };
   return (
     <html lang="en">
-      <body className={`${satoshi.className} overflow-x-hidden bg-white`}>
+      <body className={`${satoshi.className} bg-white`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

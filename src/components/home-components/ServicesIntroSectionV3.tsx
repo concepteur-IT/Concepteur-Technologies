@@ -10,56 +10,56 @@ const services = [
     id: "ai",
     title: "AI & Intelligent Automation",
     desc: "We design and deploy AI-powered systems that automate complex workflows, extract insights from data, and enhance decision-making — enabling your business to scale with intelligence.",
-    image: "/service/ai.jpg",
+    image: "/home/cap-ai.png",
     href: "/capabilities/ai-intelligent-automation",
   },
   {
     id: "web",
     title: "Website Development",
     desc: "From high-performance marketing sites to full-scale web applications, we build fast, accessible, and beautifully crafted digital experiences using modern frameworks.",
-    image: "/service/website.jpg",
+    image: "/home/cap-web.png",
     href: "/capabilities/next-gen-web-platforms",
   },
   {
     id: "mobile",
     title: "Mobile App Development",
     desc: "We build cross-platform mobile applications for iOS and Android that are intuitive, performant, and aligned with your product vision.",
-    image: "/service/mobile.jpg",
+    image: "/home/cap-mobile.png",
     href: "/capabilities/cross-platform-mobile-apps",
   },
   {
     id: "backend",
     title: "Backend & Data Engineering",
     desc: "Robust APIs, scalable databases, and data pipelines — we architect backend systems that power your product at any scale.",
-    image: "/service/backend.jpg",
+    image: "/home/cap-backend.png",
     href: "/capabilities/api-first-backend-architecture",
   },
   {
     id: "cloud",
     title: "Cloud & Infrastructure",
     desc: "From cloud-native deployments to DevOps pipelines, we build resilient, secure, and cost-optimised infrastructure on AWS, GCP, and Azure.",
-    image: "/services/cloud.png",
+    image: "/home/cap-cloud.png",
     href: "/capabilities/cloud-infrastructure",
   },
   {
     id: "ecom",
     title: "E-Commerce",
     desc: "We build conversion-focused digital storefronts and commerce platforms with seamless checkout flows, integrations, and performance at their core.",
-    image: "/services/ecommerce.png",
+    image: "/home/cap-ecom.png",
     href: "/capabilities/api-driven-ecommerce-systems",
   },
   {
     id: "ux",
     title: "UI / UX Design",
     desc: "Thoughtful interface design and design systems that balance aesthetics with usability — crafted to create meaningful experiences for your users.",
-    image: "/services/uiux.png",
+    image: "/home/cap-ux.png",
     href: "/capabilities/product-ui-ux-design",
   },
   {
     id: "support",
     title: "Continuous Optimization",
     desc: "Ongoing performance monitoring, iterative improvements, and technical support to keep your product reliable, fast, and ahead of the curve.",
-    image: "/services/support.jpg",
+    image: "/home/cap-support.png",
     href: "/contact",
   },
 ];
@@ -83,7 +83,7 @@ export default function ServicesIntroSectionV3() {
                 transition={{ duration: 0.5 }}
                 className="text-sm text-gray-400 font-medium"
               >
-                (CT 02) — CAPABILITIES
+                — CAPABILITIES
               </motion.p>
               <motion.h2
                 initial={{ opacity: 0, y: 16 }}
@@ -143,7 +143,7 @@ export default function ServicesIntroSectionV3() {
                 className="flex flex-col gap-6"
               >
                 {/* Image */}
-                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm bg-gray-100">
+                <div className="relative w-full aspect-[16/9] overflow-hidden custom-notch-tl-br bg-gray-100">
                   <Image
                     src={active.image}
                     alt={active.title}

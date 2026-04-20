@@ -59,9 +59,17 @@
               color 0.3s ease;
 }
 
+.darkTheme .word {
+  color: #ffffff;
+}
+
 .logo:hover .word {
   letter-spacing: calc(3px * var(--logo-scale));
   color: #3a3a3a;
+}
+
+.logo.darkTheme:hover .word {
+  color: #dddddd;
 }
 
 .tm {
@@ -69,4 +77,8 @@
   margin-left: calc(6px * var(--logo-scale));
   margin-top: calc(8px * var(--logo-scale));
   color: #0f1115;
+}
+
+.darkTheme .tm {
+  color: #ffffff;
 }

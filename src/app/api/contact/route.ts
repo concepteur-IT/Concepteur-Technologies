@@ -9,18 +9,43 @@ type ContactPayload = {
   company?: string;
   project?: string;
   services?: string[];
+  captchaToken?: string;
 };
 
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as ContactPayload;
-    const { name, email, phone, location, company, project, services } = body;
+    const { name, email, phone, location, company, project, services, captchaToken } = body;
 
     if (!name || !email || !project) {
       return NextResponse.json(
         { error: "Missing required fields." },
         { status: 400 },
       );
+    }
+
+    if (!captchaToken) {
+      return NextResponse.json(
+        { error: "reCAPTCHA verification failed. Please try again." },
+        { status: 400 },
+      );
+    }
+
+    // Verify ReCAPTCHA Secret
+    const recaptchaSecretKey = process.env.RECAPTCHA_SECRET_KEY;
+    if (recaptchaSecretKey) {
+      const verifyRes = await fetch(
+        `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${captchaToken}`,
+        { method: "POST" }
+      );
+      
+      const verifyData = await verifyRes.json();
+      if (!verifyData.success) {
+        return NextResponse.json(
+          { error: "Invalid reCAPTCHA token." },
+          { status: 400 },
+        );
+      }
     }
 
     const smtpHost = process.env.SMTP_HOST || process.env.MAIL_HOST;
