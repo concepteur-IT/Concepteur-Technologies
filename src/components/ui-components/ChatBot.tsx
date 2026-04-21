@@ -1,15 +1,8 @@
-﻿"use client";
+"use client";
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  X,
-  Send,
-  Loader2,
-  User,
-  Mail,
-  ArrowRight,
-} from "lucide-react";
+import { X, Send, Loader2, User, Mail, ArrowRight } from "lucide-react";
 
 type Message = {
   role: "user" | "model";
@@ -21,70 +14,21 @@ type HistoryItem = {
   parts: { text: string }[];
 };
 
-// --- Custom Cute Robot SVG Component ---
-const CuteRobot = ({ className }: { className?: string }) => (
+const STAR_PATH =
+  "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z";
+
+// --- Custom Bot SVG Component ---
+const BotIcon = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 100 100"
-    fill="currentColor"
     className={className}
     xmlns="http://www.w3.org/2000/svg"
   >
-    {/* Antenna */}
+    <circle cx="50" cy="50" r="48" fill="#0f1115" />
     <path
-      d="M50 15 L50 25"
-      stroke="currentColor"
-      strokeWidth="4"
-      strokeLinecap="round"
-    />
-    <circle cx="50" cy="12" r="4" />
-
-    {/* Head */}
-    <rect
-      x="25"
-      y="25"
-      width="50"
-      height="40"
-      rx="12"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-    />
-
-    {/* Eyes */}
-    <circle cx="38" cy="40" r="5" fill="currentColor" />
-    <circle cx="62" cy="40" r="5" fill="currentColor" />
-
-    {/* Smile */}
-    <path
-      d="M 40 52 Q 50 58 60 52"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="3"
-      strokeLinecap="round"
-    />
-
-    {/* Floating Hands/Paws (Waving) */}
-    <motion.path
-      d="M 15 50 Q 5 40 10 30"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
-      animate={{ rotate: [0, 20, -10, 20, 0] }}
-      transition={{
-        repeat: Infinity,
-        duration: 2,
-        repeatDelay: 1,
-        ease: "easeInOut",
-      }}
-      style={{ originX: 0.15, originY: 0.5 }}
-    />
-    <path
-      d="M 85 50 Q 95 60 90 70"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="5"
-      strokeLinecap="round"
+      d={STAR_PATH}
+      fill="white"
+      transform="translate(50 50) scale(0.95) translate(-50 -50)"
     />
   </svg>
 );
@@ -280,10 +224,10 @@ export default function ChatBot() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
-              className="w-14 h-14 sm:w-16 sm:h-16 bg-black text-white rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.25)] flex items-center justify-center hover:bg-neutral-800 transition-colors shrink-0 outline-none"
+              className="w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.25)] flex items-center justify-center transition-transform shrink-0 outline-none"
               aria-label="Open AI Assistant"
             >
-              <CuteRobot className="w-8 h-8 sm:w-9 sm:h-9" />
+              <BotIcon className="w-full h-full" />
             </motion.button>
           </div>
         )}
@@ -302,8 +246,8 @@ export default function ChatBot() {
             {/* Header */}
             <div className="bg-black p-4 flex items-center justify-between z-10 relative">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center shrink-0">
-                  <CuteRobot className="w-6 h-6 text-white" />
+                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
+                  <BotIcon className="w-6 h-6" />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white">

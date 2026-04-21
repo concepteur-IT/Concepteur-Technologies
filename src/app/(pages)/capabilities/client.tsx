@@ -1,12 +1,11 @@
 "use client";
 
-import LetsTalkBtn from "@/components/ui-components/buttons/LetsTalkBtn";
 import { servicesData } from "@/data/servicesData";
 import { motion, useInView, useSpring, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 function AnimatedCounter({ value }: { value: string }) {
   const ref = useRef<HTMLSpanElement>(null);
@@ -38,7 +37,6 @@ function AnimatedCounter({ value }: { value: string }) {
       const decimals = value.split(".")[1]?.length || 0;
       return current.toFixed(decimals);
     }
-    // Simple fast floor for integers
     return Math.floor(current).toString();
   });
 
@@ -51,187 +49,318 @@ function AnimatedCounter({ value }: { value: string }) {
   );
 }
 
-// Map service IDs to homepage images
 const serviceImages: Record<string, string> = {
-  ai: "/services/ai-automation.png",
-  web: "/services/website-development.png",
-  mobile: "/services/mobile-app.png",
-  backend: "/services/backend-eng.png",
-  cloud: "/services/cloud-eng.png",
-  ecommerce: "/services/e-commerce.png",
-  uiux: "/services/ux-ui.png",
+  ai: "/home/cap-ai.png",
+  web: "/home/cap-web.png",
+  mobile: "/home/cap-mobile.png",
+  backend: "/home/cap-backend.png",
+  cloud: "/home/cap-cloud.png",
+  ecommerce: "/home/cap-ecom.png",
+  uiux: "/home/cap-ux.png",
 };
 
 export default function CapabilitiesClient() {
   return (
-    <main className="min-h-screen bg-white mt-15">
-      {/* Hero Section - Clean & Compact */}
-      <section className="relative w-full pt-28 pb-20 overflow-hidden">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/50 via-transparent to-transparent" />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 md:space-y-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+    <main className="min-h-screen bg-white pt-[60px]">
+      
+      {/* Redesigned Architectural Hero Section */}
+      <section className="w-full bg-white pt-24 pb-8 md:pt-32 md:pb-12">
+        <div className="w-full px-5 md:px-[15%] flex flex-col">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
+            className="text-sm text-gray-400 font-medium tracking-wider uppercase mb-5"
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-              Capabilities & Expertise
-            </p>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-6xl leading-tight font-light text-black tracking-tight"
-          >
-            Engineering the{" "}
-            <span className="font-semibold">Digital Future</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto"
-          >
-            High-performance solutions tailored for the next generation of
-            enterprise scale.
+            — CAPABILITIES
           </motion.p>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-12">
+            <motion.div 
+               className="lg:col-span-8"
+               initial={{ opacity: 0, y: 16 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.05 }}
+            >
+              <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-normal text-gray-900 leading-[1.05] tracking-tight">
+                Engineering the <br className="hidden sm:block"/>
+                <span className="text-gray-400">Digital Future.</span>
+              </h1>
+            </motion.div>
+
+            <motion.div
+               className="lg:col-span-4"
+               initial={{ opacity: 0, y: 16 }}
+               animate={{ opacity: 1, y: 0 }}
+               transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <p className="text-lg text-gray-500 font-light leading-relaxed h-full flex items-end">
+                High-performance foundational systems engineered for scale, reliability, and precision.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Panoramic Notched Banner (Colorful) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full aspect-[21/9] md:aspect-[3/1] bg-gray-100 relative custom-notch-tl-br overflow-hidden"
+          >
+            <Image 
+              src="/home/bg-frontend.png" 
+              fill 
+              className="object-cover" 
+              alt="Engineering Frontend Architecture"
+              priority
+            />
+          </motion.div>
         </div>
       </section>
 
-      {/* Individual Service Sections */}
-      {servicesData.map((service, index) => {
-        const isReversed = index % 2 !== 0;
-        const img = serviceImages[service.id] || service.image;
+      {/* Structural Services Grid - Alternating Flow */}
+      <div className="w-full">
+        {servicesData.map((service, index) => {
+          const img = serviceImages[service.id] || service.image;
+          const isAlternateLayout = index % 2 !== 0;
 
-        return (
-          <section
-            key={service.id}
-            className={`py-16 md:py-24 ${index % 2 === 0 ? "bg-white" : "bg-gray-50/50"} border-t border-gray-100`}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="max-w-6xl mx-auto px-6 md:px-8"
+          return (
+            <section
+              key={service.id}
+              className={`w-full py-16 md:py-20 border-t ${isAlternateLayout ? "bg-[#fcfcfc] border-gray-100" : "bg-white border-transparent"}`}
             >
-              {/* Entire Card acts as a giant clickable area */}
-              <Link
-                href={`/capabilities/${service.slug}`}
-                className="group block"
-              >
-                <div
-                  className={`flex flex-col ${isReversed ? "md:flex-row-reverse" : "md:flex-row"} items-center gap-10 md:gap-16`}
-                >
-                  {/* Image Side */}
-                  <div className="w-full md:w-5/12">
-                    <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100 shadow-sm group-hover:shadow-lg transition-all duration-500 border border-gray-200">
-                      <Image
-                        src={img}
-                        alt={service.title}
-                        fill
-                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
-                      />
-
-                      {/* Number tag top right */}
-                      <div className="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded text-[11px] font-bold tracking-widest text-black shadow-sm group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                        {String(index + 1).padStart(2, "0")}
+              <div className="w-full px-5 md:px-[15%]">
+                <Link href={`/capabilities/${service.slug}`} className="group block">
+                  
+                  {!isAlternateLayout ? (
+                    /* Layout A: Standard 3-Column Architecture */
+                    <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                      {/* Column 1: Index */}
+                      <div className="hidden lg:block lg:col-span-1 pt-3">
+                        <span className="text-sm font-medium text-black border-t border-black pt-3 flex">
+                          ({String(index + 1).padStart(2, "0")})
+                        </span>
                       </div>
 
-                      {/* Interactive overlay that appears on hover */}
-                      <div className="absolute inset-0 bg-transparent transition-colors duration-500 z-10 flex items-center justify-center pointer-events-none">
-                        <div className="w-12 h-12 rounded-full bg-white/95 text-black flex items-center justify-center opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-500 shadow-lg">
-                          <ArrowUpRight className="w-5 h-5" />
+                      {/* Column 2: Text Architecture */}
+                      <motion.div 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.6 }}
+                        className="lg:col-span-5 flex flex-col pt-3 lg:border-t lg:border-gray-100"
+                      >
+                        <div className="flex items-center gap-4 mb-4 lg:hidden">
+                           <span className="text-sm font-medium text-black">
+                             ({String(index + 1).padStart(2, "0")})
+                           </span>
+                           <span className="h-px bg-gray-200 flex-1" />
                         </div>
-                      </div>
-                    </div>
-                  </div>
 
-                  {/* Content Side */}
-                  <div className="w-full md:w-7/12 space-y-6">
-                    {/* Contextual Header specific to the service */}
+                        <h2 className="text-3xl md:text-4xl font-normal text-gray-900 tracking-tight leading-tight mb-4 transition-colors duration-300">
+                          {service.title}
+                        </h2>
+                        <p className="text-base text-gray-500 font-light leading-relaxed max-w-sm mb-12">
+                          {service.shortDescription}
+                        </p>
 
-                    <div>
-                      <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-black mb-4 group-hover:text-gray-700 transition-colors duration-300">
-                        {service.title}
-                      </h2>
-                      <p className="text-[16px] leading-relaxed text-gray-500 font-light max-w-xl">
-                        {service.shortDescription}
-                      </p>
-                    </div>
+                        <div className="flex flex-col gap-4">
+                          {service.features.slice(0, 4).map((feature, i) => (
+                            <div key={i} className="flex items-center gap-4">
+                              <span className="w-6 h-px bg-gray-200 shrink-0 group-hover:bg-black transition-colors duration-300" />
+                              <span className="text-xs sm:text-sm font-semibold text-gray-500 group-hover:text-black tracking-widest uppercase transition-colors duration-300">
+                                {feature}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
 
-                    {/* Key features */}
-                    <div className="space-y-3 pt-3 border-t border-gray-100">
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold mb-3">
-                        Core Capabilities
-                      </p>
-                      {service.features.slice(0, 4).map((feature) => (
-                        <div key={feature} className="flex items-start gap-3">
-                          <div className="w-4 h-4 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 shrink-0 border border-gray-200 group-hover:border-black group-hover:bg-black transition-colors duration-500">
-                            <ArrowUpRight className="w-2.5 h-2.5 text-gray-400 group-hover:text-white transition-colors duration-500" />
+                      {/* Column 3: Image Protocol & Data */}
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                        className="lg:col-span-6 flex flex-col lg:items-end mt-10 lg:mt-0 pt-3 lg:border-t lg:border-gray-100"
+                      >
+                        <div className="w-full lg:max-w-md aspect-[4/3] bg-gray-100 relative custom-notch-tl-br overflow-hidden mb-8">
+                          <Image
+                            src={img}
+                            alt={service.title}
+                            fill
+                            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-[0.22,1,0.36,1]"
+                          />
+                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+                          
+                          <div className="absolute bottom-5 right-5 lg:bottom-6 lg:right-6 w-12 h-12 bg-white text-black flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out custom-notch-tl-br z-10">
+                            <ArrowRight className="w-5 h-5" />
                           </div>
-                          <span className="text-[14px] font-medium text-gray-600 group-hover:text-black transition-colors duration-300">
-                            {feature}
-                          </span>
                         </div>
-                      ))}
+
+                        {/* Data Analytics Layer */}
+                        <div className="flex w-full lg:max-w-md justify-between items-start pt-6 border-t border-gray-100">
+                          {service.stats.slice(0, 3).map((stat, i) => (
+                            <div key={i} className="flex flex-col gap-1">
+                              <p className="text-2xl font-light text-black tracking-tight">
+                                <AnimatedCounter value={stat.value} />
+                              </p>
+                              <p className="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-semibold max-w-[100px] leading-tight w-full">
+                                {stat.label}
+                              </p>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
                     </div>
 
-                    {/* Stats sequence */}
-                    <div className="flex flex-wrap gap-8 pt-4 lg:pt-6">
-                      {service.stats.slice(0, 3).map((stat) => (
-                        <div key={stat.label}>
-                          <p className="text-2xl font-semibold text-black tracking-tighter mb-0.5">
-                            <AnimatedCounter value={stat.value} />
-                          </p>
-                          <p className="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-medium">
-                            {stat.label}
-                          </p>
+                  ) : (
+                    /* Layout B: Full-Bleed Interruption Detail Board */
+                    <div className="flex flex-col pt-3 border-t border-gray-900">
+                      
+                      <div className="w-full flex items-center gap-4 mb-8">
+                         <span className="text-sm font-medium text-gray-400">
+                           ({String(index + 1).padStart(2, "0")}) Detail View
+                         </span>
+                      </div>
+
+                      {/* Panoramic Feature Break */}
+                      <motion.div 
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-100px" }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                        className="w-full aspect-[21/9] md:aspect-[3/1] bg-gray-100 relative custom-notch-tl-br overflow-hidden mb-12"
+                      >
+                        <Image
+                          src={img}
+                          alt={service.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
+                        />
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                        <div className="absolute bottom-5 right-5 lg:bottom-8 lg:right-8 w-14 h-14 bg-white text-black flex items-center justify-center translate-x-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-out custom-notch-tl-br z-10">
+                          <ArrowRight className="w-6 h-6" />
                         </div>
-                      ))}
+                      </motion.div>
+
+                      {/* 3-Column Split Data */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
+                        
+                        {/* Summary */}
+                        <motion.div 
+                           initial={{ opacity: 0, y: 20 }}
+                           whileInView={{ opacity: 1, y: 0 }}
+                           viewport={{ once: true }}
+                           transition={{ duration: 0.6 }}
+                           className="flex flex-col border-t border-gray-200 pt-6"
+                        >
+                          <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight leading-tight mb-4 group-hover:text-black transition-colors duration-300">
+                            {service.title}
+                          </h2>
+                          <p className="text-sm text-gray-500 font-light leading-relaxed">
+                            {service.shortDescription}
+                          </p>
+                        </motion.div>
+
+                        {/* Key Operations */}
+                        <motion.div 
+                           initial={{ opacity: 0, y: 20 }}
+                           whileInView={{ opacity: 1, y: 0 }}
+                           viewport={{ once: true }}
+                           transition={{ duration: 0.6, delay: 0.1 }}
+                           className="flex flex-col border-t border-gray-200 pt-6"
+                        >
+                           <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-semibold mb-5">
+                             Key Operations
+                           </p>
+                           <ul className="flex flex-col gap-3">
+                             {service.features.slice(0, 4).map((feature, i) => (
+                                <li key={i} className="text-sm font-medium text-gray-800 tracking-wide">
+                                  — {feature}
+                                </li>
+                             ))}
+                           </ul>
+                        </motion.div>
+
+                        {/* Outcomes */}
+                        <motion.div 
+                           initial={{ opacity: 0, y: 20 }}
+                           whileInView={{ opacity: 1, y: 0 }}
+                           viewport={{ once: true }}
+                           transition={{ duration: 0.6, delay: 0.2 }}
+                           className="flex flex-col border-t border-gray-200 pt-6"
+                        >
+                           <p className="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-semibold mb-5">
+                             Core Metrics
+                           </p>
+                           <div className="flex flex-col gap-6">
+                             {service.stats.slice(0, 2).map((stat, i) => (
+                                <div key={i} className="flex justify-between items-center px-4 py-3 bg-gray-100/50">
+                                  <p className="text-xs uppercase tracking-widest text-gray-500 font-semibold">{stat.label}</p>
+                                  <p className="text-lg font-light text-black"><AnimatedCounter value={stat.value} /></p>
+                                </div>
+                             ))}
+                           </div>
+                        </motion.div>
+
+                      </div>
+
                     </div>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
-          </section>
-        );
-      })}
+                  )}
+
+                </Link>
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-white relative overflow-hidden border-t border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-5 md:space-y-6">
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45 }}
-            className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium"
-          >
-            Next Step
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-3xl sm:text-4xl md:text-6xl font-light text-black tracking-tight leading-tight"
-          >
-            Ready to scale your{" "}
-            <span className="font-semibold">infrastructure?</span>
-          </motion.h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Let&apos;s discuss how our technology tailored services can
-            accelerate your business objectives.
-          </p>
-          <div className="flex justify-center pt-2">
-            <LetsTalkBtn />
+      <section className="w-full py-24 md:py-32 border-t border-gray-200">
+        <div className="w-full px-5 md:px-[15%]">
+          <div className="max-w-4xl">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45 }}
+              className="text-sm text-gray-400 font-medium tracking-wider uppercase mb-5"
+            >
+              — NEXT STEP
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl sm:text-5xl md:text-6xl font-normal text-gray-900 leading-[1.05] tracking-tight mb-8"
+            >
+              Ready to scale your <br className="hidden md:block"/>
+              <span className="text-gray-400">infrastructure?</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-lg md:text-xl text-gray-500 font-light max-w-2xl leading-relaxed mb-10"
+            >
+              Let&apos;s discuss how our capabilities can dramatically accelerate your core business objectives.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link 
+                href="/contact" 
+                className="inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-xs font-bold uppercase tracking-widest h-[52px] px-8 border border-black transition-all duration-300 hover:bg-transparent hover:text-black custom-notch-tl-br"
+              >
+                INITIATE PROJECT
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

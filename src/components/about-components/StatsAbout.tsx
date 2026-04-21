@@ -90,13 +90,13 @@ const StatsAbout = () => {
   }, []);
 
   return (
-    <section className="py-0">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+    <section className="w-full bg-white pb-20 border-b border-gray-100">
+      <div className="w-full px-5 md:px-[15%]">
         <div
           ref={sectionRef}
-          className="bg-[#f3f3f3]/80 backdrop-blur-md rounded-none py-10 sm:py-12 md:py-16 px-4 sm:px-6 md:px-16"
+          className="w-full border-t border-gray-200 pt-10"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {stats.map((stat, index) => (
               <StatItem
                 key={stat.label}

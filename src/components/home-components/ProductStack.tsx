@@ -1,134 +1,315 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, Variants } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const easeBezier: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const gridVariants: Variants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.06,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const tileVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: easeBezier,
-    },
-  },
-};
-
 export default function ProductStack() {
-  const stack = [
-    { name: "Full-Stack", icon: "/products/product-icon1.svg" },
-    { name: "Frontend", icon: "/products/product-icon2a.svg" },
-    { name: "Node.js", icon: "/products/product-icon3.svg" },
-    { name: "Next.js", icon: "/products/nextjs.png" },
-    { name: "PHP", icon: "/products/product-icon4.svg" },
-    { name: "AngularJS", icon: "/products/product-icon7.svg" },
-    { name: "React", icon: "/products/product-icon6.svg" },
-    { name: "Drupal", icon: "/products/drupal.png" },
-    { name: "Flutter", icon: "/products/product-icon8.svg" },
-    { name: "WordPress", icon: "/products/product-icon9.svg" },
-    { name: "MongoDB", icon: "/products/mongo.ico" },
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  const categories = [
+    {
+      title: "Agentic AI & Engineering",
+      description:
+        "Engineering autonomous agents, predictive workflows, and deeply integrated LLM architectures natively built for scale.",
+      tech: [
+        {
+          name: "Agentic AI",
+          icon: "ai-icon",
+          desc: "Custom LLM integrations and multi-agent autonomous frameworks managing dynamic workflows.",
+        },
+        {
+          name: "Python",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+          desc: "The core backbone for our advanced machine learning and AI orchestration applications.",
+        },
+        {
+          name: "TensorFlow",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg",
+          desc: "Building and training robust predictive, classification, and generative models.",
+        },
+        {
+          name: "PyTorch",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original.svg",
+          desc: "High-performance tensor computing and deep neural networks for state-of-the-art AI.",
+        },
+      ],
+    },
+    {
+      title: "Data & Core Infrastructure",
+      description:
+        "Building scalable, resilient, and high-performance backend pipelines capable of massive parallel data processing.",
+      tech: [
+        {
+          name: "PostgreSQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg",
+          desc: "Highly extensible, enterprise-class open-source relational database architecture.",
+        },
+        {
+          name: "Node.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
+          desc: "Event-driven asynchronous backend environment for exceptionally fast network apps.",
+        },
+        {
+          name: "MongoDB",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+          desc: "Flexible, document-based NoSQL database enabling rapid iterations at massive scale.",
+        },
+        {
+          name: "Python",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
+          desc: "Robust microservices and massively parallel data processing engineering pipelines.",
+        },
+      ],
+    },
+    {
+      title: "Frontend Interfaces",
+      description:
+        "Crafting fluid, high-conversion web UX and cross-platform native apps that respond instantaneously.",
+      tech: [
+        {
+          name: "Next.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
+          desc: "Production-ready React framework offering unparalleled performance and optimized SEO.",
+        },
+        {
+          name: "React",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg",
+          desc: "Declarative, component-based library for building dynamic and interactive user interfaces.",
+        },
+        {
+          name: "Flutter",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg",
+          desc: "Cross-platform native mobile applications running flawlessly from a single dart codebase.",
+        },
+        {
+          name: "Vue.js",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+          desc: "Progressive, incrementally-adoptable JavaScript framework favored for interactive web UIs.",
+        },
+      ],
+    },
+    {
+      title: "Platforms & CMS Hubs",
+      description:
+        "Deploying robust, headless, and fully customizable enterprise data hubs to centralize your operations.",
+      tech: [
+        {
+          name: "Drupal",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/drupal/drupal-original.svg",
+          desc: "Enterprise-grade, highly secure, and deeply customizable digital content management.",
+        },
+        {
+          name: "WordPress",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg",
+          desc: "The world's most versatile CMS, optimized and deployed in a high-speed headless architecture.",
+        },
+        {
+          name: "GraphQL",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/graphql/graphql-plain.svg",
+          desc: "Efficient, strongly-typed data querying technology powering modern API structures.",
+        },
+        {
+          name: "Redis",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
+          desc: "Ultra-fast in-memory data structure store utilized as a hyper-efficient caching layer.",
+        },
+      ],
+    },
   ];
 
   return (
-    <motion.section
-      className="relative py-12 md:py-16 bg-white"
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.75, ease: easeBezier }}
-    >
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
-        <motion.div
-          className="max-w-4xl mx-auto mb-8 md:mb-12 text-center space-y-4 md:space-y-5"
-          initial={{ opacity: 0, y: 18 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.7, ease: easeBezier }}
-        >
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-            Product-Focused
-          </p>
-
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-            From Design to Scale —{" "}
-            <span className="font-semibold">We Build What Grows.</span>
-          </h2>
-
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Your full-stack development partner across every stage of product
-            evolution.
-          </p>
-        </motion.div>
-
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4 md:gap-0 md:border-t md:border-l md:border-black/6 md:rounded-xl md:overflow-hidden"
-          variants={gridVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          {stack.map((item, index) => (
-            <motion.div
-              key={index}
-              className="group relative flex flex-col items-center justify-center p-3 sm:p-5 md:p-8 bg-white border border-black/8 rounded-xl shadow-sm md:shadow-none md:rounded-none md:border-r md:border-b md:border-black/6 md:border-l-0 md:border-t-0 transition-all duration-500 hover:z-10"
-              variants={tileVariants}
+    <section className="w-full bg-white py-20 md:py-24">
+      <div className="w-full px-5 md:px-[15%]">
+        <div className="flex flex-col xl:flex-row gap-16 xl:gap-20 items-start">
+          {/* Left Column - Vibe Match: Text & Navigation */}
+          <div className="w-full xl:w-[40%] flex flex-col pt-2">
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-sm text-gray-400 font-medium tracking-wider uppercase mb-4"
             >
-              <div className="absolute inset-0 bg-radial-gradient from-gray-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              — Technology Stack
+            </motion.p>
+            <motion.h2
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.05 }}
+              className="text-3xl sm:text-4xl font-normal text-gray-900 leading-[1.2] tracking-tight mb-10"
+            >
+              Expertise that <br className="hidden sm:block" /> powers scale.
+            </motion.h2>
 
-              <div className="relative h-8 w-8 sm:h-10 sm:w-10 md:h-11 md:w-11 mb-3 sm:mb-4 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
-                <Image
-                  src={item.icon}
-                  alt={item.name}
-                  fill
-                  className="object-contain grayscale opacity-100 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 ease-out"
-                />
-              </div>
+            {/* Interactive Categories List matching ServicesIntroSectionV3 styling */}
+            <div className="flex flex-col w-full border-t border-gray-200">
+              {categories.map((cat, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveIdx(idx)}
+                  onMouseEnter={() => setActiveIdx(idx)}
+                  className={`group flex items-start flex-col py-5 border-b border-gray-200 transition-all duration-500 text-left ${
+                    activeIdx === idx
+                      ? "opacity-100"
+                      : "opacity-40 hover:opacity-70"
+                  }`}
+                >
+                  <div className="flex items-center justify-between w-full">
+                    <h3 className="text-xl sm:text-2xl font-light text-gray-900 tracking-tight transition-transform duration-500 origin-left">
+                      {cat.title}
+                    </h3>
+                    <div className="overflow-hidden w-6 h-6 flex items-center justify-center relative">
+                      <span
+                        className={`absolute transition-transform duration-500 text-xl font-light ${activeIdx === idx ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
+                      >
+                        ↗
+                      </span>
+                    </div>
+                  </div>
 
-              <span className="relative text-[11px] sm:text-[12px] md:text-[13px] font-medium tracking-wider text-gray-500 group-hover:text-black transition-colors duration-300 text-center">
-                {item.name}
-              </span>
+                  <AnimatePresence>
+                    {activeIdx === idx && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0, y: -5 }}
+                        animate={{ height: "auto", opacity: 1, y: 0 }}
+                        exit={{ height: 0, opacity: 0, y: -5 }}
+                        transition={{ duration: 0.25, ease: easeBezier }}
+                        className="overflow-hidden"
+                      >
+                        <p className="mt-4 text-gray-500 text-[15px] leading-relaxed max-w-sm">
+                          {cat.description}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </button>
+              ))}
+            </div>
 
-              <div className="hidden md:block absolute bottom-0 left-0 h-0.5 w-0 bg-black transition-all duration-500 group-hover:w-full" />
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="mt-10 mb-8 xl:mb-0"
+            >
+              <Link
+                href="/services"
+                className="group inline-flex items-center gap-3 text-sm font-medium text-gray-900 border border-gray-300 px-6 py-3 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300"
+              >
+                Expand Expertise
+                <svg
+                  className="w-[17px] h-[17px] shrink-0 transition-transform duration-300 xl:group-hover:translate-x-1 xl:group-hover:-translate-y-1"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </Link>
             </motion.div>
-          ))}
-
-          <div className="hidden lg:flex items-center justify-center p-10 bg-gray-50/30 border-r border-b border-black/6">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-black-300 font-bold">
-              ANYTHING YOU WANT
-            </span>
           </div>
-        </motion.div>
 
-        <motion.div
-          className="mt-16 flex justify-center"
-          initial={{ opacity: 0, y: 14 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
-          transition={{ duration: 0.55, ease: easeBezier }}
-        >
-          <Link
-            href="/capabilities"
-            className="group inline-flex items-center gap-3 text-sm uppercase tracking-[0.25em] text-gray-500 transition-colors duration-300 hover:text-black"
-          >
-            See All Capabilities
-            <span className="h-px w-8 bg-gray-400 transition-all duration-300 group-hover:w-14 group-hover:bg-black" />
-          </Link>
-        </motion.div>
+          {/* Right Column - Technology Details Area */}
+          <div className="w-full xl:w-[60%] flex flex-col">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIdx}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2, ease: "easeInOut" }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6"
+              >
+                {categories[activeIdx].tech.map((techItem, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col p-6 lg:p-8 bg-gray-50 custom-notch-tl-br transition-all duration-300 hover:bg-white group"
+                  >
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-10 h-10 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
+                        {techItem.icon === "ai-icon" ? (
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="w-full h-full text-black opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                          >
+                            <path
+                              d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
+                              fill="currentColor"
+                            />
+                            <path
+                              d="M5 4L6 6L8 7L6 8L5 10L4 8L2 7L4 6L5 4Z"
+                              fill="currentColor"
+                            />
+                          </svg>
+                        ) : (
+                          <Image
+                            src={techItem.icon}
+                            alt={techItem.name}
+                            width={28}
+                            height={28}
+                            className="object-contain grayscale brightness-0 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                          />
+                        )}
+                      </div>
+                      <h4 className="text-[17px] font-medium text-gray-900 group-hover:text-black transition-colors duration-300">
+                        {techItem.name}
+                      </h4>
+                    </div>
+                    <p className="text-sm text-gray-500 leading-relaxed font-light mt-auto">
+                      {techItem.desc}
+                    </p>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Additional Static Card for Contact */}
+            <Link
+              href="/contact"
+              className="mt-4 lg:mt-6 w-full flex items-center justify-between p-6 lg:p-8 bg-gray-900 custom-notch-tl-br hover:bg-black transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group"
+            >
+              <div className="flex flex-col">
+                <h4 className="text-[17px] font-medium text-white mb-1 transition-colors duration-300">
+                  Looking for other technologies?
+                </h4>
+                <p className="text-sm text-gray-400 leading-relaxed font-light max-w-lg">
+                  Our engineering teams master a diverse and continuously
+                  evolving stack. Tell us about your specific technical
+                  requirements.
+                </p>
+              </div>
+              <div className="hidden sm:flex shrink-0 ml-6 w-12 h-12 rounded-full border border-gray-700 bg-white/5 items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
+                <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </Link>
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   );
 }

@@ -1,6 +1,9 @@
+import GoogleGeminiEffectDemo from "@/components/home-components/GoogleGeminiEffectDemo";
 import ContactSection from "@/components/home-components/ContactSection";
 import Hero from "@/components/home-components/Hero";
+import AboutSection from "@/components/home-components/AboutSection";
 import ProductStack from "@/components/home-components/ProductStack";
+import AIAdoption from "@/components/home-components/AIAdoption";
 import ServicesIntroSectionV3 from "@/components/home-components/ServicesIntroSectionV3";
 import TestimonialSection from "@/components/home-components/TestimonialSection";
 import FAQAccordion from "@/components/home-components/FAQAccordion";
@@ -20,9 +23,12 @@ const page = () => {
   return (
     <div className="pt-12 sm:pt-14 md:pt-15">
       <Hero />
+      <AboutSection />
       <ServicesIntroSectionV3 />
+      <AIAdoption />
       <ProductStack />
       <TestimonialSection />
+      {/* <GoogleGeminiEffectDemo /> */}
       <FAQAccordion />
       <ContactSection />
     </div>

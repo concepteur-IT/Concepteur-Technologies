@@ -5,186 +5,94 @@ import { timelineData } from "@/data/timelineData";
 
 export default function OurJourney() {
   return (
-    <section className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+    <section className="w-full bg-white py-24 md:py-32 border-t border-gray-100">
+      <div className="w-full px-5 md:px-[15%]">
+        
         {/* Header */}
-        <div className="max-w-4xl mx-auto text-center mb-12 md:mb-20 space-y-5 md:space-y-6">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-            Our Journey
-          </p>
-          <h2 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-            The Road to <span className="font-semibold">Concepteur.</span>
-          </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            A relentless pursuit of engineering excellence, from a small remote
-            team to an international hybrid powerhouse.
-          </p>
+        <div className="max-w-4xl mb-16 md:mb-24">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-sm text-gray-400 font-medium tracking-wider uppercase mb-5"
+          >
+            — Our Journey
+          </motion.p>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-normal text-gray-900 leading-[1.05] tracking-tight mb-8"
+          >
+            The road to <span className="text-gray-400">engineering scale.</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg md:text-xl text-gray-500 font-light max-w-2xl leading-relaxed"
+          >
+            A relentless pursuit of technical excellence, evolving from a small functional unit into an international hybrid powerhouse.
+          </motion.p>
         </div>
 
-        {/* Timeline Grid - Alternating Left/Right */}
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-y-0 items-stretch">
+        {/* Strict Architected Table Grid */}
+        <div className="w-full flex flex-col border-t border-gray-900">
           {timelineData.map((item, index) => {
-            const isLeft = index % 2 === 0;
             const isGoal = "isGoal" in item && item.isGoal;
 
             return (
-              <div key={item.year} className="contents">
-                {/* Left Column */}
-                <div
-                  className={`hidden md:flex ${isLeft ? "justify-end" : ""} py-6`}
-                >
-                  {isLeft ? (
-                    <motion.div
-                      initial={{ opacity: 0, x: -40 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.1,
-                        ease: "easeOut",
-                      }}
-                      className="max-w-sm w-full text-right pr-8 md:pr-12"
-                    >
-                      <div className="flex items-center justify-end gap-3 mb-2">
-                        {isGoal && (
-                          <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-black bg-gray-100 px-3 py-1 rounded-full">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-60" />
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-black" />
-                            </span>
-                            In Progress
-                          </span>
-                        )}
-                        <p className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-bold">
-                          {item.title}
-                        </p>
-                      </div>
-                      <p className="text-[14px] leading-relaxed text-gray-600">
-                        {item.description}
-                      </p>
-                    </motion.div>
-                  ) : (
-                    <div className="hidden md:block" />
-                  )}
-                </div>
+              <motion.div
+                key={item.year}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                className="group relative border-b border-gray-200"
+              >
+                {/* Desktop Data Row */}
+                <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12 py-8 lg:py-12 items-start transition-colors duration-500 group-hover:bg-[#fcfcfc]">
+                  
+                  {/* Year Segment */}
+                  <div className="md:col-span-2 flex flex-col md:pl-4">
+                     <span className={`text-4xl md:text-5xl font-light tracking-tighter ${isGoal ? "text-gray-400" : "text-black"}`}>
+                       {item.year}
+                     </span>
+                     {isGoal && (
+                       <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mt-2">
+                         ( In Progress )
+                       </span>
+                     )}
+                  </div>
 
-                {/* Center Spine */}
-                <div className="hidden md:flex flex-col items-center relative">
-                  {/* Continuous Line */}
-                  <div
-                    className={`w-px flex-1 ${isGoal ? "border-l border-dashed border-gray-300" : "bg-gray-200"}`}
-                  />
-                  {/* Year Badge */}
-                  <motion.div
-                    initial={{ scale: 0.6, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true, margin: "-60px" }}
-                    transition={{ duration: 0.4, delay: 0.05, ease: "easeOut" }}
-                    className={`w-16 h-16 rounded-none flex items-center justify-center z-10 my-2 shrink-0 relative ${
-                      isGoal ? "bg-white border-2 border-black" : "bg-black"
-                    }`}
-                  >
-                    {isGoal && (
-                      <span className="absolute inset-0 rounded-none border-2 border-black animate-ping opacity-20" />
-                    )}
-                    <span
-                      className={`text-[13px] font-bold tracking-wider ${isGoal ? "text-black" : "text-white"}`}
-                    >
-                      {item.year}
-                    </span>
-                  </motion.div>
-                  <div
-                    className={`w-px flex-1 ${isGoal ? "border-l border-dashed border-gray-300" : "bg-gray-200"}`}
-                  />
-                </div>
+                  {/* Title Segment */}
+                  <div className="md:col-span-4">
+                     <h3 className="text-xl md:text-2xl font-normal text-gray-900 tracking-tight leading-tight">
+                       {item.title}
+                     </h3>
+                  </div>
 
-                {/* Right Column */}
-                <div
-                  className={`hidden md:flex ${!isLeft ? "justify-start" : ""} py-6`}
-                >
-                  {!isLeft ? (
-                    <motion.div
-                      initial={{ opacity: 0, x: 40 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: "-80px" }}
-                      transition={{
-                        duration: 0.5,
-                        delay: 0.1,
-                        ease: "easeOut",
-                      }}
-                      className="max-w-sm w-full text-left pl-8 md:pl-12"
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <p className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-bold">
-                          {item.title}
-                        </p>
-                        {isGoal && (
-                          <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] font-bold text-black bg-gray-100 px-3 py-1 rounded-full">
-                            <span className="relative flex h-2 w-2">
-                              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-60" />
-                              <span className="relative inline-flex rounded-full h-2 w-2 bg-black" />
-                            </span>
-                            In Progress
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-[14px] leading-relaxed text-gray-600">
-                        {item.description}
-                      </p>
-                    </motion.div>
-                  ) : (
-                    <div className="hidden md:block" />
-                  )}
-                </div>
+                  {/* Description Segment */}
+                  <div className="md:col-span-6 relative">
+                     <p className="text-base text-gray-500 font-light leading-relaxed pr-8">
+                       {item.description}
+                     </p>
+                     
+                     {/* Interactive Marker line */}
+                     <div className="absolute top-0 right-0 h-full w-[1px] bg-gray-200 hidden md:block">
+                        <div className="w-full h-0 bg-black group-hover:h-full transition-all duration-700 ease-[0.22,1,0.36,1]" />
+                     </div>
+                  </div>
 
-                {/* Mobile Only: stacked layout */}
-                <div className="md:hidden flex items-start gap-5 py-4">
-                  <motion.div
-                    initial={{ scale: 0.6, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-14 h-14 rounded-none flex items-center justify-center shrink-0 relative ${isGoal ? "bg-white border-2 border-black" : "bg-black"}`}
-                  >
-                    {isGoal && (
-                      <span className="absolute inset-0 rounded-none border-2 border-black animate-ping opacity-20" />
-                    )}
-                    <span
-                      className={`text-xs font-bold tracking-wider ${isGoal ? "text-black" : "text-white"}`}
-                    >
-                      {item.year}
-                    </span>
-                  </motion.div>
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: 0.1 }}
-                    className="flex-1"
-                  >
-                    <div className="flex items-center gap-2 mb-1">
-                      <p className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-bold">
-                        {item.title}
-                      </p>
-                      {isGoal && (
-                        <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-[0.15em] font-bold text-black bg-gray-100 px-2 py-0.5 rounded-full">
-                          <span className="relative flex h-1.5 w-1.5">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-black opacity-60" />
-                            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-black" />
-                          </span>
-                          In Progress
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-[14px] leading-relaxed text-gray-600">
-                      {item.description}
-                    </p>
-                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
+
       </div>
     </section>
   );

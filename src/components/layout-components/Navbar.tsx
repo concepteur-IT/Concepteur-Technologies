@@ -50,13 +50,13 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#f3f3f3] border-b border-gray-200">
-      <div className="relative max-w-7xl mx-auto px-2 sm:px-6 md:px-8 h-12 sm:h-14 md:h-15 flex items-center justify-between gap-2 sm:gap-3">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white">
+      <div className="w-full px-5 md:px-[15%] h-[60px] flex items-center justify-between">
         {/* Logo */}
         <Link
           href="/"
           aria-label="Go to homepage"
-          className="flex items-center flex-1 min-w-0 max-w-[calc(100%-84px)] sm:max-w-none overflow-hidden md:flex-none md:overflow-visible z-10"
+          className="inline-flex items-center shrink-0"
           onClick={handleLogoClick}
         >
           <div className="sm:hidden">
@@ -67,44 +67,50 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Centered Desktop Nav */}
-        <nav className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center h-full gap-10 text-[14px] font-medium">
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center ml-[28%] gap-[24px] text-[17px] font-medium antialiased">
           {navItems.map((item) => {
-            const isActive = pathname.startsWith(item.href);
+            const isActive =
+              pathname === item.href ||
+              (item.href !== "/" && pathname.startsWith(item.href));
 
             if (item.name === "Capabilities") {
               return (
                 <div
                   key={item.href}
-                  className="group relative h-full flex items-center cursor-pointer"
+                  className="group relative flex items-center cursor-pointer"
                 >
                   <Link
                     href={item.href}
-                    className={`
-                      relative transition-colors duration-200 py-4
-                      ${isActive ? "text-black" : "text-gray-600 hover:text-black"}
-                      
-                      after:absolute after:left-0 after:-bottom-1
-                      after:h-[1.5px] after:bg-black
-                      after:transition-all after:duration-300
-                      
-                      ${isActive ? "after:w-full" : "after:w-0 hover:after:w-1/2 group-hover:after:w-1/2"}
-                    `}
+                    className={`relative h-[20px] overflow-hidden inline-block ${isActive ? "text-black" : "text-[#666]"}`}
                   >
-                    {item.name}
+                    <div className="flex flex-col transition-transform duration-[180ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2">
+                      <span className="h-[20px] flex items-center whitespace-nowrap">
+                        {item.name}
+                      </span>
+                      <span className="h-[20px] flex items-center whitespace-nowrap text-black">
+                        {item.name}
+                      </span>
+                    </div>
                   </Link>
 
-                  {/* Square Minimalist Dropdown */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[280px] bg-white border border-black opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 flex flex-col p-2 shadow-sm pointer-events-none group-hover:pointer-events-auto">
-                    {servicesData.map((service) => (
-                      <Link
-                        key={service.id}
-                        href={`/capabilities/${service.slug}`}
-                        className="px-4 py-3 text-[13px] text-gray-500 hover:text-black hover:bg-gray-50 transition-colors border-b border-gray-100 last:border-0"
-                      >
-                        {service.title}
-                      </Link>
-                    ))}
+                  {/* Dropdown */}
+                  <div className="absolute top-full left-0 pt-3 opacity-0 invisible translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="w-[240px] bg-white rounded-md shadow-[0_8px_30px_rgba(0,0,0,0.08)] py-2">
+                      {servicesData.map((service) => (
+                        <Link
+                          key={service.id}
+                          href={`/capabilities/${service.slug}`}
+                          className="flex items-center gap-2.5 px-5 py-2.5 text-[14px] text-[#888] hover:text-black hover:pl-6 transition-all duration-200 group/item"
+                        >
+                          <svg className="w-[14px] h-[14px] shrink-0 opacity-40 group-hover/item:opacity-100 transition-opacity" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9 15L15 9M15 9H10M15 9V14" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          {service.title}
+                        </Link>
+                      ))}
+                    </div>
                   </div>
                 </div>
               );
@@ -114,26 +120,38 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`
-                  relative transition-colors duration-200 flex items-center h-full
-                  ${isActive ? "text-black" : "text-gray-600 hover:text-black"}
-                  
-                  after:absolute after:left-0 after:bottom-[calc(50%-12px)]
-                  after:h-[1.5px] after:bg-black
-                  after:transition-all after:duration-300
-                  
-                  ${isActive ? "after:w-full" : "after:w-0 hover:after:w-1/2"}
-                `}
+                className={`group relative h-[20px] overflow-hidden inline-block ${isActive ? "text-black" : "text-[#666]"}`}
               >
-                {item.name}
+                <div className="flex flex-col transition-transform duration-[180ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2">
+                  <span className="h-[20px] flex items-center whitespace-nowrap">
+                    {item.name}
+                  </span>
+                  <span className="h-[20px] flex items-center whitespace-nowrap text-black">
+                    {item.name}
+                  </span>
+                </div>
               </Link>
             );
           })}
         </nav>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center z-10">
-          <LetsTalkBtn />
+        {/* Desktop Contact */}
+        <div className="hidden md:flex items-center text-[17px] font-medium antialiased">
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 text-black"
+          >
+            <svg className="w-[18px] h-[18px] shrink-0 transition-transform duration-200 group-hover:rotate-45" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9 15L15 9M15 9H10M15 9V14" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="relative h-[20px] overflow-hidden">
+              <div className="flex flex-col transition-transform duration-[180ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2">
+                <span className="h-[20px] flex items-center whitespace-nowrap">Contact</span>
+                <span className="h-[20px] flex items-center whitespace-nowrap">Contact</span>
+              </div>
+            </div>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -158,26 +176,66 @@ export default function Navbar() {
       {/* Mobile Nav */}
       <div
         id="mobile-nav"
-        className={`md:hidden border-t border-gray-200 bg-[#f3f3f3] transition-all duration-300 overflow-hidden ${isMobileMenuOpen ? "max-h-[420px] opacity-100" : "max-h-0 opacity-0"}`}
+        className={`md:hidden bg-white transition-all duration-300 ease-out overflow-hidden ${isMobileMenuOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"}`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-3">
+        <nav className="px-5 py-6 flex flex-col gap-1">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
+
+            if (item.name === "Capabilities") {
+              return (
+                <div key={item.href} className="flex flex-col">
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`text-[17px] font-medium py-2.5 transition-colors ${isActive ? "text-black" : "text-[#666]"}`}
+                  >
+                    {item.name}
+                  </Link>
+                  <div className="pl-4 flex flex-col gap-0.5 mb-1">
+                    {servicesData.map((service) => (
+                      <Link
+                        key={service.id}
+                        href={`/capabilities/${service.slug}`}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center gap-2.5 py-2 text-[14px] text-[#888] hover:text-black transition-colors"
+                      >
+                        <svg className="w-[13px] h-[13px] shrink-0 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="10" />
+                          <path d="M9 15L15 9M15 9H10M15 9V14" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        {service.title}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-sm font-medium rounded-lg px-3 py-2 transition-colors ${isActive ? "text-black bg-white" : "text-gray-600 hover:text-black hover:bg-white/80"}`}
+                className={`text-[17px] font-medium py-2.5 transition-colors ${isActive ? "text-black" : "text-[#666]"}`}
               >
                 {item.name}
               </Link>
             );
           })}
-          <div className="pt-2">
-            <LetsTalkBtn onClick={() => setIsMobileMenuOpen(false)} />
-          </div>
+
+          {/* Mobile Contact */}
+          <Link
+            href="/contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="inline-flex items-center gap-2 text-[17px] font-medium text-black py-2.5 mt-2 border-t border-[#eee] pt-4"
+          >
+            <svg className="w-[16px] h-[16px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9 15L15 9M15 9H10M15 9V14" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            Contact
+          </Link>
         </nav>
       </div>
     </header>

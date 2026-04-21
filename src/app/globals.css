@@ -10,6 +10,7 @@ html {
 
 body {
   overflow-x: hidden;
+  font-size: 17px;
 }
 
 
@@ -40,4 +41,50 @@ body {
 * {
   scrollbar-width: thin;
   scrollbar-color: black transparent;
+}
+
+/* ===== Custom Notch Masks ===== */
+.custom-notch-tl-br {
+  -webkit-mask-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M 50 0 L 38.73 0 A 10 10 0 0 0 29.05 7.5 A 30 30 0 0 1 7.5 29.05 A 10 10 0 0 0 0 38.73 L 0 50 L 50 50 Z' fill='black'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M 0 50 L 11.27 50 A 10 10 0 0 0 20.95 42.5 A 30 30 0 0 1 42.5 20.95 A 10 10 0 0 0 50 11.27 L 50 0 L 0 0 Z' fill='black'/%3E%3C/svg%3E"),
+    linear-gradient(black, black),
+    linear-gradient(black, black),
+    linear-gradient(black, black);
+  -webkit-mask-size: 
+    50px 50px,
+    50px 50px,
+    calc(100% - 49px) 51px,
+    calc(100% - 49px) 51px,
+    100% calc(100% - 98px);
+  -webkit-mask-position: 
+    top left,
+    bottom right,
+    top right,
+    bottom left,
+    center;
+  -webkit-mask-repeat: no-repeat;
+
+  mask-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M 50 0 L 38.73 0 A 10 10 0 0 0 29.05 7.5 A 30 30 0 0 1 7.5 29.05 A 10 10 0 0 0 0 38.73 L 0 50 L 50 50 Z' fill='black'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'%3E%3Cpath d='M 0 50 L 11.27 50 A 10 10 0 0 0 20.95 42.5 A 30 30 0 0 1 42.5 20.95 A 10 10 0 0 0 50 11.27 L 50 0 L 0 0 Z' fill='black'/%3E%3C/svg%3E"),
+    linear-gradient(black, black),
+    linear-gradient(black, black),
+    linear-gradient(black, black);
+  mask-size: 
+    50px 50px,
+    50px 50px,
+    calc(100% - 49px) 51px,
+    calc(100% - 49px) 51px,
+    100% calc(100% - 98px);
+  mask-position: 
+    top left,
+    bottom right,
+    top right,
+    bottom left,
+    center;
+  mask-repeat: no-repeat;
+  
+  border-top-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 }

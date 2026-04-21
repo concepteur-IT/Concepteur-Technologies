@@ -42,182 +42,208 @@ export default async function ServiceDetail({
     notFound();
   }
 
+  // Array of valid /home/ folder imagery for dynamic mapping based on slug length or static choice
+  const homeImages = [
+    "/home/bg-frontend.png",
+    "/home/cap-uiux.png",
+    "/home/cap-cloud.png",
+    "/home/cap-ecom.png",
+    "/home/cap-backend.png",
+    "/home/cap-web.png",
+  ];
+
+  // Pick an image dynamically so it varies, but only from /home/ folder as requested
+  const heroImage = "/home/bg-frontend.png";
+
   return (
-    <main className="min-h-screen bg-white mt-12 sm:mt-14 md:mt-15">
-      {/* Dynamic Hero Section */}
-      <section className="relative w-full pt-24 sm:pt-28 md:pt-40 pb-14 md:pb-28 overflow-hidden flex items-center">
-        {/* Subtle Background Glow */}
-        <div className="absolute inset-0 -z-10 flex items-center justify-center opacity-30">
-          <div className="w-[800px] h-[800px] bg-gray-200 rounded-full blur-[100px] translate-y-[-20%] translate-x-[20%]" />
+    <main className="w-full min-h-screen bg-[#fcfcfc] pb-32 pt-32 md:pt-40">
+      {/* Colossal Typography Header */}
+      <div className="w-full px-5 md:px-[10%] lg:px-[15%] pb-12 lg:pb-16 text-center lg:text-left flex flex-col lg:flex-row justify-between items-end gap-8">
+        <div className="flex flex-col">
+          <p className="text-xs uppercase tracking-[0.3em] font-bold text-gray-400 mb-6 flex items-center justify-center lg:justify-start gap-3">
+            <span className="w-8 h-[1px] bg-gray-300" />
+            capability detail
+          </p>
+          <h1 className="text-5xl sm:text-6xl md:text-8xl font-light text-gray-900 leading-[1.0] tracking-tighter">
+            {service.title}.
+          </h1>
         </div>
+        <div className="lg:max-w-sm xl:max-w-md pb-2">
+          <p className="text-sm md:text-base text-gray-500 font-light leading-relaxed">
+            {service.shortDescription}
+          </p>
+        </div>
+      </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 lg:gap-20 items-center">
-          <div className="space-y-6 md:space-y-8 max-w-2xl">
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium animate-fade-in">
-              Service Details
-            </p>
+      {/* Massive Hero Block - Using Exclusively /home folder image */}
+      <div className="w-full px-0 md:px-[5%] lg:px-[15%] mb-20 lg:mb-32">
+        <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-gray-100 relative custom-notch-tl-br overflow-hidden group">
+          <Image
+            src={heroImage}
+            alt={service.title}
+            fill
+            priority
+            className="object-cover transition-all duration-[1200ms] ease-out group-hover:scale-[1.03]"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
+          {/* Abstract Design Elements */}
+          <div className="absolute top-8 right-8 w-24 h-[1px] bg-white opacity-50 hidden md:block" />
+          <div className="absolute bottom-0 left-8 w-[1px] h-24 bg-white opacity-50 hidden md:block" />
+        </div>
+      </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl leading-tight font-semibold text-gray-900 tracking-tight">
-              {service.title}
-            </h1>
-
-            <p className="text-base md:text-xl text-gray-600 leading-relaxed">
+      {/* Sticky Editorial Split Section */}
+      <div className="w-full px-5 md:px-[10%] lg:px-[15%] grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
+        
+        {/* Left Col: Direct Grid Item -> Sticky + Self-Start is the golden rule for CSS Grid sticky */}
+        <div className="lg:col-span-5 flex flex-col gap-12 lg:sticky lg:top-32 lg:self-start">
+          
+          <div>
+            <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-4">
+              — System Architecture Context
+            </h3>
+            <p className="text-xl text-gray-800 font-light leading-relaxed">
               {service.fullDescription}
             </p>
           </div>
 
-          <div className="relative w-full aspect-square md:aspect-video lg:aspect-square rounded-2xl overflow-hidden bg-black group">
-            <Image
-              src={service.image}
-              alt={service.title}
-              fill
-              priority
-              className="object-cover opacity-80 grayscale transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-100"
-            />
+          {/* Architectural Stats Grid */}
+          {service.stats && service.stats.length > 0 && (
+            <div className="grid grid-cols-2 gap-px bg-gray-200 border border-gray-200">
+              {service.stats.map((stat, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#fcfcfc] p-6 lg:p-8 flex flex-col justify-end group hover:bg-black transition-colors duration-500"
+                >
+                  <h4 className="text-4xl lg:text-5xl font-light tracking-tighter text-gray-900 group-hover:text-white transition-colors">
+                    {stat.value}
+                  </h4>
+                  <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-gray-400 mt-2">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+              {/* Filler block if odd number of stats */}
+              {service.stats.length % 2 !== 0 && (
+                <div className="bg-[#fcfcfc] p-6 lg:p-8 flex items-center justify-center">
+                  <span className="w-8 h-[1px] bg-gray-300" />
+                </div>
+              )}
+            </div>
+          )}
+
+          <div className="pt-8 border-t border-gray-200 pb-12 lg:pb-0">
+            <div className="flex flex-col gap-4">
+              <h4 className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400">
+                Ready to execute?
+              </h4>
+              <LetsTalkBtn />
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* Metrics / Stats Section */}
-      <section className="py-12 md:py-16 bg-[#1a1a1a] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 divide-y md:divide-y-0 md:divide-x divide-white/20 text-center">
-            {service.stats?.map((stat, idx) => (
+        {/* Right Col: Deep Dive Data & Case Studies */}
+        <div className="lg:col-span-7 flex flex-col gap-24 lg:gap-32">
+          {/* Capabilities List - High End Minimalist */}
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between border-b border-gray-900 pb-6 mb-8">
+              <h2 className="text-3xl font-light tracking-tight text-gray-900">
+                Core Capabilities
+              </h2>
+              <span className="text-xs font-mono text-gray-400">
+                {String(service.features.length).padStart(2, "0")}
+              </span>
+            </div>
+
+            {service.features.map((feature, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center pt-8 md:pt-0 first:pt-0"
+                className="flex gap-6 py-6 border-b border-gray-200 group hover:border-gray-900 transition-colors duration-300"
               >
-                <h4 className="text-3xl sm:text-4xl md:text-5xl font-light tracking-tight mb-2">
-                  {stat.value}
-                </h4>
-                <p className="text-sm uppercase tracking-[0.2em] text-gray-400">
-                  {stat.label}
+                <div className="w-10 h-10 bg-gray-50 flex items-center justify-center font-mono text-[10px] text-gray-400 shrink-0 group-hover:bg-black group-hover:text-white transition-colors duration-500">
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+                <p className="text-lg text-gray-600 font-light mt-1.5 leading-relaxed group-hover:text-black transition-colors duration-300">
+                  {feature}
                 </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Details Section (Features & Benefits) */}
-      <section className="py-14 md:py-20 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-24">
-          {/* Features Col */}
-          <div className="space-y-8">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-medium pb-4 border-b border-gray-200">
-              Core Capabilities
-            </h3>
-            <ul className="space-y-6">
-              {service.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
-                  <span className="text-base md:text-lg text-gray-800 leading-relaxed">
-                    {feature}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Benefits Col */}
-          <div className="space-y-8">
-            <h3 className="text-sm uppercase tracking-[0.2em] text-gray-500 font-medium pb-4 border-b border-gray-200">
-              Business Impact
-            </h3>
-            <ul className="space-y-6">
-              {service.benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 shrink-0" />
-                  <span className="text-base md:text-lg text-gray-800 leading-relaxed">
-                    {benefit}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* Icon-Driven Case Studies / Impact Section */}
-      {service.projects && service.projects.length > 0 && (
-        <section className="py-16 md:py-24 bg-white relative">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="mb-12 md:mb-20 text-center max-w-3xl mx-auto">
-              <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium mb-4">
-                Proven Impact
-              </p>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight mb-4">
-                Engineering <span className="font-semibold">Excellence</span>
+          {/* Impact List */}
+          <div className="flex flex-col">
+            <div className="flex items-center justify-between border-b border-gray-900 pb-6 mb-8">
+              <h2 className="text-3xl font-light tracking-tight text-gray-900">
+                Business Impact
               </h2>
-              <p className="mt-6 text-gray-600 text-base md:text-lg leading-relaxed mx-auto">
-                <span className="text-black font-medium">
-                  Many of our projects are delivered under non-disclosure
-                  agreements.
-                </span>
-                <br className="hidden md:block" />
-                The systems presented here illustrate the scope, architecture,
-                and impact of our work while respecting client confidentiality.
-              </p>
+              <span className="text-xs font-mono text-gray-400">
+                {String(service.benefits.length).padStart(2, "0")}
+              </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 lg:gap-16">
-              {service.projects.map((project, idx) => (
-                <div
-                  key={idx}
-                  className="group flex flex-col sm:flex-row gap-5 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-gray-50/50 border border-gray-100 transition-colors hover:bg-gray-50"
-                >
-                  {/* Clean SVG Icon replacement for Images */}
-                  <div className="flex-shrink-0 w-16 h-16 flex items-center justify-center rounded-xl bg-black text-white">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="28"
-                      height="28"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
-                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                    </svg>
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-3">
-                    <p className="text-xs font-medium text-gray-500 uppercase tracking-widest">
-                      {project.client}
-                    </p>
-                    <h3 className="text-xl font-medium text-black">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed text-sm">
-                      {project.description}
-                    </p>
-                  </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 pt-4">
+              {service.benefits.map((benefit, idx) => (
+                <div key={idx} className="flex flex-col gap-3 group">
+                  <div className="w-16 h-[1px] bg-gray-300 group-hover:bg-gray-900 group-hover:w-full transition-all duration-700 ease-in-out" />
+                  <p className="text-base text-gray-600 font-light leading-relaxed pt-2">
+                    {benefit}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
-        </section>
-      )}
 
-      {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-8 text-center space-y-8 md:space-y-10">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-black tracking-tight">
-            Ready to integrate{" "}
-            <span className="font-semibold">{service.title}</span>?
-          </h2>
-          <p className="text-gray-600 text-base md:text-lg">
-            Let&apos;s discuss how we can engineer this solution tailored
-            precisely to your operational needs.
-          </p>
-          <div className="flex justify-center pt-4">
-            <LetsTalkBtn />
-          </div>
+          {/* Case Studies Gallery injected right into the flow */}
+          {service.projects && service.projects.length > 0 && (
+            <div className="flex flex-col">
+              <div className="flex flex-col border-b border-gray-900 pb-6 mb-8">
+                <p className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-2">
+                  Proven Track Record
+                </p>
+                <h2 className="text-3xl font-light tracking-tight text-gray-900">
+                  Engineering Context
+                </h2>
+              </div>
+
+              <div className="flex flex-col gap-0 border border-gray-200 rounded-xl overflow-hidden bg-white">
+                {service.projects.map((project, idx) => {
+                  const projectImage =
+                    homeImages[(idx + 2) % homeImages.length];
+                  return (
+                    <div
+                      key={idx}
+                      className="flex flex-col md:flex-row group border-b border-gray-200 last:border-b-0 hover:bg-[#fcfcfc] transition-colors relative"
+                    >
+                      {/* Background highlight pill */}
+                      <div className="absolute left-0 top-0 w-1 h-full bg-black scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
+
+                      <div className="md:w-1/3 relative aspect-video md:aspect-square m-4 rounded-lg overflow-hidden shrink-0">
+                        <Image
+                          src={projectImage}
+                          fill
+                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[1000ms]"
+                          alt={project.title}
+                        />
+                      </div>
+                      <div className="p-6 md:p-8 flex flex-col justify-center flex-1">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-3">
+                          {project.client}
+                        </span>
+                        <h3 className="text-2xl font-normal text-gray-900 mb-3 group-hover:translate-x-2 transition-transform duration-500">
+                          {project.title}
+                        </h3>
+                        <p className="text-sm font-light text-gray-500 leading-relaxed line-clamp-3">
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
-      </section>
+      </div>
     </main>
   );
 }

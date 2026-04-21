@@ -3,13 +3,33 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { type MouseEvent } from "react";
-import { Mail, MapPin } from "lucide-react";
-import Logo from "@/components/logo-component/Logo";
-import WhatsAppIcon from "../ui-components/icons/WhatsAppIcon";
+import { ArrowRight } from "lucide-react";
+import Logo from "../logo-component/Logo";
+
+const SlideLink = ({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) => (
+  <Link
+    href={href}
+    className="group relative h-[20px] overflow-hidden inline-block text-gray-400"
+  >
+    <div className="flex flex-col transition-transform duration-[250ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-1/2">
+      <span className="h-[20px] flex items-center whitespace-nowrap">
+        {children}
+      </span>
+      <span className="h-[20px] flex items-center whitespace-nowrap text-white">
+        {children}
+      </span>
+    </div>
+  </Link>
+);
 
 export default function Footer() {
   const pathname = usePathname();
-  const mapsUrl = "https://maps.app.goo.gl/KnKUJXcJ6CHmmFHn7";
 
   const handleLogoClick = (event: MouseEvent<HTMLAnchorElement>) => {
     if (pathname === "/") {
@@ -19,218 +39,150 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full bg-[#f3f3f3] border-t border-gray-200 mt-auto">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-14 md:py-20">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-12 md:gap-16 text-center md:text-left">
-          <div className="space-y-6 max-w-sm mx-auto md:mx-0 flex flex-col items-center md:items-start">
+    <footer className="w-full bg-black text-white mt-auto pt-20 md:pt-32 pb-8 overflow-hidden">
+      <div className="w-full px-5 md:px-[15%]">
+        {/* Top Huge CTA Section */}
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-10 border-b border-white/10 pb-16 md:pb-20 mb-16 md:mb-20">
+          <div className="flex flex-col">
+            <p className="text-gray-500 text-sm tracking-[0.2em] uppercase font-medium mb-6">
+              — INITIATE
+            </p>
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-white">
+              Ready to engineer <br className="hidden sm:block" /> the future?
+            </h2>
+          </div>
+          <div className="shrink-0 w-full md:w-auto">
             <Link
-              href="/"
-              aria-label="Go to homepage"
-              className="flex w-full items-center justify-center md:w-auto md:justify-start"
-              onClick={handleLogoClick}
+              href="/contact"
+              className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-white text-black px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-200 transition-colors custom-notch-tl-br"
             >
-              <Logo scale={0.56} mobileCenter />
+              Start a Project
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              We build modern, scalable digital solutions from web applications
-              to enterprise-grade AI systems designed for performance and
-              growth.
+          </div>
+        </div>
+
+        {/* 4-Column Grid Links */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 border-b border-white/10 pb-16 md:pb-20 mb-10">
+          <div className="flex flex-col pr-0 lg:pr-8">
+            <p className="text-sm text-gray-400 leading-relaxed font-light">
+              We build architectural-grade digital solutions — from scalable web
+              platforms to enterprise AI systems engineered for performance and
+              precision.
             </p>
           </div>
 
-          <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12">
-            <div className="space-y-4 md:space-y-6">
-              <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
-                Navigation
-              </h3>
-              <ul className="grid grid-cols-2 gap-x-6 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
-                <li>
-                  <Link href="/" className="hover:text-black transition-colors">
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/company"
-                    className="hover:text-black transition-colors"
-                  >
-                    Company
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities"
-                    className="hover:text-black transition-colors"
-                  >
-                    Capabilities
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions"
-                    className="hover:text-black transition-colors"
-                  >
-                    Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/case-studies"
-                    className="hover:text-black transition-colors"
-                  >
-                    Case Studies
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/our-edge"
-                    className="hover:text-black transition-colors"
-                  >
-                    Our Edge
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-black transition-colors"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <div className="flex flex-col">
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-[0.2em] mb-6">
+              Navigation
+            </h3>
+            <ul className="flex flex-col space-y-4 text-sm font-light">
+              <li>
+                <SlideLink href="/">Home</SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/company">Company</SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/capabilities">Capabilities</SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/case-studies">Work</SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/contact">Contact</SlideLink>
+              </li>
+            </ul>
+          </div>
 
-            <div className="space-y-4 md:space-y-6">
-              <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
-                Capabilities
-              </h3>
-              <ul className="grid grid-cols-2 gap-x-5 gap-y-3 md:block md:space-y-3 text-sm text-gray-500 font-medium">
-                <li>
-                  <Link
-                    href="/capabilities/ai-intelligent-automation"
-                    className="hover:text-black transition-colors"
-                  >
-                    AI and Automation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/next-gen-web-platforms"
-                    className="hover:text-black transition-colors"
-                  >
-                    Website Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/cross-platform-mobile-apps"
-                    className="hover:text-black transition-colors"
-                  >
-                    Mobile App Development
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/api-driven-ecommerce-systems"
-                    className="hover:text-black transition-colors"
-                  >
-                    E-Commerce
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/api-first-backend-architecture"
-                    className="hover:text-black transition-colors"
-                  >
-                    Server-side and Database
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/product-ui-ux-design"
-                    className="hover:text-black transition-colors"
-                  >
-                    UI and UX Design
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/capabilities/cloud-infrastructure"
-                    className="hover:text-black transition-colors"
-                  >
-                    Cloud and Infrastructure
-                  </Link>
-                </li>
-              </ul>
-            </div>
+          <div className="flex flex-col">
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-[0.2em] mb-6">
+              Capabilities
+            </h3>
+            <ul className="flex flex-col space-y-4 text-sm font-light">
+              <li>
+                <SlideLink href="/capabilities/ai-intelligent-automation">
+                  AI & Automation
+                </SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/capabilities/next-gen-web-platforms">
+                  Web Engineering
+                </SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/capabilities/cross-platform-mobile-apps">
+                  Mobile Ecosystems
+                </SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/capabilities/api-driven-ecommerce-systems">
+                  E-Commerce Layouts
+                </SlideLink>
+              </li>
+              <li>
+                <SlideLink href="/capabilities/cloud-infrastructure">
+                  Cloud / DevOps
+                </SlideLink>
+              </li>
+            </ul>
+          </div>
 
-            <div className="space-y-4 md:space-y-6">
-              <h3 className="text-sm font-semibold text-black uppercase tracking-widest">
-                Get In Touch
-              </h3>
-              <ul className="space-y-3 md:space-y-3 text-sm text-gray-500 font-medium">
-                <li>
-                  <a
-                    href="mailto:info@concepteur.com"
-                    className="hover:text-black transition-colors inline-flex items-center gap-2"
-                  >
-                    <Mail className="w-4 h-4 shrink-0" />
-                    <span>info@concepteur.com</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://wa.me/919832996894"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-black transition-colors inline-flex items-center gap-2"
-                    aria-label="Chat on WhatsApp at +91 9832996894"
-                  >
-                    <WhatsAppIcon className="w-5 h-5 shrink-0" />
-                    <span>+91 9832996894</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="leading-relaxed hover:text-black transition-colors inline-flex items-start gap-2"
-                    aria-label="Open Office location in Google Maps"
-                  >
-                    <MapPin className="w-4 h-4 mt-1 shrink-0" />
-                    <span>
-                      Kajipara, Sukh Sagar Road,
-                      <br />
-                      741222. Chakdaha, Nadia.
-                    </span>
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="flex flex-col">
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-[0.2em] mb-6">
+              Connect
+            </h3>
+            <ul className="flex flex-col space-y-4 text-sm font-light">
+              <li>
+                <SlideLink href="mailto:info@concepteur.com">
+                  info@concepteur.com
+                </SlideLink>
+              </li>
+              <li>
+                <SlideLink href="https://wa.me/919832996894">
+                  +91 9832996894
+                </SlideLink>
+              </li>
+              <li className="text-gray-400 leading-relaxed mt-2">
+                Kajipara, Sukh Sagar Road,
+                <br />
+                Chakdaha, Nadia. 741222.
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className="border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-6 flex flex-col items-center md:flex-row md:justify-between text-sm text-gray-500 font-medium gap-4">
-          <p className="text-center md:text-left">
-            © 2025 Concepteur Technologies. All rights reserved.
-          </p>
+        {/* Footer Bottom Line & Massive Branding */}
+        <div className="flex flex-col items-center">
+          <div className="w-full flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-gray-500 font-medium mb-16 md:mb-24">
+            <p>© 2026 Concepteur Technologies. All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition-colors"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="hover:text-white transition-colors"
+              >
+                Terms of Service
+              </Link>
+            </div>
+          </div>
 
-          <div className="grid grid-cols-1 gap-y-2 w-full max-w-xs md:flex md:w-auto md:max-w-none md:items-center md:justify-end md:gap-6">
-            <Link
-              href="/privacy-policy"
-              className="hover:text-black transition-colors text-center md:text-left"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="hover:text-black transition-colors text-center md:text-left"
-            >
-              Terms of Service
-            </Link>
+          {/* Architectural Watermark / Logo */}
+          <div className="w-full text-center flex justify-center items-center opacity-40 pointer-events-none select-none pt-10 pb-4">
+            <div className="hidden md:block">
+              <Logo scale={2.5} theme="dark" mobileCenter />
+            </div>
+            <div className="hidden sm:block md:hidden">
+              <Logo scale={1.8} theme="dark" mobileCenter />
+            </div>
+            <div className="block sm:hidden">
+              <Logo scale={1.2} theme="dark" mobileCenter />
+            </div>
           </div>
         </div>
       </div>
