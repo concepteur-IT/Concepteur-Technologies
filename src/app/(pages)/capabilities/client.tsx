@@ -354,12 +354,15 @@ export default function CapabilitiesClient() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <Link 
-                href="/contact" 
-                className="inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-xs font-bold uppercase tracking-widest h-[52px] px-8 border border-black transition-all duration-300 hover:bg-transparent hover:text-black custom-notch-tl-br"
-              >
-                INITIATE PROJECT
-              </Link>
+          <div className="shrink-0 w-full md:w-auto">
+            <Link
+              href="/contact"
+              className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
+            >
+              Initiate Project
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
             </motion.div>
           </div>
         </div>

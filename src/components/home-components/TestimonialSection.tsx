@@ -69,92 +69,97 @@ export default function TestimonialSection() {
           className="w-full h-px bg-gray-200 mb-12 md:mb-16"
         />
 
-        {/* Slide — 2 per page */}
-        <div className="overflow-hidden">
-          <AnimatePresence mode="wait" custom={direction}>
-            <motion.div
-              key={current}
-              custom={direction}
-              variants={{
-                enter: (d: number) => ({ x: d * 60, opacity: 0 }),
-                center: { x: 0, opacity: 1 },
-                exit: (d: number) => ({ x: d * -60, opacity: 0 }),
-              }}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12"
-            >
-              {pair.map((item, i) => (
-                <div key={i} className="flex flex-col gap-8">
-                  <p className="text-lg sm:text-xl text-gray-900 leading-relaxed font-light">
-                    &ldquo;{item.quote}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <span className="w-6 h-px bg-gray-900 shrink-0" />
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">
-                        {item.author}
-                      </p>
-                      <p className="text-sm text-gray-400">
-                        {item.company}
-                        {item.liveUrl && (
-                          <>
-                            {" · "}
-                            <a
-                              href={item.liveUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="hover:text-gray-700 transition-colors"
-                            >
-                              {item.liveUrl
-                                .replace(/^https?:\/\/(www\.)?/, "")
-                                .replace(/\/$/, "")}
-                            </a>
-                          </>
-                        )}
-                      </p>
+        {/* Main Content Area: Aligned with the heading above */}
+        <div className="flex flex-col md:flex-row gap-6 md:gap-16">
+          {/* Spacer to match the "— CLIENTS" width */}
+          <div className="hidden md:block md:w-[220px] shrink-0" />
+
+          <div className="flex-1 overflow-hidden">
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.div
+                key={current}
+                custom={direction}
+                variants={{
+                  enter: (d: number) => ({ x: d * 60, opacity: 0 }),
+                  center: { x: 0, opacity: 1 },
+                  exit: (d: number) => ({ x: d * -60, opacity: 0 }),
+                }}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12"
+              >
+                {pair.map((item, i) => (
+                  <div key={i} className="flex flex-col gap-8">
+                    <p className="text-lg sm:text-xl text-gray-900 leading-relaxed font-light">
+                      &ldquo;{item.quote}&rdquo;
+                    </p>
+                    <div className="flex items-center gap-4">
+                      <span className="w-6 h-px bg-gray-900 shrink-0" />
+                      <div>
+                        <p className="text-sm font-medium text-gray-900">
+                          {item.author}
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          {item.company}
+                          {item.liveUrl && (
+                            <>
+                              {" · "}
+                              <a
+                                href={item.liveUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-gray-700 transition-colors"
+                              >
+                                {item.liveUrl
+                                  .replace(/^https?:\/\/(www\.)?/, "")
+                                  .replace(/\/$/, "")}
+                              </a>
+                            </>
+                          )}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
 
-        {/* Controls */}
-        <div className="flex items-center justify-between mt-12 md:mt-16">
-          <div className="flex items-center gap-2">
-            {Array.from({ length: total }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => go(i)}
-                aria-label={`Go to slide ${i + 1}`}
-                className={`rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "w-6 h-2 bg-gray-900"
-                    : "w-2 h-2 bg-gray-300 hover:bg-gray-500"
-                }`}
-              />
-            ))}
-          </div>
+            {/* Controls: Also aligned with the testimonials/heading */}
+            <div className="flex items-center justify-between mt-12 md:mt-16">
+              <div className="flex items-center gap-2">
+                {Array.from({ length: total }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => go(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === current
+                        ? "w-6 h-2 bg-gray-900"
+                        : "w-2 h-2 bg-gray-300 hover:bg-gray-500"
+                    }`}
+                  />
+                ))}
+              </div>
 
-          <div className="flex items-center gap-3">
-            <button
-              onClick={prev}
-              aria-label="Previous"
-              className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-200"
-            >
-              ←
-            </button>
-            <button
-              onClick={next}
-              aria-label="Next"
-              className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-200"
-            >
-              →
-            </button>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={prev}
+                  aria-label="Previous"
+                  className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-200"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={next}
+                  aria-label="Next"
+                  className="w-10 h-10 border border-gray-300 flex items-center justify-center text-gray-600 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-200"
+                >
+                  →
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

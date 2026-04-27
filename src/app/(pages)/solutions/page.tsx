@@ -1,6 +1,8 @@
 "use client";
+
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 const jsonLd = {
@@ -17,344 +19,520 @@ const jsonLd = {
 
 export default function SolutionsPage() {
   return (
-    <main className="bg-white text-black font-sans selection:bg-black selection:text-white min-h-screen mt-15">
+    <main className="min-h-screen bg-white text-black font-sans selection:bg-black selection:text-white pb-20">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* SECTION 1: HERO - Clean & Compact */}
-      <section className="relative w-full pt-28 pb-20 overflow-hidden border-b border-gray-100">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-100/50 via-transparent to-transparent" />
-        </div>
-
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center space-y-5 md:space-y-6">
+      {/* REDESIGNED INTERLOCKING HERO */}
+      <section className="w-full pt-[120px] pb-16 md:pt-[160px] md:pb-32 px-5 md:px-[10%] xl:px-[15%]">
+        {/* Title Block */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl z-10 relative"
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-8 flex items-center gap-4">
+            <span className="w-8 h-[1px] bg-gray-300"></span>
+            Solutions Framework
+          </p>
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-normal text-gray-900 leading-[1.05] tracking-tight">
+            Transforming Complexity
+            <br className="hidden sm:block" />
+            <span className="text-gray-400">Into Scalable Advantage.</span>
+          </h1>
+        </motion.div>
+        <p className="mt-6">
+          At Concepteur Technologies, solutions are not predefined packages.
+          <span className="font-medium text-black ml-1">
+            They are engineered
+            <br /> responses to real business challenges.
+          </span>
+        </p>
+        {/* Image & Overlapping Glass Card */}
+        <div className="relative mt-8 md:mt-12 w-full flex flex-col lg:block">
+          {/* Panoramic Interactive Image */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="w-full lg:w-10/12 aspect-[12/8] md:aspect-[24/8] bg-gray-100 relative custom-notch-tl-br overflow-hidden group"
           >
-            <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium">
-              Solutions
-            </p>
+            <Image
+              src="/home/bg-frontend.png" // Replace with your preferred hero image
+              fill
+              className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] group-hover:scale-105"
+              alt="Solutions Architecture Integration"
+              priority
+            />
+            {/* Darken slightly on hover to pop the glass card */}
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700" />
           </motion.div>
 
-          <motion.h1
+          {/* Overlapping Frosted Glass Information Card */}
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl sm:text-4xl md:text-6xl leading-tight font-light text-black tracking-tight"
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="lg:absolute lg:right-0 lg:bottom-[-40px] lg:w-5/12 bg-white backdrop-blur-xl border border-gray-100 p-6 md:p-10 shadow-2xl custom-notch-tl-br z-20 mt-6 lg:mt-0  transition-colors duration-500"
           >
-            Transforming Complexity <br className="hidden md:block" />
-            <span className="font-semibold">Into Scalable Advantage</span>
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto space-y-4"
-          >
-            <p>
-              At Concepteur Technologies, solutions are not predefined packages.
-              <span className="font-medium text-black ml-1">
-                They are engineered responses to real business challenges.
-              </span>
+            <p className="text-lg md:text-xl font-light text-gray-500 leading-snug mb-6 border-b border-gray-200 pb-6">
+              We combine system architecture, disciplined engineering, and
+              AI-enhanced execution to design solutions that improve
+              performance, reduce operational overhead, and prepare
+              organizations for long-term scale.
             </p>
-            <div className="pt-8 pb-2">
-              <div className="relative border-l-2 border-black pl-5 md:pl-8 text-left mx-auto max-w-2xl bg-gradient-to-r from-gray-50/50 to-transparent py-4 pr-4">
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-4 font-light">
-                  We combine system architecture, disciplined engineering, and
-                  AI-enhanced execution to design solutions that improve
-                  performance, reduce operational overhead, and prepare
-                  organizations for long-term scale.
-                </p>
-                <div className="flex items-center gap-3">
-                  <span className="w-4 h-px bg-gray-300"></span>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.15em] text-black m-0">
-                    Each solution area represents a strategic capability — built
-                    around measurable impact, not trends.
-                  </p>
-                </div>
-              </div>
-            </div>
+
+            <p className="text-sm font-medium text-black leading-relaxed">
+              Each solution area represents a strategic capability — built
+              around measurable impact, not trends.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 2: DIGITAL TRANSFORMATION - Dense List */}
-      <section className="py-20 md:py-28 px-6 border-b border-gray-200 bg-gray-50/50">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-20">
-          <div className="md:w-1/3">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-              Digital Transformation
-            </h2>
-            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-              Modern systems require more than visual redesign. They require
-              structural reinvention.
-            </p>
-          </div>
-          <div className="md:w-2/3">
-            <p className="text-[11px] font-bold uppercase tracking-widest text-gray-400 mb-8 border-b border-gray-200 pb-3">
-              Our solutions focus on:
-            </p>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-sm md:text-base font-medium">
-              {[
-                "Re-architecting legacy infrastructure",
-                "Migrating to scalable cloud environments",
-                "Redesigning data pipelines",
-                "Improving system interoperability",
-                "Enhancing performance and reliability",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 bg-black mt-2 shrink-0 rounded-none" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 p-5 bg-white border border-gray-200">
-              <p className="text-sm font-medium text-black">
-                We replace fragmented systems with cohesive, scalable
-                architectures that support growth.
+      {/* STICKY SCROLL CONTENT ARCHITECTURE */}
+      <section className="w-full px-5 md:px-[10%] xl:px-[15%]">
+        {/* CHAPTER 01: DIGITAL TRANSFORMATION */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 py-20 border-t border-gray-200 relative">
+          <div className="lg:w-1/3 relative">
+            <div className="lg:sticky lg:top-32">
+              <span className="text-[120px] lg:text-[160px] font-light leading-none text-gray-100 tracking-tighter block mb-4 -ml-2">
+                01
+              </span>
+              <h2 className="text-3xl md:text-4xl font-normal tracking-tight mb-4">
+                Digital
+                <br />
+                Transformation
+              </h2>
+              <p className="text-sm text-gray-500 font-light leading-relaxed max-w-xs">
+                Modern systems require more than visual redesign. They require
+                structural reinvention.
               </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* SECTION 3: AI ADOPTION - Compact Inverted Box */}
-      <section className="py-20 md:py-28 px-6 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto bg-black text-white p-8 md:p-16 flex flex-col lg:flex-row gap-12 lg:gap-20">
-          <div className="lg:w-5/12">
-            <h2 className="text-3xl md:text-5xl font-semibold tracking-tight mb-4">
-              AI Adoption
-            </h2>
-            <p className="text-sm md:text-base font-light text-gray-300 leading-relaxed mb-8">
-              Artificial Intelligence must be implemented responsibly and
-              strategically.
-            </p>
-            <p className="text-[11px] uppercase tracking-widest text-gray-500">
-              Our AI Adoption solutions help organizations:
-            </p>
-          </div>
-
-          <div className="lg:w-7/12 border-l border-white/20 pl-0 lg:pl-12">
-            <ul className="space-y-6 text-sm md:text-base font-medium text-gray-200">
-              {[
-                "Identify high-impact automation opportunities",
-                "Integrate AI into existing workflows",
-                "Deploy intelligent agents and recommendation systems",
-                "Implement OCR and data intelligence pipelines",
-                "Build AI-driven decision support systems",
-              ].map((item, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="text-xs font-mono text-gray-500 mt-0.5">
-                    0{i + 1}
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-10 border-t border-white/20 pt-6">
-              <p className="text-[13px] font-bold tracking-widest uppercase text-white">
-                AI is integrated where it creates measurable value — not where
-                it creates noise.
+          <div className="lg:w-full flex flex-col md:flex-row gap-8 items-stretch max-w-5xl">
+            {/* Left Side: Feature Section (Determines the height) */}
+            <div className="w-full md:w-1/2 flex flex-col">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-6 border-b border-gray-200 pb-2">
+                Our solutions focus on:
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* SECTION 4: PROCESS AUTOMATION - Clean Outline Cards */}
-      <section className="py-20 md:py-28 px-6 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12 text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight mb-4">
-              Process Automation
-            </h2>
-            <p className="text-sm md:text-base text-gray-600">
-              Operational inefficiency limits scalability.
-            </p>
-          </div>
+              <div className="flex flex-col gap-4 flex-grow">
+                {[
+                  "Re-architecting legacy infrastructure",
+                  "Migrating to scalable cloud environments",
+                  "Enhancing performance and reliability",
+                  "Redesigning data pipelines",
+                  "Improving system interoperability",
+                ].map((item, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className="group relative flex items-center justify-between px-4 py-4 rounded-lg border border-gray-200 bg-white transition-all duration-400 ease-[0.22,1,0.36,1] hover:border-black hover:shadow-md hover:-translate-y-[2px]"
+                    >
+                      {/* Left Content */}
+                      <div className="flex items-center gap-4">
+                        {/* Number */}
+                        <span className="text-[11px] font-mono text-gray-400 group-hover:text-black transition-colors duration-300">
+                          0{index + 1}
+                        </span>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-            {[
-              "Reduce repetitive manual tasks",
-              "Improve data accuracy",
-              "Accelerate processing cycles",
-              "Integrate cross-platform workflows",
-              "Enable real-time system coordination",
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="border border-gray-200 p-6 flex flex-col justify-between hover:border-black transition-colors duration-200 aspect-square"
-              >
-                <div className="w-6 h-6 border border-black flex items-center justify-center font-mono text-[10px]">
-                  {i + 1}
-                </div>
-                <h3 className="text-[13px] font-semibold leading-snug">
-                  {item}
-                </h3>
+                        {/* Text */}
+                        <span className="text-sm font-medium text-gray-600 group-hover:text-black transition-colors duration-300 leading-snug tracking-tight">
+                          {item}
+                        </span>
+                      </div>
+
+                      {/* Arrow */}
+                      <ArrowRight className="w-4 h-4 text-gray-300 opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+
+                      {/* Hover Glow */}
+                      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-transparent via-black/[0.03] to-transparent pointer-events-none"></div>
+                    </li>
+                  );
+                })}
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="mt-12 text-center">
-            <p className="text-sm md:text-base font-medium text-black">
-              Automation is engineered to increase operational velocity without
-              compromising system control.
-            </p>
+            {/* Right Side: Image Section (Matches height and width of AI section) */}
+            <div className="w-full md:w-1/2 flex flex-col pt-[38px]">
+              {/* pt-[38px] ensures the top of image aligns with the first box below the header */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative flex-1 bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
+              >
+                <Image
+                  src="/home/cap-web.png"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
+                  alt="Transformation"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+              </motion.div>
+            </div>
           </div>
         </div>
-      </section>
 
-      {/* SECTION 5: LEGACY MODERNIZATION - Compact Dual Column */}
-      <section className="py-20 md:py-28 px-6 border-b border-gray-200 bg-gray-50/50">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 border-t border-b border-gray-200 py-12 md:py-20">
-          <div className="md:w-1/2 md:pr-12 md:border-r border-gray-200">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
-              Legacy Modernization
-            </h2>
-            <p className="text-sm md:text-base text-gray-600 mb-8 leading-relaxed">
-              Outdated systems create risk, cost, and performance bottlenecks.
-            </p>
-            <p className="text-base md:text-lg font-medium text-black">
-              We modernize without disrupting continuity — ensuring systems
-              remain stable while evolving.
-            </p>
+        {/* CHAPTER 02: AI ADOPTION */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 py-20 border-t border-gray-200 relative">
+          <div className="lg:w-1/3 relative">
+            <div className="lg:sticky lg:top-32">
+              <span className="text-[120px] lg:text-[160px] font-light leading-none text-gray-100 tracking-tighter block mb-4 -ml-2">
+                02
+              </span>
+              <h2 className="text-3xl md:text-4xl font-normal tracking-tight mb-4">
+                AI Adoption
+              </h2>
+              <p className="text-sm text-gray-500 font-light leading-relaxed max-w-xs">
+                Artificial Intelligence must be implemented responsibly and
+                strategically.
+              </p>
+            </div>
           </div>
-          <div className="md:w-1/2 md:pl-4">
-            <p className="text-[11px] uppercase tracking-widest text-gray-400 mb-6">
-              Our modernization approach includes:
-            </p>
-            <div className="space-y-4 text-sm md:text-base font-medium">
+
+          <div className="lg:w-full flex flex-col md:flex-row gap-8 items-stretch max-w-5xl">
+            <div className="w-full md:w-1/2 flex flex-col pt-[38px]">
+              {/* pt-[38px] aligns image top with the first list item (01) */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                className="relative flex-1 bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
+              >
+                <Image
+                  src="/home/cap-ai.png"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
+                  alt="AI Adoption"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
+              </motion.div>
+            </div>
+            {/* Left Side: AI List (Determines the height) */}
+            <div className="w-full md:w-1/2 flex flex-col">
+              {/* Heading */}
+              <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-gray-400 mb-8">
+                Our AI Adoption solutions help organizations:
+              </p>
+
+              {/* Timeline */}
+              <div className="relative flex flex-col gap-6 pl-6">
+                {/* Vertical Line */}
+                <span className="absolute left-2 top-0 w-[1px] h-full bg-gray-200"></span>
+
+                {[
+                  "Identify high-impact automation opportunities",
+                  "Integrate AI into existing workflows",
+                  "Deploy intelligent agents and recommendation systems",
+                  "Implement OCR and data intelligence pipelines",
+                  "Build AI-driven decision support systems",
+                ].map((item, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="group relative flex items-start gap-4"
+                    >
+                      {/* Dot */}
+                      <span className="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-gray-300 group-hover:bg-black transition-colors duration-300"></span>
+
+                      {/* Content */}
+                      <div className="flex items-center justify-between w-full">
+                        <div className="flex items-start gap-4">
+                          {/* Number */}
+                          <span className="text-[11px] font-mono text-gray-400 group-hover:text-black transition-colors">
+                            0{index + 1}
+                          </span>
+
+                          {/* Text */}
+                          <span className="text-sm text-gray-600 group-hover:text-black transition-colors leading-snug">
+                            {item}
+                          </span>
+                        </div>
+
+                        {/* Arrow */}
+                        <ArrowRight className="w-4 h-4 text-gray-300 opacity-0 -translate-x-3 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Quote */}
+              <p className="mt-10 text-[12px] font-bold uppercase tracking-[0.15em] text-black leading-tight">
+                AI is integrated where it creates measurable value — <br />
+                not where it creates noise.
+              </p>
+            </div>
+
+            {/* Right Side: Image Section (Matches width/height of previous section) */}
+          </div>
+        </div>
+
+        {/* CHAPTER 03: PROCESS AUTOMATION (Glassmorphism Re-design) */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 py-20 border-t border-gray-200 relative">
+          <div className="lg:w-1/3 relative">
+            <div className="lg:sticky lg:top-32">
+              <span className="text-[120px] lg:text-[160px] font-light leading-none text-gray-100 tracking-tighter block mb-4 -ml-2">
+                03
+              </span>
+              <h2 className="text-3xl md:text-4xl font-normal tracking-tight mb-4">
+                Process
+                <br />
+                Automation
+              </h2>
+              <p className="text-sm text-gray-500 font-light leading-relaxed max-w-xs">
+                Operational inefficiency limits scalability.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:w-2/3 flex flex-col lg:flex-row gap-12 items-stretch">
+            {/* LEFT — TEXT CONTENT */}
+            <div className="w-full lg:w-1/2 flex flex-col gap-8">
+              <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-black">
+                Process Automation
+              </h2>
+
+              <div className="flex flex-col divide-y divide-gray-200 border-t border-gray-200">
+                {[
+                  "Reduce repetitive manual tasks",
+                  "Improve data accuracy",
+                  "Accelerate processing cycles",
+                  "Integrate cross-platform workflows",
+                ].map((item, index) => {
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 25 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1, duration: 0.6 }}
+                      className="group py-5 flex items-center justify-between"
+                    >
+                      {/* Left Text */}
+                      <div className="flex items-center gap-4">
+                        <span className="text-xs font-mono text-gray-400">
+                          0{index + 1}
+                        </span>
+                        <p className="text-sm md:text-base text-black font-medium tracking-tight">
+                          {item}
+                        </p>
+                      </div>
+
+                      {/* Arrow */}
+                      <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-black transition-all duration-300 group-hover:translate-x-1" />
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* RIGHT — IMAGE (MATCHES TEXT HEIGHT) */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full lg:w-1/2"
+            >
+              <div className="relative h-full min-h-[320px] bg-gray-100 overflow-hidden custom-notch-tl-br group">
+                <Image
+                  src="/home/cap-cloud.png"
+                  fill
+                  className="object-cover transition-transform duration-[1400ms] ease-[0.22,1,0.36,1] group-hover:scale-105"
+                  alt="Process Automation Infrastructure"
+                />
+
+                {/* Subtle overlay */}
+                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition duration-500" />
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* CHAPTER 04: LEGACY MODERNIZATION */}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 py-20 border-t border-gray-200 relative">
+          <div className="lg:w-1/3 relative">
+            <div className="lg:sticky lg:top-32">
+              <span className="text-[120px] lg:text-[160px] font-light leading-none text-gray-100 tracking-tighter block mb-4 -ml-2">
+                04
+              </span>
+              <h2 className="text-3xl md:text-4xl font-normal tracking-tight mb-4">
+                Legacy
+                <br />
+                Modernization
+              </h2>
+              <p className="text-sm text-gray-500 font-light leading-relaxed max-w-xs">
+                Outdated systems create risk, cost, and performance bottlenecks.
+              </p>
+            </div>
+          </div>
+
+          <div className="lg:w-2/3 flex flex-col md:flex-row gap-12 items-stretch">
+            {/* IMAGE */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="w-full md:w-1/2 relative bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
+            >
+              <Image
+                src="/home/cap-backend.png"
+                fill
+                className="object-cover group-hover:scale-105 transition-all duration-[1000ms]"
+                alt="Legacy"
+              />
+            </motion.div>
+
+            {/* TEXT */}
+            <div className="w-full md:w-1/2 flex flex-col justify-center gap-6">
+              <p className="text-[11px] uppercase tracking-[0.2em] font-bold text-gray-400 border-b border-gray-200 pb-4 mb-2">
+                Our modernization approach includes:
+              </p>
+
               {[
                 "Codebase restructuring",
                 "Database optimization",
                 "Infrastructure migration",
                 "API-first re-architecture",
                 "Security reinforcement",
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 pb-4 border-b border-gray-100 last:border-0 last:pb-0"
-                >
-                  <ArrowRight className="w-3.5 h-3.5 text-gray-400 shrink-0" />
-                  <span>{item}</span>
-                </div>
-              ))}
+              ].map((item, index) => {
+                return (
+                  <div key={index} className="flex items-center gap-4 group">
+                    <span className="w-6 h-px bg-gray-300 group-hover:bg-black transition-colors" />
+                    <span className="text-sm font-medium text-gray-700 group-hover:text-black transition-colors">
+                      {item}
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 6: STRUCTURED EXECUTION - Tight Numbered List */}
-      <section className="py-20 md:py-28 px-6 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <div className="mb-12">
-            <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-4">
-              Structured Execution. Measurable Impact.
-            </h2>
-            <p className="text-sm md:text-base text-gray-600">
-              Each solution engagement follows a disciplined framework:
-            </p>
-          </div>
+      {/* DISCIPLINED EXECUTION LOGIC - Image Cards with Pop-up Shadow */}
+<section className="py-16 md:py-20 px-5 md:px-8 lg:px-10 border-b border-gray-300 bg-white">
+  <div className="max-w-[1350px] mx-auto w-full">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
-            {[
-              "Business analysis",
-              "System architecture design",
-              "Implementation planning",
-              "Controlled deployment",
-              "Performance validation",
-              "Iterative optimization",
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col gap-2">
-                <span className="text-[10px] font-mono text-gray-400 border-b border-gray-200 pb-1 w-max">
-                  STEP 0{i + 1}
-                </span>
-                <span className="text-[14px] font-semibold">{item}</span>
-              </div>
-            ))}
-          </div>
+    {/* Top */}
+    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
 
-          <div className="mt-12 pt-6 border-t border-black">
-            <p className="text-sm font-medium text-black">
-              This ensures that every solution is engineered for durability,
-              scalability, and long-term value.
-            </p>
-          </div>
-        </div>
-      </section>
+      <h2 className="text-2xl md:text-4xl font-semibold tracking-tight leading-tight max-w-3xl">
+        Built for Long-Term Performance
+      </h2>
 
-      {/* SECTION 7: LONG-TERM PERFORMANCE - Minimal Columns */}
-      <section className="py-20 md:py-28 px-6 border-b border-gray-200 bg-gray-50/50">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:gap-24">
-          <div className="md:w-1/2">
-            <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-6">
-              Built for Long-Term Performance
-            </h2>
-            <p className="text-sm md:text-base text-gray-600 mb-8 leading-relaxed">
-              Technology decisions should serve long-term strategy.
-            </p>
-            <div className="bg-black text-white p-6 inline-block">
-              <p className="text-[11px] font-medium uppercase tracking-widest mb-2 opacity-70">
-                We do not deliver isolated features.
-              </p>
-              <p className="text-lg font-medium">
-                We engineer operational advantage.
-              </p>
-            </div>
-          </div>
-          <div className="md:w-1/2">
-            <p className="text-[11px] uppercase tracking-widest font-bold text-gray-400 mb-6 border-b border-gray-200 pb-2">
-              Our solutions are designed to:
-            </p>
-            <ul className="text-sm md:text-base font-medium space-y-4">
-              {[
-                "Scale with growth",
-                "Minimize technical debt",
-                "Strengthen security posture",
-                "Reduce infrastructure cost",
-                "Enable continuous innovation",
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 bg-gray-300 rounded-none shrink-0" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
+      <p className="text-sm md:text-base text-gray-700 max-w-lg">
+        Technology decisions should serve long-term strategy.
+      </p>
 
-      {/* SECTION 8: CTA - Compact Brutalist Box */}
-      <section className="py-24 md:py-32 px-6 text-center border-b-8 border-black">
-        <div className="max-w-2xl mx-auto">
-          <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-6">
-            Ready to Move Forward?
-          </h3>
-          <p className="text-sm md:text-base font-medium text-gray-600 mb-10 leading-relaxed max-w-xl mx-auto">
-            If your organization is facing structural complexity, scaling
-            challenges, or modernization pressure, we can help design the right
-            path forward.
+    </div>
+
+    {/* Middle Statement Strip */}
+    <div className="border-y border-gray-300 py-5 mb-14">
+      <div className="flex items-center gap-8 bg-black text-white px-10 py-6">
+        
+        <span className="w-12 h-[1px] bg-white" />
+
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-white/70 mb-1">
+            We do not deliver isolated features.
           </p>
-
-          <h2 className="text-2xl md:text-4xl font-semibold mb-12">
-            Let’s build systems that perform —{" "}
-            <span className="italic font-light text-gray-500">
-              today and at scale.
-            </span>
-          </h2>
-
-          <Link
-            href="/contact"
-            className="inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-[13px] font-medium h-[44px] px-8 border border-transparent rounded-none transition-all duration-200 ease-in-out hover:bg-white hover:text-black hover:border-black active:opacity-90 tracking-widest uppercase"
-          >
-            Start A Conversation
-          </Link>
+          <p className="text-base md:text-lg font-semibold">
+            We engineer operational advantage.
+          </p>
         </div>
+
+      </div>
+    </div>
+
+    {/* List */}
+    <div>
+      <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-500 mb-8">
+        Our solutions are designed to:
+      </p>
+
+      <div className="flex flex-col divide-y divide-gray-300">
+        {[
+          {
+            title: "Scale with growth",
+            desc: "Infrastructure that adapts as demand increases",
+          },
+          {
+            title: "Minimize technical debt",
+            desc: "Clean architecture that reduces future rework",
+          },
+          {
+            title: "Strengthen security posture",
+            desc: "Built-in protection across systems and workflows",
+          },
+          {
+            title: "Reduce infrastructure cost",
+            desc: "Optimized usage without sacrificing performance",
+          },
+          {
+            title: "Enable continuous innovation",
+            desc: "Flexible systems that support rapid iteration",
+          },
+        ].map((item, i) => (
+          <div
+            key={i}
+            className="group flex items-center justify-between gap-14 py-6 transition-all duration-300 hover:pl-4"
+          >
+            {/* Left */}
+            <div className="flex items-center gap-6 min-w-[320px]">
+              <span className="text-sm font-mono text-gray-400 group-hover:text-black transition">
+                {(i + 1).toString().padStart(2, "0")}
+              </span>
+
+              <span className="text-base md:text-lg font-semibold text-gray-900">
+                {item.title}
+              </span>
+            </div>
+
+            {/* Right */}
+            <div className="flex-1 flex items-center justify-end gap-10">
+              <p className="text-sm md:text-base text-gray-600 text-right max-w-xl leading-relaxed">
+                {item.desc}
+              </p>
+
+              {/* hover line */}
+              <span className="w-12 h-[2px] bg-gray-400 group-hover:w-20 group-hover:bg-black transition-all duration-300" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+      {/* FINAL CTA */}
+      <section className="w-full pt-32 pb-10 px-5 md:px-[10%] xl:px-[15%] flex flex-col items-center text-center">
+        <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-8">
+          Ready to Move Forward?
+        </h3>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-normal text-black leading-[1.05] tracking-tight mb-12">
+          Let’s build systems <br className="hidden md:block" />
+          <span className="text-gray-400">that perform at scale.</span>
+        </h2>
+          <div className="shrink-0 w-full md:w-auto">
+            <Link
+              href="/contact"
+              className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
+            >
+              Start Conversation
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
       </section>
     </main>
   );

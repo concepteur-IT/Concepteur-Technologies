@@ -18,7 +18,7 @@ function CountStat({
   suffix,
   label,
   show,
-  withBorder,
+  withBorder, 
 }: {
   value: number;
   suffix: string;
