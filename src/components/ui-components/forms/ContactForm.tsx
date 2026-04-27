@@ -182,9 +182,19 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full sm:w-auto inline-flex items-center justify-center whitespace-nowrap bg-black text-white text-xs font-bold uppercase tracking-widest h-[52px] px-8 border border-black transition-all duration-300 hover:bg-transparent hover:text-black custom-notch-tl-br disabled:opacity-50 disabled:cursor-not-allowed"
+          className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {status === "loading" ? "SENDING..." : "SEND INQUIRY"}
+          {status === "loading" ? "SENDING..." : "Send Inquiry"}
+          <svg
+            className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.5"
+          >
+            <path d="M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
         </button>
         {status === "success" && (
           <p className="text-sm text-green-700">

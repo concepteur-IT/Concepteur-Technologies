@@ -1,5 +1,7 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+
 interface SubmitBtnProps {
   label?: string;
   loading?: boolean;
@@ -7,16 +9,17 @@ interface SubmitBtnProps {
 }
 
 export default function SubmitBtn({
-  label = "Submit",
+  label = "Initiate Project",
   loading = false,
 }: SubmitBtnProps) {
   return (
     <button
       type="submit"
       disabled={loading}
-      className="inline-flex items-center justify-center bg-black text-white font-medium tracking-wide px-7 py-3 rounded-xl transition-all duration-300 hover:bg-neutral-800 hover:-translate-y-1px active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed"
+      className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br disabled:opacity-60 disabled:cursor-not-allowed"
     >
-      {loading ? "Submitting..." : label}
+      {loading ? "SENDING..." : label}
+      <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
     </button>
   );
 }

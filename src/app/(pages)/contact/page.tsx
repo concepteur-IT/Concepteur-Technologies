@@ -1,6 +1,4 @@
-import React from "react";
-import ContactHero from "@/components/contact-components/ContactHero";
-import ContactContact from "@/components/contact-components/ContactContact";
+import ContactSection from "@/components/home-components/ContactSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,9 +11,8 @@ export const metadata: Metadata = {
 };
 const page = () => {
   return (
-    <main className="bg-white mt-12 sm:mt-14 md:mt-15">
-      <ContactHero />
-      <ContactContact />
+    <main className="bg-white">
+      <ContactSection />
     </main>
   );
 };

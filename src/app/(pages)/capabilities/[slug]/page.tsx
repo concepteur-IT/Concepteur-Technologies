@@ -42,7 +42,6 @@ export default async function ServiceDetail({
     notFound();
   }
 
-  // Array of valid /home/ folder imagery for dynamic mapping based on slug length or static choice
   const homeImages = [
     "/home/bg-frontend.png",
     "/home/cap-uiux.png",
@@ -52,7 +51,6 @@ export default async function ServiceDetail({
     "/home/cap-web.png",
   ];
 
-  // Pick an image dynamically so it varies, but only from /home/ folder as requested
   const heroImage = "/home/bg-frontend.png";
 
   return (
@@ -75,7 +73,7 @@ export default async function ServiceDetail({
         </div>
       </div>
 
-      {/* Massive Hero Block - Using Exclusively /home folder image */}
+      {/* Massive Hero Block */}
       <div className="w-full px-0 md:px-[5%] lg:px-[15%] mb-20 lg:mb-32">
         <div className="w-full aspect-[4/3] md:aspect-[21/9] bg-gray-100 relative custom-notch-tl-br overflow-hidden group">
           <Image
@@ -86,18 +84,17 @@ export default async function ServiceDetail({
             className="object-cover transition-all duration-[1200ms] ease-out group-hover:scale-[1.03]"
           />
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-500" />
-          {/* Abstract Design Elements */}
           <div className="absolute top-8 right-8 w-24 h-[1px] bg-white opacity-50 hidden md:block" />
           <div className="absolute bottom-0 left-8 w-[1px] h-24 bg-white opacity-50 hidden md:block" />
         </div>
       </div>
 
       {/* Sticky Editorial Split Section */}
-      <div className="w-full px-5 md:px-[10%] lg:px-[15%] grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative">
+      {/* "items-start" is crucial here to prevent the left column from stretching */}
+      <div className="w-full px-5 md:px-[10%] lg:px-[15%] grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative items-start">
         
-        {/* Left Col: Direct Grid Item -> Sticky + Self-Start is the golden rule for CSS Grid sticky */}
+        {/* Left Col: Sticky Sidebar */}
         <div className="lg:col-span-5 flex flex-col gap-12 lg:sticky lg:top-32 lg:self-start">
-          
           <div>
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-4">
               — System Architecture Context
@@ -123,7 +120,6 @@ export default async function ServiceDetail({
                   </p>
                 </div>
               ))}
-              {/* Filler block if odd number of stats */}
               {service.stats.length % 2 !== 0 && (
                 <div className="bg-[#fcfcfc] p-6 lg:p-8 flex items-center justify-center">
                   <span className="w-8 h-[1px] bg-gray-300" />
@@ -144,7 +140,7 @@ export default async function ServiceDetail({
 
         {/* Right Col: Deep Dive Data & Case Studies */}
         <div className="lg:col-span-7 flex flex-col gap-24 lg:gap-32">
-          {/* Capabilities List - High End Minimalist */}
+          {/* Capabilities List */}
           <div className="flex flex-col">
             <div className="flex items-center justify-between border-b border-gray-900 pb-6 mb-8">
               <h2 className="text-3xl font-light tracking-tight text-gray-900">
@@ -193,7 +189,7 @@ export default async function ServiceDetail({
             </div>
           </div>
 
-          {/* Case Studies Gallery injected right into the flow */}
+          {/* Case Studies Gallery */}
           {service.projects && service.projects.length > 0 && (
             <div className="flex flex-col">
               <div className="flex flex-col border-b border-gray-900 pb-6 mb-8">
@@ -207,16 +203,13 @@ export default async function ServiceDetail({
 
               <div className="flex flex-col gap-0 border border-gray-200 rounded-xl overflow-hidden bg-white">
                 {service.projects.map((project, idx) => {
-                  const projectImage =
-                    homeImages[(idx + 2) % homeImages.length];
+                  const projectImage = homeImages[(idx + 2) % homeImages.length];
                   return (
                     <div
                       key={idx}
                       className="flex flex-col md:flex-row group border-b border-gray-200 last:border-b-0 hover:bg-[#fcfcfc] transition-colors relative"
                     >
-                      {/* Background highlight pill */}
                       <div className="absolute left-0 top-0 w-1 h-full bg-black scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
-
                       <div className="md:w-1/3 relative aspect-video md:aspect-square m-4 rounded-lg overflow-hidden shrink-0">
                         <Image
                           src={projectImage}

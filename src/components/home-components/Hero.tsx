@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -22,26 +23,15 @@ export default function Hero() {
               Systems that think, built to scale for real-world complexity.
             </h1>
 
+          <div className="shrink-0 w-full md:w-auto">
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-gray-900 border border-gray-300 px-5 py-2.5 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-200"
+              className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
             >
-              Get in touch
-              <svg
-                className="w-[17px] h-[17px] shrink-0 transition-transform duration-300 group-hover:rotate-45"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path
-                  d="M9 15L15 9M15 9H10M15 9V14"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              Get In Touch
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
+          </div>
           </motion.div>
 
           {/* Right: Description */}
