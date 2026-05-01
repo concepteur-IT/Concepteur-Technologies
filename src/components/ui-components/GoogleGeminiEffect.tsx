@@ -1,8 +1,8 @@
 "use client";
-import { motion, MotionValue } from "framer-motion";
+import { motion, type MotionValue, type Transition } from "framer-motion";
 import React from "react";
 
-const transition = {
+const transition: Transition = {
   duration: 0,
   ease: "linear",
 };
