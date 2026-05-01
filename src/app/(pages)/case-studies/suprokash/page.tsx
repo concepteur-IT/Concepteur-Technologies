@@ -91,25 +91,7 @@ export default function SuprokashCaseStudy() {
       </header>
 
       {/* Hero Banner (Black & White to Color on Hover) */}
-      <section className="px-6 max-w-screen-2xl mx-auto mb-16">
-        <div className="relative w-full h-[30vh] lg:h-[45vh] overflow-hidden bg-gray-100 group cursor-crosshair">
-          <motion.div style={{ scale }} className="w-full h-full origin-bottom">
-            <Image
-              src="/case-studies/suprokash.png"
-              alt="Suprokash App Banner"
-              fill
-              className="object-cover grayscale transition-all duration-[1500ms] group-hover:grayscale-0"
-              quality={100}
-              priority
-            />
-          </motion.div>
 
-          {/* subtle framing line */}
-          <div className="absolute inset-0 border border-black/10 pointer-events-none" />
-        </div>
-      </section>
-
-      {/* Main Content Layout */}
       <main className="px-6 max-w-7xl mx-auto mb-20">
         {/* 01: Overview */}
         <div className="grid md:grid-cols-12 gap-8 mb-16 border-t border-black pt-8">
