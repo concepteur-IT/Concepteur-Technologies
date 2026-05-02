@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Feedback Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f7fb;
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 700px;
+        margin: auto;
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+      h1 {
+        font-size: 22px;
+        margin-bottom: 5px;
+      }
+      p {
+        color: #555;
+        font-size: 14px;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      input,
+      textarea,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 6px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+      }
+      textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .rating {
+        display: flex;
+        gap: 8px;
+        margin-top: 8px;
+      }
+      .rating input {
+        width: auto;
+      }
+      .section {
+        margin-top: 25px;
+        border-top: 1px solid #eee;
+        padding-top: 15px;
+      }
+      button {
+        margin-top: 20px;
+        width: 100%;
+        padding: 12px;
+        background: #2563eb;
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      button:hover {
+        background: #1d4ed8;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Client Feedback & Testimonial</h1>
+      <p>
+        Quick 2-minute feedback. Helps us improve and showcase your results.
+      </p>
+
+      <form>
+        <div class="section">
+          <label>Full Name</label>
+          <input type="text" />
+
+          <label>Company Name</label>
+          <input type="text" />
+
+          <label>Email</label>
+          <input type="email" />
+
+          <label>Project Name</label>
+          <input type="text" />
+        </div>
+
+        <div class="section">
+          <label>How satisfied are you with the project?</label>
+          <div class="rating">
+            <label><input type="radio" name="rating" /> 1</label>
+            <label><input type="radio" name="rating" /> 2</label>
+            <label><input type="radio" name="rating" /> 3</label>
+            <label><input type="radio" name="rating" /> 4</label>
+            <label><input type="radio" name="rating" /> 5</label>
+          </div>
+
+          <label>Would you recommend us?</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <label>What challenges were you facing before working with us?</label>
+          <textarea></textarea>
+
+          <label>What solution did we provide?</label>
+          <textarea></textarea>
+
+          <label>What results or improvements did you see?</label>
+          <textarea></textarea>
+        </div>
+
+        <div class="section">
+          <label>Write a short testimonial</label>
+          <textarea></textarea>
+        </div>
+
+        <div class="section">
+          <label>Industry</label>
+          <input type="text" />
+
+          <label>Key measurable results (if any)</label>
+          <input type="text" />
+
+          <label>What did you like most about working with us?</label>
+          <textarea></textarea>
+        </div>
+
+        <div class="section">
+          <label>Allow us to use your testimonial on our website?</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+
+          <label>Allow use of company name/logo?</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+
+          <label>Allow LinkedIn case study/post?</label>
+          <select>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
+
+        <button type="submit">Submit Feedback</button>
+      </form>
+    </div>
+  </body>
+</html>

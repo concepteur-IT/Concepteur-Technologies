@@ -276,10 +276,49 @@ export default function ProductStack() {
               </motion.div>
             </AnimatePresence>
 
+            {/* CTA: Found your stack */}
+            <Link
+              href="/contact"
+              className="relative overflow-hidden mt-4 lg:mt-6 w-full flex items-center justify-between p-6 lg:p-8 bg-gray-50 custom-notch-tl-br hover:bg-gray-100 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group"
+            >
+              <div className="absolute inset-0 z-0">
+                <Image
+                  src="/home/bg-frontend.png"
+                  alt="Background texture"
+                  fill
+                  className="object-cover opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500"
+                />
+              </div>
+
+              <div className="flex flex-col relative z-10">
+                <h4 className="text-[17px] font-medium text-gray-900 mb-1 transition-colors duration-300">
+                  Found your stack?
+                </h4>
+                <p className="text-sm text-gray-500 leading-relaxed font-light max-w-lg">
+                  Ready to turn your vision into reality? Contact us today and let our expert engineers start building your dream project.
+                </p>
+              </div>
+              <div className="relative z-10 hidden sm:flex shrink-0 ml-6 w-12 h-12 rounded-full border border-gray-200 bg-white items-center justify-center text-gray-900 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-300">
+                <svg
+                  className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                >
+                  <path
+                    d="M7 17L17 7M17 7H7M17 7V17"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+            </Link>
+
             {/* Additional Static Card for Contact */}
             <Link
               href="/contact"
-              className="mt-4 lg:mt-6 w-full flex items-center justify-between p-6 lg:p-8 bg-gray-900 custom-notch-tl-br hover:bg-black transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group"
+              className="mt-4 w-full flex items-center justify-between p-6 lg:p-8 bg-gray-900 custom-notch-tl-br hover:bg-black transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group"
             >
               <div className="flex flex-col">
                 <h4 className="text-[17px] font-medium text-white mb-1 transition-colors duration-300">
