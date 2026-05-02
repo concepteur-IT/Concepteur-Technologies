@@ -35,7 +35,14 @@ const BotIcon = ({ className }: { className?: string }) => (
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [showGreetingBubble, setShowGreetingBubble] = useState(true);
+  const [showGreetingBubble, setShowGreetingBubble] = useState(false);
+  const [greetingIndex, setGreetingIndex] = useState(0);
+
+  const greetings = [
+    "Looking for something? You can ask me!",
+    "Need help finding a service?",
+    "Hey, ready to start your project?",
+  ];
 
   // Auth State
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -47,6 +54,9 @@ export default function ChatBot() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [messageCount, setMessageCount] = useState(0);
+  const MAX_MESSAGES = 10;
+
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -65,6 +75,20 @@ export default function ChatBot() {
     if (isOpen) {
       const storedName = localStorage.getItem("chat_user_name");
       const storedEmail = localStorage.getItem("chat_user_email");
+
+      // Handle Rate Limit state
+      const storedDate = localStorage.getItem("chat_last_date");
+      const storedCount = localStorage.getItem("chat_message_count");
+      const today = new Date().toDateString();
+
+      if (storedDate === today && storedCount) {
+        setMessageCount(parseInt(storedCount, 10));
+      } else {
+        // Reset if it's a new day
+        localStorage.setItem("chat_last_date", today);
+        localStorage.setItem("chat_message_count", "0");
+        setMessageCount(0);
+      }
 
       if (storedName && storedEmail) {
         setUserName(storedName);
@@ -90,11 +114,30 @@ export default function ChatBot() {
   }, [isOpen, messages.length]);
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      setShowGreetingBubble(false);
-    }, 5000);
+    let hideTimer: number;
+    let rotateInterval: number;
 
-    return () => window.clearTimeout(timer);
+    const showTimer = window.setTimeout(() => {
+      setShowGreetingBubble(true);
+
+      // Rotate messages every 5 seconds
+      rotateInterval = window.setInterval(() => {
+        setGreetingIndex((prev) => (prev + 1) % greetings.length);
+      }, 5000);
+
+      // Auto-hide the bubble after showing all messages (15s total)
+      hideTimer = window.setTimeout(() => {
+        clearInterval(rotateInterval);
+        setShowGreetingBubble(false);
+      }, 15000);
+
+    }, 20000); // 20 second initial delay
+
+    return () => {
+      window.clearTimeout(showTimer);
+      window.clearTimeout(hideTimer);
+      window.clearInterval(rotateInterval);
+    };
   }, []);
 
   // Auto-scroll to bottom of chat
@@ -129,10 +172,16 @@ export default function ChatBot() {
 
   const handleChatSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!input.trim() || isLoading) return;
+    if (!input.trim() || isLoading || messageCount >= MAX_MESSAGES) return;
 
     const userMsg = input.trim();
     setInput("");
+
+    // Update Rate Limit
+    const newCount = messageCount + 1;
+    setMessageCount(newCount);
+    localStorage.setItem("chat_message_count", newCount.toString());
+    localStorage.setItem("chat_last_date", new Date().toDateString());
 
     // Add user message to UI
     const newMessages: Message[] = [
@@ -192,7 +241,7 @@ export default function ChatBot() {
       {/* Floating Toggle Button & Greeting Bubble */}
       <AnimatePresence>
         {!isOpen && (
-          <div className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 flex items-end gap-3 sm:gap-4 max-w-[calc(100vw-0.75rem)]">
+          <div className="fixed bottom-4 right-3 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-[9999] flex items-end gap-3 sm:gap-4 max-w-[calc(100vw-0.75rem)]">
             {/* Waving Greeting Bubble */}
             <AnimatePresence>
               {showGreetingBubble && (
@@ -207,9 +256,18 @@ export default function ChatBot() {
                   }}
                   className="relative flex items-center max-w-[17rem] sm:max-w-[22rem] bg-white px-4 py-3 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.12)] border border-gray-100"
                 >
-                  <span className="text-xs sm:text-sm font-medium text-black pr-1">
-                    Hey, ready to start your project?
-                  </span>
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={greetingIndex}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -5 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-xs sm:text-sm font-medium text-black pr-1"
+                    >
+                      {greetings[greetingIndex]}
+                    </motion.span>
+                  </AnimatePresence>
                   {/* Little triangle pointer pointing right */}
                   <div className="absolute right-[-6px] bottom-4 w-3 h-3 bg-white border-r border-b border-gray-100 transform -rotate-45" />
                 </motion.div>
@@ -241,7 +299,7 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed bottom-3 left-3 right-3 sm:bottom-6 sm:left-auto sm:right-6 md:bottom-8 md:right-8 z-50 h-[550px] max-h-[88vh] sm:w-[420px] sm:max-w-[calc(100vw-3rem)] md:w-[380px] bg-white border border-gray-200 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden"
+            className="fixed bottom-3 left-3 right-3 sm:bottom-6 sm:left-auto sm:right-6 md:bottom-8 md:right-8 z-[9999] h-[550px] max-h-[88vh] sm:w-[420px] sm:max-w-[calc(100vw-3rem)] md:w-[380px] bg-white border border-gray-200 rounded-2xl shadow-[0_24px_80px_rgba(0,0,0,0.15)] flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="bg-black p-4 flex items-center justify-between z-10 relative">
@@ -391,21 +449,28 @@ export default function ChatBot() {
                       type="text"
                       value={input}
                       onChange={(e) => setInput(e.target.value)}
-                      placeholder="Ask about our services..."
-                      className="w-full bg-gray-50 border border-gray-200 rounded-full pl-5 pr-12 py-3 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-gray-300 focus:ring-1 focus:ring-gray-300 transition-all"
-                      disabled={isLoading}
+                      placeholder={
+                        messageCount >= MAX_MESSAGES
+                          ? "Daily message limit reached. Try tomorrow."
+                          : "Ask about our services..."
+                      }
+                      className="w-full bg-gray-50 border border-gray-200 rounded-full pl-5 pr-12 py-3 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-gray-300 focus:ring-1 focus:ring-gray-300 transition-all disabled:opacity-70 disabled:cursor-not-allowed"
+                      disabled={isLoading || messageCount >= MAX_MESSAGES}
                     />
                     <button
                       type="submit"
-                      disabled={!input.trim() || isLoading}
+                      disabled={!input.trim() || isLoading || messageCount >= MAX_MESSAGES}
                       className="absolute right-2 w-8 h-8 rounded-full bg-black text-white flex items-center justify-center disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-colors"
                     >
                       <Send className="w-3.5 h-3.5" />
                     </button>
                   </form>
-                  <div className="text-center mt-3">
+                  <div className="flex items-center justify-between mt-3 px-1">
                     <span className="text-[10px] text-gray-400">
-                      AI responses may not be 100% accurate.
+                      AI responses may be inaccurate.
+                    </span>
+                    <span className={`text-[10px] font-medium ${messageCount >= MAX_MESSAGES ? 'text-red-500' : 'text-gray-400'}`}>
+                      {MAX_MESSAGES - messageCount} messages remaining
                     </span>
                   </div>
                 </div>

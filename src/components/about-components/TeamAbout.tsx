@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { teamData as team } from "@/data/teamData";
 
@@ -29,6 +30,52 @@ const TeamAbout = () => {
           >
             The minds behind the architecture.
           </motion.h2>
+        </div>
+
+        {/* Team Photo Collage Gallery */}
+        <div className="w-full mb-16 md:mb-24">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 h-[350px] md:h-[500px]">
+             {/* Big image */}
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.98 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5 }}
+               className="col-span-2 row-span-2 relative custom-notch-tl-br overflow-hidden bg-gray-100 group"
+             >
+                <Image src="/home/bg-frontend.png" alt="Team at work" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+             </motion.div>
+             {/* Top right */}
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.98 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: 0.1 }}
+               className="col-span-1 row-span-1 relative custom-notch-tl-br overflow-hidden bg-gray-100 group"
+             >
+                <Image src="/home/cap-mobile.png" alt="Office collaboration" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+             </motion.div>
+             {/* Top far right */}
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.98 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: 0.2 }}
+               className="col-span-1 row-span-1 relative custom-notch-tl-br overflow-hidden bg-gray-100 group"
+             >
+                <Image src="/home/cap-ux.png" alt="Design planning" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+             </motion.div>
+             {/* Bottom right horizontal */}
+             <motion.div 
+               initial={{ opacity: 0, scale: 0.98 }}
+               whileInView={{ opacity: 1, scale: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.5, delay: 0.3 }}
+               className="col-span-2 row-span-1 relative custom-notch-tl-br overflow-hidden bg-gray-100 group"
+             >
+                <Image src="/home/cap-ai.png" alt="Engineering team" fill className="object-cover grayscale hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+             </motion.div>
+          </div>
         </div>
 
         {/* Dense Architecture Directory Grid */}

@@ -20,27 +20,27 @@ export const testimonialsData: Testimonial[] = [
     author: "Ashim Das",
     liveUrl: "https://thinkerslane.com/",
   },
-  {
-    quote:
-      "It was a great experience working with them. The team is highly skilled and cooperative. They understood our requirements and delivered the project with good quality. Hoping to work with them in the future.",
-    company: "Plug & Play",
-    author: "Stephen Gray",
-    liveUrl: "",
-  },
-  {
-    quote:
-      "We have been working with Concepteur Technologies on several projects, and it has been a smooth process. We have never experienced any issues with them. They are a very professional team that pays attention to details. We like to have a technology partner that we can rely on.",
-    company: "So Technology",
-    author: "Claire Mirfin",
-    liveUrl: "https://sotechnology.ai/",
-  },
-  {
-    quote:
-      "They were easy to communicate with, quick with updates, and handled the work without making things complicated. The project turned out exactly how we wanted. Would happily collaborate again.",
-    company: "Signal Over Noise",
-    author: "Bilal Raja",
-    liveUrl: "https://signalovernoise.io/",
-  },
+  // {
+  //   quote:
+  //     "It was a great experience working with them. The team is highly skilled and cooperative. They understood our requirements and delivered the project with good quality. Hoping to work with them in the future.",
+  //   company: "Plug & Play",
+  //   author: "Stephen Gray",
+  //   liveUrl: "",
+  // },
+  // {
+  //   quote:
+  //     "We have been working with Concepteur Technologies on several projects, and it has been a smooth process. We have never experienced any issues with them. They are a very professional team that pays attention to details. We like to have a technology partner that we can rely on.",
+  //   company: "So Technology",
+  //   author: "Claire Mirfin",
+  //   liveUrl: "https://sotechnology.ai/",
+  // },
+  // {
+  //   quote:
+  //     "They were easy to communicate with, quick with updates, and handled the work without making things complicated. The project turned out exactly how we wanted. Would happily collaborate again.",
+  //   company: "Signal Over Noise",
+  //   author: "Bilal Raja",
+  //   liveUrl: "https://signalovernoise.io/",
+  // },
   {
     quote:
       "From the beginning, the collaboration has been straightforward and dependable. Communication is clear, deadlines are respected, and support is always available when we need it.",

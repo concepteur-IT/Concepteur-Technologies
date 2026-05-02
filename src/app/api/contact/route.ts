@@ -9,15 +9,16 @@ type ContactPayload = {
   company?: string;
   project?: string;
   services?: string[];
+  source?: string;
   captchaToken?: string;
 };
 
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as ContactPayload;
-    const { name, email, phone, location, company, project, services, captchaToken } = body;
+    const { name, email, phone, location, company, project, services, source, captchaToken } = body;
 
-    if (!name || !email || !project) {
+    if (!name || !email || !project || !source) {
       return NextResponse.json(
         { error: "Missing required fields." },
         { status: 400 },
@@ -101,6 +102,7 @@ Name: ${name}
 Email: ${email}
 Phone: ${resolvedPhone}
 Location: ${resolvedLocation}
+Source: ${source}
 Services: ${selectedServices}
 Project Description:
 ${project}
@@ -114,6 +116,7 @@ ${project}
           <tr><td style="padding: 8px; font-weight: 600;">Email</td><td style="padding: 8px;">${email}</td></tr>
           <tr><td style="padding: 8px; font-weight: 600;">Phone</td><td style="padding: 8px;">${resolvedPhone}</td></tr>
           <tr><td style="padding: 8px; font-weight: 600;">Location</td><td style="padding: 8px;">${resolvedLocation}</td></tr>
+          <tr><td style="padding: 8px; font-weight: 600;">Source</td><td style="padding: 8px;">${source}</td></tr>
           <tr><td style="padding: 8px; font-weight: 600;">Services</td><td style="padding: 8px;">${selectedServices}</td></tr>
           <tr><td style="padding: 8px; font-weight: 600; vertical-align: top;">Project</td><td style="padding: 8px; white-space: pre-wrap;">${project}</td></tr>
         </table>

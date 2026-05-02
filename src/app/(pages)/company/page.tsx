@@ -21,8 +21,8 @@ export default function AboutPage() {
       <HeroAbout />
       <StatsAbout />
       <MissionAbout />
-      <OurJourney />
       <TeamAbout />
+      <OurJourney />
       <CTAAbout />
     </main>
   );
