@@ -60,7 +60,13 @@ function StatItem({
         {suffix}
       </h3>
 
-      <p className="text-sm uppercase tracking-wider text-gray-500 transition-colors duration-300 group-hover:text-gray-700">
+      <p className="text-sm uppercase tracking-wider text-gray-500 transition-colors duration-300 group-hover:text-gray-700 flex items-center gap-2">
+        {label === "Active Projects" && (
+          <span className="relative flex h-2 w-2 shrink-0">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+        )}
         {label}
       </p>
     </div>

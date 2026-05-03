@@ -41,7 +41,7 @@ export default function OurJourney() {
 
         {/* Strict Architected Table Grid */}
         <div className="w-full flex flex-col border-t border-gray-900">
-          {timelineData.map((item, index) => {
+          {[...timelineData].sort((a, b) => parseInt(b.year) - parseInt(a.year)).map((item, index) => {
             const isGoal = "isGoal" in item && item.isGoal;
 
             return (

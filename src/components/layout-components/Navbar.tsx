@@ -7,6 +7,7 @@ import { Menu, X } from "lucide-react";
 import Logo from "@/components/logo-component/Logo";
 import LetsTalkBtn from "../ui-components/buttons/LetsTalkBtn";
 import { servicesData } from "@/data/servicesData";
+import AnnouncementBanner from "./AnnouncementBanner";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -45,13 +46,14 @@ export default function Navbar() {
     { name: "Solutions", href: "/solutions" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Our Edge", href: "/our-edge" },
-    // { name: "Blog", href: "/blog" }
+    { name: "Blog", href: "/blog" },
     // { name: "Contact", href: "/contact" },
   ];
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white">
-      <div className="w-full px-5 md:px-[15%] h-[60px] flex items-center justify-between">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white flex flex-col">
+      <AnnouncementBanner />
+      <div className="w-full px-5 md:px-[15%] h-[60px] flex items-center justify-between shrink-0">
         {/* Logo */}
         <Link
           href="/"

@@ -234,16 +234,16 @@ export default function ProductStack() {
                 {categories[activeIdx].tech.map((techItem, i) => (
                   <div
                     key={i}
-                    className="flex flex-col p-6 lg:p-8 bg-gray-50 custom-notch-tl-br transition-all duration-300 hover:bg-white group"
+                    className="flex flex-col p-6 lg:p-8 bg-gray-50 custom-notch-tl-br transition-all duration-500 hover:bg-white group hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
                   >
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-10 h-10 flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:-translate-y-1">
+                      <div className="w-10 h-10 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
                         {techItem.icon === "ai-icon" ? (
                           <svg
                             viewBox="0 0 24 24"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-full h-full text-black opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                            className="w-full h-full text-black opacity-70 group-hover:opacity-100 transition-opacity duration-500"
                           >
                             <path
                               d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
@@ -260,17 +260,29 @@ export default function ProductStack() {
                             alt={techItem.name}
                             width={28}
                             height={28}
-                            className="object-contain grayscale brightness-0 opacity-70 group-hover:opacity-100 transition-opacity duration-300"
+                            className="object-contain grayscale brightness-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500"
                           />
                         )}
                       </div>
-                      <h4 className="text-[17px] font-medium text-gray-900 group-hover:text-black transition-colors duration-300">
+                      <h4 className="text-[17px] font-medium text-gray-900 group-hover:text-black transition-colors duration-500">
                         {techItem.name}
                       </h4>
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed font-light mt-auto">
                       {techItem.desc}
                     </p>
+
+                    <div className="overflow-hidden h-0 opacity-0 group-hover:h-6 group-hover:mt-4 group-hover:opacity-100 transition-all duration-500 ease-[0.22,1,0.36,1]">
+                      <Link 
+                        href="/contact" 
+                        className="inline-flex items-center gap-2 text-[11px] font-semibold text-black uppercase tracking-widest hover:opacity-70 transition-opacity"
+                      >
+                        Start Yours
+                        <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </Link>
+                    </div>
                   </div>
                 ))}
               </motion.div>

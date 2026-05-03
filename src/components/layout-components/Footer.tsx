@@ -90,6 +90,9 @@ export default function Footer() {
                 <SlideLink href="/case-studies">Work</SlideLink>
               </li>
               <li>
+                <SlideLink href="/blog">Blog</SlideLink>
+              </li>
+              <li>
                 <SlideLink href="/contact">Contact</SlideLink>
               </li>
             </ul>

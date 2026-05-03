@@ -89,7 +89,7 @@ export default function Hero() {
             alt="Concepteur Technologies — engineering-led AI solutions"
             width={1400}
             height={700}
-            className="w-full h-[320px] sm:h-[440px] md:h-[560px] object-cover transition-transform duration-700 ease-[0.22,1,0.36,1] group-hover:scale-105"
+            className="w-full h-[320px] sm:h-[440px] md:h-[560px] object-cover object-[center_25%] transition-transform duration-700 ease-[0.22,1,0.36,1] group-hover:scale-105"
             priority
           />
 
