@@ -31,13 +31,12 @@ export default function NavigationLoader() {
       <div className="relative flex items-center justify-center">
         <svg
           viewBox="0 0 100 100"
-          className="w-12 h-12 sm:w-16 sm:h-16 animate-spin"
+          className="w-10 h-10 sm:w-12 sm:h-12 animate-[spin_2.5s_linear_infinite]"
         >
-          <circle cx="50" cy="50" r="48" fill="#0f1115" />
           <path
             d={STAR_PATH}
-            fill="white"
-            transform="translate(50 50) scale(0.95) translate(-50 -50)"
+            fill="#0f1115"
+            transform="translate(50 50) scale(1.4) translate(-50 -50)"
           />
         </svg>
       </div>

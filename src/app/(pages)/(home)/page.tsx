@@ -6,6 +6,7 @@ import ProductStack from "@/components/home-components/ProductStack";
 import AIAdoption from "@/components/home-components/AIAdoption";
 import ServicesIntroSectionV3 from "@/components/home-components/ServicesIntroSectionV3";
 import TestimonialSection from "@/components/home-components/TestimonialSection";
+import VideoCollage from "@/components/home-components/VideoCollage";
 import FAQAccordion from "@/components/home-components/FAQAccordion";
 import React from "react";
 import { Metadata } from "next";
@@ -28,7 +29,7 @@ const page = () => {
       <AIAdoption />
       <ProductStack />
       <TestimonialSection />
-      {/* <GoogleGeminiEffectDemo /> */}
+      <VideoCollage />
       <FAQAccordion />
       <ContactSection />
     </div>
