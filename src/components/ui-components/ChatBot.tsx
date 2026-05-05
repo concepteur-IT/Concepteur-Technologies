@@ -17,20 +17,45 @@ type HistoryItem = {
 const STAR_PATH =
   "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z";
 
-// --- Custom Bot SVG Component ---
-const BotIcon = ({ className }: { className?: string }) => (
-  <svg
-    viewBox="0 0 100 100"
-    className={className}
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <circle cx="50" cy="50" r="48" fill="#0f1115" />
-    <path
-      d={STAR_PATH}
-      fill="white"
-      transform="translate(50 50) scale(0.95) translate(-50 -50)"
-    />
-  </svg>
+// --- Bot Icon: crossfades between small star and large star on hover ---
+const BotIcon = () => (
+  <div className="relative w-full h-full">
+    {/* Small Star (First Circle) — visible by default */}
+    <svg
+      viewBox="0 0 100 100"
+      className="absolute inset-0 w-full h-full transition-opacity duration-[900ms] opacity-100 group-hover:opacity-0"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="50" cy="50" r="48" fill="#0f1115" />
+      <path
+        d={STAR_PATH}
+        fill="white"
+        transform="translate(50 50) scale(1.3) translate(-50 -50)"
+      />
+      <line
+        x1="50"
+        y1="50"
+        x2="98"
+        y2="50"
+        stroke="white"
+        strokeWidth="4"
+        strokeLinecap="round"
+      />
+    </svg>
+    {/* Large Star (Second Circle) — visible on hover */}
+    <svg
+      viewBox="0 0 100 100"
+      className="absolute inset-0 w-full h-full transition-opacity duration-[900ms] opacity-0 group-hover:opacity-100"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="50" cy="50" r="48" fill="#0f1115" />
+      <path
+        d={STAR_PATH}
+        fill="white"
+        transform="translate(50 50) scale(2.2) translate(-50 -50)"
+      />
+    </svg>
+  </div>
 );
 
 export default function ChatBot() {
@@ -130,7 +155,6 @@ export default function ChatBot() {
         clearInterval(rotateInterval);
         setShowGreetingBubble(false);
       }, 15000);
-
     }, 20000); // 20 second initial delay
 
     return () => {
@@ -279,13 +303,12 @@ export default function ChatBot() {
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0, opacity: 0 }}
-              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setIsOpen(true)}
-              className="w-14 h-14 sm:w-16 sm:h-16 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.25)] flex items-center justify-center transition-transform shrink-0 outline-none"
+              className="group relative w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-[0_10px_40px_rgba(0,0,0,0.25)] flex items-center justify-center shrink-0 outline-none"
               aria-label="Open AI Assistant"
             >
-              <BotIcon className="w-full h-full" />
+              <BotIcon />
             </motion.button>
           </div>
         )}
@@ -305,7 +328,7 @@ export default function ChatBot() {
             <div className="bg-black p-4 flex items-center justify-between z-10 relative">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center shrink-0">
-                  <BotIcon className="w-6 h-6" />
+                  <BotIcon />
                 </div>
                 <div>
                   <h3 className="text-sm font-semibold text-white">
@@ -459,7 +482,11 @@ export default function ChatBot() {
                     />
                     <button
                       type="submit"
-                      disabled={!input.trim() || isLoading || messageCount >= MAX_MESSAGES}
+                      disabled={
+                        !input.trim() ||
+                        isLoading ||
+                        messageCount >= MAX_MESSAGES
+                      }
                       className="absolute right-2 w-8 h-8 rounded-full bg-black text-white flex items-center justify-center disabled:opacity-50 disabled:bg-gray-200 disabled:text-gray-400 transition-colors"
                     >
                       <Send className="w-3.5 h-3.5" />
@@ -469,7 +496,9 @@ export default function ChatBot() {
                     <span className="text-[10px] text-gray-400">
                       AI responses may be inaccurate.
                     </span>
-                    <span className={`text-[10px] font-medium ${messageCount >= MAX_MESSAGES ? 'text-red-500' : 'text-gray-400'}`}>
+                    <span
+                      className={`text-[10px] font-medium ${messageCount >= MAX_MESSAGES ? "text-red-500" : "text-gray-400"}`}
+                    >
                       {MAX_MESSAGES - messageCount} messages remaining
                     </span>
                   </div>

@@ -27,7 +27,7 @@ export default function Ekaai100CaseStudy({
       {!isEmbedded && (
         <>
           {/* Back Button */}
-          <div className="pt-32 px-6 max-w-7xl mx-auto">
+          <div className="pt-32 w-full px-5 md:px-[15%]">
             <Link
               href="/case-studies"
               className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase text-slate-900 hover:text-black hover:opacity-70 transition-colors"
@@ -39,7 +39,7 @@ export default function Ekaai100CaseStudy({
       )}
 
       {/* ================= HERO SECTION ================= */}
-      <section className="pt-40 pb-20 md:pt-48 md:pb-24 max-w-7xl mx-auto px-6">
+      <section className="pt-40 pb-20 md:pt-48 md:pb-24 w-full px-5 md:px-[15%]">
         <div className="grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 border border-slate-200 bg-slate-50 text-slate-500 text-xs font-semibold tracking-wide uppercase mb-8 rounded-none">
@@ -65,7 +65,7 @@ export default function Ekaai100CaseStudy({
       </section>
 
       {/* ================= HEADER / TECH STACK ================= */}
-      <section className="max-w-7xl mx-auto px-6 mb-24">
+      <section className="w-full px-5 md:px-[15%] mb-24">
         {/* Project Meta */}
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 py-10 border-t border-b border-slate-200 mb-12">
           <div>
@@ -152,7 +152,7 @@ export default function Ekaai100CaseStudy({
       </section>
 
       {/* ================= THE CHALLENGE ================= */}
-      <section className="py-24 max-w-7xl mx-auto px-6">
+      <section className="py-24 w-full px-5 md:px-[15%]">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-4">
             <h2 className="text-3xl font-medium text-black">
@@ -226,7 +226,7 @@ export default function Ekaai100CaseStudy({
       </section>
 
       {/* ================= THE SOLUTION ================= */}
-      <section className="py-24 max-w-7xl mx-auto px-6 border-t border-slate-200 bg-slate-50">
+      <section className="py-24 w-full px-5 md:px-[15%] border-t border-slate-200 bg-slate-50">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-4">
             <h2 className="text-3xl font-medium text-black">Our Solution</h2>
@@ -327,7 +327,7 @@ export default function Ekaai100CaseStudy({
       </section>
 
       {/* ================= CHALLENGES ================= */}
-      <section className="py-24 max-w-7xl mx-auto px-6 border-t border-slate-200">
+      <section className="py-24 w-full px-5 md:px-[15%] border-t border-slate-200">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-4">
             <h2 className="text-3xl font-medium text-black">Key Challenges</h2>
@@ -376,7 +376,7 @@ export default function Ekaai100CaseStudy({
       </section>
 
       {/* ================= RESULTS / IMPACT ================= */}
-      <section className="py-24 max-w-7xl mx-auto px-6 border-t border-slate-200 bg-black text-white">
+      <section className="py-24 w-full px-5 md:px-[15%] border-t border-slate-200 bg-black text-white">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-medium text-white">Project Impact</h2>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto font-light leading-relaxed">
@@ -420,7 +420,7 @@ export default function Ekaai100CaseStudy({
       <section className="bg-slate-50 border-t border-slate-200">
         <Link
           href="/case-studies"
-          className="block max-w-7xl mx-auto px-6 py-32 group"
+          className="block w-full px-5 md:px-[15%] py-32 group"
         >
           <div className="flex items-center justify-between">
             <div>

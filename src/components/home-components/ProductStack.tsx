@@ -298,6 +298,7 @@ export default function ProductStack() {
                   src="/home/bg-frontend.png"
                   alt="Background texture"
                   fill
+                  sizes="100vw"
                   className="object-cover opacity-[0.04] group-hover:opacity-[0.08] transition-opacity duration-500"
                 />
               </div>

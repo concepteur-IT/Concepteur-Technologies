@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
   return (
     <main className="relative w-full bg-white mt-12 sm:mt-14 md:mt-15">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-20 md:pt-28 pb-10 md:pb-16 border-b border-gray-100">
+      <section className="w-full px-5 md:px-[15%] pt-20 md:pt-28 pb-10 md:pb-16 border-b border-gray-100">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <p className="text-xs font-medium tracking-widest uppercase text-gray-400 mb-4">
@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Body */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 md:py-20 flex flex-col lg:flex-row gap-12 lg:gap-20">
+      <div className="w-full px-5 md:px-[15%] py-12 md:py-20 flex flex-col lg:flex-row gap-12 lg:gap-20">
         {/* Sticky TOC */}
         <aside className="hidden lg:block w-56 shrink-0">
           <div className="sticky top-24 space-y-1">

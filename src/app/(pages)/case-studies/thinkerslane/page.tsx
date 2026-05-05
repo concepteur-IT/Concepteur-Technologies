@@ -1,9 +1,7 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpRight, Square } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 export function SectionHeader({
   number,
@@ -16,56 +14,57 @@ export function SectionHeader({
 }) {
   return (
     <div className="md:col-span-4 lg:col-span-3 sticky top-32 h-fit mb-12 md:mb-0">
-      <div className="flex flex-col border-b border-black/10 pb-4">
-        <div className="flex items-center gap-4 mb-2">
-          <span className="w-2 h-2 bg-black rounded-full shrink-0" />
-          <span className="text-3xl font-serif tracking-widest text-black">
-            {number}
+      <div className="flex flex-col pb-4">
+        <div className="flex items-center gap-4 mb-4">
+          <span className="w-8 h-[1px] bg-[#f5ad76]" />
+          <span className="text-sm font-medium tracking-[0.3em] uppercase text-gray-400">
+            {subtitle || "Section"}
           </span>
         </div>
-        <h2 className="text-xl md:text-2xl font-serif tracking-widest text-black uppercase">
+        <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black">
           {title}
         </h2>
-        {subtitle && (
-          <span className="text-[10px] tracking-[0.3em] text-gray-400 uppercase mt-2">
-            {subtitle}
-          </span>
-        )}
       </div>
     </div>
   );
 }
 
 export default function ThinkerslaneCaseStudy() {
-  const { scrollYProgress } = useScroll();
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
-
   return (
-    <div className="bg-white min-h-screen text-black selection:bg-black selection:text-white font-sans">
+    <div className="bg-white min-h-screen text-black selection:bg-[#0b2f33] selection:text-white font-sans">
       {/* Back Button */}
-      <div className="pt-32 px-6 max-w-7xl mx-auto">
+      <div className="absolute top-8 left-5 md:left-[15%] z-50">
         <Link
           href="/case-studies"
-          className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase hover:text-gray-500 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase text-white/50 hover:text-white transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Case Studies
         </Link>
       </div>
 
-      {/* Modern Typographic Header */}
-      <header className="px-6 py-12 md:py-20 max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12 border-b border-black pb-12">
-          <div className="max-w-4xl">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif tracking-tighter leading-none mb-6">
-              Thinkerslane.
-            </h1>
-            <p className="text-2xl md:text-4xl text-gray-500 font-light tracking-tight max-w-2xl leading-tight mb-12">
-              Online Book Store with Integrated Coupon & Discount System
-            </p>
+      {/* Minimalist Architectural Hero (No Images) */}
+      <header className="w-full pt-32 pb-12 px-5 md:px-[15%]">
+        <div className="flex flex-col lg:flex-row border border-gray-200 custom-notch-tl-br overflow-hidden shadow-sm">
+          {/* Main Title Area */}
+          <div className="flex-1 bg-white p-8 md:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-200">
+            <div>
+              <div className="flex items-center gap-4 mb-8">
+                <span className="w-8 h-[1px] bg-[#f5ad76]" />
+                <span className="text-xs font-bold uppercase tracking-[0.3em] text-gray-400">
+                  Case Study
+                </span>
+              </div>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight text-black leading-none mb-6">
+                Thinkerslane.
+              </h1>
+              <p className="text-xl md:text-3xl text-gray-500 font-light tracking-tight max-w-xl leading-relaxed">
+                Online Book Store with Integrated Coupon & Discount System
+              </p>
+            </div>
 
             {/* Developer Avatars */}
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="text-xs font-mono uppercase tracking-widest text-gray-400 shrink-0">
+            <div className="mt-16 flex flex-wrap items-center gap-6">
+              <span className="text-xs font-bold uppercase tracking-widest text-gray-400 shrink-0">
                 Core Team
               </span>
               <div className="flex -space-x-3">
@@ -79,17 +78,16 @@ export default function ThinkerslaneCaseStudy() {
                     key={i}
                     className="relative group cursor-pointer z-10 hover:z-20"
                   >
-                    <div className="w-10 h-10 rounded-full bg-white border border-black flex items-center justify-center text-xs font-mono font-semibold text-black hover:bg-black hover:text-white transition-colors shadow-sm">
+                    <div className="w-12 h-12 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-xs font-medium text-black hover:bg-[#0b2f33] hover:text-white hover:border-[#0b2f33] transition-colors">
                       {member.init}
                     </div>
 
-                    {/* Custom Tooltip */}
-                    <div className="absolute top-12 left-1/2 -translate-x-1/2 mt-3 px-3 py-2 bg-black text-white text-xs opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap shadow-xl pointer-events-none flex flex-col items-center">
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-black" />
-                      <span className="font-semibold font-sans tracking-wide">
+                    <div className="absolute top-14 left-1/2 -translate-x-1/2 mt-3 px-4 py-2 bg-[#0b2f33] text-white text-xs opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 whitespace-nowrap shadow-xl pointer-events-none flex flex-col items-center custom-notch-tl-br">
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-[#0b2f33]" />
+                      <span className="font-semibold tracking-wide">
                         {member.name}
                       </span>
-                      <span className="text-[10px] text-gray-400 font-mono tracking-widest uppercase mt-0.5">
+                      <span className="text-[10px] text-[#f5ad76] tracking-widest uppercase mt-0.5">
                         {member.role}
                       </span>
                     </div>
@@ -99,28 +97,43 @@ export default function ThinkerslaneCaseStudy() {
             </div>
           </div>
 
-          {/* Tech Stack Metadata Box */}
-          <div className="shrink-0 flex flex-col gap-4 text-xs font-mono uppercase tracking-widest text-gray-500 border border-black/10 p-6 min-w-[300px] bg-gray-50">
-            <div className="flex justify-between gap-12 border-b border-black/10 pb-2">
-              <span>Platform</span>
-              <span className="text-black text-right">E-commerce Web App</span>
+          {/* Metadata Sidebar */}
+          <div className="w-full lg:w-[320px] bg-[#FAFAF9] flex flex-col shrink-0">
+            <div className="p-8 border-b border-gray-200 flex-1">
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Platform
+              </span>
+              <span className="block text-lg text-black font-medium">
+                E-commerce Web App
+              </span>
             </div>
-            <div className="flex justify-between gap-12 border-b border-black/10 pb-2">
-              <span>Domain</span>
+
+            <div className="p-8 border-b border-gray-200 flex-1 bg-white">
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Domain
+              </span>
               <a
                 href="https://thinkerslane.com"
-                className="text-black text-right border-b border-black/20 hover:border-black transition-colors"
+                className="block text-lg text-black font-medium hover:text-[#0b2f33] hover:underline underline-offset-4 transition-colors"
               >
                 thinkerslane.com
               </a>
             </div>
-            <div className="flex justify-between gap-12 border-b border-black/10 pb-2">
-              <span>Industry</span>
-              <span className="text-black text-right">Online Book Retail</span>
+
+            <div className="p-8 border-b border-gray-200 flex-1">
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Industry
+              </span>
+              <span className="block text-lg text-black font-medium">
+                Online Book Retail
+              </span>
             </div>
-            <div className="flex flex-col gap-2 pt-2">
-              <span>Target Users</span>
-              <span className="text-black leading-relaxed font-sans text-sm normal-case">
+
+            <div className="p-8 flex-1 bg-white">
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Target Users
+              </span>
+              <span className="block text-base text-gray-800 font-light leading-relaxed">
                 Students, professionals, educators & book enthusiasts
               </span>
             </div>
@@ -128,21 +141,18 @@ export default function ThinkerslaneCaseStudy() {
         </div>
       </header>
 
-      {/* Hero Banner (Black & White to Color on Hover) */}
-
-
       {/* Main Content Layout */}
-      <main className="px-6 max-w-7xl mx-auto mb-40">
+      <main className="w-full px-5 md:px-[15%] mb-40">
         {/* 01: Overview */}
-        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-black pt-12">
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 pt-12 border-t border-gray-100 mt-12">
           <SectionHeader
             number="01"
             title="Overview"
             subtitle="Project Context"
           />
           <div className="md:col-span-8 lg:col-span-9">
-            <div className="prose prose-lg max-w-none text-gray-800 font-serif leading-relaxed space-y-8">
-              <p className="text-2xl md:text-3xl font-light text-black border-l-2 border-black pl-6 mb-12 leading-snug">
+            <div className="prose prose-lg max-w-none text-gray-600 font-light leading-relaxed space-y-8">
+              <p className="text-2xl md:text-3xl font-light text-black border-l-2 border-[#0b2f33] pl-6 mb-12 leading-snug">
                 The Online Book Store is a full-featured e-commerce platform
                 developed to provide a seamless and user-friendly experience for
                 browsing, purchasing, and managing books online.
@@ -161,26 +171,35 @@ export default function ThinkerslaneCaseStudy() {
                 support promotional campaigns.
               </p>
 
-              <div className="mt-16 bg-gray-50 border border-black/10 p-8 md:p-12">
-                <h3 className="text-xs font-bold uppercase tracking-widest text-black mb-8 border-b border-black/10 pb-4">
+              <div className="mt-16 bg-[#FAFAF9] border border-gray-100 p-8 md:p-12 custom-notch-tl-br shadow-sm">
+                <h3 className="text-xs font-bold uppercase tracking-widest text-black mb-8 flex items-center gap-4">
+                  <span className="w-6 h-[1px] bg-black"></span>
                   Core Objectives
                 </h3>
-                <ul className="space-y-4 font-sans text-base">
-                  <li className="flex gap-4">
-                    <ArrowUpRight className="w-5 h-5 shrink-0 text-gray-400" />{" "}
+                <ul className="space-y-5 font-light text-lg text-black">
+                  <li className="flex gap-4 items-center group">
+                    <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#0b2f33] group-hover:border-[#0b2f33] transition-colors">
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                    </div>
                     Provide an intuitive book browsing and purchasing system
                   </li>
-                  <li className="flex gap-4">
-                    <ArrowUpRight className="w-5 h-5 shrink-0 text-gray-400" />{" "}
+                  <li className="flex gap-4 items-center group">
+                    <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#0b2f33] group-hover:border-[#0b2f33] transition-colors">
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                    </div>
                     Enable secure online transactions
                   </li>
-                  <li className="flex gap-4">
-                    <ArrowUpRight className="w-5 h-5 shrink-0 text-gray-400" />{" "}
+                  <li className="flex gap-4 items-center group">
+                    <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#0b2f33] group-hover:border-[#0b2f33] transition-colors">
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                    </div>
                     Implement promotional strategies through coupons and
                     discounts
                   </li>
-                  <li className="flex gap-4">
-                    <ArrowUpRight className="w-5 h-5 shrink-0 text-gray-400" />{" "}
+                  <li className="flex gap-4 items-center group">
+                    <div className="w-8 h-8 rounded-full bg-white border border-gray-200 flex items-center justify-center shrink-0 group-hover:bg-[#0b2f33] group-hover:border-[#0b2f33] transition-colors">
+                      <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+                    </div>
                     Ensure scalable and maintainable backend architecture
                   </li>
                 </ul>
@@ -190,18 +209,18 @@ export default function ThinkerslaneCaseStudy() {
         </div>
 
         {/* 02: Key Features */}
-        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-black pt-12">
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-gray-100 pt-12">
           <SectionHeader
             number="02"
             title="Features"
             subtitle="System Focus Areas"
           />
           <div className="md:col-span-8 lg:col-span-9">
-            <h3 className="text-4xl md:text-5xl font-serif tracking-tight mb-16">
+            <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-16 text-black">
               A scalable conversion engine.
             </h3>
 
-            <div className="space-y-12">
+            <div className="space-y-0">
               {[
                 {
                   id: "3.1",
@@ -226,17 +245,17 @@ export default function ThinkerslaneCaseStudy() {
               ].map((feature, i) => (
                 <div
                   key={i}
-                  className="group border-b border-black/10 pb-8 hover:border-black transition-colors duration-500"
+                  className="group py-8 border-b border-gray-200 hover:pl-6 transition-all duration-300"
                 >
-                  <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12">
-                    <span className="text-xs font-mono text-gray-400 group-hover:text-black transition-colors shrink-0 pt-1">
+                  <div className="flex flex-col md:flex-row md:items-start gap-4 md:gap-12">
+                    <span className="text-xs font-mono font-medium bg-gray-100 px-3 py-1 text-gray-500 group-hover:bg-[#0b2f33] group-hover:text-white transition-colors shrink-0 mt-1">
                       {feature.id}
                     </span>
                     <div>
-                      <h4 className="text-xl md:text-2xl font-serif text-black mb-3">
+                      <h4 className="text-xl md:text-2xl font-medium text-black mb-3">
                         {feature.title}
                       </h4>
-                      <p className="text-gray-500 font-light leading-relaxed">
+                      <p className="text-gray-600 font-light leading-relaxed">
                         {feature.desc}
                       </p>
                     </div>
@@ -246,29 +265,31 @@ export default function ThinkerslaneCaseStudy() {
             </div>
 
             {/* Feature 3.4 Highlights Block */}
-            <div className="mt-16 border border-black p-8 md:p-12 bg-white relative overflow-hidden group">
-              <div className="absolute top-0 right-0 p-8 border-l border-b border-black/10">
-                <span className="text-xs font-mono tracking-widest">3.4</span>
+            <div className="mt-16 bg-[#0b2f33] p-8 md:p-16 text-white relative overflow-hidden group custom-notch-tl-br shadow-lg">
+              <div className="absolute top-0 right-0 p-8 border-l border-b border-white/10">
+                <span className="text-xs font-mono font-bold tracking-widest text-[#f5ad76]">
+                  3.4
+                </span>
               </div>
 
-              <h4 className="text-2xl md:text-3xl font-serif text-black mb-6 pr-12">
+              <h4 className="text-3xl md:text-4xl font-light text-white mb-8 pr-12">
                 Coupon & Discount Functionality
               </h4>
-              <p className="text-gray-600 font-light font-serif leading-relaxed mb-8 max-w-3xl text-lg">
+              <p className="text-gray-300 font-light leading-relaxed mb-8 max-w-3xl text-lg">
                 One of the core features of the platform is its flexible Coupon
                 & Discount system. The system allows administrators to create
                 and manage percentage-based discounts, fixed-amount discounts,
                 limited-time promotional codes, usage-restricted coupons, and
                 minimum purchase requirement coupons.
               </p>
-              <p className="text-gray-800 font-medium font-serif leading-relaxed mb-12 max-w-3xl border-l-4 border-black pl-6 py-2">
+              <p className="text-white font-medium leading-relaxed mb-12 max-w-3xl border-l-2 border-[#f5ad76] pl-6 py-2">
                 During checkout, users can apply valid coupon codes to receive
                 instant discounts. The system validates coupon eligibility in
                 real time and recalculates the total order amount automatically.
               </p>
 
-              <div className="border-t border-black/10 pt-8">
-                <h5 className="text-xs font-bold tracking-widest uppercase mb-6 text-gray-400">
+              <div className="border-t border-white/20 pt-10">
+                <h5 className="text-xs font-bold tracking-widest uppercase mb-8 text-[#f5ad76]">
                   Business Impact
                 </h5>
                 <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
@@ -280,9 +301,9 @@ export default function ThinkerslaneCaseStudy() {
                   ].map((impact, idx) => (
                     <div
                       key={idx}
-                      className="bg-gray-50 border border-black/10 p-4 text-center"
+                      className="bg-white/5 border border-white/10 p-5 text-center hover:bg-white/10 transition-colors"
                     >
-                      <span className="text-xs font-semibold uppercase">
+                      <span className="text-xs font-semibold uppercase tracking-wide">
                         {impact}
                       </span>
                     </div>
@@ -294,14 +315,14 @@ export default function ThinkerslaneCaseStudy() {
         </div>
 
         {/* 03: Challenges & Solutions */}
-        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-black pt-12">
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-gray-100 pt-12">
           <SectionHeader
             number="03"
             title="Challenges"
             subtitle="Implementation Hurdles"
           />
           <div className="md:col-span-8 lg:col-span-9">
-            <div className="grid sm:grid-cols-2 gap-8 lg:gap-12">
+            <div className="grid sm:grid-cols-2 gap-6">
               {[
                 {
                   id: "1",
@@ -338,28 +359,26 @@ export default function ThinkerslaneCaseStudy() {
               ].map((cs) => (
                 <div
                   key={cs.id}
-                  className="p-8 border border-black/10 bg-gray-50 group hover:border-black transition-colors"
+                  className="p-8 border border-gray-100 bg-[#FAFAF9] group hover:bg-white hover:border-gray-300 transition-colors custom-notch-tl-br"
                 >
-                  <h5 className="text-xs font-semibold uppercase tracking-widest text-black mb-6 flex items-center justify-between">
-                    <span className="flex items-center gap-2">
-                      <Square className="w-3 h-3" /> {cs.title}
-                    </span>
-                    <span className="text-gray-400 font-mono">0{cs.id}</span>
+                  <h5 className="text-xs font-bold uppercase tracking-widest text-black mb-8 flex items-center justify-between border-b border-gray-200 pb-4">
+                    <span>{cs.title}</span>
+                    <span className="text-[#f5ad76] font-mono">0{cs.id}</span>
                   </h5>
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     <div>
-                      <span className="inline-block text-[10px] font-mono tracking-widest uppercase border border-red-200 bg-red-50 text-red-600 px-2 py-1 mb-3">
+                      <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-gray-500 mb-3">
                         Challenge
                       </span>
-                      <p className="text-black font-serif leading-relaxed text-sm md:text-base">
+                      <p className="text-black font-light leading-relaxed text-base">
                         {cs.challenge}
                       </p>
                     </div>
                     <div>
-                      <span className="inline-block text-[10px] font-mono tracking-widest uppercase border border-green-200 bg-green-50 text-green-700 px-2 py-1 mb-3">
+                      <span className="inline-block text-[10px] font-bold tracking-widest uppercase text-[#0b2f33] mb-3">
                         Solution
                       </span>
-                      <p className="text-gray-600 font-light font-serif leading-relaxed text-sm md:text-base">
+                      <p className="text-gray-600 font-light leading-relaxed text-base">
                         {cs.solution}
                       </p>
                     </div>
@@ -371,86 +390,81 @@ export default function ThinkerslaneCaseStudy() {
         </div>
 
         {/* 04: Strategy & Outcome */}
-        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 border-t border-black pt-12">
+        <div className="grid md:grid-cols-12 gap-8 lg:gap-16 border-t border-gray-100 pt-12">
           <SectionHeader
             number="04"
             title="Strategy"
             subtitle="Analysis & Conclusion"
           />
           <div className="md:col-span-8 lg:col-span-9">
-            <h3 className="text-3xl md:text-4xl font-serif tracking-tight mb-12">
+            <h3 className="text-3xl md:text-5xl font-light tracking-tight mb-16 text-black">
               Strategic Approach
             </h3>
 
-            <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 mb-24">
-              <div>
-                <h4 className="text-lg font-semibold mb-4 border-b border-black pb-4">
-                  Customer-Centric Design
-                </h4>
-                <p className="text-gray-500 font-light text-sm leading-relaxed">
-                  Focused on intuitive UI/UX to simplify browsing and
-                  purchasing.
-                </p>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4 border-b border-black pb-4">
-                  Conversion Optimization
-                </h4>
-                <p className="text-gray-500 font-light text-sm leading-relaxed">
-                  Integrated coupon functionality strategically in the checkout
-                  flow to encourage usage without disrupting the user
-                  experience.
-                </p>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4 border-b border-black pb-4">
-                  Promotional Flexibility
-                </h4>
-                <p className="text-gray-500 font-light text-sm leading-relaxed">
-                  Designed a flexible coupon system that allows marketing teams
-                  to run dynamic campaigns.
-                </p>
-              </div>
-              <div>
-                <h4 className="text-lg font-semibold mb-4 border-b border-black pb-4">
-                  Scalable Architecture
-                </h4>
-                <p className="text-gray-500 font-light text-sm leading-relaxed">
-                  Built a modular backend to support product expansion and
-                  traffic growth.
-                </p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-8 mb-24">
+              {[
+                {
+                  title: "Customer-Centric Design",
+                  desc: "Focused on intuitive UI/UX to simplify browsing and purchasing.",
+                },
+                {
+                  title: "Conversion Optimization",
+                  desc: "Integrated coupon functionality strategically in the checkout flow to encourage usage without disrupting the user experience.",
+                },
+                {
+                  title: "Promotional Flexibility",
+                  desc: "Designed a flexible coupon system that allows marketing teams to run dynamic campaigns.",
+                },
+                {
+                  title: "Scalable Architecture",
+                  desc: "Built a modular backend to support product expansion and traffic growth.",
+                },
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border border-gray-100 p-8 custom-notch-tl-br hover:shadow-sm transition-shadow"
+                >
+                  <h4 className="text-xl font-medium mb-4 text-black">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 font-light text-base leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
             </div>
 
-            <div className="bg-black text-white p-8 md:p-16 mb-16">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-gray-400 mb-8 border-b border-white/20 pb-4">
+            <div className="bg-[#FAFAF9] border border-gray-100 p-8 md:p-16 mb-20 custom-notch-tl-br">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-[#0b2f33] mb-8 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-[#0b2f33]"></span>
                 Implications of the Study
               </h3>
-              <ul className="space-y-6 font-serif text-lg md:text-xl font-light leading-relaxed">
+              <ul className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-black">
                 <li className="flex gap-4 items-start">
-                  <span className="w-1.5 h-1.5 bg-white shrink-0 mt-3" /> Coupon
-                  and discount systems significantly influence purchasing
+                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />{" "}
+                  Coupon and discount systems significantly influence purchasing
                   decisions.
                 </li>
                 <li className="flex gap-4 items-start">
-                  <span className="w-1.5 h-1.5 bg-white shrink-0 mt-3" />{" "}
+                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />{" "}
                   Flexible promotional tools enhance marketing effectiveness.
                 </li>
                 <li className="flex gap-4 items-start">
-                  <span className="w-1.5 h-1.5 bg-white shrink-0 mt-3" />{" "}
+                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />{" "}
                   Structured product categorization improves discoverability.
                 </li>
                 <li className="flex gap-4 items-start">
-                  <span className="w-1.5 h-1.5 bg-white shrink-0 mt-3" /> Secure
-                  and seamless checkout processes increase customer trust.
+                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />{" "}
+                  Secure and seamless checkout processes increase customer
+                  trust.
                 </li>
                 <li className="flex gap-4 items-start">
-                  <span className="w-1.5 h-1.5 bg-white shrink-0 mt-3" />{" "}
+                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />{" "}
                   Scalable backend architecture ensures long-term
                   sustainability.
                 </li>
               </ul>
-              <div className="mt-12 pt-8 border-t border-white/20 text-gray-300 italic font-serif">
+              <div className="mt-12 pt-8 border-t border-gray-200 text-gray-500 font-medium">
                 The integration of discount logic within the purchasing workflow
                 plays a crucial role in boosting revenue and customer
                 engagement.
@@ -458,14 +472,15 @@ export default function ThinkerslaneCaseStudy() {
             </div>
 
             <div className="max-w-4xl">
-              <h3 className="text-3xl font-serif text-black mb-6">
+              <h3 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-6 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-gray-300"></span>
                 Conclusion
               </h3>
-              <p className="text-xl text-gray-600 font-light font-serif leading-loose mb-6">
+              <p className="text-xl md:text-2xl text-black font-light leading-relaxed mb-8">
                 The Online Book Store successfully combines a user-friendly
                 shopping experience with a powerful coupon and discount engine.
               </p>
-              <p className="text-lg text-gray-600 font-light font-serif leading-loose border-l-4 border-black pl-6">
+              <p className="text-lg text-gray-600 font-light leading-relaxed border-l-2 border-[#0b2f33] pl-6 py-2">
                 By integrating promotional flexibility, secure transactions, and
                 scalable architecture, the platform supports both business
                 growth and customer satisfaction. The project highlights how
@@ -479,19 +494,19 @@ export default function ThinkerslaneCaseStudy() {
       </main>
 
       {/* Next Case Study Footer */}
-      <footer className="border-t border-black bg-black text-white relative overflow-hidden">
+      <footer className="border-t border-gray-200 bg-[#0b2f33] text-white relative overflow-hidden">
         <Link
           href="/case-studies"
-          className="block relative z-10 p-8 md:p-16 lg:p-32 group"
+          className="block relative z-10 p-12 md:p-24 lg:p-32 group"
         >
-          <h2 className="text-sm font-mono tracking-widest uppercase mb-4 text-gray-400 group-hover:text-white transition-colors">
+          <h2 className="text-sm font-bold tracking-widest uppercase mb-6 text-[#f5ad76] group-hover:text-white transition-colors">
             Return To
           </h2>
           <div className="flex items-center justify-between">
-            <h3 className="text-5xl md:text-8xl lg:text-9xl font-serif tracking-tight group-hover:translate-x-8 transition-transform duration-700">
+            <h3 className="text-4xl md:text-7xl lg:text-9xl font-light tracking-tight group-hover:translate-x-8 transition-transform duration-700">
               Directory
             </h3>
-            <ArrowUpRight className="w-16 h-16 md:w-32 md:h-32 opacity-50 group-hover:opacity-100 group-hover:rotate-45 transition-all duration-700" />
+            <ArrowUpRight className="w-12 h-12 md:w-24 md:h-24 opacity-50 text-[#f5ad76] group-hover:text-white group-hover:opacity-100 group-hover:rotate-45 transition-all duration-700" />
           </div>
         </Link>
       </footer>

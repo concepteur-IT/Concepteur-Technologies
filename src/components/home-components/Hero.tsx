@@ -95,7 +95,7 @@ export default function Hero() {
 
           {/* Top-Left Notch Overlay */}
           <svg
-            className="absolute top-0 left-0 w-[50px] h-[50px] pointer-events-none text-white fill-current transition-all duration-[600ms] origin-top-left scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 ease-[0.22,1,0.36,1]"
+            className="absolute top-0 left-0 w-[50px] h-[50px] pointer-events-none text-white fill-current"
             viewBox="0 0 50 50"
           >
             <path d="M 0 0 L 38.73 0 A 10 10 0 0 0 29.05 7.5 A 30 30 0 0 1 7.5 29.05 A 10 10 0 0 0 0 38.73 Z" />
@@ -103,7 +103,7 @@ export default function Hero() {
 
           {/* Bottom-Right Notch Overlay */}
           <svg
-            className="absolute bottom-0 right-0 w-[50px] h-[50px] pointer-events-none text-white fill-current transition-all duration-[600ms] origin-bottom-right scale-0 opacity-0 group-hover:scale-100 group-hover:opacity-100 ease-[0.22,1,0.36,1]"
+            className="absolute bottom-0 right-0 w-[50px] h-[50px] pointer-events-none text-white fill-current"
             viewBox="0 0 50 50"
           >
             <path d="M 50 50 L 11.27 50 A 10 10 0 0 0 20.95 42.5 A 30 30 0 0 1 42.5 20.95 A 10 10 0 0 0 50 11.27 Z" />

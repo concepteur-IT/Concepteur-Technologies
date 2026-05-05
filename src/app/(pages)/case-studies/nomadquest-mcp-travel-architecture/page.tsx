@@ -14,7 +14,7 @@ export default function NomadQuestCaseStudy() {
   return (
     <div className="bg-white min-h-screen text-black selection:bg-black selection:text-white font-sans">
       {/* Back Button */}
-      <div className="pt-32 px-6 max-w-7xl mx-auto">
+      <div className="pt-32 w-full px-5 md:px-[15%]">
         <Link
           href="/case-studies"
           className="inline-flex items-center gap-2 text-sm font-semibold tracking-widest uppercase hover:text-gray-500 transition-colors"
@@ -24,7 +24,7 @@ export default function NomadQuestCaseStudy() {
       </div>
 
       {/* Hero Header */}
-      <header className="px-6 py-12 md:py-20 max-w-7xl mx-auto">
+      <header className="w-full py-12 md:py-20 px-5 md:px-[15%]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 border-b border-black pb-12">
           {/* Left Column: Title & Teams */}
           <div className="lg:col-span-7 flex flex-col justify-between">
@@ -120,7 +120,7 @@ export default function NomadQuestCaseStudy() {
         </div>
       </header>
 
-      <main className="px-6 max-w-7xl mx-auto pb-40">
+      <main className="w-full px-5 md:px-[15%] pb-40">
         {/* Metrics Row */}
         {study.results && (
           <section className="mb-24 md:mb-32 pt-12">

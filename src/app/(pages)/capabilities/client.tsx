@@ -130,7 +130,7 @@ export default function CapabilitiesClient() {
               className={`w-full py-16 md:py-20 border-t ${isAlternateLayout ? "bg-[#fcfcfc] border-gray-100" : "bg-white border-transparent"}`}
             >
               <div className="w-full px-5 md:px-[15%]">
-                <Link href={`/capabilities/${service.slug}`} className="group block">
+                <div className="group block">
                   
                   {!isAlternateLayout ? (
                     /* Layout A: Standard 3-Column Architecture */
@@ -158,13 +158,15 @@ export default function CapabilitiesClient() {
                         </div>
 
                         <h2 className="text-3xl md:text-4xl font-normal text-gray-900 tracking-tight leading-tight mb-4 transition-colors duration-300">
-                          {service.title}
+                          <Link href={`/capabilities/${service.slug}`} className="hover:text-black">
+                            {service.title}
+                          </Link>
                         </h2>
                         <p className="text-base text-gray-500 font-light leading-relaxed max-w-sm mb-12">
                           {service.shortDescription}
                         </p>
 
-                        <div className="flex flex-col gap-4">
+                        <div className="flex flex-col gap-4 mb-10">
                           {service.features.slice(0, 4).map((feature, i) => (
                             <div key={i} className="flex items-center gap-4">
                               <span className="w-6 h-px bg-gray-200 shrink-0 group-hover:bg-black transition-colors duration-300" />
@@ -173,6 +175,22 @@ export default function CapabilitiesClient() {
                               </span>
                             </div>
                           ))}
+                        </div>
+
+                        <div className="mt-auto flex flex-wrap gap-4 pt-4">
+                          <Link
+                            href="/contact"
+                            className="inline-flex items-center justify-center gap-2 bg-black text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
+                          >
+                            Get this service
+                            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                          </Link>
+                          <Link
+                            href={`/capabilities/${service.slug}`}
+                            className="inline-flex items-center justify-center gap-2 bg-transparent text-black border border-black px-6 py-3 text-sm font-medium hover:bg-gray-50 transition-colors custom-notch-tl-br"
+                          >
+                            Learn more
+                          </Link>
                         </div>
                       </motion.div>
 
@@ -184,7 +202,7 @@ export default function CapabilitiesClient() {
                         transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                         className="lg:col-span-6 flex flex-col lg:items-end mt-10 lg:mt-0 pt-3 lg:border-t lg:border-gray-100"
                       >
-                        <div className="w-full lg:max-w-md aspect-[4/3] bg-gray-100 relative custom-notch-tl-br overflow-hidden mb-8">
+                        <Link href={`/capabilities/${service.slug}`} className="block w-full lg:max-w-md aspect-[4/3] bg-gray-100 relative custom-notch-tl-br overflow-hidden mb-8">
                           <Image
                             src={img}
                             alt={service.title}
@@ -196,7 +214,7 @@ export default function CapabilitiesClient() {
                           <div className="absolute bottom-5 right-5 lg:bottom-6 lg:right-6 w-12 h-12 bg-white text-black flex items-center justify-center opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out custom-notch-tl-br z-10">
                             <ArrowRight className="w-5 h-5" />
                           </div>
-                        </div>
+                        </Link>
 
                         {/* Data Analytics Layer */}
                         <div className="flex w-full lg:max-w-md justify-between items-start pt-6 border-t border-gray-100">
@@ -232,6 +250,7 @@ export default function CapabilitiesClient() {
                         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                         className="w-full aspect-[21/9] md:aspect-[3/1] bg-gray-100 relative custom-notch-tl-br overflow-hidden mb-12"
                       >
+                        <Link href={`/capabilities/${service.slug}`} className="absolute inset-0 z-20" aria-label={`View ${service.title} details`} />
                         <Image
                           src={img}
                           alt={service.title}
@@ -256,11 +275,29 @@ export default function CapabilitiesClient() {
                            className="flex flex-col border-t border-gray-200 pt-6"
                         >
                           <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight leading-tight mb-4 group-hover:text-black transition-colors duration-300">
-                            {service.title}
+                            <Link href={`/capabilities/${service.slug}`} className="hover:text-black">
+                              {service.title}
+                            </Link>
                           </h2>
-                          <p className="text-sm text-gray-500 font-light leading-relaxed">
+                          <p className="text-sm text-gray-500 font-light leading-relaxed mb-8">
                             {service.shortDescription}
                           </p>
+
+                          <div className="mt-auto flex flex-wrap gap-3">
+                            <Link
+                              href="/contact"
+                              className="relative z-30 inline-flex items-center justify-center gap-2 bg-black text-white px-5 py-2.5 text-xs font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
+                            >
+                              Get this service
+                              <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                            <Link
+                              href={`/capabilities/${service.slug}`}
+                              className="relative z-30 inline-flex items-center justify-center gap-2 bg-transparent text-black border border-black px-5 py-2.5 text-xs font-medium hover:bg-gray-50 transition-colors custom-notch-tl-br"
+                            >
+                              Learn more
+                            </Link>
+                          </div>
                         </motion.div>
 
                         {/* Key Operations */}
@@ -309,7 +346,7 @@ export default function CapabilitiesClient() {
                     </div>
                   )}
 
-                </Link>
+                </div>
               </div>
             </section>
           );

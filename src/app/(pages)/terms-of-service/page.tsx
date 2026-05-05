@@ -16,7 +16,7 @@ export default function TermsOfServicePage() {
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -z-10 w-200 h-100 bg-gradient-radial from-black/5 to-transparent blur-3xl opacity-30" />
 
             {/* Hero */}
-            <section className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-24 md:pt-28 pb-12 md:pb-20">
+            <section className="w-full px-5 md:px-[15%] pt-24 md:pt-28 pb-12 md:pb-20">
                 <h1 className="text-3xl sm:text-5xl md:text-6xl font-semibold text-black tracking-tight">
                     Terms of Service
                 </h1>

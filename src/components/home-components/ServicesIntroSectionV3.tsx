@@ -148,6 +148,7 @@ export default function ServicesIntroSectionV3() {
                     src={active.image}
                     alt={active.title}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
                   />
                 </div>

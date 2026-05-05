@@ -1,45 +1,73 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import Logo from "@/components/logo-component/Logo";
 
 export default function NavigationLoader() {
   const pathname = usePathname();
   const [readyPath, setReadyPath] = useState("");
   const [hasBootstrapped, setHasBootstrapped] = useState(false);
+  const isPopState = useRef(false);
 
-  const shouldBlockContent = !hasBootstrapped || pathname !== readyPath;
+  // Detect browser back/forward navigation to avoid freezing the loader
+  useEffect(() => {
+    const handlePopState = () => {
+      isPopState.current = true;
+    };
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  // Block content (show loader) on initial load OR if the path changed normally (not via back button)
+  const shouldBlockContent =
+    !hasBootstrapped || (pathname !== readyPath && !isPopState.current);
 
   useEffect(() => {
+    // If the path changed due to a back button click, just sync the path and skip the loader
+    if (isPopState.current && pathname !== readyPath) {
+      setReadyPath(pathname);
+      // We reset isPopState slightly later to allow Next.js to fully commit the route
+      setTimeout(() => {
+        isPopState.current = false;
+      }, 50);
+      return;
+    }
+
     if (!shouldBlockContent) return;
 
     const timer = setTimeout(() => {
       setReadyPath(pathname);
       setHasBootstrapped(true);
-    }, 650);
+    }, 450);
 
     return () => clearTimeout(timer);
-  }, [shouldBlockContent, pathname]);
-
-  if (!shouldBlockContent) return null;
-
-  const STAR_PATH =
-    "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z";
+  }, [shouldBlockContent, pathname, readyPath]);
 
   return (
-    <div className="fixed left-0 right-0 bottom-0 top-12 sm:top-14 md:top-15 z-[45] flex items-center justify-center bg-white">
-      <div className="relative flex items-center justify-center">
-        <svg
-          viewBox="0 0 100 100"
-          className="w-10 h-10 sm:w-12 sm:h-12 animate-[spin_2.5s_linear_infinite]"
+    <AnimatePresence mode="wait">
+      {shouldBlockContent && (
+        <motion.div
+          key="loader"
+          initial={{ x: 0 }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
         >
-          <path
-            d={STAR_PATH}
-            fill="#0f1115"
-            transform="translate(50 50) scale(1.4) translate(-50 -50)"
-          />
-        </svg>
-      </div>
-    </div>
+          {/* Centered Logo with continuous zoom */}
+          <motion.div
+            className="relative z-10 pointer-events-none"
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1.05 }}
+            exit={{ opacity: 0, scale: 1.15 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Logo theme="dark" scale={1.1} mobileCenter={true} />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }

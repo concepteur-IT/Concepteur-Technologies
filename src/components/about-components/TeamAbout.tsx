@@ -141,6 +141,7 @@ const TeamAbout = () => {
                     src={item.src}
                     alt="Team gallery"
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top origin-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
                   {/* Bottom Fade - Reduced Intensity */}
