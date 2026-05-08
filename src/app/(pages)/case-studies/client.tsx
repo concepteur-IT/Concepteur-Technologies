@@ -181,11 +181,15 @@ export default function CaseStudiesClient() {
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: 0.2,
+                ease: [0.22, 1, 0.36, 1],
+              }}
               className="absolute right-0 top-0 w-full lg:w-[70%] h-[300px] md:h-[420px] lg:h-full bg-gray-100 overflow-hidden custom-notch-tl-br"
             >
               <Image
-                src="/home/bg-frontend.png"
+                src="/home/cas-main.png"
                 fill
                 alt="Case Studies Architecture"
                 className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] hover:scale-105"
@@ -310,39 +314,40 @@ export default function CaseStudiesClient() {
 
                 const cardStyles = [
                   // 0: Top Left (Dark Teal)
-                  { 
-                    bg: "bg-[#0b2f33] text-white", 
-                    imageOrder: "order-1", 
-                    contentOrder: "order-2", 
-                    pillClass: "bg-[#3356e8]/20 text-[#6082f8] border border-[#3356e8]/30",
-                    linkClass: "text-[#5edc8b]"
+                  {
+                    bg: "bg-[#0b2f33] text-white",
+                    imageOrder: "order-1",
+                    contentOrder: "order-2",
+                    pillClass:
+                      "bg-[#3356e8]/20 text-[#6082f8] border border-[#3356e8]/30",
+                    linkClass: "text-[#5edc8b]",
                   },
                   // 1: Top Right (White)
-                  { 
-                    bg: "bg-white text-black", 
-                    imageOrder: "order-1 md:order-2", 
-                    contentOrder: "order-2 md:order-1", 
+                  {
+                    bg: "bg-white text-black",
+                    imageOrder: "order-1 md:order-2",
+                    contentOrder: "order-2 md:order-1",
                     pillClass: "bg-[#d8f2e2] text-[#34a863]",
-                    linkClass: "text-[#34a863]"
+                    linkClass: "text-[#34a863]",
                   },
                   // 2: Bottom Left (White)
-                  { 
-                    bg: "bg-white text-black", 
-                    imageOrder: "order-1", 
-                    contentOrder: "order-2", 
+                  {
+                    bg: "bg-white text-black",
+                    imageOrder: "order-1",
+                    contentOrder: "order-2",
                     pillClass: "bg-[#d8f2e2] text-[#34a863]",
-                    linkClass: "text-[#34a863]"
+                    linkClass: "text-[#34a863]",
                   },
                   // 3: Bottom Right (Orange)
-                  { 
-                    bg: "bg-[#f5ad76] text-black", 
-                    imageOrder: "order-1 md:order-2", 
-                    contentOrder: "order-2 md:order-1", 
+                  {
+                    bg: "bg-[#f5ad76] text-black",
+                    imageOrder: "order-1 md:order-2",
+                    contentOrder: "order-2 md:order-1",
                     pillClass: "bg-[#2546eb] text-white",
-                    linkClass: "text-[#2546eb]"
-                  }
+                    linkClass: "text-[#2546eb]",
+                  },
                 ];
-                
+
                 const style = cardStyles[index % 4];
 
                 return (
@@ -351,39 +356,51 @@ export default function CaseStudiesClient() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.1 }}
-                    transition={{ duration: 0.5, delay: (index % 2) * 0.1, ease: easeBezier }}
+                    transition={{
+                      duration: 0.5,
+                      delay: (index % 2) * 0.1,
+                      ease: easeBezier,
+                    }}
                     className="group flex flex-col w-full h-full"
                     onClick={() => setActiveSlug(item.slug)}
                   >
                     <div className="flex flex-col h-full cursor-pointer">
                       {/* Image Block */}
-                      <div className={`relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden ${style.imageOrder}`}>
-                        <Image 
-                          src={imgPlaceholder} 
-                          fill 
-                          alt={item.title} 
+                      <div
+                        className={`relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden ${style.imageOrder}`}
+                      >
+                        <Image
+                          src={imgPlaceholder}
+                          fill
+                          alt={item.title}
                           className="object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                         />
                       </div>
-                      
+
                       {/* Content Block */}
-                      <div className={`flex flex-col flex-1 p-8 md:p-12 lg:p-14 ${style.bg} ${style.contentOrder}`}>
+                      <div
+                        className={`flex flex-col flex-1 p-8 md:p-12 lg:p-14 ${style.bg} ${style.contentOrder}`}
+                      >
                         <div className="mb-6">
-                          <span className={`inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full ${style.pillClass}`}>
+                          <span
+                            className={`inline-block px-3 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full ${style.pillClass}`}
+                          >
                             {item.tag || "Product Design"}
                           </span>
                         </div>
-                        
+
                         <h3 className="text-2xl md:text-[28px] lg:text-[32px] font-medium tracking-tight leading-tight mb-4">
                           {item.title}
                         </h3>
-                        
+
                         {item.shortDesc && (
-                          <p className={`text-sm md:text-base leading-relaxed mb-8 opacity-90 line-clamp-4`}>
+                          <p
+                            className={`text-sm md:text-base leading-relaxed mb-8 opacity-90 line-clamp-4`}
+                          >
                             {item.shortDesc}
                           </p>
                         )}
-                        
+
                         <div className="mt-auto pt-4 flex justify-end">
                           <Link
                             href={`/case-studies/${item.slug}`}

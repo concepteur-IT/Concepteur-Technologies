@@ -50,13 +50,13 @@ function AnimatedCounter({ value }: { value: string }) {
 }
 
 const serviceImages: Record<string, string> = {
-  ai: "/home/cap-ai.png",
-  web: "/home/cap-web.png",
-  mobile: "/home/cap-mobile.png",
-  backend: "/home/cap-backend.png",
-  cloud: "/home/cap-cloud.png",
-  ecommerce: "/home/cap-ecom.png",
-  uiux: "/home/cap-ux.png",
+  ai: "/home/AI&Intelligent.png",
+  web: "/home/Next-Gen.png",
+  mobile: "/home/MobileDev.png",
+  backend: "/home/backend.png",
+  cloud: "/home/Cloud.png",
+  ecommerce: "/home/ApiDriven.png",
+  uiux: "/home/Design.png",
 };
 
 export default function CapabilitiesClient() {
@@ -108,7 +108,7 @@ export default function CapabilitiesClient() {
             className="w-full aspect-[21/9] md:aspect-[3/1] bg-gray-100 relative custom-notch-tl-br overflow-hidden"
           >
             <Image 
-              src="/home/bg-frontend.png" 
+              src="/home/new.png" 
               fill 
               className="object-cover" 
               alt="Engineering Frontend Architecture"
@@ -207,7 +207,7 @@ export default function CapabilitiesClient() {
                             src={img}
                             alt={service.title}
                             fill
-                            className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[800ms] ease-[0.22,1,0.36,1]"
+                            className="object-cover  group-hover:scale-105 transition-all duration-[800ms] ease-[0.22,1,0.36,1]"
                           />
                           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
                           

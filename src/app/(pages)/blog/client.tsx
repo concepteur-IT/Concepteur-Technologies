@@ -105,7 +105,7 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
                     <p className="text-xs text-gray-600 line-clamp-3 mb-5 leading-relaxed font-light">
                       {bio}
                     </p>
-                    <Link href={`/team/${post.authorSlug}`} className="flex justify-center items-center w-full bg-black text-white text-[11px] font-semibold tracking-widest uppercase py-3 hover:bg-gray-800 transition-colors duration-300">
+                    <Link href={`/who-we-are/${post.authorSlug}`} className="flex justify-center items-center w-full bg-black text-white text-[11px] font-semibold tracking-widest uppercase py-3 hover:bg-gray-800 transition-colors duration-300">
                       See Profile
                     </Link>
                   </div>
