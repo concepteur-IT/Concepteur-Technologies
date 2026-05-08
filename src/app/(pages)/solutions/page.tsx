@@ -61,7 +61,7 @@ export default function SolutionsPage() {
             className="w-full lg:w-10/12 aspect-[12/8] md:aspect-[24/8] bg-gray-100 relative custom-notch-tl-br overflow-hidden group"
           >
             <Image
-              src="/home/bg-frontend.png" // Replace with your preferred hero image
+              src="/home/sel-hero.png" // Replace with your preferred hero image
               fill
               className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] group-hover:scale-105"
               alt="Solutions Architecture Integration"
@@ -169,7 +169,7 @@ export default function SolutionsPage() {
                 className="relative flex-1 bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
               >
                 <Image
-                  src="/home/cap-web.png"
+                  src="/home/sel-index1.png"
                   fill
                   className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
                   alt="Transformation"
@@ -208,7 +208,7 @@ export default function SolutionsPage() {
                 className="relative flex-1 bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
               >
                 <Image
-                  src="/home/cap-ai.png"
+                  src="/home/ChatGPT Image May 7, 2026, 04_45_20 PM.png"
                   fill
                   className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
                   alt="AI Adoption"
@@ -345,7 +345,7 @@ export default function SolutionsPage() {
             >
               <div className="relative h-full min-h-[320px] bg-gray-100 overflow-hidden custom-notch-tl-br group">
                 <Image
-                  src="/home/cap-cloud.png"
+                  src="/home/sel-index3.png"
                   fill
                   className="object-cover transition-transform duration-[1400ms] ease-[0.22,1,0.36,1] group-hover:scale-105"
                   alt="Process Automation Infrastructure"
@@ -386,7 +386,7 @@ export default function SolutionsPage() {
               className="w-full md:w-1/2 relative bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
             >
               <Image
-                src="/home/cap-backend.png"
+                src="/home/sel-index4.png"
                 fill
                 className="object-cover group-hover:scale-105 transition-all duration-[1000ms]"
                 alt="Legacy"

@@ -43,7 +43,7 @@ export default function OurEdgeClient() {
               className="absolute right-0 top-0 w-full lg:w-[60%] h-[300px] md:h-[420px] lg:h-full bg-gray-100 overflow-hidden custom-notch-tl-br"
             >
               <Image
-                src="/home/bg-frontend.png"
+                src="/home/Eng-hero.png"
                 fill
                 alt="Engineering First"
                 className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] hover:scale-105"

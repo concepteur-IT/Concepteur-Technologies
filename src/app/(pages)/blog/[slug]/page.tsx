@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           </h1>
 
           <div className="flex items-center justify-between border-t border-b border-gray-100 py-6">
-            <Link href={`/team/${post.authorSlug}`} className="flex items-center gap-4 group">
+            <Link href={`/who-we-are/${post.authorSlug}`} className="flex items-center gap-4 group">
               <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100">
                 <Image
                   src={post.authorImage}
@@ -108,7 +108,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="border-t border-gray-200 pt-12">
             <h3 className="text-xs uppercase tracking-widest text-gray-500 font-mono mb-6">Written By</h3>
             <Link 
-              href={`/team/${post.authorSlug}`}
+              href={`/who-we-are/${post.authorSlug}`}
               className="group flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 sm:p-8 border border-gray-100 bg-gray-50/50 hover:bg-white hover:border-gray-200 transition-all duration-300 custom-notch-tl-br"
             >
               <div className="relative w-20 h-20 sm:w-24 sm:h-24 shrink-0 overflow-hidden bg-gray-200 border border-gray-300">

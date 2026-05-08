@@ -36,7 +36,7 @@ export const teamData: TeamMember[] = [
     name: "Provat Das",
     role: "CEO & Head of Operations",
     linkedin: "https://linkedin.com",
-    image: "/team/T2.PNG",
+    image: "/home/Provat.PNG",
     bio: "Passionate about enterprise architecture and building scalable systems. Leading operations and driving digital transformation for global clients with a focus on modern web technologies and cloud infrastructure.",
     experienceYears: "10+",
     skills: [
@@ -95,7 +95,7 @@ export const teamData: TeamMember[] = [
     name: "Proparna Das",
     role: "CTO & Tech lead",
     linkedin: "https://www.linkedin.com/feed/",
-    image: "/team/T3.PNG",
+    image: "/home/Pro.PNG",
     bio: "Experienced full-stack developer with a passion for clean code and performant user interfaces. Specializing in highly interactive applications, component-driven design systems, and frontend architecture that scales for enterprise needs.",
     experienceYears: "7+",
     skills: [
@@ -154,6 +154,7 @@ export const teamData: TeamMember[] = [
     name: "Ankur Saha",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/Ankur.PNG",
   },
   {
     slug: "spandan-saha",
@@ -161,6 +162,7 @@ export const teamData: TeamMember[] = [
     name: "Spandan Saha",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/Spandan.PNG",
   },
   {
     slug: "arpan-das",
@@ -168,6 +170,7 @@ export const teamData: TeamMember[] = [
     name: "Arpan Das",
     role: "Software Engineer",
     linkedin: "https://linkedin.com",
+    image: "/home/Arpan.PNG",
   },
   {
     slug: "souvik-roy",
@@ -175,6 +178,7 @@ export const teamData: TeamMember[] = [
     name: "Souvik Roy",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    
   },
   {
     slug: "subhankar-acharjee",
@@ -182,6 +186,7 @@ export const teamData: TeamMember[] = [
     name: "Subhankar Acharjee",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/s.PNG",
   },
   {
     slug: "antar-roy",
@@ -189,6 +194,7 @@ export const teamData: TeamMember[] = [
     name: "Antar Roy",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/Antar.PNG",
   },
   {
     slug: "rohit-saha",
@@ -196,6 +202,7 @@ export const teamData: TeamMember[] = [
     name: "Rohit Saha",
     role: "Junior Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/Rohit.PNG",
   },
   {
     slug: "sandip-basu",
@@ -203,6 +210,7 @@ export const teamData: TeamMember[] = [
     name: "Sandip Basu",
     role: "Junior UI/UX Designer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/Sandip.PNG",
   },
   {
     slug: "rick-goswami",
@@ -210,12 +218,14 @@ export const teamData: TeamMember[] = [
     name: "Rick Goswami",
     role: "Junior Sofware Engineer",
     linkedin: "https://www.linkedin.com/feed/",
+    image: "/home/Rick.PNG",
   },
   {
     slug: "aritra-roy",
-    initials: "AR",
-    name: "Aritra Roy",
+    initials: "IGcd",
+    name: "Ishita Guha",
     role: "Junior UI/UX Designer",
     linkedin: "https://www.linkedin.com/feed/",
+    
   },
 ];

@@ -176,7 +176,7 @@ const TeamAbout = () => {
               className="group"
             >
               <Link
-                href={`/team/${member.slug}`}
+                href={`/who-we-are/${member.slug}`}
                 className="flex items-center p-3 sm:p-4 bg-white border border-gray-100 hover:border-gray-300 hover:shadow-sm transition-all duration-300 rounded-lg cursor-pointer h-full"
               >
                 {/* Small Fixed Square Graphic */}

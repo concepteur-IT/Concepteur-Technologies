@@ -88,7 +88,7 @@ export default function GalleryModal({ isOpen, onClose, imageSrc, tooltips }: Ga
                     
                     {/* Hover Card */}
                     <Link
-                      href={`/team/${tooltip.slug}`}
+                      href={`/who-we-are/${tooltip.slug}`}
                       className="absolute bottom-full mb-4 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 translate-y-2 group-hover:translate-y-0"
                     >
                       <div className="flex items-center gap-3 bg-white/95 backdrop-blur-md px-5 py-3 rounded-full shadow-xl border border-gray-200 whitespace-nowrap">

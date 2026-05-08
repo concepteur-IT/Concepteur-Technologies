@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${member.name} - ${member.role}`,
     description: member.bio || `Learn more about ${member.name}, ${member.role} at Concepteur Technologies.`,
     alternates: {
-      canonical: `/team/${slug}`,
+      canonical: `/who-we-are/${slug}`,
     },
   };
 }

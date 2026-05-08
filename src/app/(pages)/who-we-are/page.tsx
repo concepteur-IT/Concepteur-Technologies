@@ -43,7 +43,7 @@ export default function TeamPage() {
           {teamData.map((member) => (
             <Link
               key={member.slug}
-              href={`/team/${member.slug}`}
+              href={`/who-we-are/${member.slug}`}
               className="group flex flex-col relative"
             >
               {/* Image / Avatar Container */}
