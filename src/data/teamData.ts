@@ -154,7 +154,7 @@ export const teamData: TeamMember[] = [
     name: "Ankur Saha",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
-    image: "/home/Ankur.PNG",
+    image: "/home/ankursaha.PNG",
   },
   {
     slug: "spandan-saha",
@@ -178,7 +178,6 @@ export const teamData: TeamMember[] = [
     name: "Souvik Roy",
     role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
-    
   },
   {
     slug: "subhankar-acharjee",
@@ -216,7 +215,7 @@ export const teamData: TeamMember[] = [
     slug: "rick-goswami",
     initials: "RG",
     name: "Rick Goswami",
-    role: "Junior Sofware Engineer",
+    role: "Intern",
     linkedin: "https://www.linkedin.com/feed/",
     image: "/home/Rick.PNG",
   },
@@ -226,6 +225,5 @@ export const teamData: TeamMember[] = [
     name: "Ishita Guha",
     role: "Junior UI/UX Designer",
     linkedin: "https://www.linkedin.com/feed/",
-    
   },
 ];
