@@ -151,12 +151,12 @@ export default function CaseStudiesClient() {
       { value: realStudies.length, suffix: "+", label: "Case Studies" },
       { value: 100, suffix: "%", label: "Delivery Quality" },
       {
-        value: new Set(realStudies.map((s) => s.tag).filter(Boolean)).size,
+        value: 12,
         suffix: "+",
         label: "Industry Domains",
       },
       {
-        value: realStudies.filter((s) => Boolean(s.platform)).length,
+        value: 10,
         suffix: "+",
         label: "Platform Builds",
       },

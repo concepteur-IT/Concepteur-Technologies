@@ -22,7 +22,7 @@ export default function OurEdgeClient() {
   return (
     <main
       ref={containerRef}
-      className="bg-white text-black font-sans selection:bg-[#0b2f33] selection:text-white min-h-screen pt-[80px]"
+      className="bg-white text-black font-sans selection:bg-black selection:text-white min-h-screen pt-[80px]"
     >
       {/* 01. REFINED HERO SECTION */}
       <motion.section
@@ -56,13 +56,13 @@ export default function OurEdgeClient() {
             <div className="relative z-10 flex flex-col justify-center min-h-[400px] lg:min-h-[600px]">
               <div className="max-w-2xl bg-white/90 backdrop-blur-md p-8 md:p-12 custom-notch-tl-br shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
                 <p className="text-xs uppercase tracking-[0.3em] text-gray-500 font-bold flex items-center gap-4 mb-6">
-                  <span className="w-8 h-[1px] bg-[#f5ad76]"></span>
+                  <span className="w-8 h-[1px] bg-black"></span>
                   01 — The Difference We Bring
                 </p>
 
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-black leading-[1.05] mb-8">
                   Engineering First. <br />
-                  <span className="font-light italic text-[#0b2f33]">
+                  <span className="font-light text-black">
                     Intelligence Enhanced.
                   </span>
                 </h1>
@@ -88,7 +88,7 @@ export default function OurEdgeClient() {
                     with AI-assisted acceleration where it adds measurable
                     value.
                   </p>
-                  <div className="pl-6 border-l-2 border-[#0b2f33] py-2">
+                  <div className="pl-6 border-l-2 border-black py-2">
                     <p className="text-sm font-bold uppercase tracking-widest text-black">
                       AI supports our engineers.
                       <br />
@@ -143,7 +143,7 @@ export default function OurEdgeClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="group relative p-8 border-b border-r border-gray-100 hover:bg-[#0b2f33] transition-colors duration-500 flex flex-col justify-between min-h-[220px]"
+                className="group relative p-8 border-b border-r border-gray-100 hover:bg-black transition-colors duration-500 flex flex-col justify-between min-h-[220px]"
               >
                 <span className="text-xs font-mono text-[#f5ad76] mb-6 opacity-80">
                   {(index + 1).toString().padStart(2, "0")}
@@ -217,10 +217,10 @@ export default function OurEdgeClient() {
                 transition={{ duration: 0.6, delay: i * 0.05 }}
                 className="bg-[#FAFAF9] p-8 custom-notch-tl-br border border-transparent hover:border-gray-200 hover:shadow-[0_20px_40px_rgba(0,0,0,0.03)] transition-all duration-500 group flex flex-col items-center text-center h-full justify-center"
               >
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-6 border border-gray-100 group-hover:bg-[#0b2f33] group-hover:border-[#0b2f33] group-hover:text-white transition-colors duration-500">
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center mb-6 border border-gray-100 group-hover:bg-black group-hover:border-black group-hover:text-white transition-colors duration-500">
                   <MoveUpRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl md:text-2xl font-medium text-black group-hover:text-[#0b2f33] transition-colors">
+                <h3 className="text-xl md:text-2xl font-medium text-black group-hover:text-black transition-colors">
                   {item}
                 </h3>
               </motion.div>
@@ -250,7 +250,7 @@ export default function OurEdgeClient() {
       </section>
 
       {/* 04. "BUILT FOR SCALE" - Interlocking Blocks */}
-      <section className="bg-[#0b2f33] text-white overflow-hidden py-0">
+      <section className="bg-black text-white overflow-hidden py-0">
         <div className="grid grid-cols-1 lg:grid-cols-2">
           {/* Left Content */}
           <div className="p-12 md:p-24 flex flex-col justify-center min-h-[500px]">
@@ -260,8 +260,8 @@ export default function OurEdgeClient() {
               viewport={{ once: true }}
               variants={fadeUpVariant}
             >
-              <p className="text-xs uppercase tracking-[0.2em] text-[#f5ad76] font-bold flex items-center gap-4 mb-6">
-                <span className="w-8 h-[1px] bg-[#f5ad76]"></span>
+              <p className="text-xs uppercase tracking-[0.2em] text-gray-300 font-bold flex items-center gap-4 mb-6">
+                <span className="w-8 h-[1px] bg-gray-300"></span>
                 04 — Engineering
               </p>
               <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-8">
@@ -289,7 +289,7 @@ export default function OurEdgeClient() {
                     "Future feature expansion",
                   ].map((item, i) => (
                     <li key={item} className="flex items-center gap-4">
-                      <ArrowRight className="w-5 h-5 text-[#f5ad76]" />
+                      <ArrowRight className="w-5 h-5 text-gray-300" />
                       {item}
                     </li>
                   ))}
@@ -305,10 +305,10 @@ export default function OurEdgeClient() {
               alt="Scale and Reliability"
               className="object-cover opacity-60 mix-blend-overlay hover:scale-105 transition-transform duration-[2000ms]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0b2f33] to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-[#0b2f33]" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent lg:bg-gradient-to-l lg:from-transparent lg:to-black" />
             <div className="absolute inset-0 flex items-center justify-center p-12">
               <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 max-w-sm custom-notch-tl-br">
-                <p className="text-sm font-bold uppercase tracking-widest text-[#f5ad76] mb-2">
+                <p className="text-sm font-bold uppercase tracking-widest text-gray-300 mb-2">
                   The Standard
                 </p>
                 <p className="text-lg font-light">
@@ -335,7 +335,7 @@ export default function OurEdgeClient() {
                 variants={fadeUpVariant}
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-bold flex items-center gap-4 mb-6">
-                  <span className="w-8 h-[1px] bg-gray-300"></span>
+                  <span className="w-8 h-[1px] bg-gray-400"></span>
                   05 — Focus
                 </p>
                 <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-8 uppercase">
@@ -384,7 +384,7 @@ export default function OurEdgeClient() {
                 variants={fadeUpVariant}
               >
                 <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-bold flex items-center gap-4 mb-6">
-                  <span className="w-8 h-[1px] bg-gray-300"></span>
+                  <span className="w-8 h-[1px] bg-gray-400"></span>
                   06 — Standards
                 </p>
                 <h2 className="text-4xl md:text-5xl lg:text-7xl font-light tracking-tight mb-12 leading-[1.1]">
@@ -414,7 +414,7 @@ export default function OurEdgeClient() {
                       <span className="text-xs font-mono text-gray-400 px-2 py-1 bg-white border border-gray-100">
                         0{index + 1}
                       </span>
-                      <p className="text-xl md:text-2xl font-light text-black group-hover:text-[#0b2f33] transition-colors">
+                      <p className="text-xl md:text-2xl font-light text-black group-hover:text-black transition-colors">
                         {item}
                       </p>
                     </div>
@@ -436,7 +436,7 @@ export default function OurEdgeClient() {
         <div className="w-full px-5 md:px-[15%] flex flex-col md:flex-row gap-16 md:gap-24">
           <div className="md:w-1/2">
             <p className="text-xs uppercase tracking-[0.2em] text-gray-400 font-bold flex items-center gap-4 mb-6">
-              <span className="w-8 h-[1px] bg-gray-300"></span>
+              <span className="w-8 h-[1px] bg-gray-400"></span>
               07 — Evolution
             </p>
             <h2 className="text-4xl md:text-6xl font-semibold tracking-tight leading-[1.1] mb-8">
@@ -444,7 +444,7 @@ export default function OurEdgeClient() {
             </h2>
             <div className="text-xl text-gray-600 font-light space-y-6">
               <p>Technology is evolving rapidly.</p>
-              <p className="text-black font-medium border-l-2 border-[#0b2f33] pl-5">
+              <p className="text-black font-medium border-l-2 border-black pl-5">
                 We adapt — without compromising engineering discipline.
               </p>
               <p className="pt-8">We combine:</p>
@@ -485,12 +485,12 @@ export default function OurEdgeClient() {
       </section>
 
       {/* 08. IMMERSIVE CONCLUSION CTA */}
-      <section className="py-32 px-5 md:px-[15%] text-center bg-[#0b2f33] text-white relative">
+      <section className="py-32 px-5 md:px-[15%] text-center bg-black text-white relative">
         <div className="max-w-5xl mx-auto relative z-10">
-          <p className="text-xs uppercase tracking-[0.3em] text-[#f5ad76] font-bold flex items-center justify-center gap-4 mb-8">
-            <span className="w-8 h-[1px] bg-[#f5ad76]"></span>
+          <p className="text-xs uppercase tracking-[0.3em] text-gray-300 font-bold flex items-center justify-center gap-4 mb-8">
+            <span className="w-8 h-[1px] bg-gray-300"></span>
             08 — Conclusion
-            <span className="w-8 h-[1px] bg-[#f5ad76]"></span>
+            <span className="w-8 h-[1px] bg-gray-300"></span>
           </p>
 
           <p className="text-2xl md:text-3xl font-light text-gray-300 mb-16 leading-relaxed">
@@ -519,7 +519,7 @@ export default function OurEdgeClient() {
           <div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-4 bg-[#f5ad76] text-[#0b2f33] px-10 py-5 font-semibold text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300 group custom-notch-tl-br shadow-[0_10px_30px_rgba(245,173,118,0.2)]"
+              className="inline-flex items-center gap-4 bg-white text-black px-10 py-5 font-semibold text-sm uppercase tracking-widest hover:bg-gray-100 hover:text-black transition-all duration-300 group custom-notch-tl-br shadow-[0_10px_30px_rgba(255,255,255,0.2)]"
             >
               Start A Conversation
               <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />

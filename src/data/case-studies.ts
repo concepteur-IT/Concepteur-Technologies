@@ -4,7 +4,8 @@ export const caseStudies = [
     title: "Thinkerslane",
     template: "template1",
     tag: "EdTech Platform",
-    shortDesc: "Reimagining digital education through structured coaching. We engineered a scalable, high-performance platform that empowers educators to deliver personalized learning paths, track student progress in real-time, and seamlessly integrate diverse multimedia resources for a richer educational experience.",
+    shortDesc:
+      "Reimagining digital education through structured coaching. We engineered a scalable, high-performance platform that empowers educators to deliver personalized learning paths, track student progress in real-time, and seamlessly integrate diverse multimedia resources for a richer educational experience.",
     gradient: "from-red-900 to-black",
     results: {
       speed: "2x",
@@ -22,7 +23,8 @@ export const caseStudies = [
     title: "Suprokash",
     template: "template1",
     tag: "Mobile App",
-    shortDesc: "A comprehensive retail bookstore billing ecosystem designed to streamline daily operations. The application integrates real-time inventory management, secure digital payment processing, and advanced reporting analytics to significantly reduce manual errors and boost overall operational efficiency.",
+    shortDesc:
+      "A comprehensive retail bookstore billing ecosystem designed to streamline daily operations. The application integrates real-time inventory management, secure digital payment processing, and advanced reporting analytics to significantly reduce manual errors and boost overall operational efficiency.",
     gradient: "from-gray-900 to-black",
     results: {
       speed: "3x",
@@ -167,43 +169,4 @@ export const caseStudies = [
       ],
     },
   },
-  {
-    slug: "source-ag",
-    title: "Source.ag – Empowering Access to Fresh Produce",
-    template: "template1",
-    tag: "AgTech App",
-    shortDesc: "Source.ag is an Amsterdam-based agtech startup that is revolutionizing access to fresh produce using cutting-edge AI-powered greenhouses. By enabling efficient operations for growers through pioneering machine learning models, we helped them scale their production.",
-    gradient: "from-green-600 to-emerald-900",
-    client: "Source.ag",
-    platform: "React Native + GraphQL",
-    role: "Mobile App Development",
-    stack: ["React Native", "GraphQL", "AWS"],
-    results: { speed: "4x", errors: "-60%", sales: "EU Market" }
-  },
-  {
-    slug: "pangea-ai",
-    title: "Streamline remote hiring with Pangea.ai's marketplace",
-    template: "template1",
-    tag: "HR Tech Platform",
-    shortDesc: "Struggling to find the perfect software development partner? Pangea.ai cuts through the noise. The platform connects businesses with elite development firms, ensuring a perfect match for your project needs through our custom-built matchmaking algorithm.",
-    gradient: "from-teal-700 to-cyan-900",
-    client: "Pangea.ai",
-    platform: "Web App Marketplace",
-    role: "Full-Stack Development",
-    stack: ["Vue.js", "Node.js", "PostgreSQL"],
-    results: { speed: "2x", errors: "-40%", sales: "Global" }
-  },
-  {
-    slug: "java-sdk",
-    title: "Java SDK for Security-Sensitive Products",
-    template: "template1",
-    tag: "Security Infrastructure",
-    shortDesc: "The project focused on the development of a specialized and security-sensitive Java Software Development Kit (SDK). The SDK's primary purpose was to expose APIs for various functions while maintaining rigorous encryption standards across all client integrations.",
-    gradient: "from-orange-500 to-red-800",
-    client: "Enterprise Security Firm",
-    platform: "Java Library",
-    role: "SDK Development",
-    stack: ["Java", "Cryptography", "Maven"],
-    results: { speed: "10x", errors: "-99%", sales: "B2B Enterprise" }
-  }
 ];
