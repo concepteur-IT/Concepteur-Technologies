@@ -162,7 +162,6 @@ function BlogCard({
 }
 
 export default function BlogClient({ posts }: { posts: BlogPost[] }) {
-  // Chunk posts into groups of 3 for alternating asymmetric rows
   const rows: BlogPost[][] = [];
   for (let i = 0; i < posts.length; i += 3) {
     rows.push(posts.slice(i, i + 3));

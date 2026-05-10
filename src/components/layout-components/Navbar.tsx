@@ -53,20 +53,36 @@ export default function Navbar() {
   }, [pathname]);
 
   const handleCapabilityMouseLeave = (e: React.MouseEvent) => {
-    const related = e.relatedTarget as Node | null;
-    if (megaMenuRef.current && related && megaMenuRef.current.contains(related))
+    const related = e.relatedTarget;
+
+    if (
+      megaMenuRef.current &&
+      related instanceof Node &&
+      megaMenuRef.current.contains(related)
+    ) {
       return;
+    }
+
     setIsMegaMenuOpen(false);
   };
 
   const handleMegaMenuMouseLeave = (e: React.MouseEvent) => {
-    const related = e.relatedTarget as Node | null;
-    if (
-      capabilityRef.current &&
-      related &&
-      capabilityRef.current.contains(related)
-    )
+    const related = e.relatedTarget;
+
+    if (!megaMenuRef.current) {
+      setIsMegaMenuOpen(false);
       return;
+    }
+
+    if (!(related instanceof Node)) {
+      setIsMegaMenuOpen(false);
+      return;
+    }
+
+    if (megaMenuRef.current.contains(related)) {
+      return;
+    }
+
     setIsMegaMenuOpen(false);
   };
 

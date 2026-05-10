@@ -20,10 +20,8 @@ export default function ProfileDetails({ member }: ProfileDetailsProps) {
     <section className="w-full bg-white py-20 md:py-32">
       <div className="w-full px-5 md:px-[10%] xl:px-[15%]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          
           {/* Main Content Column (Experience & Blogs) */}
           <div className="lg:col-span-8 flex flex-col gap-16 md:gap-24">
-            
             {/* Experience Section */}
             {hasExperience && (
               <motion.div
@@ -35,17 +33,20 @@ export default function ProfileDetails({ member }: ProfileDetailsProps) {
                 <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-8 md:mb-12">
                   Professional Experience
                 </h3>
-                
+
                 <div className="flex flex-col gap-8 md:gap-10">
                   {member.experience!.map((exp, idx) => (
-                    <div key={idx} className="flex flex-col sm:flex-row gap-4 sm:gap-8 group">
+                    <div
+                      key={idx}
+                      className="flex flex-col sm:flex-row gap-4 sm:gap-8 group"
+                    >
                       {/* Timeline / Duration */}
                       <div className="sm:w-32 shrink-0 pt-1">
                         <p className="text-sm font-mono text-gray-400 group-hover:text-gray-900 transition-colors">
                           {exp.duration}
                         </p>
                       </div>
-                      
+
                       {/* Details */}
                       <div className="flex-1 pb-8 sm:pb-10 border-b border-gray-100 group-last:border-0 group-last:pb-0">
                         <h4 className="text-lg md:text-xl font-semibold text-gray-900 mb-1">
@@ -77,22 +78,34 @@ export default function ProfileDetails({ member }: ProfileDetailsProps) {
                 <h3 className="text-2xl md:text-3xl font-light text-gray-900 mb-8 md:mb-12">
                   Recent Publications
                 </h3>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {member.blogs!.map((blog, idx) => (
-                    <a 
+                    <a
                       key={idx}
                       href={blog.link}
                       className="group flex flex-col p-6 bg-[#fcfcfc] border border-gray-100 hover:border-gray-300 transition-colors duration-300 custom-notch-tl-br"
                     >
-                      <p className="text-xs font-mono text-gray-400 mb-3">{blog.date}</p>
+                      <p className="text-xs font-mono text-gray-400 mb-3">
+                        {blog.date}
+                      </p>
                       <h4 className="text-lg font-medium text-gray-900 leading-snug mb-4 group-hover:text-blue-600 transition-colors">
                         {blog.title}
                       </h4>
                       <div className="mt-auto flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-400 group-hover:text-blue-600 transition-colors">
                         Read Article
-                        <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        <svg
+                          className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M14 5l7 7m0 0l-7 7m7-7H3"
+                          />
                         </svg>
                       </div>
                     </a>
@@ -100,7 +113,6 @@ export default function ProfileDetails({ member }: ProfileDetailsProps) {
                 </div>
               </motion.div>
             )}
-
           </div>
 
           {/* Sidebar Column (Skills) */}
@@ -116,10 +128,10 @@ export default function ProfileDetails({ member }: ProfileDetailsProps) {
                 <h3 className="text-xl font-light text-gray-900 mb-6">
                   Core Expertise
                 </h3>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {member.skills!.map((skill, idx) => (
-                    <span 
+                    <span
                       key={idx}
                       className="px-4 py-2 bg-white border border-gray-200 text-sm font-medium text-gray-700 hover:border-gray-400 hover:text-black transition-colors rounded-sm"
                     >
@@ -130,7 +142,6 @@ export default function ProfileDetails({ member }: ProfileDetailsProps) {
               </motion.div>
             )}
           </div>
-
         </div>
       </div>
     </section>

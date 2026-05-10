@@ -1,4 +1,3 @@
-import GoogleGeminiEffectDemo from "@/components/home-components/GoogleGeminiEffectDemo";
 import ContactSection from "@/components/home-components/ContactSection";
 import Hero from "@/components/home-components/Hero";
 import AboutSection from "@/components/home-components/AboutSection";
@@ -8,7 +7,6 @@ import ServicesIntroSectionV3 from "@/components/home-components/ServicesIntroSe
 import TestimonialSection from "@/components/home-components/TestimonialSection";
 import VideoCollage from "@/components/home-components/VideoCollage";
 import FAQAccordion from "@/components/home-components/FAQAccordion";
-import React from "react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

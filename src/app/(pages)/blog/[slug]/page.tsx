@@ -10,7 +10,9 @@ interface PageProps {
   }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = blogData[slug];
   if (!post) {
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   return {
     title: `${post.title} | Concepteur Technologies Blog`,
-    description: post.content.substring(0, 150).replace(/<[^>]+>/g, '') + "...",
+    description: post.content.substring(0, 150).replace(/<[^>]+>/g, "") + "...",
   };
 }
 
@@ -45,8 +47,8 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Header Section */}
         <header className="max-w-4xl mx-auto px-5 md:px-8 mb-12">
           <div className="flex items-center gap-4 mb-6">
-            <Link 
-              href="/company" 
+            <Link
+              href="/company"
               className="text-xs uppercase tracking-widest text-gray-500 hover:text-black transition-colors font-mono"
             >
               Company
@@ -62,15 +64,10 @@ export default async function BlogPostPage({ params }: PageProps) {
           </h1>
 
           <div className="flex items-center justify-between border-t border-b border-gray-100 py-6">
-            <Link href={`/who-we-are/${post.authorSlug}`} className="flex items-center gap-4 group">
-              <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gray-100">
-                <Image
-                  src={post.authorImage}
-                  alt={post.authorName}
-                  fill
-                  className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500"
-                />
-              </div>
+            <Link
+              href={`/who-we-are/${post.authorSlug}`}
+              className="flex items-center gap-4 group"
+            >
               <div className="flex flex-col">
                 <span className="text-sm font-semibold text-gray-900 group-hover:text-black transition-colors">
                   {post.authorName}
@@ -84,8 +81,18 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="flex flex-col items-end text-right">
               <span className="text-sm text-gray-900">{post.date}</span>
               <span className="text-xs text-gray-500 mt-0.5 flex items-center gap-1.5">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-3.5 h-3.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
                 {post.readTime}
               </span>
@@ -93,11 +100,9 @@ export default async function BlogPostPage({ params }: PageProps) {
           </div>
         </header>
 
-
-
         {/* Content Section */}
         <div className="max-w-3xl mx-auto px-5 md:px-8">
-          <div 
+          <div
             className="prose prose-lg md:prose-xl prose-gray max-w-none prose-headings:font-light prose-headings:tracking-tight prose-a:text-black prose-a:underline-offset-4 hover:prose-a:text-gray-600 prose-img:rounded-xl"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
@@ -106,8 +111,10 @@ export default async function BlogPostPage({ params }: PageProps) {
         {/* Footer / Author Block */}
         <footer className="max-w-3xl mx-auto px-5 md:px-8 mt-24">
           <div className="border-t border-gray-200 pt-12">
-            <h3 className="text-xs uppercase tracking-widest text-gray-500 font-mono mb-6">Written By</h3>
-            <Link 
+            <h3 className="text-xs uppercase tracking-widest text-gray-500 font-mono mb-6">
+              Written By
+            </h3>
+            <Link
               href={`/who-we-are/${post.authorSlug}`}
               className="group flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 sm:p-8 border border-gray-100 bg-gray-50/50 hover:bg-white hover:border-gray-200 transition-all duration-300 custom-notch-tl-br"
             >
@@ -128,8 +135,18 @@ export default async function BlogPostPage({ params }: PageProps) {
                 </p>
                 <div className="flex items-center text-sm font-medium text-black gap-2 opacity-70 group-hover:opacity-100 transition-opacity">
                   View full profile
-                  <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </div>
               </div>

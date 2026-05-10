@@ -13,7 +13,6 @@ export default function ProfileHero({ member }: ProfileHeroProps) {
     <section className="w-full bg-[#fcfcfc] pt-32 pb-20 md:pt-40 md:pb-32 border-b border-gray-200">
       <div className="w-full px-5 md:px-[10%] xl:px-[15%]">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center lg:items-start">
-          
           {/* Left: Image with Architectural Offset Border */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -23,7 +22,7 @@ export default function ProfileHero({ member }: ProfileHeroProps) {
           >
             {/* Architectural Offset Border */}
             <div className="absolute inset-0 translate-x-3 md:translate-x-5 translate-y-3 md:translate-y-5 border border-gray-300 custom-notch-tl-br transition-all duration-500 group-hover:translate-x-6 group-hover:translate-y-6 group-hover:border-gray-400" />
-            
+
             {/* Image Container */}
             <div className="relative aspect-[4/5] w-full custom-notch-tl-br overflow-hidden bg-white z-10 border border-gray-100 shadow-sm group-hover:shadow-lg transition-shadow duration-500">
               {member.image ? (
@@ -51,15 +50,17 @@ export default function ProfileHero({ member }: ProfileHeroProps) {
             className="flex-1 flex flex-col justify-center lg:pt-10 w-full"
           >
             <p className="text-sm uppercase tracking-[0.2em] text-gray-400 font-bold mb-4">
-              {member.experienceYears ? `${member.experienceYears} Years Experience` : "Team Member"}
+              {member.experienceYears
+                ? `${member.experienceYears} Years Experience`
+                : "Team Member"}
             </p>
-            
+
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-gray-900 tracking-tight mb-4">
               {member.name}
             </h1>
-            
+
             <div className="h-[1px] w-16 bg-gray-300 mb-6" />
-            
+
             <h2 className="text-lg md:text-xl font-medium text-gray-600 mb-8">
               {member.role}
             </h2>
@@ -69,22 +70,7 @@ export default function ProfileHero({ member }: ProfileHeroProps) {
                 {member.bio}
               </p>
             )}
-
-            {member.linkedin && (
-              <a 
-                href={member.linkedin} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-gray-900 hover:text-blue-600 transition-colors w-fit border-b border-gray-900 hover:border-blue-600 pb-1"
-              >
-                Connect on LinkedIn
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
-            )}
           </motion.div>
-
         </div>
       </div>
     </section>

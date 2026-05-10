@@ -1,8 +1,5 @@
 import { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import { blogData } from "@/data/blogData";
-import { ArrowRight } from "lucide-react";
 import BlogClient from "./client";
 
 export const metadata: Metadata = {
@@ -23,10 +20,13 @@ export default function BlogPage() {
             — INSIGHTS & PERSPECTIVES
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-black mb-8">
-            Engineering the <br className="hidden md:block" /> future, documented.
+            Engineering the <br className="hidden md:block" /> future,
+            documented.
           </h1>
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed font-light">
-            Dive into our thoughts on enterprise architecture, AI integration, team performance, and the technologies shaping tomorrow's digital landscape.
+            Dive into our thoughts on enterprise architecture, AI integration,
+            team performance, and the technologies shaping tomorrow's digital
+            landscape.
           </p>
         </div>
 
