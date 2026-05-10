@@ -85,22 +85,22 @@ export const teamData: TeamMember[] = [
     ],
     experience: [
       {
-        role: "Senior Software Engineer",
-        company: "Concepteur Technologies",
-        duration: "2023 - Present",
+        role: "CTO, Senior Software Engineer",
+        company: "",
+        duration: "2025 - Present",
         description:
           "Leading frontend development for enterprise clients. Architecting performant Next.js applications and establishing scalable UI component libraries.",
       },
       {
         role: "Software Engineer",
-        company: "Creative Web Solutions",
+        company: "",
         duration: "2020 - 2023",
         description:
           "Developed and maintained full-stack e-commerce platforms. Improved site load speeds by 40% through extensive frontend optimization.",
       },
       {
-        role: "Frontend Developer",
-        company: "Startup Hub",
+        role: "Junior Developer",
+        company: "",
         duration: "2018 - 2020",
         description:
           "Built responsive landing pages and interactive dashboards using React and Redux.",

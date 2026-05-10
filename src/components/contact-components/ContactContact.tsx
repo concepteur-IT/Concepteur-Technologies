@@ -61,11 +61,11 @@ const ContactContact = () => {
               </div>
               <div className="pl-11 flex flex-col gap-2">
                 <a
-                  href="mailto:info@concepteur.com"
+                  href="mailto:info@concepteurit.com"
                   className="text-gray-600 font-light text-lg hover:text-black transition-colors inline-flex items-center gap-2 w-fit"
                 >
                   <Mail className="w-4 h-4 shrink-0" />
-                  <span>info@concepteur.com</span>
+                  <span>info@concepteurit.com</span>
                 </a>
                 <a
                   href="https://wa.me/919832996894"

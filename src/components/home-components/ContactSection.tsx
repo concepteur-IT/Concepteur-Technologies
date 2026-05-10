@@ -89,10 +89,10 @@ export default function ContactSection() {
 
               <div className="flex flex-col gap-4 pl-8 md:pl-9">
                 <a
-                  href="mailto:info@concepteur.com"
+                  href="mailto:info@concepteurit.com"
                   className="text-gray-500 font-light text-lg hover:text-black transition-colors w-fit"
                 >
-                  info@concepteur.com
+                  info@concepteurit.com
                 </a>
                 <a
                   href="https://wa.me/919832996894"

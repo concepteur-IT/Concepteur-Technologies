@@ -12,51 +12,60 @@ const galleryConfigList = [
     id: "T1",
     src: "/team/T1.PNG",
     tooltips: [
-      { x: 18, y: 65, name: "Developer 1", slug: "mandira-chakraborty" },
-      { x: 38, y: 65, name: "Developer 2", slug: "provat-das" },
-      { x: 65, y: 65, name: "Developer 3", slug: "proparna-das" },
-      { x: 85, y: 65, name: "Developer 4", slug: "ankur-saha" },
-    ]
-  },
-  {
-    id: "T2",
-    src: "/team/T2.PNG",
-    tooltips: [
-      { x: 30, y: 65, name: "Developer 5", slug: "spandan-saha" },
-      { x: 70, y: 65, name: "Developer 6", slug: "arpan-das" },
-    ]
-  },
-  {
-    id: "T3",
-    src: "/team/T3.PNG",
-    tooltips: [
-      { x: 30, y: 65, name: "Developer 7", slug: "souvik-roy" },
-      { x: 70, y: 65, name: "Developer 8", slug: "subhankar-acharjee" },
-    ]
+      { x: 18, y: 65, name: "Ankur Saha", slug: "ankur-saha" },
+      { x: 85, y: 65, name: "Arpan Das", slug: "arpan-das" },
+      { x: 38, y: 65, name: "Proparna Das", slug: "proparna-das" },
+      { x: 65, y: 65, name: "Rohit Saha", slug: "rohit-saha" },
+    ],
   },
   {
     id: "T4",
     src: "/team/T4.PNG",
     tooltips: [
-      { x: 30, y: 65, name: "Developer 9", slug: "antar-roy" },
-      { x: 70, y: 65, name: "Developer 10", slug: "rohit-saha" },
-    ]
-  }
+      { x: 30, y: 65, name: "Subhankar Acharjee", slug: "subhankar-acharjee" },
+      { x: 70, y: 65, name: "Provat Das", slug: "provat-das" },
+    ],
+  },
+  {
+    id: "T2",
+    src: "/team/T2.PNG",
+    tooltips: [
+      { x: 30, y: 65, name: "Sandip Basu", slug: "sandip-basu" },
+      { x: 70, y: 65, name: "Antar Roy", slug: "antar-roy" },
+    ],
+  },
+  {
+    id: "T3",
+    src: "/team/T3.PNG",
+    tooltips: [
+      { x: 30, y: 65, name: "Spandan Saha", slug: "spandan-saha" },
+      { x: 70, y: 65, name: "Rick Goswami", slug: "rick-goswami" },
+    ],
+  },
 ];
 
 const TeamAbout = () => {
-  const [selectedGallery, setSelectedGallery] = useState<{src: string, tooltips: TooltipData[]} | null>(null);
+  const [selectedGallery, setSelectedGallery] = useState<{
+    src: string;
+    tooltips: TooltipData[];
+  } | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -carouselRef.current.offsetWidth, behavior: "smooth" });
+      carouselRef.current.scrollBy({
+        left: -carouselRef.current.offsetWidth,
+        behavior: "smooth",
+      });
     }
   };
 
   const scrollRight = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: carouselRef.current.offsetWidth, behavior: "smooth" });
+      carouselRef.current.scrollBy({
+        left: carouselRef.current.offsetWidth,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -84,26 +93,50 @@ const TeamAbout = () => {
             >
               The minds behind the architecture.
             </motion.h2>
-            
+
             {/* Carousel Navigation Desktop */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="hidden md:flex items-center gap-4"
             >
-              <button 
+              <button
                 onClick={scrollLeft}
                 className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-black hover:border-black transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19l-7-7 7-7" /></svg>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
               </button>
-              <button 
+              <button
                 onClick={scrollRight}
                 className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-black hover:border-black transition-colors"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" /></svg>
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
               </button>
             </motion.div>
           </div>
@@ -112,17 +145,17 @@ const TeamAbout = () => {
 
       {/* Full-width Swipeable Carousel */}
       <div className="w-full mb-16 md:mb-32 relative">
-        <div 
+        <div
           ref={carouselRef}
           className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {/* Spacer for left padding equivalent to container */}
           <div className="w-[5vw] md:w-[10%] xl:w-[15%] shrink-0" />
 
           {galleryConfigList.map((item, idx) => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               className="w-[85vw] sm:w-[60vw] md:w-[45%] lg:w-[35%] shrink-0 snap-center pr-4 md:pr-8"
             >
               <motion.div
@@ -135,7 +168,7 @@ const TeamAbout = () => {
               >
                 {/* Architectural Offset Border */}
                 <div className="absolute inset-0 translate-x-3 translate-y-3 border border-gray-300 custom-notch-tl-br transition-all duration-500 group-hover:translate-x-4 group-hover:translate-y-4 group-hover:border-gray-400" />
-                
+
                 <div className="relative aspect-video w-full custom-notch-tl-br overflow-hidden bg-white z-10 border border-gray-100 shadow-sm">
                   <Image
                     src={item.src}
@@ -149,9 +182,19 @@ const TeamAbout = () => {
 
                   {/* Preview Overlay */}
                   <div className="absolute bottom-6 right-6 bg-black/80 backdrop-blur-sm text-white px-5 py-3 rounded-full text-sm font-bold uppercase tracking-widest translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 flex items-center gap-2 z-30">
-                    Preview 
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                    Preview
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"
+                      />
                     </svg>
                   </div>
                 </div>
@@ -204,8 +247,18 @@ const TeamAbout = () => {
 
                 {/* Navigation Arrow */}
                 <div className="ml-3 shrink-0 text-gray-300 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-black transition-all duration-300">
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </div>
               </Link>
@@ -214,8 +267,8 @@ const TeamAbout = () => {
         </div>
       </div>
 
-      <GalleryModal 
-        isOpen={!!selectedGallery} 
+      <GalleryModal
+        isOpen={!!selectedGallery}
         onClose={() => setSelectedGallery(null)}
         imageSrc={selectedGallery?.src || null}
         tooltips={selectedGallery?.tooltips || []}

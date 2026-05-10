@@ -137,8 +137,8 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col space-y-4 text-sm font-light">
               <li>
-                <SlideLink href="mailto:info@concepteur.com">
-                  info@concepteur.com
+                <SlideLink href="mailto:info@concepteurit.com">
+                  info@concepteurit.com
                 </SlideLink>
               </li>
               <li>
