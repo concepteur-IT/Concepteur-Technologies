@@ -3,149 +3,356 @@ export const runtime = "edge";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { companyKnowledge } from "@/data/chatbotKnowledge";
 
-// Initialize Gemini API
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
+const genAI = new GoogleGenerativeAI(
+  process.env.GEMINI_API_KEY || "",
+);
 
-// In-memory rate limiting (Note: In production Edge environments, consider Upstash Redis or similar.
-// This basic map works for simple demonstrations but state is not shared across edge nodes in Vercel/Cloudflare).
-const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
-const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute
+const rateLimitMap = new Map<
+  string,
+  { count: number; lastReset: number }
+>();
+
+const RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 10;
 
-// Format the knowledge into a strict system prompt
+type ChatMessage = {
+  role?: "user" | "model" | "assistant";
+  text?: string;
+  content?: string;
+};
+
+type SectionContext = {
+  source?: string;
+
+  categoryTitle?: string;
+
+  categoryDescription?: string;
+
+  technologies?: {
+    name: string;
+    desc: string;
+  }[];
+};
+
 const systemInstruction = `
-You are the official AI Assistant for "Concepteur Technologies" (also known previously as Ampit).
+You are the official AI Assistant for Concepteur Technologies.
 
-You must answer strictly using the provided company knowledge.
+You are a premium AI-powered software agency assistant.
 
-You are allowed to answer questions about:
-- Company overview and background
-- Services
-- Team members and their roles
-- Company statistics
-- Testimonials
-- Contact information
+Your tone:
+- modern
+- intelligent
+- concise
+- professional
+- conversational
 
-If the user greets (hi, hello, hey, good morning, etc.), respond with a short, professional greeting and ask how you can assist regarding Concepteur Technologies.
+You help users understand:
+- services
+- technologies
+- AI systems
+- engineering solutions
+- infrastructure
+- frontend systems
+- backend architecture
+- scalability
+- business value
 
-For team-related questions:
-- You may confirm whether a person works at the company.
-- You may state their role if available.
-- If asked about skill or quality (e.g., "Are they good?"), you may respond with a professional and confident statement such as:
-  "Our team consists of experienced professionals across multiple engineering levels."
-- Do not create exaggerated claims or superlatives unless explicitly present in the knowledge.
+You must answer naturally and contextually.
 
-If a question is clearly unrelated to Concepteur Technologies, reply EXACTLY with:
-"I can only answer questions related to Concepteur Technologies."
+If the user greets:
+Respond warmly and professionally.
 
-Do NOT hallucinate.
-Do NOT invent information.
-Do NOT use markdown formatting.
-Keep responses clear, concise, and slightly conversational while remaining professional.
+If the user asks unrelated things:
+Politely say you only assist regarding Concepteur Technologies.
 
+Never hallucinate.
+Never invent company information.
+Keep answers concise but valuable.
+Reply in plain text only.
+Do not use markdown.
+Do not use stars, bullet points, emojis, or symbols.
+Keep the formatting simple and clean.
+COMPANY INFORMATION:
 
-If a question is clearly unrelated to Concepteur Technologies, reply EXACTLY with:
-"I can only answer questions related to Concepteur Technologies. For further assistance, please contact us at ${companyKnowledge.company.email}."
+Company:
+${companyKnowledge.company.name}
 
-If the question appears to relate to the company but the answer cannot be found in the provided knowledge, respond with:
-"I don’t have that specific information available. Please contact us at ${companyKnowledge.company.email} for more details."
+Email:
+${companyKnowledge.company.email}
 
-COMPANY KNOWLEDGE:
-Name: ${companyKnowledge.company.name}
-Email: ${companyKnowledge.company.email}
+Services:
+${companyKnowledge.services
+  .map(
+    (s) => `
+${s.title}: ${s.description}
+`,
+  )
+  .join("\n")}
 
-SERVICES:
-${companyKnowledge.services.map((s) => `${s.title}: ${s.description}`).join("\n")}
+Stats:
+${companyKnowledge.stats
+  .map((s) => `${s.label}: ${s.value}`)
+  .join(", ")}
 
-COMPANY STATS:
-${companyKnowledge.stats.map((s) => `${s.label}: ${s.value}`).join(", ")}
-
-TEAM MEMBERS:
-${companyKnowledge.team.map((t) => `${t.name} (${t.role})`).join(", ")}
-
-TESTIMONIALS:
-${companyKnowledge.testimonials.map((t) => `"${t.message}" - ${t.name}, ${t.company}`).join("\n")}
+Team:
+${companyKnowledge.team
+  .map((t) => `${t.name} (${t.role})`)
+  .join(", ")}
 `;
+
+function buildSectionContextInstruction(
+  sectionContext?: SectionContext,
+) {
+  if (!sectionContext) return "";
+
+  return `
+ACTIVE CLICKED SECTION CONTEXT:
+
+Category:
+${sectionContext.categoryTitle || "Not provided"}
+
+Category Description:
+${sectionContext.categoryDescription || "Not provided"}
+
+Technologies:
+${
+  sectionContext.technologies
+    ?.map(
+      (tech) => `
+- ${tech.name}: ${tech.desc}
+`,
+    )
+    .join("\n") || "No technologies provided"
+}
+
+AI Behavior Rules:
+
+- Treat this as the currently selected service stack.
+- Prioritize discussing these technologies.
+- Mention the technologies naturally in responses.
+- Explain benefits clearly.
+- Explain business value.
+- Explain real-world use cases.
+- Answer follow-up questions using this context.
+- Speak like a premium engineering consultancy assistant.
+`;
+}
 
 export async function POST(req: Request) {
   try {
-    // Basic Rate Limiting Check
-    const ip = req.headers.get("x-forwarded-for") || "unknown";
+
+    /*
+    RATE LIMITING
+    */
+
+    const ip =
+      req.headers.get("x-forwarded-for") || "unknown";
+
     const now = Date.now();
+
     const userLimit = rateLimitMap.get(ip);
 
     if (userLimit) {
-      if (now - userLimit.lastReset > RATE_LIMIT_WINDOW_MS) {
-        // Reset window
-        rateLimitMap.set(ip, { count: 1, lastReset: now });
+
+      if (
+        now - userLimit.lastReset >
+        RATE_LIMIT_WINDOW_MS
+      ) {
+
+        rateLimitMap.set(ip, {
+          count: 1,
+          lastReset: now,
+        });
+
       } else {
-        if (userLimit.count >= MAX_REQUESTS_PER_WINDOW) {
+
+        if (
+          userLimit.count >=
+          MAX_REQUESTS_PER_WINDOW
+        ) {
+
           return new Response(
             JSON.stringify({
-              error: "Too many requests. Please try again later.",
+              error:
+                "Too many requests. Please try again later.",
             }),
-            { status: 429, headers: { "Content-Type": "application/json" } },
+            {
+              status: 429,
+              headers: {
+                "Content-Type":
+                  "application/json",
+              },
+            },
           );
         }
+
         userLimit.count++;
       }
+
     } else {
-      rateLimitMap.set(ip, { count: 1, lastReset: now });
-    }
 
-    // Check API Key
-    if (!process.env.GEMINI_API_KEY) {
-      console.error("GEMINI_API_KEY is not set.");
-      return new Response(
-        JSON.stringify({ error: "Server configuration error." }),
-        { status: 500, headers: { "Content-Type": "application/json" } },
-      );
-    }
-
-    const { history, message } = await req.json();
-
-    if (!message) {
-      return new Response(JSON.stringify({ error: "Message is required." }), {
-        status: 400,
-        headers: { "Content-Type": "application/json" },
+      rateLimitMap.set(ip, {
+        count: 1,
+        lastReset: now,
       });
     }
 
-    // Initialize the model
+    /*
+    ENV CHECK
+    */
+
+    if (!process.env.GEMINI_API_KEY) {
+
+      return new Response(
+        JSON.stringify({
+          error:
+            "Missing Gemini API Key.",
+        }),
+        {
+          status: 500,
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+        },
+      );
+    }
+
+    /*
+    REQUEST BODY
+    */
+
+    const body = await req.json();
+
+    const message = body?.message;
+
+    const history = Array.isArray(body?.history)
+      ? body.history
+      : [];
+
+    const sectionContext =
+      body?.sectionContext as
+        | SectionContext
+        | undefined;
+
+    if (!message) {
+
+      return new Response(
+        JSON.stringify({
+          error: "Message is required.",
+        }),
+        {
+          status: 400,
+          headers: {
+            "Content-Type":
+              "application/json",
+          },
+        },
+      );
+    }
+
+    /*
+    GEMINI MODEL
+    */
+
     const model = genAI.getGenerativeModel({
       model: "gemini-2.5-flash",
-      systemInstruction: systemInstruction,
+
+      systemInstruction:
+        systemInstruction +
+        buildSectionContextInstruction(
+          sectionContext,
+        ),
     });
 
-    const formattedHistory = (history || [])
-      .filter((msg: any) => msg?.content || msg?.text) // remove empty
-      .map((msg: any) => ({
-        role: msg.role === "assistant" ? "model" : "user",
-        parts: [{ text: String(msg.content || msg.text) }],
+    /*
+    CHAT HISTORY
+    */
+
+    const formattedHistory = (
+      history as ChatMessage[]
+    )
+      .filter(
+        (msg) =>
+          msg?.content || msg?.text,
+      )
+      .map((msg) => ({
+        role:
+          msg.role === "assistant"
+            ? "model"
+            : "user",
+
+        parts: [
+          {
+            text: String(
+              msg.content || msg.text,
+            ),
+          },
+        ],
       }));
+
+    /*
+    START CHAT
+    */
 
     const chat = model.startChat({
       history: formattedHistory,
+
       generationConfig: {
-        maxOutputTokens: 2000,
+        maxOutputTokens: 600,
         temperature: 0.2,
+        topP: 0.2
       },
     });
 
-    // Start chat session with history
+    /*
+    SEND MESSAGE
+    */
 
-    const result = await chat.sendMessage(String(message));
-    const responseText = result.response.text();
+    const result =
+      await chat.sendMessage(
+        String(message),
+      );
 
-    return new Response(JSON.stringify({ text: responseText }), {
-      status: 200,
-      headers: { "Content-Type": "application/json" },
-    });
-  } catch (error) {
-    console.error("Chat API Error:", error);
+    const responseText =
+      result.response.text();
+
+    /*
+    RESPONSE
+    */
+
     return new Response(
-      JSON.stringify({ error: "Failed to process request." }),
-      { status: 500, headers: { "Content-Type": "application/json" } },
+      JSON.stringify({
+        text: responseText,
+      }),
+      {
+        status: 200,
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
+      },
+    );
+
+  } catch (error) {
+
+    console.error(
+      "Chat API Error:",
+      error,
+    );
+
+    return new Response(
+      JSON.stringify({
+        error:
+          "Failed to process request.",
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type":
+            "application/json",
+        },
+      },
     );
   }
 }

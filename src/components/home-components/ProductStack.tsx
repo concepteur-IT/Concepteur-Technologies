@@ -125,8 +125,11 @@ export default function ProductStack() {
     <section className="w-full bg-white py-20 md:py-24">
       <div className="w-full px-5 md:px-[15%]">
         <div className="flex flex-col xl:flex-row gap-16 xl:gap-20 items-start">
-          {/* Left Column - Vibe Match: Text & Navigation */}
+
+          {/* Left Column */}
+
           <div className="w-full xl:w-[40%] flex flex-col pt-2">
+
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -136,6 +139,7 @@ export default function ProductStack() {
             >
               — Technology Stack
             </motion.p>
+
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +150,6 @@ export default function ProductStack() {
               Expertise that <br className="hidden sm:block" /> powers scale.
             </motion.h2>
 
-            {/* Interactive Categories List matching ServicesIntroSectionV3 styling */}
             <div className="flex flex-col w-full border-t border-gray-200">
               {categories.map((cat, idx) => (
                 <button
@@ -163,9 +166,14 @@ export default function ProductStack() {
                     <h3 className="text-xl sm:text-2xl font-light text-gray-900 tracking-tight transition-transform duration-500 origin-left">
                       {cat.title}
                     </h3>
+
                     <div className="overflow-hidden w-6 h-6 flex items-center justify-center relative">
                       <span
-                        className={`absolute transition-transform duration-500 text-xl font-light ${activeIdx === idx ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"}`}
+                        className={`absolute transition-transform duration-500 text-xl font-light ${
+                          activeIdx === idx
+                            ? "translate-x-0 opacity-100"
+                            : "-translate-x-full opacity-0"
+                        }`}
                       >
                         ↗
                       </span>
@@ -203,6 +211,7 @@ export default function ProductStack() {
                 className="group inline-flex items-center gap-3 text-sm font-medium text-gray-900 border border-gray-300 px-6 py-3 hover:bg-gray-900 hover:text-white hover:border-gray-900 transition-all duration-300"
               >
                 Expand Expertise
+
                 <svg
                   className="w-[17px] h-[17px] shrink-0 transition-transform duration-300 xl:group-hover:translate-x-1 xl:group-hover:-translate-y-1"
                   viewBox="0 0 24 24"
@@ -220,9 +229,12 @@ export default function ProductStack() {
             </motion.div>
           </div>
 
-          {/* Right Column - Technology Details Area */}
+          {/* Right Column */}
+
           <div className="w-full xl:w-[60%] flex flex-col">
+
             <AnimatePresence mode="wait">
+
               <motion.div
                 key={activeIdx}
                 initial={{ opacity: 0, y: 8 }}
@@ -231,14 +243,20 @@ export default function ProductStack() {
                 transition={{ duration: 0.2, ease: "easeInOut" }}
                 className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6"
               >
+
                 {categories[activeIdx].tech.map((techItem, i) => (
+
                   <div
                     key={i}
                     className="flex flex-col p-6 lg:p-8 bg-gray-50 custom-notch-tl-br transition-all duration-500 hover:bg-white group hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)]"
                   >
+
                     <div className="flex items-center gap-4 mb-4">
+
                       <div className="w-10 h-10 flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
+
                         {techItem.icon === "ai-icon" ? (
+
                           <svg
                             viewBox="0 0 24 24"
                             fill="none"
@@ -249,12 +267,15 @@ export default function ProductStack() {
                               d="M12 2L14.4 9.6L22 12L14.4 14.4L12 22L9.6 14.4L2 12L9.6 9.6L12 2Z"
                               fill="currentColor"
                             />
+
                             <path
                               d="M5 4L6 6L8 7L6 8L5 10L4 8L2 7L4 6L5 4Z"
                               fill="currentColor"
                             />
                           </svg>
+
                         ) : (
+
                           <Image
                             src={techItem.icon}
                             alt={techItem.name}
@@ -262,37 +283,66 @@ export default function ProductStack() {
                             height={28}
                             className="object-contain grayscale brightness-0 opacity-70 group-hover:opacity-100 transition-opacity duration-500"
                           />
+
                         )}
+
                       </div>
+
                       <h4 className="text-[17px] font-medium text-gray-900 group-hover:text-black transition-colors duration-500">
                         {techItem.name}
                       </h4>
+
                     </div>
+
                     <p className="text-sm text-gray-500 leading-relaxed font-light mt-auto">
                       {techItem.desc}
                     </p>
 
                     <div className="overflow-hidden h-0 opacity-0 group-hover:h-6 group-hover:mt-4 group-hover:opacity-100 transition-all duration-500 ease-[0.22,1,0.36,1]">
-                      <Link 
-                        href="/contact" 
+
+                      <Link
+                        href={`/contact?topic=${encodeURIComponent(
+                          techItem.name
+                        )}&desc=${encodeURIComponent(
+                          techItem.desc
+                        )}`}
                         className="inline-flex items-center gap-2 text-[11px] font-semibold text-black uppercase tracking-widest hover:opacity-70 transition-opacity"
                       >
                         Start Yours
-                        <svg className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+
+                        <svg
+                          className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={1.5}
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                          />
                         </svg>
+
                       </Link>
+
                     </div>
+
                   </div>
+
                 ))}
+
               </motion.div>
+
             </AnimatePresence>
 
-            {/* CTA: Found your stack */}
+            {/* CTA */}
+
             <Link
               href="/contact"
               className="relative overflow-hidden mt-4 lg:mt-6 w-full flex items-center justify-between p-6 lg:p-8 bg-gray-50 custom-notch-tl-br hover:bg-gray-100 transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.03)] group"
             >
+
               <div className="absolute inset-0 z-0">
                 <Image
                   src="/home/bg-frontend.png"
@@ -304,14 +354,19 @@ export default function ProductStack() {
               </div>
 
               <div className="flex flex-col relative z-10">
+
                 <h4 className="text-[17px] font-medium text-gray-900 mb-1 transition-colors duration-300">
                   Found your stack?
                 </h4>
+
                 <p className="text-sm text-gray-500 leading-relaxed font-light max-w-lg">
                   Ready to turn your vision into reality? Contact us today and let our expert engineers start building your dream project.
                 </p>
+
               </div>
+
               <div className="relative z-10 hidden sm:flex shrink-0 ml-6 w-12 h-12 rounded-full border border-gray-200 bg-white items-center justify-center text-gray-900 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-300">
+
                 <svg
                   className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   viewBox="0 0 24 24"
@@ -325,25 +380,34 @@ export default function ProductStack() {
                     strokeLinejoin="round"
                   />
                 </svg>
+
               </div>
+
             </Link>
 
-            {/* Additional Static Card for Contact */}
+            {/* Contact */}
+
             <Link
               href="/contact"
               className="mt-4 w-full flex items-center justify-between p-6 lg:p-8 bg-gray-900 custom-notch-tl-br hover:bg-black transition-all duration-300 shadow-[0_4px_20px_rgba(0,0,0,0.08)] group"
             >
+
               <div className="flex flex-col">
+
                 <h4 className="text-[17px] font-medium text-white mb-1 transition-colors duration-300">
                   Looking for other technologies?
                 </h4>
+
                 <p className="text-sm text-gray-400 leading-relaxed font-light max-w-lg">
                   Our engineering teams master a diverse and continuously
                   evolving stack. Tell us about your specific technical
                   requirements.
                 </p>
+
               </div>
+
               <div className="hidden sm:flex shrink-0 ml-6 w-12 h-12 rounded-full border border-gray-700 bg-white/5 items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-all duration-300">
+
                 <svg
                   className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   viewBox="0 0 24 24"
@@ -357,8 +421,11 @@ export default function ProductStack() {
                     strokeLinejoin="round"
                   />
                 </svg>
+
               </div>
+
             </Link>
+
           </div>
         </div>
       </div>

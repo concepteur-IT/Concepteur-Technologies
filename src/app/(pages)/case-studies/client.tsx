@@ -305,9 +305,10 @@ export default function CaseStudiesClient() {
 
                 // Alternate placeholder images for structural variety
                 const placeholderImages = [
-                  "/home/cap-web.png",
-                  "/home/cap-mobile.png",
-                  "/home/cap-backend.png",
+                  "/home/ShuprokashImg.png",
+                  "/home/Thinkerslane.png",
+                  "/home/Gemini_Generated_Image_x3lfpex3lfpex3lf.png",
+                  "/home/Spandan-Project.png",
                 ];
                 const imgPlaceholder =
                   placeholderImages[index % placeholderImages.length];
@@ -366,8 +367,10 @@ export default function CaseStudiesClient() {
                   >
                     <div className="flex flex-col h-full cursor-pointer">
                       {/* Image Block */}
-                      <div
-                        className={`relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden ${style.imageOrder}`}
+                      <Link
+                        href={`/case-studies/${item.slug}`}
+                        className={`relative w-full aspect-[4/3] md:aspect-[5/4] overflow-hidden ${style.imageOrder} block`}
+                        aria-label={`Open ${item.title} case study`}
                       >
                         <Image
                           src={imgPlaceholder}
@@ -375,7 +378,7 @@ export default function CaseStudiesClient() {
                           alt={item.title}
                           className="object-cover transition-transform duration-[1200ms] group-hover:scale-105"
                         />
-                      </div>
+                      </Link>
 
                       {/* Content Block */}
                       <div
@@ -404,9 +407,10 @@ export default function CaseStudiesClient() {
                         <div className="mt-auto pt-4 flex justify-end">
                           <Link
                             href={`/case-studies/${item.slug}`}
-                            className={`inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest hover:opacity-70 transition-opacity ${style.linkClass}`}
+                            className="group inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-xs font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br tracking-widest"
                           >
-                            READ MORE &gt;&gt;
+                            READ MORE
+                            <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                           </Link>
                         </div>
                       </div>
