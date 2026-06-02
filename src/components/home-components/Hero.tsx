@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import ProcessFlow from "./ProcessFlow";
 export default function Hero() {
   return (
     <section className="w-full bg-white">
@@ -78,38 +78,16 @@ export default function Hero() {
 
       {/* Full-width image */}
       <motion.div
-        className="w-full px-5 md:px-[15%] pb-16 sm:pb-20 md:pb-24 group cursor-pointer"
+        className="w-full px-5 md:px-[15%] pb-16 sm:pb-20 md:pb-24 group "
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="relative w-full overflow-hidden rounded-sm">
-          <Image
-            src="/hero/lower.png"
-            alt="Concepteur Technologies — engineering-led AI solutions"
-            width={1400}
-            height={700}
-            className="w-full h-[320px] sm:h-[440px] md:h-[560px] object-cover object-[center_25%] transition-transform duration-700 ease-[0.22,1,0.36,1] group-hover:scale-105"
-            priority
-          />
-
-          {/* Top-Left Notch Overlay */}
-          <svg
-            className="absolute top-0 left-0 w-[50px] h-[50px] pointer-events-none text-white fill-current"
-            viewBox="0 0 50 50"
-          >
-            <path d="M 0 0 L 38.73 0 A 10 10 0 0 0 29.05 7.5 A 30 30 0 0 1 7.5 29.05 A 10 10 0 0 0 0 38.73 Z" />
-          </svg>
-
-          {/* Bottom-Right Notch Overlay */}
-          <svg
-            className="absolute bottom-0 right-0 w-[50px] h-[50px] pointer-events-none text-white fill-current"
-            viewBox="0 0 50 50"
-          >
-            <path d="M 50 50 L 11.27 50 A 10 10 0 0 0 20.95 42.5 A 30 30 0 0 1 42.5 20.95 A 10 10 0 0 0 50 11.27 Z" />
-          </svg>
-        </div>
+        
       </motion.div>
+
+      {/* Process Flow Section */}
+      <ProcessFlow />
     </section>
   );
 }
