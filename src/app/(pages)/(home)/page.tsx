@@ -27,7 +27,7 @@ const page = () => {
       <AIAdoption />
       <ProductStack />
       <TestimonialSection />
-      <VideoCollage />
+     
       <FAQAccordion />
       <ContactSection />
     </div>

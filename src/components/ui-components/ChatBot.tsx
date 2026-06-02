@@ -16,6 +16,10 @@ type HistoryItem = {
 
 const STAR_PATH =
   "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z";
+const MAX_MESSAGES = 10;
+const MESSAGE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
+const MESSAGE_COUNT_KEY = "chat_message_count";
+const MESSAGE_RESET_KEY = "chat_message_reset_at";
 
 // --- Bot Icon: crossfades between small star and large star on hover ---
 const BotIcon = () => (
@@ -80,7 +84,6 @@ export default function ChatBot() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [messageCount, setMessageCount] = useState(0);
-  const MAX_MESSAGES = 10;
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -100,18 +103,18 @@ export default function ChatBot() {
     if (isOpen) {
       const storedName = localStorage.getItem("chat_user_name");
       const storedEmail = localStorage.getItem("chat_user_email");
+      const storedCount = localStorage.getItem(MESSAGE_COUNT_KEY);
+      const storedResetAt = localStorage.getItem(MESSAGE_RESET_KEY);
+      const now = Date.now();
 
-      // Handle Rate Limit state
-      const storedDate = localStorage.getItem("chat_last_date");
-      const storedCount = localStorage.getItem("chat_message_count");
-      const today = new Date().toDateString();
-
-      if (storedDate === today && storedCount) {
-        setMessageCount(parseInt(storedCount, 10));
+      if (storedResetAt && Number(storedResetAt) > now) {
+        setMessageCount(Number(storedCount || "0"));
       } else {
-        // Reset if it's a new day
-        localStorage.setItem("chat_last_date", today);
-        localStorage.setItem("chat_message_count", "0");
+        localStorage.setItem(MESSAGE_COUNT_KEY, "0");
+        localStorage.setItem(
+          MESSAGE_RESET_KEY,
+          String(now + MESSAGE_LIMIT_WINDOW_MS),
+        );
         setMessageCount(0);
       }
 
@@ -201,11 +204,15 @@ export default function ChatBot() {
     const userMsg = input.trim();
     setInput("");
 
-    // Update Rate Limit
-    const newCount = messageCount + 1;
+    const storedResetAt = Number(localStorage.getItem(MESSAGE_RESET_KEY) || "0");
+    const now = Date.now();
+    const currentCount =
+      storedResetAt > now ? messageCount : 0;
+    const newCount = currentCount + 1;
+    const resetAt = storedResetAt > now ? storedResetAt : now + MESSAGE_LIMIT_WINDOW_MS;
     setMessageCount(newCount);
-    localStorage.setItem("chat_message_count", newCount.toString());
-    localStorage.setItem("chat_last_date", new Date().toDateString());
+    localStorage.setItem(MESSAGE_COUNT_KEY, String(newCount));
+    localStorage.setItem(MESSAGE_RESET_KEY, String(resetAt));
 
     // Add user message to UI
     const newMessages: Message[] = [
@@ -474,7 +481,7 @@ export default function ChatBot() {
                       onChange={(e) => setInput(e.target.value)}
                       placeholder={
                         messageCount >= MAX_MESSAGES
-                          ? "Daily message limit reached. Try tomorrow."
+                          ? "Daily message limit reached. Try again after 24 hours."
                           : "Ask about our services..."
                       }
                       className="w-full bg-gray-50 border border-gray-200 rounded-full pl-5 pr-12 py-3 text-sm text-black placeholder:text-gray-400 focus:outline-none focus:border-gray-300 focus:ring-1 focus:ring-gray-300 transition-all disabled:opacity-70 disabled:cursor-not-allowed"

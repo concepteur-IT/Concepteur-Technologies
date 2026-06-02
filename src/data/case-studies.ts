@@ -38,6 +38,25 @@ export const caseStudies = [
     stack: "React Native, CodeIgniter 4, MySQL",
   },
   {
+  slug: "video-upload-optimization",
+  title: "Fast Video Upload System",
+  template: "template1",
+  tag: "Social Media Infrastructure",
+  shortDesc:
+    "Engineered a high-performance video processing pipeline to handle large-scale media uploads. By transitioning from server-side processing to AWS Presigned URLs and asynchronous FFmpeg compression, we eliminated backend bottlenecks, reduced server load, and achieved superior upload stability for 2GB+ files.",
+  gradient: "from-blue-900 to-black",
+  results: {
+    speed: "Direct",
+    errors: "Minimal",
+    load: "-90%",
+  },
+  heroImage: "/case-studies/video-upload.png",
+  client: "Social Media Platform",
+  platform: "Web Application",
+  role: "Full-Stack Development & Architecture",
+  stack: "React, CodeIgniter, AWS S3, FFmpeg",
+},
+  {
     slug: "nomadquest-mcp-travel-architecture",
     title: "NomadQuest AI – Redefining Travel Infrastructure with MCP",
     template: "template1",
