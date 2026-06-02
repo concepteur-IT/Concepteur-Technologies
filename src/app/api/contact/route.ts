@@ -16,7 +16,17 @@ type ContactPayload = {
 export async function POST(req: Request) {
   try {
     const body = (await req.json()) as ContactPayload;
-    const { name, email, phone, location, company, project, services, source, captchaToken } = body;
+    const {
+      name,
+      email,
+      phone,
+      location,
+      company,
+      project,
+      services,
+      source,
+      captchaToken,
+    } = body;
 
     if (!name || !email || !project || !source) {
       return NextResponse.json(
@@ -37,9 +47,9 @@ export async function POST(req: Request) {
     if (recaptchaSecretKey) {
       const verifyRes = await fetch(
         `https://www.google.com/recaptcha/api/siteverify?secret=${recaptchaSecretKey}&response=${captchaToken}`,
-        { method: "POST" }
+        { method: "POST" },
       );
-      
+
       const verifyData = await verifyRes.json();
       if (!verifyData.success) {
         return NextResponse.json(
@@ -50,7 +60,9 @@ export async function POST(req: Request) {
     }
 
     const smtpHost = process.env.SMTP_HOST || process.env.MAIL_HOST;
-    const smtpPort = Number(process.env.SMTP_PORT || process.env.MAIL_PORT || 587);
+    const smtpPort = Number(
+      process.env.SMTP_PORT || process.env.MAIL_PORT || 587,
+    );
     const smtpUser =
       process.env.SMTP_USER ||
       process.env.SMTP_USERNAME ||

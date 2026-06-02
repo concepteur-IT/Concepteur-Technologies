@@ -47,7 +47,10 @@ export default function CookieConsent() {
                   </h3>
                 </div>
                 <p className="text-sm md:text-[15px] text-gray-600 font-light leading-relaxed max-w-4xl">
-                  We use cookies to improve your experience, analyze site traffic, and support our marketing efforts. By clicking &ldquo;Accept Cookies&rdquo;, you consent to our use of cookies. Read our{" "}
+                  We use cookies to improve your experience, analyze site
+                  traffic, and support our marketing efforts. By clicking
+                  &ldquo;Accept Cookies&rdquo;, you consent to our use of
+                  cookies. Read our{" "}
                   <a
                     href="/privacy-policy"
                     className="text-gray-900 font-medium underline underline-offset-2 hover:opacity-70 transition-opacity"

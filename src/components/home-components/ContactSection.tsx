@@ -22,21 +22,17 @@ export default function ContactSection() {
   let parsedTech: TechItem[] = [];
 
   try {
-    parsedTech = tech
-      ? JSON.parse(decodeURIComponent(tech))
-      : [];
+    parsedTech = tech ? JSON.parse(decodeURIComponent(tech)) : [];
   } catch {
     parsedTech = [];
   }
 
-  const mapsUrl =
-    "https://maps.app.goo.gl/KnKUJXcJ6CHmmFHn7";
+  const mapsUrl = "https://maps.app.goo.gl/KnKUJXcJ6CHmmFHn7";
 
   const [loading, setLoading] = useState(false);
 
   const [typedText, setTypedText] = useState("");
 
-  
   const [fullText, setFullText] = useState("");
 
   /*
@@ -61,7 +57,6 @@ export default function ContactSection() {
     }, 12);
 
     return () => clearInterval(interval);
-
   }, [fullText]);
 
   /*
@@ -71,13 +66,11 @@ export default function ContactSection() {
   useEffect(() => {
     if (!topic) return;
 
-    const currentCount = Number(
-      sessionStorage.getItem("ai-chat-count") || "0"
-    );
+    const currentCount = Number(sessionStorage.getItem("ai-chat-count") || "0");
 
     if (currentCount >= 5) {
       setFullText(
-        "Session limit reached. Please refresh the page to continue."
+        "Session limit reached. Please refresh the page to continue.",
       );
       return;
     }
@@ -86,10 +79,7 @@ export default function ContactSection() {
       setLoading(true);
 
       try {
-        sessionStorage.setItem(
-          "ai-chat-count",
-          String(currentCount + 1)
-        );
+        sessionStorage.setItem("ai-chat-count", String(currentCount + 1));
 
         const res = await fetch("/api/chat", {
           method: "POST",
@@ -108,12 +98,7 @@ Include:
 - real business value
 
 Technology:
-${parsedTech
-  .map(
-    (techItem) =>
-      `${techItem.name}: ${techItem.desc}`
-  )
-  .join("\n")}
+${parsedTech.map((techItem) => `${techItem.name}: ${techItem.desc}`).join("\n")}
 `,
 
             history: [],
@@ -132,35 +117,23 @@ ${parsedTech
 
         const data = await res.json();
 
-        setFullText(
-          data.text ||
-            "Failed to generate AI response."
-        );
-
+        setFullText(data.text || "Failed to generate AI response.");
       } catch (error) {
-
-        setFullText(
-          "Failed to generate AI response."
-        );
-
+        setFullText("Failed to generate AI response.");
       } finally {
-
         setLoading(false);
       }
     }
 
     generateReply();
-
   }, [topic, desc, tech]);
 
   return (
     <section className="w-full bg-white py-24 md:py-32">
       <div className="w-full px-5 md:px-[15%]">
-
         {/* HEADER */}
 
         <div className="max-w-4xl mb-16 md:mb-20">
-
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +163,6 @@ ${parsedTech
           >
             Share your idea, goals, or technical scope.
           </motion.p>
-
         </div>
 
         {/* AI RESPONSE */}
@@ -201,48 +173,32 @@ ${parsedTech
             animate={{ opacity: 1, y: 0 }}
             className="mb-20"
           >
-
             <div className="mb-6 flex flex-wrap gap-2">
-
               {parsedTech.map((techItem, idx) => (
-                <div
-                  key={idx}
-                  className="text-sm text-gray-400"
-                >
+                <div key={idx} className="text-sm text-gray-400">
                   #{techItem.name}
                 </div>
               ))}
-
             </div>
 
             <div className="w-full max-w-none">
-
               {loading ? (
-
                 <p className="w-full text-gray-400 text-lg leading-relaxed">
                   Thinking...
                 </p>
-
               ) : (
-
                 <p className="w-full text-[17px] md:text-[18px] text-gray-700 font-light leading-[2] whitespace-pre-line">
                   {typedText}
-                  <span className="animate-pulse">
-                    |
-                  </span>
+                  <span className="animate-pulse">|</span>
                 </p>
-
               )}
-
             </div>
-
           </motion.div>
         )}
 
         {/* CONTENT */}
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 border-t border-gray-200 pt-16 md:pt-20">
-
           {/* LEFT */}
 
           <motion.div
@@ -252,9 +208,7 @@ ${parsedTech
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 flex flex-col gap-12"
           >
-
             <div className="flex flex-col gap-5">
-
               <h3 className="text-xl md:text-2xl font-light text-black tracking-tight flex items-center gap-3">
                 <MapPin className="w-5 h-5 md:w-6 md:h-6" />
                 Office
@@ -272,20 +226,17 @@ ${parsedTech
                 <br />
                 Chakdaha, Nadia.
               </a>
-
             </div>
 
             <hr className="border-gray-200 w-full max-w-xs" />
 
             <div className="flex flex-col gap-5">
-
               <h3 className="text-xl md:text-2xl font-light text-black tracking-tight flex items-center gap-3">
                 <Mail className="w-5 h-5 md:w-6 md:h-6" />
                 Direct Communication
               </h3>
 
               <div className="flex flex-col gap-4">
-
                 <a
                   href="mailto:info@concepteurit.com"
                   className="text-gray-500 font-light text-lg hover:text-black transition-colors"
@@ -302,11 +253,8 @@ ${parsedTech
                   <WhatsAppIcon className="w-5 h-5" />
                   +91 9832996894
                 </a>
-
               </div>
-
             </div>
-
           </motion.div>
 
           {/* RIGHT */}
@@ -320,9 +268,7 @@ ${parsedTech
           >
             <ContactForm />
           </motion.div>
-
         </div>
-
       </div>
     </section>
   );

@@ -27,19 +27,19 @@ const galleryConfigList = [
     ],
   },
   {
-    id: "T2",
-    src: "/team/T2.PNG",
-    tooltips: [
-      { x: 30, y: 65, name: "Sandip Basu", slug: "sandip-basu" },
-      { x: 70, y: 65, name: "Antar Roy", slug: "antar-roy" },
-    ],
-  },
-  {
     id: "T3",
     src: "/team/T3.PNG",
     tooltips: [
       { x: 30, y: 65, name: "Spandan Saha", slug: "spandan-saha" },
       { x: 70, y: 65, name: "Rick Goswami", slug: "rick-goswami" },
+    ],
+  },
+  {
+    id: "T2",
+    src: "/team/T2.PNG",
+    tooltips: [
+      { x: 30, y: 65, name: "Sandip Basu", slug: "sandip-basu" },
+      { x: 70, y: 65, name: "Antar Roy", slug: "antar-roy" },
     ],
   },
 ];

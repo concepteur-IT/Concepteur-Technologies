@@ -21,7 +21,9 @@ export default function ContactForm() {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -41,7 +43,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!captchaToken) {
       alert("Please verify that you are not a robot.");
       return;
@@ -58,9 +60,10 @@ export default function ContactForm() {
         ]
       : formData.services;
 
-    const finalSource = formData.source === "Other" && formData.otherSourceDetail
-      ? `Other: ${formData.otherSourceDetail}`
-      : formData.source;
+    const finalSource =
+      formData.source === "Other" && formData.otherSourceDetail
+        ? `Other: ${formData.otherSourceDetail}`
+        : formData.source;
 
     try {
       const response = await fetch("/api/contact", {
@@ -136,12 +139,24 @@ export default function ContactForm() {
           onChange={handleChange}
           className={`w-full bg-transparent border-b border-gray-300 py-3 text-base focus:outline-none focus:border-black transition-colors ${formData.source ? "text-black" : "text-gray-400"}`}
         >
-          <option value="" disabled>How did you hear about us? *</option>
-          <option value="Google / Search Engine" className="text-black">Google / Search Engine</option>
-          <option value="Social Media" className="text-black">Social Media</option>
-          <option value="Friend or Colleague" className="text-black">Friend or Colleague</option>
-          <option value="Advertisement" className="text-black">Advertisement</option>
-          <option value="Other" className="text-black">Other</option>
+          <option value="" disabled>
+            How did you hear about us? *
+          </option>
+          <option value="Google / Search Engine" className="text-black">
+            Google / Search Engine
+          </option>
+          <option value="Social Media" className="text-black">
+            Social Media
+          </option>
+          <option value="Friend or Colleague" className="text-black">
+            Friend or Colleague
+          </option>
+          <option value="Advertisement" className="text-black">
+            Advertisement
+          </option>
+          <option value="Other" className="text-black">
+            Other
+          </option>
         </select>
         {formData.source === "Other" && (
           <div className="md:col-span-2 animate-in fade-in slide-in-from-top-1 duration-300">
@@ -230,7 +245,11 @@ export default function ContactForm() {
               strokeWidth="1.5"
             >
               <path d="M5 12h14" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M13 5l7 7-7 7" strokeLinecap="round" strokeLinejoin="round" />
+              <path
+                d="M13 5l7 7-7 7"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
             </svg>
           </button>
           {status === "success" && (
@@ -250,12 +269,16 @@ export default function ContactForm() {
         {/* Permanent disclaimer shown before success */}
         {status !== "success" ? (
           <p className="text-xs sm:text-sm text-gray-500 font-light leading-relaxed max-w-2xl">
-            * Once you send your inquiry, one of our senior team members or our CTO will personally review your details and reach out to you promptly to discuss your project.
+            * Once you send your inquiry, one of our senior team members or our
+            CTO will personally review your details and reach out to you
+            promptly to discuss your project.
           </p>
         ) : (
           <div className="animate-in fade-in slide-in-from-bottom-2 duration-500 p-4 bg-gray-50 rounded-xl border border-gray-100">
             <p className="text-sm text-gray-600 leading-relaxed">
-              Thank you for reaching out! One of our senior team members or our CTO is already reviewing your details and will reach out to you very soon.
+              Thank you for reaching out! One of our senior team members or our
+              CTO is already reviewing your details and will reach out to you
+              very soon.
             </p>
           </div>
         )}
@@ -264,7 +287,10 @@ export default function ContactForm() {
       {/* Invisible Recaptcha or Standard View */}
       <div className="pt-2">
         <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "dummy_key_to_satisfy_build"}
+          sitekey={
+            process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ||
+            "dummy_key_to_satisfy_build"
+          }
           onChange={handleCaptchaChange}
           theme="light"
         />

@@ -81,7 +81,9 @@ export default function PrivacyPolicyPage() {
           {/* 1. Introduction */}
           <section id="introduction" className="scroll-mt-24">
             <SectionLabel index="01" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Introduction</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Introduction
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 Concepteur Technologies (formerly Ampit) is a software
@@ -112,7 +114,9 @@ export default function PrivacyPolicyPage() {
           {/* 2. Information We Collect */}
           <section id="information" className="scroll-mt-24">
             <SectionLabel index="02" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Information We Collect</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Information We Collect
+            </h2>
             <div className="prose-block space-y-6">
               <InfoBlock title="Information You Provide Directly">
                 When you contact us, request a consultation, or enter a service
@@ -141,7 +145,9 @@ export default function PrivacyPolicyPage() {
           {/* 3. How We Use Your Information */}
           <section id="usage" className="scroll-mt-24">
             <SectionLabel index="03" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">How We Use Your Information</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              How We Use Your Information
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 Collected information is used strictly for the following
@@ -177,7 +183,9 @@ export default function PrivacyPolicyPage() {
           {/* 4. Data Sharing */}
           <section id="sharing" className="scroll-mt-24">
             <SectionLabel index="04" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Data Sharing &amp; Disclosure</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Data Sharing &amp; Disclosure
+            </h2>
             <div className="prose-block space-y-4">
               <p>
                 We share personal information only in the following limited
@@ -221,7 +229,9 @@ export default function PrivacyPolicyPage() {
           {/* 5. Data Retention */}
           <section id="retention" className="scroll-mt-24">
             <SectionLabel index="05" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Data Retention</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Data Retention
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>We retain personal data only as long as necessary:</p>
               <div className="mt-4 overflow-hidden rounded-xl border border-gray-200 bg-white">
@@ -265,7 +275,9 @@ export default function PrivacyPolicyPage() {
           {/* 6. Security */}
           <section id="security" className="scroll-mt-24">
             <SectionLabel index="06" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Security</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Security
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 We implement industry-standard technical and organizational
@@ -296,7 +308,9 @@ export default function PrivacyPolicyPage() {
           {/* 7. Cookies */}
           <section id="cookies" className="scroll-mt-24">
             <SectionLabel index="07" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Cookies &amp; Tracking</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Cookies &amp; Tracking
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 Our website uses cookies and similar technologies to enhance
@@ -379,7 +393,9 @@ export default function PrivacyPolicyPage() {
           {/* 9. Your Rights */}
           <section id="rights" className="scroll-mt-24">
             <SectionLabel index="09" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Your Rights</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Your Rights
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 Depending on your location and applicable law, you may have the
@@ -442,7 +458,9 @@ export default function PrivacyPolicyPage() {
           {/* 10. Grievance Officer */}
           <section id="grievance" className="scroll-mt-24">
             <SectionLabel index="10" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Grievance Officer</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Grievance Officer
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 In accordance with the{" "}
@@ -494,7 +512,9 @@ export default function PrivacyPolicyPage() {
           {/* 11. Applicable Law */}
           <section id="law" className="scroll-mt-24">
             <SectionLabel index="11" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Applicable Law</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Applicable Law
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 Concepteur Technologies operates in compliance with the{" "}
@@ -518,7 +538,9 @@ export default function PrivacyPolicyPage() {
           {/* 12. Policy Changes */}
           <section id="changes" className="scroll-mt-24">
             <SectionLabel index="12" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Policy Changes</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Policy Changes
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 We may update this Privacy Policy periodically to reflect
@@ -535,7 +557,9 @@ export default function PrivacyPolicyPage() {
           {/* 13. Contact */}
           <section id="contact" className="scroll-mt-24">
             <SectionLabel index="13" />
-            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">Contact Us</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 tracking-tight mb-5">
+              Contact Us
+            </h2>
             <div className="text-base md:text-[17px] text-gray-600 font-light leading-relaxed">
               <p>
                 For any questions, concerns, or data-related requests regarding

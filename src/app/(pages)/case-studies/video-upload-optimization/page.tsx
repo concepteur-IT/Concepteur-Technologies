@@ -55,8 +55,8 @@ export default function SocialMediaInfrastructureCaseStudy() {
                 Social Media Infrastructure.
               </h1>
               <p className="text-xl md:text-3xl text-gray-500 font-light tracking-tight max-w-xl leading-relaxed">
-                Building a fast video upload system for large media files with AWS
-                presigned URLs and FFmpeg compression.
+                Building a fast video upload system for large media files with
+                AWS presigned URLs and FFmpeg compression.
               </p>
             </div>
 
@@ -119,7 +119,11 @@ export default function SocialMediaInfrastructureCaseStudy() {
 
       <main className="w-full px-5 md:px-[15%] mb-40">
         <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 pt-12 border-t border-gray-100 mt-12">
-          <SectionHeader number="01" title="Overview" subtitle="Project Context" />
+          <SectionHeader
+            number="01"
+            title="Overview"
+            subtitle="Project Context"
+          />
           <div className="md:col-span-8 lg:col-span-9">
             <div className="prose prose-lg max-w-none text-gray-600 font-light leading-relaxed space-y-8">
               <p className="text-2xl md:text-3xl font-light text-black border-l-2 border-[#0b2f33] pl-6 mb-12 leading-snug">
@@ -130,15 +134,15 @@ export default function SocialMediaInfrastructureCaseStudy() {
               </p>
               <p>
                 The frontend was developed in React, while the backend used
-                CodeIgniter. The initial goal was to support upload, compression,
-                and storage in a way that would not overload the backend server or
-                interrupt the user experience.
+                CodeIgniter. The initial goal was to support upload,
+                compression, and storage in a way that would not overload the
+                backend server or interrupt the user experience.
               </p>
               <p>
-                After testing multiple approaches, the final architecture shifted
-                heavy upload work away from the backend by using AWS Presigned
-                URLs for direct upload, with FFmpeg compression handled
-                asynchronously through a separate cron process.
+                After testing multiple approaches, the final architecture
+                shifted heavy upload work away from the backend by using AWS
+                Presigned URLs for direct upload, with FFmpeg compression
+                handled asynchronously through a separate cron process.
               </p>
 
               <div className="mt-16 bg-[#FAFAF9] border border-gray-100 p-8 md:p-12 custom-notch-tl-br shadow-sm">
@@ -178,7 +182,11 @@ export default function SocialMediaInfrastructureCaseStudy() {
         </div>
 
         <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-gray-100 pt-12">
-          <SectionHeader number="02" title="Features" subtitle="System Focus Areas" />
+          <SectionHeader
+            number="02"
+            title="Features"
+            subtitle="System Focus Areas"
+          />
           <div className="md:col-span-8 lg:col-span-9">
             <h3 className="text-4xl md:text-5xl font-light tracking-tight mb-16 text-black">
               A resilient media pipeline.
@@ -231,7 +239,11 @@ export default function SocialMediaInfrastructureCaseStudy() {
         </div>
 
         <div className="grid md:grid-cols-12 gap-8 lg:gap-16 mb-24 md:mb-32 border-t border-gray-100 pt-12">
-          <SectionHeader number="03" title="Challenges" subtitle="Implementation Hurdles" />
+          <SectionHeader
+            number="03"
+            title="Challenges"
+            subtitle="Implementation Hurdles"
+          />
           <div className="md:col-span-8 lg:col-span-9">
             <div className="grid sm:grid-cols-2 gap-6">
               {[
@@ -297,16 +309,20 @@ export default function SocialMediaInfrastructureCaseStudy() {
         </div>
 
         <div className="grid md:grid-cols-12 gap-8 lg:gap-16 border-t border-gray-100 pt-12">
-          <SectionHeader number="04" title="Strategy" subtitle="Analysis & Outcome" />
+          <SectionHeader
+            number="04"
+            title="Strategy"
+            subtitle="Analysis & Outcome"
+          />
           <div className="md:col-span-8 lg:col-span-9">
             <h3 className="text-3xl md:text-5xl font-light tracking-tight mb-8 text-black">
               Presigned URLs, async compression, and cleaner scaling
             </h3>
             <p className="text-xl text-gray-600 font-light mb-16 leading-relaxed">
               The final architecture prioritized direct file delivery to AWS,
-              deferred video optimization, and a lighter backend footprint.
-              That balance made the upload flow faster for users and easier to
-              scale for the platform.
+              deferred video optimization, and a lighter backend footprint. That
+              balance made the upload flow faster for users and easier to scale
+              for the platform.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8 mb-24">
@@ -349,8 +365,8 @@ export default function SocialMediaInfrastructureCaseStudy() {
               </h3>
               <ul className="space-y-6 text-lg md:text-xl font-light leading-relaxed text-black">
                 <li className="flex gap-4 items-start">
-                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />
-                  A solution that works is not always the most efficient one.
+                  <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />A
+                  solution that works is not always the most efficient one.
                 </li>
                 <li className="flex gap-4 items-start">
                   <span className="w-1.5 h-1.5 bg-[#f5ad76] shrink-0 mt-3" />

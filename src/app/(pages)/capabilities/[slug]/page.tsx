@@ -92,7 +92,6 @@ export default async function ServiceDetail({
       {/* Sticky Editorial Split Section */}
       {/* "items-start" is crucial here to prevent the left column from stretching */}
       <div className="w-full px-5 md:px-[10%] lg:px-[15%] grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 relative items-start">
-        
         {/* Left Col: Sticky Sidebar */}
         <div className="lg:col-span-5 flex flex-col gap-12 lg:sticky lg:top-32 lg:self-start">
           <div>
@@ -203,7 +202,8 @@ export default async function ServiceDetail({
 
               <div className="flex flex-col gap-0 border border-gray-200 rounded-xl overflow-hidden bg-white">
                 {service.projects.map((project, idx) => {
-                  const projectImage = homeImages[(idx + 2) % homeImages.length];
+                  const projectImage =
+                    homeImages[(idx + 2) % homeImages.length];
                   return (
                     <div
                       key={idx}

@@ -421,100 +421,94 @@ export default function SolutionsPage() {
       </section>
 
       {/* DISCIPLINED EXECUTION LOGIC - Image Cards with Pop-up Shadow */}
-<section className="py-16 md:py-20 px-5 md:px-8 lg:px-10 border-b border-gray-300 bg-white">
-  <div className="max-w-[1350px] mx-auto w-full">
+      <section className="py-16 md:py-20 px-5 md:px-8 lg:px-10 border-b border-gray-300 bg-white">
+        <div className="max-w-[1350px] mx-auto w-full">
+          {/* Top */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight leading-tight max-w-3xl">
+              Built for Long-Term Performance
+            </h2>
 
-    {/* Top */}
-    <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+            <p className="text-sm md:text-base text-gray-700 max-w-lg">
+              Technology decisions should serve long-term strategy.
+            </p>
+          </div>
 
-      <h2 className="text-2xl md:text-4xl font-semibold tracking-tight leading-tight max-w-3xl">
-        Built for Long-Term Performance
-      </h2>
+          {/* Middle Statement Strip */}
+          <div className="border-y border-gray-300 py-5 mb-14">
+            <div className="flex items-center gap-8 bg-black text-white px-10 py-6">
+              <span className="w-12 h-[1px] bg-white" />
 
-      <p className="text-sm md:text-base text-gray-700 max-w-lg">
-        Technology decisions should serve long-term strategy.
-      </p>
-
-    </div>
-
-    {/* Middle Statement Strip */}
-    <div className="border-y border-gray-300 py-5 mb-14">
-      <div className="flex items-center gap-8 bg-black text-white px-10 py-6">
-        
-        <span className="w-12 h-[1px] bg-white" />
-
-        <div>
-          <p className="text-[10px] uppercase tracking-widest text-white/70 mb-1">
-            We do not deliver isolated features.
-          </p>
-          <p className="text-base md:text-lg font-semibold">
-            We engineer operational advantage.
-          </p>
-        </div>
-
-      </div>
-    </div>
-
-    {/* List */}
-    <div>
-      <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-500 mb-8">
-        Our solutions are designed to:
-      </p>
-
-      <div className="flex flex-col divide-y divide-gray-300">
-        {[
-          {
-            title: "Scale with growth",
-            desc: "Infrastructure that adapts as demand increases",
-          },
-          {
-            title: "Minimize technical debt",
-            desc: "Clean architecture that reduces future rework",
-          },
-          {
-            title: "Strengthen security posture",
-            desc: "Built-in protection across systems and workflows",
-          },
-          {
-            title: "Reduce infrastructure cost",
-            desc: "Optimized usage without sacrificing performance",
-          },
-          {
-            title: "Enable continuous innovation",
-            desc: "Flexible systems that support rapid iteration",
-          },
-        ].map((item, i) => (
-          <div
-            key={i}
-            className="group flex items-center justify-between gap-14 py-6 transition-all duration-300 hover:pl-4"
-          >
-            {/* Left */}
-            <div className="flex items-center gap-6 min-w-[320px]">
-              <span className="text-sm font-mono text-gray-400 group-hover:text-black transition">
-                {(i + 1).toString().padStart(2, "0")}
-              </span>
-
-              <span className="text-base md:text-lg font-semibold text-gray-900">
-                {item.title}
-              </span>
-            </div>
-
-            {/* Right */}
-            <div className="flex-1 flex items-center justify-end gap-10">
-              <p className="text-sm md:text-base text-gray-600 text-right max-w-xl leading-relaxed">
-                {item.desc}
-              </p>
-
-              {/* hover line */}
-              <span className="w-12 h-[2px] bg-gray-400 group-hover:w-20 group-hover:bg-black transition-all duration-300" />
+              <div>
+                <p className="text-[10px] uppercase tracking-widest text-white/70 mb-1">
+                  We do not deliver isolated features.
+                </p>
+                <p className="text-base md:text-lg font-semibold">
+                  We engineer operational advantage.
+                </p>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
 
-  </div>
-</section>
+          {/* List */}
+          <div>
+            <p className="text-[10px] uppercase tracking-widest font-semibold text-gray-500 mb-8">
+              Our solutions are designed to:
+            </p>
+
+            <div className="flex flex-col divide-y divide-gray-300">
+              {[
+                {
+                  title: "Scale with growth",
+                  desc: "Infrastructure that adapts as demand increases",
+                },
+                {
+                  title: "Minimize technical debt",
+                  desc: "Clean architecture that reduces future rework",
+                },
+                {
+                  title: "Strengthen security posture",
+                  desc: "Built-in protection across systems and workflows",
+                },
+                {
+                  title: "Reduce infrastructure cost",
+                  desc: "Optimized usage without sacrificing performance",
+                },
+                {
+                  title: "Enable continuous innovation",
+                  desc: "Flexible systems that support rapid iteration",
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="group flex items-center justify-between gap-14 py-6 transition-all duration-300 hover:pl-4"
+                >
+                  {/* Left */}
+                  <div className="flex items-center gap-6 min-w-[320px]">
+                    <span className="text-sm font-mono text-gray-400 group-hover:text-black transition">
+                      {(i + 1).toString().padStart(2, "0")}
+                    </span>
+
+                    <span className="text-base md:text-lg font-semibold text-gray-900">
+                      {item.title}
+                    </span>
+                  </div>
+
+                  {/* Right */}
+                  <div className="flex-1 flex items-center justify-end gap-10">
+                    <p className="text-sm md:text-base text-gray-600 text-right max-w-xl leading-relaxed">
+                      {item.desc}
+                    </p>
+
+                    {/* hover line */}
+                    <span className="w-12 h-[2px] bg-gray-400 group-hover:w-20 group-hover:bg-black transition-all duration-300" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       {/* FINAL CTA */}
       <section className="w-full pt-32 pb-10 px-5 md:px-[10%] xl:px-[15%] flex flex-col items-center text-center">
         <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 mb-8">
@@ -524,15 +518,15 @@ export default function SolutionsPage() {
           Let’s build systems <br className="hidden md:block" />
           <span className="text-gray-400">that perform at scale.</span>
         </h2>
-          <div className="shrink-0 w-full md:w-auto">
-            <Link
-              href="/contact"
-              className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
-            >
-              Start Conversation
-              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-            </Link>
-          </div>
+        <div className="shrink-0 w-full md:w-auto">
+          <Link
+            href="/contact"
+            className="group w-full md:w-auto inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-5 md:px-10 md:py-6 text-base font-medium hover:bg-gray-800 transition-colors custom-notch-tl-br"
+          >
+            Start Conversation
+            <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </div>
       </section>
     </main>
   );

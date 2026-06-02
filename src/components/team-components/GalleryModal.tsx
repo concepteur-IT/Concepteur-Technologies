@@ -19,7 +19,12 @@ interface GalleryModalProps {
   tooltips: TooltipData[];
 }
 
-export default function GalleryModal({ isOpen, onClose, imageSrc, tooltips }: GalleryModalProps) {
+export default function GalleryModal({
+  isOpen,
+  onClose,
+  imageSrc,
+  tooltips,
+}: GalleryModalProps) {
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -36,7 +41,6 @@ export default function GalleryModal({ isOpen, onClose, imageSrc, tooltips }: Ga
     <AnimatePresence>
       {isOpen && imageSrc && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
-          
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -52,8 +56,18 @@ export default function GalleryModal({ isOpen, onClose, imageSrc, tooltips }: Ga
             onClick={onClose}
             className="absolute top-6 right-6 z-50 text-white/70 hover:text-white transition-colors p-2"
           >
-            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            <svg
+              className="w-8 h-8"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={1.5}
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
 
@@ -79,13 +93,17 @@ export default function GalleryModal({ isOpen, onClose, imageSrc, tooltips }: Ga
                 <div
                   key={idx}
                   className="absolute z-20 group"
-                  style={{ left: `${tooltip.x}%`, top: `${tooltip.y}%`, transform: "translate(-50%, -50%)" }}
+                  style={{
+                    left: `${tooltip.x}%`,
+                    top: `${tooltip.y}%`,
+                    transform: "translate(-50%, -50%)",
+                  }}
                 >
                   {/* Pulsing Dot */}
                   <div className="relative flex items-center justify-center">
                     <div className="absolute w-8 h-8 bg-white/30 rounded-full animate-ping" />
                     <div className="w-4 h-4 bg-white rounded-full shadow-[0_0_15px_rgba(255,255,255,0.5)] border border-gray-200" />
-                    
+
                     {/* Hover Card */}
                     <Link
                       href={`/who-we-are/${tooltip.slug}`}
@@ -96,8 +114,18 @@ export default function GalleryModal({ isOpen, onClose, imageSrc, tooltips }: Ga
                           {tooltip.name}
                         </span>
                         <div className="flex items-center justify-center w-6 h-6 rounded-full bg-black text-white">
-                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          <svg
+                            className="w-3 h-3"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
                           </svg>
                         </div>
                       </div>

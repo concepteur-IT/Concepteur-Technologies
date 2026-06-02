@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "compress-images": "node scripts/compress-images.js",
+    "compress-images": "node scripts/compress-images.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -36,6 +36,7 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "^16.2.4",
+    "prettier": "3.8.3",
     "tailwindcss": "^4",
     "three": "^0.184.0",
     "typescript": "^5"

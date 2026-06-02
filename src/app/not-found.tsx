@@ -18,7 +18,7 @@ export default function NotFound() {
         <h1 className="text-[120px] md:text-[200px] leading-none font-medium tracking-tighter text-gray-100 select-none">
           404
         </h1>
-        
+
         <div className="-mt-8 md:-mt-16 z-10 flex flex-col items-center">
           <p className="text-gray-500 text-sm tracking-[0.2em] uppercase font-medium mb-6">
             — PAGE NOT FOUND
@@ -27,9 +27,10 @@ export default function NotFound() {
             We couldn't find that page.
           </h2>
           <p className="text-lg text-gray-600 max-w-xl leading-relaxed mb-12 font-light">
-            The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let's get you back on track.
+            The page you are looking for might have been removed, had its name
+            changed, or is temporarily unavailable. Let's get you back on track.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
             <Link
               href="/"
@@ -38,7 +39,7 @@ export default function NotFound() {
               <ArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
               Back to Homepage
             </Link>
-            
+
             <Link
               href="/contact"
               className="group inline-flex items-center justify-center gap-3 bg-white text-black border border-gray-200 px-8 py-4 md:px-10 md:py-5 text-base font-medium hover:bg-gray-50 transition-colors custom-notch-tl-br"

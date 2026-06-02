@@ -40,8 +40,9 @@ const HeroAbout = () => {
           >
             <div className="h-full flex flex-col justify-end gap-6 text-gray-500 font-light leading-relaxed">
               <p className="text-lg">
-                We are a forward-thinking technology company dedicated to crafting
-                innovative solutions that empower businesses to thrive in the digital age.
+                We are a forward-thinking technology company dedicated to
+                crafting innovative solutions that empower businesses to thrive
+                in the digital age.
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <ExploreOurWorkBtn />
@@ -84,39 +85,43 @@ const HeroAbout = () => {
                 alt="AI Architecture"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/10 transition-opacity duration-500" />
-              
+
               <div className="relative z-10 flex justify-between items-start w-full">
-                <span className="text-[10px] uppercase font-bold tracking-widest text-white/80">Analysis</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-white/80">
+                  Analysis
+                </span>
               </div>
               <div className="relative z-10 w-full mt-auto">
-                 <h4 className="text-xl font-normal text-white mb-2 tracking-tight group-hover:translate-x-2 transition-transform duration-300">
-                    System Intelligence
-                 </h4>
-                 <p className="text-sm font-light text-white/80 leading-relaxed max-w-[90%]">
-                    Deep architectural planning before a single line of code is written.
-                 </p>
+                <h4 className="text-xl font-normal text-white mb-2 tracking-tight group-hover:translate-x-2 transition-transform duration-300">
+                  System Intelligence
+                </h4>
+                <p className="text-sm font-light text-white/80 leading-relaxed max-w-[90%]">
+                  Deep architectural planning before a single line of code is
+                  written.
+                </p>
               </div>
             </div>
-            
+
             <div className="w-full h-[240px] md:flex-1 relative custom-notch-tl-br overflow-hidden flex flex-col justify-end p-8 group">
-               <Image
-                 src="/home/cap-cloud.png"
-                 fill
-                 className="object-cover transition-all duration-[800ms] ease-out group-hover:scale-110 z-0"
-                 alt="Cloud Infrastructure"
-               />
-               <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500 z-0" />
-               
-               <div className="relative z-10 w-12 h-[1px] bg-white/60 mb-6 group-hover:w-full transition-all duration-700 ease-in-out" />
-               <p className="relative z-10 text-white text-lg font-light leading-relaxed">
-                 Precision.<br/>
-                 Performance.<br/>
-                 <span className="font-semibold tracking-wide">Scale.</span>
-               </p>
+              <Image
+                src="/home/cap-cloud.png"
+                fill
+                className="object-cover transition-all duration-[800ms] ease-out group-hover:scale-110 z-0"
+                alt="Cloud Infrastructure"
+              />
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500 z-0" />
+
+              <div className="relative z-10 w-12 h-[1px] bg-white/60 mb-6 group-hover:w-full transition-all duration-700 ease-in-out" />
+              <p className="relative z-10 text-white text-lg font-light leading-relaxed">
+                Precision.
+                <br />
+                Performance.
+                <br />
+                <span className="font-semibold tracking-wide">Scale.</span>
+              </p>
             </div>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

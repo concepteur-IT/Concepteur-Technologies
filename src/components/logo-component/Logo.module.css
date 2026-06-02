@@ -24,8 +24,12 @@
 }
 
 @keyframes spin-cw {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .logo:hover .circle:nth-child(2) {
@@ -53,8 +57,9 @@
   font-weight: 600;
   color: #0f1115;
   letter-spacing: calc(1px * var(--logo-scale));
-  transition: letter-spacing 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-              color 0.3s ease;
+  transition:
+    letter-spacing 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.3s ease;
 }
 
 .darkTheme .word {

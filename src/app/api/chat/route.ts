@@ -3,14 +3,9 @@ export const runtime = "edge";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { companyKnowledge } from "@/data/chatbotKnowledge";
 
-const genAI = new GoogleGenerativeAI(
-  process.env.GEMINI_API_KEY || "",
-);
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
-const rateLimitMap = new Map<
-  string,
-  { count: number; lastReset: number }
->();
+const rateLimitMap = new Map<string, { count: number; lastReset: number }>();
 
 const RATE_LIMIT_WINDOW_MS = 24 * 60 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 10;
@@ -90,19 +85,13 @@ ${s.title}: ${s.description}
   .join("\n")}
 
 Stats:
-${companyKnowledge.stats
-  .map((s) => `${s.label}: ${s.value}`)
-  .join(", ")}
+${companyKnowledge.stats.map((s) => `${s.label}: ${s.value}`).join(", ")}
 
 Team:
-${companyKnowledge.team
-  .map((t) => `${t.name} (${t.role})`)
-  .join(", ")}
+${companyKnowledge.team.map((t) => `${t.name} (${t.role})`).join(", ")}
 `;
 
-function buildSectionContextInstruction(
-  sectionContext?: SectionContext,
-) {
+function buildSectionContextInstruction(sectionContext?: SectionContext) {
   if (!sectionContext) return "";
 
   return `
@@ -140,47 +129,32 @@ AI Behavior Rules:
 
 export async function POST(req: Request) {
   try {
-
     /*
     RATE LIMITING
     */
 
-    const ip =
-      req.headers.get("x-forwarded-for") || "unknown";
+    const ip = req.headers.get("x-forwarded-for") || "unknown";
 
     const now = Date.now();
 
     const userLimit = rateLimitMap.get(ip);
 
     if (userLimit) {
-
-      if (
-        now - userLimit.lastReset >
-        RATE_LIMIT_WINDOW_MS
-      ) {
-
+      if (now - userLimit.lastReset > RATE_LIMIT_WINDOW_MS) {
         rateLimitMap.set(ip, {
           count: 1,
           lastReset: now,
         });
-
       } else {
-
-        if (
-          userLimit.count >=
-          MAX_REQUESTS_PER_WINDOW
-        ) {
-
+        if (userLimit.count >= MAX_REQUESTS_PER_WINDOW) {
           return new Response(
             JSON.stringify({
-              error:
-                "Too many requests. Please try again later.",
+              error: "Too many requests. Please try again later.",
             }),
             {
               status: 429,
               headers: {
-                "Content-Type":
-                  "application/json",
+                "Content-Type": "application/json",
               },
             },
           );
@@ -188,9 +162,7 @@ export async function POST(req: Request) {
 
         userLimit.count++;
       }
-
     } else {
-
       rateLimitMap.set(ip, {
         count: 1,
         lastReset: now,
@@ -202,17 +174,14 @@ export async function POST(req: Request) {
     */
 
     if (!process.env.GEMINI_API_KEY) {
-
       return new Response(
         JSON.stringify({
-          error:
-            "Missing Gemini API Key.",
+          error: "Missing Gemini API Key.",
         }),
         {
           status: 500,
           headers: {
-            "Content-Type":
-              "application/json",
+            "Content-Type": "application/json",
           },
         },
       );
@@ -226,17 +195,11 @@ export async function POST(req: Request) {
 
     const message = body?.message;
 
-    const history = Array.isArray(body?.history)
-      ? body.history
-      : [];
+    const history = Array.isArray(body?.history) ? body.history : [];
 
-    const sectionContext =
-      body?.sectionContext as
-        | SectionContext
-        | undefined;
+    const sectionContext = body?.sectionContext as SectionContext | undefined;
 
     if (!message) {
-
       return new Response(
         JSON.stringify({
           error: "Message is required.",
@@ -244,8 +207,7 @@ export async function POST(req: Request) {
         {
           status: 400,
           headers: {
-            "Content-Type":
-              "application/json",
+            "Content-Type": "application/json",
           },
         },
       );
@@ -259,34 +221,21 @@ export async function POST(req: Request) {
       model: "gemini-2.5-flash",
 
       systemInstruction:
-        systemInstruction +
-        buildSectionContextInstruction(
-          sectionContext,
-        ),
+        systemInstruction + buildSectionContextInstruction(sectionContext),
     });
 
     /*
     CHAT HISTORY
     */
 
-    const formattedHistory = (
-      history as ChatMessage[]
-    )
-      .filter(
-        (msg) =>
-          msg?.content || msg?.text,
-      )
+    const formattedHistory = (history as ChatMessage[])
+      .filter((msg) => msg?.content || msg?.text)
       .map((msg) => ({
-        role:
-          msg.role === "assistant"
-            ? "model"
-            : "user",
+        role: msg.role === "assistant" ? "model" : "user",
 
         parts: [
           {
-            text: String(
-              msg.content || msg.text,
-            ),
+            text: String(msg.content || msg.text),
           },
         ],
       }));
@@ -301,7 +250,7 @@ export async function POST(req: Request) {
       generationConfig: {
         maxOutputTokens: 600,
         temperature: 0.2,
-        topP: 0.2
+        topP: 0.2,
       },
     });
 
@@ -309,13 +258,9 @@ export async function POST(req: Request) {
     SEND MESSAGE
     */
 
-    const result =
-      await chat.sendMessage(
-        String(message),
-      );
+    const result = await chat.sendMessage(String(message));
 
-    const responseText =
-      result.response.text();
+    const responseText = result.response.text();
 
     /*
     RESPONSE
@@ -328,29 +273,21 @@ export async function POST(req: Request) {
       {
         status: 200,
         headers: {
-          "Content-Type":
-            "application/json",
+          "Content-Type": "application/json",
         },
       },
     );
-
   } catch (error) {
-
-    console.error(
-      "Chat API Error:",
-      error,
-    );
+    console.error("Chat API Error:", error);
 
     return new Response(
       JSON.stringify({
-        error:
-          "Failed to process request.",
+        error: "Failed to process request.",
       }),
       {
         status: 500,
         headers: {
-          "Content-Type":
-            "application/json",
+          "Content-Type": "application/json",
         },
       },
     );

@@ -204,12 +204,14 @@ export default function ChatBot() {
     const userMsg = input.trim();
     setInput("");
 
-    const storedResetAt = Number(localStorage.getItem(MESSAGE_RESET_KEY) || "0");
+    const storedResetAt = Number(
+      localStorage.getItem(MESSAGE_RESET_KEY) || "0",
+    );
     const now = Date.now();
-    const currentCount =
-      storedResetAt > now ? messageCount : 0;
+    const currentCount = storedResetAt > now ? messageCount : 0;
     const newCount = currentCount + 1;
-    const resetAt = storedResetAt > now ? storedResetAt : now + MESSAGE_LIMIT_WINDOW_MS;
+    const resetAt =
+      storedResetAt > now ? storedResetAt : now + MESSAGE_LIMIT_WINDOW_MS;
     setMessageCount(newCount);
     localStorage.setItem(MESSAGE_COUNT_KEY, String(newCount));
     localStorage.setItem(MESSAGE_RESET_KEY, String(resetAt));

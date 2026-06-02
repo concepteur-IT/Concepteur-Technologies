@@ -3,7 +3,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, ArrowUpRight, MoveUpRight, Square } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  MoveUpRight,
+  Square,
+} from "lucide-react";
 
 export function SectionHeader({
   number,
@@ -49,7 +55,6 @@ export default function SuprokashCaseStudy() {
       {/* Minimalist Architectural Hero (No Images) */}
       <header className="w-full pt-32 pb-12 px-5 md:px-[15%]">
         <div className="flex flex-col lg:flex-row border border-gray-200 custom-notch-tl-br overflow-hidden shadow-sm">
-          
           {/* Main Title Area */}
           <div className="flex-1 bg-white p-8 md:p-16 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-200">
             <div>
@@ -63,7 +68,8 @@ export default function SuprokashCaseStudy() {
                 Suprokash.
               </h1>
               <p className="text-xl md:text-3xl text-gray-500 font-light tracking-tight max-w-xl leading-relaxed">
-                Modernizing retail bookstore operations through a mobile-first billing ecosystem.
+                Modernizing retail bookstore operations through a mobile-first
+                billing ecosystem.
               </p>
             </div>
 
@@ -104,28 +110,41 @@ export default function SuprokashCaseStudy() {
           {/* Metadata Sidebar */}
           <div className="w-full lg:w-[320px] bg-[#FAFAF9] flex flex-col shrink-0">
             <div className="p-8 border-b border-gray-200 flex-1">
-              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Platform</span>
-              <span className="block text-lg text-black font-medium">Mobile App</span>
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Platform
+              </span>
+              <span className="block text-lg text-black font-medium">
+                Mobile App
+              </span>
             </div>
-            
+
             <div className="p-8 border-b border-gray-200 flex-1 bg-white">
-              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Frontend</span>
-              <span className="block text-lg text-black font-medium">React Native</span>
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Frontend
+              </span>
+              <span className="block text-lg text-black font-medium">
+                React Native
+              </span>
             </div>
 
             <div className="p-8 border-b border-gray-200 flex-1">
-              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Backend</span>
-              <span className="block text-lg text-black font-medium">Codeigniter 4</span>
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Backend
+              </span>
+              <span className="block text-lg text-black font-medium">
+                Codeigniter 4
+              </span>
             </div>
 
             <div className="p-8 flex-1 bg-white">
-              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Database</span>
+              <span className="block text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">
+                Database
+              </span>
               <span className="block text-base text-gray-800 font-light leading-relaxed font-medium">
                 MySQL
               </span>
             </div>
           </div>
-
         </div>
       </header>
 
@@ -150,20 +169,20 @@ export default function SuprokashCaseStudy() {
               </p>
               <p>
                 Traditionally, billing processes in retail bookstores often rely
-                on manual entries, desktop-based systems, or fragmented tools that
-                slow down checkout and increase the likelihood of pricing
+                on manual entries, desktop-based systems, or fragmented tools
+                that slow down checkout and increase the likelihood of pricing
                 discrepancies. This mobile solution transforms that process by
                 equipping staff members with a handheld, real-time billing
                 platform that allows them to generate invoices instantly from
                 anywhere within the store environment.
               </p>
               <p>
-                The application enables staff to search and select books from the
-                inventory, automatically calculate totals based on pricing logic,
-                apply applicable discounts or taxes, and generate structured
-                invoices within seconds. Every transaction is securely transmitted
-                to the backend system, ensuring centralized data storage and
-                synchronized record management.
+                The application enables staff to search and select books from
+                the inventory, automatically calculate totals based on pricing
+                logic, apply applicable discounts or taxes, and generate
+                structured invoices within seconds. Every transaction is
+                securely transmitted to the backend system, ensuring centralized
+                data storage and synchronized record management.
               </p>
 
               <div className="mt-16 bg-[#FAFAF9] border border-gray-100 p-8 md:p-12 custom-notch-tl-br shadow-sm">
@@ -177,7 +196,9 @@ export default function SuprokashCaseStudy() {
                       <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
                     </div>
                     <span>
-                      The frontend is developed using React Native, providing a responsive and cross-platform mobile interface tailored for ease of use in a fast-paced retail environment.
+                      The frontend is developed using React Native, providing a
+                      responsive and cross-platform mobile interface tailored
+                      for ease of use in a fast-paced retail environment.
                     </span>
                   </li>
                   <li className="flex gap-4 items-center group">
@@ -185,7 +206,9 @@ export default function SuprokashCaseStudy() {
                       <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
                     </div>
                     <span>
-                      The backend is built with CodeIgniter 4, implementing RESTful APIs to handle authentication, billing logic, inventory management, and transaction persistence.
+                      The backend is built with CodeIgniter 4, implementing
+                      RESTful APIs to handle authentication, billing logic,
+                      inventory management, and transaction persistence.
                     </span>
                   </li>
                   <li className="flex gap-4 items-center group">
@@ -193,7 +216,9 @@ export default function SuprokashCaseStudy() {
                       <ArrowRight className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
                     </div>
                     <span>
-                      A centralized database maintains books, pricing, stock quantities, and invoice history, ensuring data integrity and traceability.
+                      A centralized database maintains books, pricing, stock
+                      quantities, and invoice history, ensuring data integrity
+                      and traceability.
                     </span>
                   </li>
                 </ul>
@@ -326,9 +351,7 @@ export default function SuprokashCaseStudy() {
                   className="p-8 border border-gray-100 bg-[#FAFAF9] group hover:bg-white hover:border-gray-300 transition-colors custom-notch-tl-br flex flex-col justify-between"
                 >
                   <h5 className="text-xs font-bold uppercase tracking-widest text-black mb-8 flex items-center justify-between border-b border-gray-200 pb-4">
-                    <span>
-                      Issue {i + 1}
-                    </span>
+                    <span>Issue {i + 1}</span>
                     <span className="text-[#f5ad76] font-mono">0{i + 1}</span>
                   </h5>
                   <div className="space-y-8">
@@ -393,17 +416,21 @@ export default function SuprokashCaseStudy() {
                   desc: "The application successfully transforms traditional bookstore billing into a streamlined digital process while laying a strong technical foundation for future growth and scale.",
                 },
               ].map((item, idx) => (
-                <div key={idx} className="bg-white border border-gray-100 p-8 custom-notch-tl-br hover:shadow-sm transition-shadow flex flex-col justify-between">
+                <div
+                  key={idx}
+                  className="bg-white border border-gray-100 p-8 custom-notch-tl-br hover:shadow-sm transition-shadow flex flex-col justify-between"
+                >
                   <h4 className="text-xl font-medium mb-4 text-black">
                     {item.title}
                   </h4>
-                  <p className={`text-base leading-relaxed ${item.title === "Strategic Outcome" ? "text-black font-medium" : "text-gray-600 font-light"}`}>
+                  <p
+                    className={`text-base leading-relaxed ${item.title === "Strategic Outcome" ? "text-black font-medium" : "text-gray-600 font-light"}`}
+                  >
                     {item.desc}
                   </p>
                 </div>
               ))}
             </div>
-
           </div>
         </div>
       </main>

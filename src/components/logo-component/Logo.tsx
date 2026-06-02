@@ -16,7 +16,7 @@ export default function Logo({
 }: LogoProps) {
   const STAR_PATH =
     "M50 28 C54 40, 60 46, 72 50 C60 54, 54 60, 50 72 C46 60, 40 54, 28 50 C40 46, 46 40, 50 28 Z";
-  
+
   const circleColor = theme === "dark" ? "#ffffff" : "#0f1115";
   const starLineColor = theme === "dark" ? "#0f1115" : "white";
 
