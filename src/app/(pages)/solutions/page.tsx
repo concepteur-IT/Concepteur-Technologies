@@ -26,72 +26,481 @@ export default function SolutionsPage() {
       />
 
       {/* REDESIGNED INTERLOCKING HERO */}
-      <section className="w-full pt-[120px] pb-16 md:pt-[160px] md:pb-32 px-5 md:px-[10%] xl:px-[15%]">
-        {/* Title Block */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="max-w-5xl z-10 relative"
-        >
-          <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 mb-8 flex items-center gap-4">
-            <span className="w-8 h-[1px] bg-gray-300"></span>
-            Solutions Framework
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-normal text-gray-900 leading-[1.05] tracking-tight">
-            Transforming Complexity
-            <br className="hidden sm:block" />
-            <span className="text-gray-400">Into Scalable Advantage.</span>
-          </h1>
-        </motion.div>
-        <p className="mt-6">
-          At Concepteur Technologies, solutions are not predefined packages.
-          <span className="font-medium text-black ml-1">
-            They are engineered
-            <br /> responses to real business challenges.
-          </span>
-        </p>
-        {/* Image & Overlapping Glass Card */}
-        <div className="relative mt-8 md:mt-12 w-full flex flex-col lg:block">
-          {/* Panoramic Interactive Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full lg:w-10/12 aspect-[12/8] md:aspect-[24/8] bg-gray-100 relative custom-notch-tl-br overflow-hidden group"
-          >
-            <Image
-              src="/home/sel-hero.png" // Replace with your preferred hero image
-              fill
-              className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] group-hover:scale-105"
-              alt="Solutions Architecture Integration"
-              priority
-            />
-            {/* Darken slightly on hover to pop the glass card */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-700" />
-          </motion.div>
+<section className="
+w-full
+pt-[110px]
+pb-24
+md:pt-[140px]
+px-5
+md:px-[10%]
+xl:px-[15%]
+bg-white
+">
 
-          {/* Overlapping Frosted Glass Information Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="lg:absolute lg:right-0 lg:bottom-[-40px] lg:w-5/12 bg-white backdrop-blur-xl border border-gray-100 p-6 md:p-10 shadow-2xl custom-notch-tl-br z-20 mt-6 lg:mt-0  transition-colors duration-500"
-          >
-            <p className="text-lg md:text-xl font-light text-gray-500 leading-snug mb-6 border-b border-gray-200 pb-6">
-              We combine system architecture, disciplined engineering, and
-              AI-enhanced execution to design solutions that improve
-              performance, reduce operational overhead, and prepare
-              organizations for long-term scale.
-            </p>
 
-            <p className="text-sm font-medium text-black leading-relaxed">
-              Each solution area represents a strategic capability — built
-              around measurable impact, not trends.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+{/* Heading Block */}
+
+<motion.div
+
+initial={{opacity:0,y:20}}
+animate={{opacity:1,y:0}}
+transition={{duration:.6}}
+
+className="max-w-5xl"
+
+>
+
+
+<p className="
+text-xs
+font-bold
+uppercase
+tracking-[0.2em]
+text-gray-400
+mb-6
+flex
+items-center
+gap-4
+">
+
+<span className="w-8 h-[1px] bg-gray-300"/>
+
+Solutions Framework
+
+</p>
+
+
+
+<h1 className="
+text-4xl
+sm:text-5xl
+md:text-6xl
+font-normal
+text-gray-900
+leading-[1.05]
+tracking-tight
+">
+
+Transforming Complexity
+
+<br/>
+
+<span className="text-gray-300">
+Into Scalable Advantage.
+</span>
+
+</h1>
+
+
+
+
+<p className="
+mt-5
+max-w-xl
+text-gray-500
+leading-relaxed
+text-sm
+md:text-base
+">
+
+At Concepteur Technologies, solutions are not predefined packages.
+
+<span className="
+font-medium
+text-black
+">
+
+ They are engineered responses to real business challenges.
+
+</span>
+
+</p>
+
+
+</motion.div>
+
+
+
+
+
+
+
+
+
+{/* WIREFRAME */}
+
+<div className="
+relative
+mt-10
+h-[440px]
+md:h-[470px]
+rounded-[38px]
+overflow-hidden
+bg-[#fafafa]
+">
+
+
+
+
+
+{/* Flow Lines */}
+
+<svg
+
+className="
+absolute
+inset-0
+w-full
+h-full
+"
+
+viewBox="0 0 1200 600"
+
+fill="none"
+
+>
+
+<path
+
+d="
+M90 300
+C320 90
+600 500
+1110 230
+"
+
+stroke="#d7d7d7"
+
+strokeWidth="2"
+
+/>
+
+
+
+<path
+
+d="
+M140 380
+C420 170
+720 480
+1060 310
+"
+
+stroke="#e5e5e5"
+
+strokeWidth="1.5"
+
+/>
+
+
+</svg>
+
+
+
+
+
+
+
+
+
+{/* Complexity */}
+
+<motion.div
+
+initial={{opacity:0,x:-20}}
+animate={{opacity:1,x:0}}
+transition={{delay:.2}}
+
+className="
+absolute
+left-8
+md:left-14
+top-20
+"
+
+
+>
+
+
+<p className="
+text-[10px]
+uppercase
+tracking-[0.3em]
+text-gray-400
+mb-4
+">
+
+Complexity
+
+</p>
+
+
+
+<div className="space-y-3">
+
+
+{[
+"Disconnected Systems",
+"Manual Processes",
+"Growing Data"
+].map(item=>(
+
+
+<div
+key={item}
+className="
+flex
+items-center
+gap-3
+text-xs
+md:text-sm
+text-gray-600
+"
+>
+
+
+<span className="
+w-2
+h-2
+rounded-full
+bg-gray-300
+"/>
+
+{item}
+
+
+</div>
+
+
+))}
+
+
+</div>
+
+
+</motion.div>
+
+
+
+
+
+
+
+
+
+{/* Center */}
+
+<motion.div
+
+initial={{opacity:0,scale:.85}}
+animate={{opacity:1,scale:1}}
+transition={{delay:.35}}
+
+className="
+absolute
+left-1/2
+top-1/2
+-translate-x-1/2
+-translate-y-1/2
+"
+
+
+>
+
+
+<div className="
+w-32
+h-32
+md:w-36
+md:h-36
+rounded-full
+bg-black
+flex
+flex-col
+items-center
+justify-center
+shadow-xl
+text-white
+">
+
+
+<p className="
+text-[9px]
+tracking-[0.3em]
+uppercase
+text-gray-400
+">
+
+Core
+
+</p>
+
+
+<h3 className="
+text-base
+md:text-lg
+font-light
+mt-2
+">
+
+Engineering
+
+</h3>
+
+
+</div>
+
+
+</motion.div>
+
+
+
+
+
+
+
+
+
+{/* Advantage */}
+
+<motion.div
+
+initial={{opacity:0,x:20}}
+animate={{opacity:1,x:0}}
+transition={{delay:.5}}
+
+className="
+absolute
+right-8
+md:right-14
+top-20
+"
+
+
+>
+
+
+<p className="
+text-[10px]
+uppercase
+tracking-[0.3em]
+text-gray-400
+mb-4
+">
+
+Advantage
+
+</p>
+
+
+
+<div className="space-y-3">
+
+
+{[
+"Scalable Systems",
+"Optimized Operations",
+"Future Ready"
+].map(item=>(
+
+
+<div
+
+key={item}
+
+className="
+flex
+items-center
+gap-3
+text-xs
+md:text-sm
+font-medium
+text-gray-900
+"
+
+>
+
+
+<span className="
+w-6
+h-[1px]
+bg-black
+"/>
+
+
+{item}
+
+
+</div>
+
+
+))}
+
+
+</div>
+
+
+</motion.div>
+
+
+
+
+
+
+
+
+
+{/* Bottom Detail */}
+
+<motion.div
+
+initial={{opacity:0,y:15}}
+animate={{opacity:1,y:0}}
+transition={{delay:.7}}
+
+className="
+absolute
+bottom-6
+left-1/2
+-translate-x-1/2
+w-[90%]
+md:w-[560px]
+text-center
+"
+
+>
+
+
+<p className="
+text-xs
+md:text-sm
+leading-relaxed
+text-gray-500
+">
+
+
+We combine system architecture,
+disciplined engineering and AI-enhanced execution
+to design solutions that improve performance,
+reduce operational overhead and prepare
+organizations for long-term scale.
+
+
+</p>
+
+
+</motion.div>
+
+
+
+
+
+
+</div>
+
+
+
+</section>
 
       {/* STICKY SCROLL CONTENT ARCHITECTURE */}
       <section className="w-full px-5 md:px-[10%] xl:px-[15%]">
@@ -159,24 +568,125 @@ export default function SolutionsPage() {
             </div>
 
             {/* Right Side: Image Section (Matches height and width of AI section) */}
-            <div className="w-full md:w-1/2 flex flex-col pt-[38px]">
-              {/* pt-[38px] ensures the top of image aligns with the first box below the header */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex-1 bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
-              >
-                <Image
-                  src="/home/sel-index1.png"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
-                  alt="Transformation"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
-              </motion.div>
-            </div>
+      <motion.div
+  initial={{ opacity: 0, scale: 0.98 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true, margin: "-100px" }}
+  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+  className="relative flex-1  custom-notch-tl-br overflow-hidden group min-h-[300px]"
+>
+  
+  {/* Main Flow Line */}
+  <motion.div
+    initial={{ scaleX: 0 }}
+    whileInView={{ scaleX: 1 }}
+    transition={{ duration: 1.5 }}
+    className="absolute top-1/2 left-[15%] right-[15%] h-px bg-black origin-left"
+  />
+
+  {/* Step 1 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.1 }}
+    className="absolute left-[12%] top-1/2 -translate-y-1/2"
+  >
+    <div className="w-20 h-20 border border-gray-300 bg-white flex items-center justify-center">
+      <div className="grid grid-cols-3 gap-1">
+        {Array.from({ length: 9 }).map((_, i) => (
+          <div key={i} className="w-2 h-2 bg-gray-300" />
+        ))}
+      </div>
+    </div>
+
+    <p className="text-[10px] uppercase tracking-[0.25em] text-gray-400 mt-3 text-center">
+      Legacy
+    </p>
+  </motion.div>
+
+  {/* Step 2 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.3 }}
+    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+  >
+    <div className="relative w-28 h-28 rounded-full border border-black bg-white flex items-center justify-center">
+      <motion.div
+        animate={{ rotate: 360 }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+        className="absolute inset-3 border border-dashed border-gray-300 rounded-full"
+      />
+
+      <div className="text-center">
+        <p className="text-[9px] uppercase tracking-[0.25em] text-gray-400">
+          Process
+        </p>
+        <p className="text-sm font-medium mt-1">
+          Transform
+        </p>
+      </div>
+    </div>
+  </motion.div>
+
+  {/* Step 3 */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.5 }}
+    className="absolute right-[12%] top-1/2 -translate-y-1/2"
+  >
+    <div className="w-20 h-20 border border-gray-300 bg-white flex items-center justify-center">
+      <div className="relative">
+        <div className="w-10 h-6 border border-black rounded-full" />
+        <div className="w-8 h-5 border border-black rounded-full absolute -top-2 left-3 bg-white" />
+      </div>
+    </div>
+
+    <p className="text-[10px] uppercase tracking-[0.25em] text-gray-400 mt-3 text-center">
+      Cloud
+    </p>
+  </motion.div>
+
+  {/* Floating Capability Cards */}
+  {[
+    { title: "DATA", top: "18%", left: "34%" },
+    { title: "AI", top: "22%", right: "26%" },
+    { title: "API", bottom: "20%", left: "38%" },
+    { title: "AUTO", bottom: "24%", right: "22%" },
+  ].map((item, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.6 + i * 0.1 }}
+
+className="absolute border border-black bg-white px-3 py-2 transition-all duration-300 hover:-translate-y-1"
+      style={{
+        top: item.top,
+        left: item.left,
+        right: item.right,
+        bottom: item.bottom,
+      }}
+    >
+      
+<span className="text-[9px] uppercase tracking-[0.25em] text-black">
+        {item.title}
+      </span>
+    </motion.div>
+  ))}
+
+  {/* Footer */}
+  <div className="absolute bottom-5 left-5 right-5 flex justify-between text-[10px] text-gray-400 uppercase tracking-[0.25em]">
+    <span>Infrastructure</span>
+    <span>Modernization</span>
+    <span>Scalability</span>
+  </div>
+</motion.div>
           </div>
         </div>
 
@@ -200,21 +710,142 @@ export default function SolutionsPage() {
           <div className="lg:w-full flex flex-col md:flex-row gap-8 items-stretch max-w-5xl">
             <div className="w-full md:w-1/2 flex flex-col pt-[38px]">
               {/* pt-[38px] aligns image top with the first list item (01) */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.98 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                className="relative flex-1 bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
-              >
-                <Image
-                  src="/home/ChatGPT Image May 7, 2026, 04_45_20 PM.png"
-                  fill
-                  className="object-cover group-hover:scale-105 transition-all duration-[1000ms] ease-[0.22,1,0.36,1]"
-                  alt="AI Adoption"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500" />
-              </motion.div>
+    <motion.div
+  initial={{ opacity: 0, scale: 0.98 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true, margin: "-100px" }}
+  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+  className="relative flex-1 bg-white custom-notch-tl-br overflow-hidden group min-h-[300px] "
+>
+  {/* Connection Lines */}
+  <svg
+    className="absolute inset-0 w-full h-full"
+    viewBox="0 0 800 500"
+    preserveAspectRatio="none"
+  >
+    <path d="M400 250 L180 120" stroke="#d4d4d4" strokeWidth="1.5" fill="none" />
+    <path d="M400 250 L620 120" stroke="#d4d4d4" strokeWidth="1.5" fill="none" />
+    <path d="M400 250 L180 380" stroke="#d4d4d4" strokeWidth="1.5" fill="none" />
+    <path d="M400 250 L620 380" stroke="#d4d4d4" strokeWidth="1.5" fill="none" />
+
+    <path d="M180 120 L180 380" stroke="#ececec" strokeWidth="1" fill="none" />
+    <path d="M620 120 L620 380" stroke="#ececec" strokeWidth="1" fill="none" />
+    <path d="M180 120 L620 120" stroke="#ececec" strokeWidth="1" fill="none" />
+    <path d="M180 380 L620 380" stroke="#ececec" strokeWidth="1" fill="none" />
+  </svg>
+
+  {/* Central Hub */}
+  <motion.div
+    animate={{
+      scale: [1, 1.05, 1],
+    }}
+    transition={{
+      duration: 4,
+      repeat: Infinity,
+      ease: "easeInOut",
+    }}
+    className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+  >
+    <div className="w-28 h-28 border-2 border-black rounded-full bg-white flex flex-col items-center justify-center shadow-sm">
+      <div className="w-8 h-8 rounded-full bg-black mb-2" />
+      <span className="text-[10px] uppercase tracking-[0.2em] font-medium">
+        AI Core
+      </span>
+    </div>
+  </motion.div>
+
+  {/* Adoption Nodes */}
+  {[
+    {
+      pos: "left-[12%] top-[14%]",
+      title: "People",
+      subtitle: "Enablement",
+    },
+    {
+      pos: "right-[12%] top-[14%]",
+      title: "Process",
+      subtitle: "Automation",
+    },
+    {
+      pos: "left-[12%] bottom-[14%]",
+      title: "Data",
+      subtitle: "Insights",
+    },
+    {
+      pos: "right-[12%] bottom-[14%]",
+      title: "Growth",
+      subtitle: "Scale",
+    },
+  ].map((node, i) => (
+    <motion.div
+      key={i}
+      animate={{
+        y: [0, -6, 0],
+      }}
+      transition={{
+        duration: 3 + i,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+      className={`absolute ${node.pos} z-10`}
+    >
+      <div className="w-24 h-24 border border-gray-300 bg-white rounded-xl flex flex-col items-center justify-center shadow-sm">
+        <div className="w-6 h-6 rounded-full border border-black mb-2" />
+
+        <span className="text-[11px] font-medium tracking-tight">
+          {node.title}
+        </span>
+
+        <span className="text-[9px] uppercase tracking-wider text-gray-400 mt-1">
+          {node.subtitle}
+        </span>
+      </div>
+    </motion.div>
+  ))}
+
+  {/* Floating Data Particles */}
+  {[
+    { left: "32%", top: "22%" },
+    { left: "38%", top: "34%" },
+    { left: "67%", top: "28%" },
+    { left: "58%", top: "18%" },
+    { left: "29%", top: "62%" },
+    { left: "40%", top: "72%" },
+    { left: "63%", top: "68%" },
+    { left: "55%", top: "80%" },
+    { left: "50%", top: "32%" },
+    { left: "46%", top: "65%" },
+    { left: "60%", top: "50%" },
+    { left: "35%", top: "50%" },
+  ].map((particle, i) => (
+    <motion.div
+      key={i}
+      animate={{
+        opacity: [0.2, 1, 0.2],
+        scale: [1, 1.4, 1],
+      }}
+      transition={{
+        duration: 2 + (i % 3),
+        repeat: Infinity,
+      }}
+      className="absolute w-1.5 h-1.5 bg-black rounded-full"
+      style={{
+        left: particle.left,
+        top: particle.top,
+      }}
+    />
+  ))}
+
+  {/* Bottom Indicator */}
+ <div className="absolute -bottom-0.5 left-1/2 -translate-x-1/2">
+  <div className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-full bg-white">
+    <div className="w-2 h-2 rounded-full bg-black animate-pulse" />
+    <span className="text-[10px] uppercase tracking-[0.25em] text-gray-500">
+      AI Adoption Framework
+    </span>
+  </div>
+</div>
+</motion.div>
             </div>
             {/* Left Side: AI List (Determines the height) */}
             <div className="w-full md:w-1/2 flex flex-col">
@@ -236,15 +867,15 @@ export default function SolutionsPage() {
                   "Build AI-driven decision support systems",
                 ].map((item, index) => {
                   return (
-                    <div
+                     <div
                       key={index}
                       className="group relative flex items-start gap-4"
                     >
                       {/* Dot */}
-                      <span className="absolute left-[-2px] top-2 w-2 h-2 rounded-full bg-gray-300 group-hover:bg-black transition-colors duration-300"></span>
+                      <span className="absolute left-[-10px] top-1 w-2 h-2 rounded-full bg-gray-300 group-hover:bg-black transition-colors duration-300"></span>
 
                       {/* Content */}
-                      <div className="flex items-center justify-between w-full">
+                      <div className="flex item s-center justify-between w-full">
                         <div className="flex items-start gap-4">
                           {/* Number */}
                           <span className="text-[11px] font-mono text-gray-400 group-hover:text-black transition-colors">
@@ -307,6 +938,7 @@ export default function SolutionsPage() {
                   "Improve data accuracy",
                   "Accelerate processing cycles",
                   "Integrate cross-platform workflows",
+                  "Enable real-time system coordination"
                 ].map((item, index) => {
                   return (
                     <motion.div
@@ -336,25 +968,100 @@ export default function SolutionsPage() {
             </div>
 
             {/* RIGHT — IMAGE (MATCHES TEXT HEIGHT) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full lg:w-1/2"
-            >
-              <div className="relative h-full min-h-[320px] bg-gray-100 overflow-hidden custom-notch-tl-br group">
-                <Image
-                  src="/home/sel-index3.png"
-                  fill
-                  className="object-cover transition-transform duration-[1400ms] ease-[0.22,1,0.36,1] group-hover:scale-105"
-                  alt="Process Automation Infrastructure"
-                />
+    {/* Right Side: Wireframe Section (Process Automation) */}
+<div className="w-full md:w-1/2 flex flex-col pt-[38px]">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.98 }}
+    whileInView={{ opacity: 1, scale: 1 }}
+    viewport={{ once: true, margin: "-100px" }}
+    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+    className="relative flex-1    overflow-hidden min-h-[300px]"
+  >
 
-                {/* Subtle overlay */}
-                <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition duration-500" />
+
+
+    {/* Automation Flow */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-[85%] max-w-[500px]">
+
+        {/* Row */}
+        <div className="flex items-center justify-between">
+
+          {/* Input */}
+          <div className="w-24 h-24 border border-gray-300 bg-white flex flex-col items-center justify-center">
+            <div className="w-8 h-8 rounded-full border border-black mb-2" />
+            <span className="text-[9px] uppercase tracking-[0.25em] text-gray-500">
+              Input
+            </span>
+          </div>
+
+          {/* Line */}
+          <div className="flex-1 h-px bg-gray-300 mx-4 relative">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t border-r border-black rotate-45" />
+          </div>
+
+          {/* Process */}
+          <div className="w-28 h-28 border border-black bg-white flex flex-col items-center justify-center relative">
+            <div className="w-10 h-10 rounded-full border border-black flex items-center justify-center">
+              <div className="w-4 h-4 rounded-full bg-black animate-pulse" />
+            </div>
+
+            <span className="absolute bottom-3 text-[9px] uppercase tracking-[0.25em] text-gray-500">
+              Process
+            </span>
+          </div>
+
+          {/* Line */}
+          <div className="flex-1 h-px bg-gray-300 mx-4 relative">
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 border-t border-r border-black rotate-45" />
+          </div>
+
+          {/* Output */}
+          <div className="w-24 h-24 border border-gray-300 bg-white flex flex-col items-center justify-center">
+            <div className="grid grid-cols-2 gap-1">
+              <div className="w-3 h-3 bg-black" />
+              <div className="w-3 h-3 border border-black" />
+              <div className="w-3 h-3 border border-black" />
+              <div className="w-3 h-3 bg-black" />
+            </div>
+
+            <span className="mt-2 text-[9px] uppercase tracking-[0.25em] text-gray-500">
+              Output
+            </span>
+          </div>
+        </div>
+
+        {/* Monitoring Panel */}
+        <div className="mt-10 border border-gray-200 bg-white p-4">
+          <div className="flex justify-between items-center mb-3">
+            <span className="text-[9px] uppercase tracking-[0.25em] text-gray-400">
+              Automation Status
+            </span>
+
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 rounded-full bg-black animate-pulse" />
+              <span className="text-[9px] text-gray-500">Active</span>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            {[92, 78, 95].map((v, i) => (
+              <div key={i}>
+                <div className="h-[3px] bg-gray-100 overflow-hidden">
+                  <div
+                    className="h-full bg-black"
+                    style={{ width: `${v}%` }}
+                  />
+                </div>
               </div>
-            </motion.div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </motion.div>
+</div>
           </div>
         </div>
 
@@ -378,20 +1085,88 @@ export default function SolutionsPage() {
 
           <div className="lg:w-2/3 flex flex-col md:flex-row gap-12 items-stretch">
             {/* IMAGE */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="w-full md:w-1/2 relative bg-gray-100 custom-notch-tl-br overflow-hidden group min-h-[300px]"
-            >
-              <Image
-                src="/home/sel-index4.png"
-                fill
-                className="object-cover group-hover:scale-105 transition-all duration-[1000ms]"
-                alt="Legacy"
-              />
-            </motion.div>
+  <motion.div
+  initial={{ opacity: 0, scale: 0.98 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true, margin: "-100px" }}
+  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+  className="relative flex-1 bg-[#fafafa] custom-notch-tl-br overflow-hidden group min-h-[300px]"
+>
+  {/* Background */}
+  <div className="absolute inset-0 bg-white" />
+
+  {/* Legacy → Modern Flow */}
+  <div className="absolute inset-0 flex items-center justify-center px-8">
+    <div className="w-full max-w-md">
+
+      {/* Legacy System */}
+      <div className="relative border border-gray-300 bg-white p-4 mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-gray-400">
+            Legacy System
+          </span>
+          <span className="text-[10px] text-gray-300">01</span>
+        </div>
+
+        <div className="space-y-2">
+          <div className="h-2 bg-gray-200 w-full" />
+          <div className="h-2 bg-gray-200 w-4/5" />
+          <div className="h-2 bg-gray-200 w-3/4" />
+        </div>
+      </div>
+
+      {/* Transformation Line */}
+      <div className="relative flex items-center justify-center mb-6">
+        <div className="w-full border-t border-dashed border-gray-300" />
+        <div className="absolute px-3 bg-[#fafafa] text-[9px] uppercase tracking-[0.3em] text-gray-400">
+          Modernize
+        </div>
+      </div>
+
+      {/* Modern Architecture */}
+      <div className="border border-black bg-white p-4">
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-[10px] uppercase tracking-[0.25em] text-black">
+            Modern Architecture
+          </span>
+          <span className="text-[10px] text-gray-400">02</span>
+        </div>
+
+        <div className="grid grid-cols-3 gap-3">
+          <div className="h-12 border border-gray-300 flex items-center justify-center text-[8px] uppercase tracking-wider text-gray-500">
+            API
+          </div>
+
+          <div className="h-12 border border-gray-300 flex items-center justify-center text-[8px] uppercase tracking-wider text-gray-500">
+            Cloud
+          </div>
+
+          <div className="h-12 border border-gray-300 flex items-center justify-center text-[8px] uppercase tracking-wider text-gray-500">
+            Data
+          </div>
+        </div>
+
+        <div className="mt-3 h-px bg-black" />
+
+        <div className="mt-3 flex justify-between text-[8px] uppercase tracking-[0.2em] text-gray-400">
+          <span>Scalable</span>
+          <span>Secure</span>
+          <span>Flexible</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Corner Label */}
+<div className="absolute left-6 top-2/2 -translate-y-1/2">
+  <div className="flex items-center gap-2 -rotate-90 origin-left">
+    <div className="w-2 h-2 rounded-full bg-black animate-pulse" />
+    <span className="whitespace-nowrap text-[10px] uppercase tracking-[0.25em] text-gray-500">
+      Legacy Modernization
+    </span>
+  </div>
+</div>
+</motion.div>
 
             {/* TEXT */}
             <div className="w-full md:w-1/2 flex flex-col justify-center gap-6">
