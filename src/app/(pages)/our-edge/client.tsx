@@ -24,7 +24,6 @@ export default function OurEdgeClient() {
       ref={containerRef}
       className="bg-white text-black font-sans selection:bg-black selection:text-white min-h-screen pt-[80px]"
     >
-      {/* 01. REFINED HERO SECTION */}
       <motion.section
         className="relative py-10 md:py-18 bg-white overflow-hidden"
         initial={{ opacity: 0, y: 24 }}
@@ -33,70 +32,327 @@ export default function OurEdgeClient() {
         transition={{ duration: 0.75, ease: easeBezier }}
       >
         <div className="w-full px-5 md:px-[15%]">
-          <div className="w-full relative">
-            {/* Background Image Block WITH NOTCH */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: easeBezier }}
-              className="absolute right-0 top-0 w-full lg:w-[60%] h-[300px] md:h-[420px] lg:h-full bg-gray-100 overflow-hidden custom-notch-tl-br"
-            >
-              <Image
-                src="/home/our-hero.png"
-                fill
-                alt="Engineering First"
-                className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] hover:scale-105"
-                priority
-              />
-              <div className="absolute inset-0 bg-[#0b2f33]/10 " />
-            </motion.div>
+          <div className="relative flex flex-col lg:flex-row items-center gap-16">
+            {/* Left Content */}
+            <div className="w-full lg:w-1/2 z-10">
+              <p className="text-xs uppercase tracking-[0.3em] text-gray-500 font-bold flex items-center gap-4 mb-6">
+                <span className="w-8 h-[1px] bg-black"></span>
+                01 — The Difference We Bring
+              </p>
 
-            {/* Content */}
-            <div className="relative z-10 flex flex-col justify-center min-h-[400px] lg:min-h-[600px]">
-              <div className="max-w-2xl bg-white/90 backdrop-blur-md p-8 md:p-12 custom-notch-tl-br shadow-[0_20px_40px_rgba(0,0,0,0.04)]">
-                <p className="text-xs uppercase tracking-[0.3em] text-gray-500 font-bold flex items-center gap-4 mb-6">
-                  <span className="w-8 h-[1px] bg-black"></span>
-                  01 — The Difference We Bring
+              <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-black leading-[1.05] mb-8">
+                Engineering First.
+                <br />
+                <span className="font-light">Intelligence Enhanced.</span>
+              </h1>
+
+              <div className="text-gray-800 text-base md:text-lg font-light leading-relaxed space-y-6">
+                <p>
+                  At Concepteur Technologies, systems are{" "}
+                  <span className="font-medium text-black">
+                    architected by experienced engineers
+                  </span>{" "}
+                  — not generated blindly.
                 </p>
 
-                <h1 className="text-4xl sm:text-5xl md:text-7xl font-medium tracking-tight text-black leading-[1.05] mb-8">
-                  Engineering First. <br />
-                  <span className="font-light text-black">
-                    Intelligence Enhanced.
-                  </span>
-                </h1>
+                <p>
+                  We believe AI is powerful.
+                  <br />
+                  But expertise is decisive.
+                </p>
 
-                <div className="text-gray-800 text-base md:text-lg font-light leading-relaxed space-y-6">
-                  <p>
-                    At Concepteur Technologies, systems are{" "}
-                    <span className="font-medium text-black">
-                      architected by experienced engineers
-                    </span>{" "}
-                    — not generated blindly.
-                  </p>
-                  <p>
-                    We believe AI is powerful.
+                <p className="text-gray-600">
+                  Every solution begins with human-led architecture: structured
+                  planning, scalability modeling, security design, and long-term
+                  maintainability considerations. Once the foundation is
+                  engineered correctly, we enhance execution with AI-assisted
+                  acceleration where it adds measurable value.
+                </p>
+
+                <div className="pl-6 border-l-2 border-black py-2">
+                  <p className="text-sm font-bold uppercase tracking-widest text-black">
+                    AI supports our engineers.
                     <br />
-                    But expertise is decisive.
+                    It does not replace them.
                   </p>
-                  <p className="text-gray-600">
-                    Every solution begins with human-led architecture:
-                    structured planning, scalability modeling, security design,
-                    and long-term maintainability considerations. Once the
-                    foundation is engineered correctly, we enhance execution
-                    with AI-assisted acceleration where it adds measurable
-                    value.
-                  </p>
-                  <div className="pl-6 border-l-2 border-black py-2">
-                    <p className="text-sm font-bold uppercase tracking-widest text-black">
-                      AI supports our engineers.
-                      <br />
-                      It does not replace them.
-                    </p>
-                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Right Wireframe */}
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative w-full max-w-[560px] aspect-square"
+              >
+                {/* Outer Circle */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 40,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="absolute inset-10 rounded-full border border-gray-300"
+                />
+
+                {/* Second Circle */}
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{
+                    duration: 28,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="absolute inset-20 rounded-full border border-gray-400 border-dashed"
+                />
+
+                {/* Center */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.08, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                  }}
+                  className="absolute left-1/2 top-1/2  z-[10] h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-[#0b2f33] bg-white flex items-center justify-center shadow-lg"
+                >
+                  <div className="w-8 h-8 rounded-full bg-[#0b2f33]" />
+                </motion.div>
+
+                {/* Top */}
+                {/* Top */}
+                <motion.div
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                  }}
+                  className="absolute left-1/2 top-2 z-[10] -translate-x-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex flex-col items-center justify-center text-center p-2 shadow-md"
+                >
+                  <span className="text-[14px] font-semibold text-[#0b2f33]">
+                    AI
+                  </span>
+                  <span className="text-[14px] text-gray-500 leading-tight">
+                    Automation
+                  </span>
+                </motion.div>
+
+                {/* Bottom */}
+                <motion.div
+                  animate={{ y: [5, -5, 5] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                  }}
+                  className="absolute left-1/2 bottom-2 z-[10] -translate-x-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[14px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Scalability
+                  </span>
+                </motion.div>
+
+                {/* Left */}
+                <motion.div
+                  animate={{ x: [-5, 5, -5] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                  }}
+                  className="absolute left-2 top-1/2 z-[10] -translate-y-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[14px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Engineering
+                  </span>
+                </motion.div>
+
+                {/* Right */}
+                <motion.div
+                  animate={{ x: [5, -5, 5] }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                  }}
+                  className="absolute right-2 top-1/2 z-[10] -translate-y-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[14px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Innovation
+                  </span>
+                </motion.div>
+
+                {/* Top Left */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: 0.2,
+                  }}
+                  className="absolute left-14 top-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Strategy
+                  </span>
+                </motion.div>
+
+                {/* Top Right */}
+                <motion.div
+                  animate={{
+                    scale: [1.05, 1, 1.05],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: 0.6,
+                  }}
+                  className="absolute right-14 top-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Security
+                  </span>
+                </motion.div>
+
+                {/* Bottom Left */}
+                <motion.div
+                  animate={{
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: 1,
+                  }}
+                  className="absolute left-14 bottom-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Reliability
+                  </span>
+                </motion.div>
+
+                {/* Bottom Right */}
+                <motion.div
+                  animate={{
+                    scale: [1.05, 1, 1.05],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    delay: 1.4,
+                  }}
+                  className="absolute right-14 bottom-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                >
+                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                    Automation
+                  </span>
+                </motion.div>
+                {/* Connection Lines */}
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 600 600"
+                  fill="none"
+                >
+                  <motion.path
+                    d="M300 70 L300 260"
+                    stroke="#BDBDBD"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1 }}
+                  />
+
+                  <motion.path
+                    d="M300 340 L300 530"
+                    stroke="#BDBDBD"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1 }}
+                  />
+
+                  <motion.path
+                    d="M70 300 L260 300"
+                    stroke="#BDBDBD"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1 }}
+                  />
+
+                  <motion.path
+                    d="M340 300 L530 300"
+                    stroke="#BDBDBD"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1 }}
+                  />
+
+                  <motion.path
+                    d="M300 300 L120 120"
+                    stroke="#D6D6D6"
+                    strokeWidth="1"
+                    strokeDasharray="6 6"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1.2 }}
+                  />
+
+                  <motion.path
+                    d="M300 300 L480 120"
+                    stroke="#D6D6D6"
+                    strokeWidth="1"
+                    strokeDasharray="6 6"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1.2 }}
+                  />
+
+                  <motion.path
+                    d="M300 300 L120 480"
+                    stroke="#D6D6D6"
+                    strokeWidth="1"
+                    strokeDasharray="6 6"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1.2 }}
+                  />
+
+                  <motion.path
+                    d="M300 300 L480 480"
+                    stroke="#D6D6D6"
+                    strokeWidth="1"
+                    strokeDasharray="6 6"
+                    initial={{ pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    transition={{ duration: 1.2 }}
+                  />
+                </svg>
+
+                {/* Animated Signal */}
+                <motion.div
+                  animate={{
+                    rotate: 360,
+                  }}
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  className="absolute inset-0"
+                >
+                  <div className="absolute left-1/2 top-10 h-3 w-3 -translate-x-1/2 rounded-full bg-[#0b2f33]" />
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
