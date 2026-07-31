@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { teamData as team } from "@/data/teamData";
 import GalleryModal, { TooltipData } from "../team-components/GalleryModal";
 
@@ -50,6 +50,14 @@ const TeamAbout = () => {
     tooltips: TooltipData[];
   } | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 85%", "end 15%"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], [600, -2500]);
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -70,7 +78,10 @@ const TeamAbout = () => {
   };
 
   return (
-    <section className="w-full bg-[#fcfcfc] py-24 md:py-32 border-t border-gray-200 overflow-hidden">
+    <section
+      ref={sectionRef}
+      className="w-full bg-[#fcfcfc] py-24 md:py-32 border-t border-gray-200 overflow-hidden"
+    >
       <div className="w-full px-5 md:px-[10%] xl:px-[15%]">
         {/* Intro */}
         <div className="max-w-4xl mb-12 md:mb-16">
@@ -147,15 +158,16 @@ const TeamAbout = () => {
       <div className="w-full mb-16 md:mb-32 relative">
         <div
           ref={carouselRef}
-          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8"
+          className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar pb-8 overflow-y-hidden"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {/* Spacer for left padding equivalent to container */}
           <div className="w-[5vw] md:w-[10%] xl:w-[15%] shrink-0" />
 
           {galleryConfigList.map((item, idx) => (
-            <div
+            <motion.div
               key={item.id}
+              style={{ x }}
               className="w-[85vw] sm:w-[60vw] md:w-[45%] lg:w-[35%] shrink-0 snap-center pr-4 md:pr-8"
             >
               <motion.div
@@ -199,7 +211,7 @@ const TeamAbout = () => {
                   </div>
                 </div>
               </motion.div>
-            </div>
+            </motion.div>
           ))}
           {/* Spacer for right padding */}
           <div className="w-[5vw] md:w-[10%] xl:w-[15%] shrink-0" />

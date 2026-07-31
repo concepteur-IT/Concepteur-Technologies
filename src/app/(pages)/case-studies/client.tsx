@@ -167,62 +167,334 @@ export default function CaseStudiesClient() {
   return (
     <div className="bg-white min-h-screen text-gray-900 selection:bg-black selection:text-white pt-[80px]">
       {/* REDESIGNED HERO: Split Grid with Hover Image */}
-      <motion.section
-        className="relative py-10 md:py-18 bg-white overflow-hidden"
-        initial={{ opacity: 0, y: 24 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.15 }}
-        transition={{ duration: 0.75, ease: easeBezier }}
+    
+
+    
+<motion.section
+  className="relative py-16 md:py-24 bg-white overflow-hidden"
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, amount: 0.15 }}
+  transition={{
+    type: "spring",
+    stiffness: 80,
+    damping: 12,
+  }}
+>
+  <div className="max-w-[1600px] mx-auto px-5 md:px-[8%]">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+      {/* LEFT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{
+          delay: 0.1,
+          type: "spring",
+          stiffness: 80,
+        }}
+        className="space-y-8"
       >
-        <div className="w-full px-5 md:px-[15%]">
-          <div className="w-full relative">
-            {/* Background Image Block WITH NOTCH */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.98 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.8,
-                delay: 0.2,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className="absolute right-0 top-0 w-full lg:w-[70%] h-[300px] md:h-[420px] lg:h-full bg-gray-100 overflow-hidden custom-notch-tl-br"
-            >
-              <Image
-                src="/home/cas-main.png"
-                fill
-                alt="Case Studies Architecture"
-                className="object-cover transition-transform duration-[1500ms] ease-[0.22,1,0.36,1] hover:scale-105"
-                priority
-              />
-              <div className="absolute inset-0 bg-black/5 " />
-            </motion.div>
-
-            {/* Content */}
-            <div className="relative z-10 flex flex-col justify-center min-h-[400px] lg:min-h-[500px] ">
-              <div
-                className={`${HEADING_BLOCK_SPACING} max-w-xl bg-white backdrop-blur-sm p-6 md:p-10 custom-notch-tl-br shadow-lg `}
-              >
-                <p className="text-sm uppercase tracking-[0.3em] text-gray-500 font-medium flex items-center gap-4">
-                  <span className="w-8 h-[1px] bg-gray-300"></span>
-                  Case Studies
-                </p>
-
-                <h1 className="text-3xl sm:text-4xl md:text-6xl font-light tracking-tight text-black leading-tight">
-                  Real Systems. <br />
-                  <span className="font-semibold">Measurable Outcomes.</span>
-                </h1>
-
-                <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
-                  Explore product builds, platform transformations, and
-                  engineering rollouts designed for reliability, scale, and
-                  long-term business growth.
-                </p>
-              </div>
-            </div>
-          </div>
+        <div className="flex items-center gap-4">
+          <div className="w-10 h-px bg-gray-300" />
+          <span className="text-sm uppercase tracking-[0.3em] text-gray-500">
+          Case Studies
+          </span>
         </div>
-      </motion.section>
+
+        <h1 className="text-4xl md:text-6xl font-light leading-[1.05] tracking-tight text-black">
+          Real Systems.
+          <br />
+          <span className="font-semibold">
+            Measurable Outcomes.
+          </span>
+        </h1>
+
+        <p className="text-lg text-gray-600 leading-relaxed max-w-xl">
+          Every engagement starts with operational systems and ends
+          with measurable business impact. We connect technology,
+          automation, data, and execution into outcomes that scale.
+        </p>
+      </motion.div>
+
+      {/* FRAMEWORK */}
+      <div className="relative h-[680px] flex items-center justify-center">
+
+        {/* Spine */}
+        <div
+          className="
+            absolute
+            left-1/2
+            top-20
+            bottom-20
+            -translate-x-1/2
+            w-[6px]
+            bg-gray-100
+            rounded-full
+            border
+            border-gray-200
+            overflow-hidden
+          "
+        >
+          {/* Flowing Glow */}
+          <motion.div
+            animate={{
+              y: ["-30%", "130%"],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="
+              absolute
+              left-0
+              w-full
+              h-36
+              rounded-full
+              bg-gradient-to-b
+              from-transparent
+              via-black
+              to-transparent
+              opacity-100
+              blur-sm
+            "
+          />
+        </div>
+
+        {/* SYSTEMS */}
+        <motion.div
+          initial={{ opacity: 0, x: -60, scale: 0.8 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.2,
+            type: "spring",
+            stiffness: 120,
+            damping: 10,
+          }}
+          whileHover={{
+            y: -10,
+            scale: 1.04,
+          }}
+          className="
+            group
+            absolute
+            top-12
+            left-0
+            w-[260px]
+            bg-white
+            border
+            border-gray-200
+            px-8
+            py-5
+            shadow-sm
+            hover:shadow-2xl
+            transition-all
+            duration-500
+            cursor-default
+          "
+        >
+          <div className="absolute top-1/2 -right-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
+
+          <p className="text-xs tracking-[0.25em] text-gray-400 mb-2">
+            FOUNDATION
+          </p>
+
+          <h3 className="text-lg font-medium">
+            Systems
+          </h3>
+        </motion.div>
+
+        {/* PLATFORMS */}
+        <motion.div
+          initial={{ opacity: 0, x: 60, scale: 0.8 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.35,
+            type: "spring",
+            stiffness: 120,
+            damping: 10,
+          }}
+          whileHover={{
+            y: -10,
+            scale: 1.04,
+          }}
+          className="
+            group
+            absolute
+            top-[180px]
+            right-0
+            w-[260px]
+            bg-white
+            border
+            border-gray-200
+            px-8
+            py-5
+            shadow-sm
+            hover:shadow-2xl
+            transition-all
+            duration-500
+            cursor-default
+          "
+        >
+          <div className="absolute top-1/2 -left-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
+
+          <p className="text-xs tracking-[0.25em] text-gray-400 mb-2">
+            LAYER 01
+          </p>
+
+          <h3 className="text-lg font-medium">
+            Platforms
+          </h3>
+        </motion.div>
+
+        {/* AUTOMATION */}
+        <motion.div
+          initial={{ opacity: 0, x: -60, scale: 0.8 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.5,
+            type: "spring",
+            stiffness: 120,
+            damping: 10,
+          }}
+          whileHover={{
+            y: -10,
+            scale: 1.04,
+          }}
+          className="
+            group
+            absolute
+            top-[320px]
+            left-0
+            w-[260px]
+            bg-white
+            border
+            border-gray-200
+            px-8
+            py-5
+            shadow-sm
+            hover:shadow-2xl
+            transition-all
+            duration-500
+            cursor-default
+          "
+        >
+          <div className="absolute top-1/2 -right-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
+
+          <p className="text-xs tracking-[0.25em] text-gray-400 mb-2">
+            LAYER 02
+          </p>
+
+          <h3 className="text-lg font-medium">
+            Automation
+          </h3>
+        </motion.div>
+
+        {/* DATA */}
+        <motion.div
+          initial={{ opacity: 0, x: 60, scale: 0.8 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.65,
+            type: "spring",
+            stiffness: 120,
+            damping: 10,
+          }}
+          whileHover={{
+            y: -10,
+            scale: 1.04,
+          }}
+          className="
+            group
+            absolute
+            top-[430px]
+            right-0
+            w-[260px]
+            bg-white
+            border
+            border-gray-200
+            px-8
+            py-5
+            shadow-sm
+            hover:shadow-2xl
+            transition-all
+            duration-500
+            cursor-default
+          "
+        >
+          <div className="absolute top-1/2 -left-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
+
+          <p className="text-xs tracking-[0.25em] text-gray-400 mb-2">
+            LAYER 03
+          </p>
+
+          <h3 className="text-lg font-medium">
+            Data
+          </h3>
+        </motion.div>
+
+        {/* OUTCOME */}
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.7,
+            y: 60,
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            delay: 0.85,
+            type: "spring",
+            stiffness: 140,
+            damping: 10,
+          }}
+          whileHover={{
+            scale: 1.05,
+            y: -5,
+          }}
+          className="
+            absolute
+            bottom-4
+            left-1/2
+            -translate-x-1/2
+            bg-black
+            text-white
+            px-10
+            py-6
+            shadow-2xl
+            cursor-default
+          "
+        >
+          <p className="text-xs tracking-[0.3em] text-white/60 mb-2">
+            RESULT
+          </p>
+
+          <h3 className="text-xl font-medium">
+            Measurable Outcomes
+          </h3>
+        </motion.div>
+
+        {/* Nodes */}
+        <div className="absolute left-1/2 top-[120px] -translate-x-1/2 w-3 h-3 bg-black rounded-full" />
+        <div className="absolute left-1/2 top-[260px] -translate-x-1/2 w-3 h-3 bg-black rounded-full" />
+        <div className="absolute left-1/2 top-[400px] -translate-x-1/2 w-3 h-3 bg-black rounded-full" />
+        <div className="absolute left-1/2 top-[520px] -translate-x-1/2 w-3 h-3 bg-black rounded-full" />
+      </div>
+    </div>
+  </div>
+</motion.section>
+
+
 
       {SHOW_FEATURED_CASE_STUDY && <FeaturedCaseStudyDisabled />}
 

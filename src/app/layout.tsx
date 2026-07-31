@@ -7,7 +7,7 @@ import CookieConsent from "@/components/layout-components/CookieConsent";
 import ChatBot from "@/components/ui-components/ChatBot";
 import { Metadata } from "next";
 import localFont from "next/font/local";
-
+import SmoothScroll from "@/components/smoothScroll";
 const satoshi = localFont({
   src: [
     {
@@ -84,6 +84,7 @@ export default function RootLayout({
         <Footer />
         <CookieConsent />
         <ChatBot />
+        <SmoothScroll />
       </body>
     </html>
   );
