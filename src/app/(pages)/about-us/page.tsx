@@ -7,11 +7,11 @@ import TeamAbout from "@/components/about-components/TeamAbout";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Company",
+  title: "About Us",
   description:
     "Learn about Concepteur Technologies, our mission, journey, and the expert engineering team driving enterprise digital transformation.",
   alternates: {
-    canonical: "/company",
+    canonical: "/about-us",
   },
 };
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <HeroAbout />
       <StatsAbout />
       <MissionAbout />
-      <TeamAbout />
+      {/* <TeamAbout /> removed as requested */}
       <OurJourney />
       <CTAAbout />
     </main>

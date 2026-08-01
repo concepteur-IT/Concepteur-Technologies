@@ -64,7 +64,7 @@ export default function AboutSection() {
               transition={{ duration: 0.5, delay: 0.15 }}
             >
               <Link
-                href="/company"
+                href="/about-us"
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-gray-900 hover:text-gray-500 transition-colors duration-200"
               >
                 About <span>↗</span>

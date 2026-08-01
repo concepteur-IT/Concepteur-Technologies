@@ -74,15 +74,6 @@ export const teamData: TeamMember[] = [
     image: "/home/Pro.PNG",
     bio: "Experienced full-stack developer with a passion for clean code and performant user interfaces. Specializing in highly interactive applications, component-driven design systems, and frontend architecture that scales for enterprise needs.",
     experienceYears: "8+",
-    skills: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "GraphQL",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Node.js",
-    ],
     experience: [
       {
         role: "CTO, Senior Software Engineer",
@@ -90,20 +81,6 @@ export const teamData: TeamMember[] = [
         duration: "2025 - Present",
         description:
           "Leading frontend development for enterprise clients. Architecting performant Next.js applications and establishing scalable UI component libraries.",
-      },
-      {
-        role: "Software Engineer",
-        company: "",
-        duration: "2020 - 2023",
-        description:
-          "Developed and maintained full-stack e-commerce platforms. Improved site load speeds by 40% through extensive frontend optimization.",
-      },
-      {
-        role: "Junior Developer",
-        company: "",
-        duration: "2018 - 2020",
-        description:
-          "Built responsive landing pages and interactive dashboards using React and Redux.",
       },
     ],
     blogs: [],
@@ -133,13 +110,6 @@ export const teamData: TeamMember[] = [
     image: "/home/Arpan.PNG",
   },
   {
-    slug: "souvik-roy",
-    initials: "SR",
-    name: "Souvik Roy",
-    role: "Software Engineer",
-    linkedin: "https://www.linkedin.com/feed/",
-  },
-  {
     slug: "subhankar-acharjee",
     initials: "SA",
     name: "Subhankar Acharjee",
@@ -159,7 +129,7 @@ export const teamData: TeamMember[] = [
     slug: "rohit-saha",
     initials: "RS",
     name: "Rohit Saha",
-    role: "Junior Software Engineer",
+    role: "Software Engineer",
     linkedin: "https://www.linkedin.com/feed/",
     image: "/home/Rohit.PNG",
   },
@@ -167,7 +137,7 @@ export const teamData: TeamMember[] = [
     slug: "sandip-basu",
     initials: "SB",
     name: "Sandip Basu",
-    role: "Junior UI/UX Designer",
+    role: "UI/UX Designer",
     linkedin: "https://www.linkedin.com/feed/",
     image: "/home/Sandip.PNG",
   },
@@ -183,7 +153,7 @@ export const teamData: TeamMember[] = [
     slug: "aritra-roy",
     initials: "IGcd",
     name: "Ishita Guha",
-    role: "Junior UI/UX Designer",
+    role: "UI/UX Designer",
     linkedin: "https://www.linkedin.com/feed/",
   },
 ];

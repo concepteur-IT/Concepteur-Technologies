@@ -81,7 +81,7 @@ export default function Footer() {
                 <SlideLink href="/">Home</SlideLink>
               </li>
               <li>
-                <SlideLink href="/company">Company</SlideLink>
+                <SlideLink href="/about-us">About Us</SlideLink>
               </li>
               <li>
                 <SlideLink href="/capabilities">Capabilities</SlideLink>

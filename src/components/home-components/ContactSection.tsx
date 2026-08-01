@@ -214,18 +214,15 @@ ${parsedTech.map((techItem) => `${techItem.name}: ${techItem.desc}`).join("\n")}
                 Office
               </h3>
 
-              <a
-                href={mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 font-light leading-relaxed text-lg hover:text-black transition-all"
+              <div
+                className="text-gray-500 font-light leading-relaxed text-lg transition-all"
               >
                 Kajipara, Sukh Sagar Road,
                 <br />
                 741222.
                 <br />
                 Chakdaha, Nadia.
-              </a>
+              </div>
             </div>
 
             <hr className="border-gray-200 w-full max-w-xs" />

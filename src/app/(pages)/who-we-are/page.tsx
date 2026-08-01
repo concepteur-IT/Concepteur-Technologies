@@ -1,8 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { teamData } from "@/data/teamData";
 
 export default function TeamPage() {
@@ -35,40 +32,13 @@ export default function TeamPage() {
             Meet the Team.
           </h2>
           <span className="text-xs font-mono font-bold text-black border border-black px-4 py-2 uppercase tracking-widest shrink-0">
-            {teamData.length} Members
+            15+ Teams
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
           {teamData.map((member) => (
-            <Link
-              key={member.slug}
-              href={`/who-we-are/${member.slug}`}
-              className="group flex flex-col relative"
-            >
-              {/* Image / Avatar Container */}
-              <div className="aspect-[3/4] w-full bg-gray-50 relative overflow-hidden border border-gray-200 flex items-center justify-center mb-6">
-                {member.image ? (
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover object-top grayscale transition-transform duration-1000 group-hover:scale-105"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-[#FAFAF9] group-hover:bg-gray-100 transition-colors duration-500">
-                    <span className="text-5xl font-light text-gray-300 group-hover:text-black transition-colors duration-500">
-                      {member.initials}
-                    </span>
-                  </div>
-                )}
-
-                {/* Hover Overlay Arrow */}
-                <div className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white flex items-center justify-center opacity-0 -translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 shadow-lg z-10">
-                  <ArrowUpRight className="w-5 h-5 text-black group-hover:rotate-45 transition-transform duration-500" />
-                </div>
-              </div>
-
+            <div key={member.slug} className="group flex flex-col relative">
               {/* Info Container */}
               <div className="flex flex-col border-l-2 border-black pl-4">
                 <h3 className="text-xl md:text-2xl font-medium text-black mb-1 group-hover:translate-x-1 transition-transform duration-300">
@@ -78,8 +48,19 @@ export default function TeamPage() {
                   {member.role}
                 </p>
               </div>
-            </Link>
+            </div>
           ))}
+          {/* "More Members" Card */}
+          <div className="group flex flex-col relative justify-center">
+            <div className="flex flex-col border-l-2 border-dashed border-gray-300 pl-4 py-1">
+              <h3 className="text-xl md:text-2xl font-medium text-gray-400 mb-1">
+                + Many More
+              </h3>
+              <p className="text-xs font-mono font-medium text-gray-400 uppercase tracking-widest">
+                Our growing team
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -139,47 +120,6 @@ export default function TeamPage() {
           </div>
         </div>
       </section>
-
-      {/* Gallery Section */}
-      <section className="w-full px-5 md:px-[15%] py-24 md:py-32 bg-white text-black">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl md:text-6xl font-light tracking-tight text-black mb-6">
-              Behind the Scenes
-            </h2>
-            <p className="text-xl text-gray-500 font-light leading-relaxed">
-              Moments from our office, offsites, and team celebrations. The
-              people making the logic work.
-            </p>
-          </div>
-        </div>
-
-        {/* Bento Gallery Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 grid-rows-3 md:grid-rows-2 gap-4 h-[600px]">
-          {/* Placeholder blocks for gallery. The user can replace the bg colors with next/image later */}
-          <div className="col-span-2 row-span-2 bg-gray-50 border border-gray-200 custom-notch-tl-br relative overflow-hidden group">
-            <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-light tracking-widest uppercase text-sm">
-              Gallery Image 1 (Large)
-            </div>
-            {/* Example of how an image would be placed: */}
-            {/* <Image src="/gallery/1.jpg" alt="Gallery 1" fill className="object-cover opacity-80 group-hover:opacity-100 transition-opacity" /> */}
-          </div>
-          <div className="col-span-1 row-span-1 bg-gray-50 border border-gray-200 custom-notch-tl-br relative overflow-hidden flex items-center justify-center text-gray-400 font-light tracking-widest uppercase text-[10px]">
-            Image 2
-          </div>
-          <div className="col-span-1 row-span-1 bg-gray-50 border border-gray-200 custom-notch-tl-br relative overflow-hidden flex items-center justify-center text-gray-400 font-light tracking-widest uppercase text-[10px]">
-            Image 3
-          </div>
-          <div className="col-span-2 md:col-span-1 row-span-1 bg-gray-50 border border-gray-200 custom-notch-tl-br relative overflow-hidden flex items-center justify-center text-gray-400 font-light tracking-widest uppercase text-[10px]">
-            Image 4
-          </div>
-          <div className="col-span-2 md:col-span-1 row-span-1 bg-gray-50 border border-gray-200 custom-notch-tl-br relative overflow-hidden flex items-center justify-center text-gray-400 font-light tracking-widest uppercase text-[10px]">
-            Image 5
-          </div>
-        </div>
-      </section>
-
-      {/* Immersive Footer CTA */}
     </div>
   );
 }

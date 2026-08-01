@@ -23,7 +23,6 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
-  const [activeService, setActiveService] = useState(servicesData[0]);
   const megaMenuRef = useRef<HTMLDivElement>(null);
   const capabilityRef = useRef<HTMLDivElement>(null);
 
@@ -87,13 +86,11 @@ export default function Navbar() {
   };
 
   const navItems = [
-    { name: "Company", href: "/company" },
+    { name: "About Us", href: "/about-us" },
     { name: "Capabilities", href: "/capabilities" },
     { name: "Solutions", href: "/solutions" },
     { name: "Case Studies", href: "/case-studies" },
     { name: "Our Edge", href: "/our-edge" },
-    { name: "Who We Are", href: "/who-we-are" },
-    { name: "Blogs", href: "/blog" },
   ];
 
   return (
