@@ -79,281 +79,216 @@ export default function OurEdgeClient() {
               </div>
             </div>
 
-            {/* Right Wireframe */}
-            <div className="w-full lg:w-1/2 flex justify-center">
+            {/* Right Fluid Constellation Core */}
+            <motion.div className="w-full lg:w-1/2 flex justify-center items-center min-h-[600px] relative overflow-hidden bg-radial from-transparent to-transparent">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative w-full max-w-[560px] aspect-square"
+                transition={{ duration: 1.2, ease: "easeOut" as const }}
+                className="relative w-full max-w-[560px] aspect-square flex items-center justify-center"
               >
-                {/* Outer Circle */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{
-                    duration: 40,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-10 rounded-full border border-gray-300"
-                />
-
-                {/* Second Circle */}
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{
-                    duration: 28,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-20 rounded-full border border-gray-400 border-dashed"
-                />
-
-                {/* Center */}
+                {/* Background Ambient Glow Aura */}
                 <motion.div
                   animate={{
-                    scale: [1, 1.08, 1],
+                    scale: [1, 1.15, 0.95, 1],
+                    opacity: [0.15, 0.25, 0.2, 0.15],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 10,
                     repeat: Infinity,
+                    ease: "easeInOut" as const,
                   }}
-                  className="absolute left-1/2 top-1/2  z-[10] h-24 w-24 -translate-x-1/2 -translate-y-1/2 rounded-2xl border-2 border-[#0b2f33] bg-white flex items-center justify-center shadow-lg"
+                  className="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-tr from-[#0b2f33] via-teal-900/10 to-transparent blur-3xl pointer-events-none"
+                />
+
+                {/* Central Fluid Liquid Core */}
+                <motion.div
+                  animate={{
+                    borderRadius: [
+                      "42% 58% 70% 30% / 45% 45% 55% 55%",
+                      "70% 30% 52% 48% / 60% 40% 60% 40%",
+                      "45% 55% 48% 52% / 40% 60% 40% 60%",
+                      "42% 58% 70% 30% / 45% 45% 55% 55%",
+                    ],
+                    rotate: [0, 120, 240, 360],
+                    scale: [1, 1.05, 0.98, 1],
+                  }}
+                  transition={{
+                    duration: 14,
+                    repeat: Infinity,
+                    ease: "linear" as const,
+                  }}
+                  className="absolute w-36 h-36 bg-gradient-to-br from-[#0b2f33] to-[#144d54] shadow-[0_0_50px_rgba(11,47,51,0.3)] flex items-center justify-center z-20"
                 >
-                  <div className="w-8 h-8 rounded-full bg-[#0b2f33]" />
+                  {/* Inner stable core content */}
+                  <motion.div
+                    animate={{ rotate: [0, -120, -240, -360] }}
+                    transition={{ duration: 14, repeat: Infinity, ease: "linear" as const }}
+                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-inner"
+                  >
+                    <div className="w-4 h-4 rounded-full bg-[#0b2f33] animate-ping opacity-75" />
+                  </motion.div>
                 </motion.div>
 
-                {/* Top */}
-                {/* Top */}
+                {/* --------------------------- OUTER FLOATING CONSTELLATION --------------------------- */}
+                {/* No grids, no lines. Each node relies on organic drift offsets and unique periodic loops */}
+
+                {/* Node 1: AI Automation (Top Dominant) */}
                 <motion.div
-                  animate={{ y: [-5, 5, -5] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
+                  animate={{
+                    y: [0, -15, 8, 0],
+                    x: [0, 10, -5, 0],
+                    scale: [1, 1.03, 0.97, 1],
                   }}
-                  className="absolute left-1/2 top-2 z-[10] -translate-x-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex flex-col items-center justify-center text-center p-2 shadow-md"
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" as const }}
+                  className="absolute top-[12%] left-[40%] z-30 px-5 py-3 rounded-2xl bg-white/90 backdrop-blur-md border border-teal-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.06)] flex flex-col items-center min-w-[120px]"
                 >
-                  <span className="text-[14px] font-semibold text-[#0b2f33]">
+                  <span className="text-[15px] font-bold text-[#0b2f33] tracking-wide">
                     AI
                   </span>
-                  <span className="text-[14px] text-gray-500 leading-tight">
+                  <span className="text-[12px] font-medium text-gray-500 uppercase tracking-wider mt-0.5">
                     Automation
                   </span>
                 </motion.div>
 
-                {/* Bottom */}
+                {/* Node 2: Scalability (Bottom Heavy) */}
                 <motion.div
-                  animate={{ y: [5, -5, 5] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
+                  animate={{
+                    y: [0, 18, -10, 0],
+                    x: [0, -12, 12, 0],
                   }}
-                  className="absolute left-1/2 bottom-2 z-[10] -translate-x-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex items-center justify-center"
+                  transition={{
+                    duration: 9,
+                    repeat: Infinity,
+                    ease: "easeInOut" as const,
+                    delay: 0.5,
+                  }}
+                  className="absolute bottom-[14%] left-[38%] z-30 px-6 py-3.5 rounded-2xl bg-white border border-teal-900/10 shadow-[0_12px_35px_rgba(0,0,0,0.05)]"
                 >
-                  <span className="text-[14px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[14px] font-semibold text-[#0b2f33] tracking-tight">
                     Scalability
                   </span>
                 </motion.div>
 
-                {/* Left */}
+                {/* Node 3: Engineering (Left Mid) */}
                 <motion.div
-                  animate={{ x: [-5, 5, -5] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
+                  animate={{
+                    x: [0, -14, 10, 0],
+                    y: [0, 12, -12, 0],
+                    scale: [1, 0.96, 1.04, 1],
                   }}
-                  className="absolute left-2 top-1/2 z-[10] -translate-y-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex items-center justify-center"
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut" as const,
+                    delay: 1,
+                  }}
+                  className="absolute left-[8%] top-[42%] z-30 px-5 py-3.5 rounded-2xl bg-white border border-teal-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                 >
-                  <span className="text-[14px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[14px] font-semibold text-[#0b2f33]">
                     Engineering
                   </span>
                 </motion.div>
 
-                {/* Right */}
+                {/* Node 4: Innovation (Right Mid) */}
                 <motion.div
-                  animate={{ x: [5, -5, 5] }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
+                  animate={{
+                    x: [0, 16, -12, 0],
+                    y: [0, -10, 15, 0],
                   }}
-                  className="absolute right-2 top-1/2 z-[10] -translate-y-1/2 w-20 h-20 rounded-xl border border-gray-400 bg-white flex items-center justify-center"
+                  transition={{
+                    duration: 8.5,
+                    repeat: Infinity,
+                    ease: "easeInOut" as const,
+                    delay: 1.5,
+                  }}
+                  className="absolute right-[8%] top-[40%] z-30 px-5 py-3.5 rounded-2xl bg-white border border-teal-900/10 shadow-[0_10px_30px_rgba(0,0,0,0.05)]"
                 >
-                  <span className="text-[14px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[14px] font-semibold text-[#0b2f33]">
                     Innovation
                   </span>
                 </motion.div>
 
-                {/* Top Left */}
+                {/* Node 5: Strategy (Top Left Accent) */}
                 <motion.div
                   animate={{
-                    scale: [1, 1.05, 1],
+                    y: [0, -10, 12, 0],
+                    x: [0, -10, 8, 0],
+                    scale: [1, 1.05, 0.95, 1],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 6.5,
                     repeat: Infinity,
-                    delay: 0.2,
+                    ease: "easeInOut" as const,
+                    delay: 2,
                   }}
-                  className="absolute left-14 top-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                  className="absolute left-[20%] top-[22%] z-30 px-4 py-2 rounded-xl bg-teal-50/60 backdrop-blur-sm border border-teal-900/5 shadow-sm"
                 >
-                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[12px] font-medium text-teal-950">
                     Strategy
                   </span>
                 </motion.div>
 
-                {/* Top Right */}
+                {/* Node 6: Security (Top Right Accent) */}
                 <motion.div
                   animate={{
-                    scale: [1.05, 1, 1.05],
+                    y: [0, 12, -8, 0],
+                    x: [0, 14, -6, 0],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 7.5,
                     repeat: Infinity,
-                    delay: 0.6,
+                    ease: "easeInOut" as const,
+                    delay: 0.8,
                   }}
-                  className="absolute right-14 top-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                  className="absolute right-[20%] top-[24%] z-30 px-4 py-2 rounded-xl bg-teal-50/60 backdrop-blur-sm border border-teal-900/5 shadow-sm"
                 >
-                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[12px] font-medium text-teal-950">
                     Security
                   </span>
                 </motion.div>
 
-                {/* Bottom Left */}
+                {/* Node 7: Reliability (Bottom Left Accent) */}
                 <motion.div
                   animate={{
-                    scale: [1, 1.05, 1],
+                    y: [0, 8, -14, 0],
+                    x: [0, -8, 12, 0],
+                    scale: [1, 0.93, 1.07, 1],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 8.2,
                     repeat: Infinity,
-                    delay: 1,
+                    ease: "easeInOut" as const,
+                    delay: 2.3,
                   }}
-                  className="absolute left-14 bottom-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                  className="absolute left-[18%] bottom-[26%] z-30 px-4 py-2 rounded-xl bg-teal-50/60 backdrop-blur-sm border border-teal-900/5 shadow-sm"
                 >
-                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[12px] font-medium text-teal-950">
                     Reliability
                   </span>
                 </motion.div>
 
-                {/* Bottom Right */}
+                {/* Node 8: Multi-Automation (Bottom Right Accent) */}
                 <motion.div
                   animate={{
-                    scale: [1.05, 1, 1.05],
+                    y: [0, -12, 10, 0],
+                    x: [0, 12, -10, 0],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 6.8,
                     repeat: Infinity,
-                    delay: 1.4,
+                    ease: "easeInOut" as const,
+                    delay: 1.2,
                   }}
-                  className="absolute right-14 bottom-14 z-[10] w-16 h-16 rounded-lg border border-gray-300 bg-white flex items-center justify-center"
+                  className="absolute right-[16%] bottom-[28%] z-30 px-4 py-2 rounded-xl bg-teal-50/60 backdrop-blur-sm border border-teal-900/5 shadow-sm"
                 >
-                  <span className="text-[11px] font-semibold text-[#0b2f33] text-center leading-tight">
+                  <span className="text-[12px] font-medium text-teal-950">
                     Automation
                   </span>
                 </motion.div>
-                {/* Connection Lines */}
-                <svg
-                  className="absolute inset-0 w-full h-full"
-                  viewBox="0 0 600 600"
-                  fill="none"
-                >
-                  <motion.path
-                    d="M300 70 L300 260"
-                    stroke="#BDBDBD"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1 }}
-                  />
-
-                  <motion.path
-                    d="M300 340 L300 530"
-                    stroke="#BDBDBD"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1 }}
-                  />
-
-                  <motion.path
-                    d="M70 300 L260 300"
-                    stroke="#BDBDBD"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1 }}
-                  />
-
-                  <motion.path
-                    d="M340 300 L530 300"
-                    stroke="#BDBDBD"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1 }}
-                  />
-
-                  <motion.path
-                    d="M300 300 L120 120"
-                    stroke="#D6D6D6"
-                    strokeWidth="1"
-                    strokeDasharray="6 6"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1.2 }}
-                  />
-
-                  <motion.path
-                    d="M300 300 L480 120"
-                    stroke="#D6D6D6"
-                    strokeWidth="1"
-                    strokeDasharray="6 6"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1.2 }}
-                  />
-
-                  <motion.path
-                    d="M300 300 L120 480"
-                    stroke="#D6D6D6"
-                    strokeWidth="1"
-                    strokeDasharray="6 6"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1.2 }}
-                  />
-
-                  <motion.path
-                    d="M300 300 L480 480"
-                    stroke="#D6D6D6"
-                    strokeWidth="1"
-                    strokeDasharray="6 6"
-                    initial={{ pathLength: 0 }}
-                    whileInView={{ pathLength: 1 }}
-                    transition={{ duration: 1.2 }}
-                  />
-                </svg>
-
-                {/* Animated Signal */}
-                <motion.div
-                  animate={{
-                    rotate: 360,
-                  }}
-                  transition={{
-                    duration: 12,
-                    repeat: Infinity,
-                    ease: "linear",
-                  }}
-                  className="absolute inset-0"
-                >
-                  <div className="absolute left-1/2 top-10 h-3 w-3 -translate-x-1/2 rounded-full bg-[#0b2f33]" />
-                </motion.div>
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </motion.section>

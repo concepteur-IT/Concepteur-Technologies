@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { MapPin, Mail } from "lucide-react";
 import ContactForm from "../ui-components/forms/ContactForm";
@@ -12,7 +12,7 @@ type TechItem = {
   desc: string;
 };
 
-export default function ContactSection() {
+function ContactSectionContent() {
   const searchParams = useSearchParams();
 
   const topic = searchParams.get("topic");
@@ -27,12 +27,8 @@ export default function ContactSection() {
     parsedTech = [];
   }
 
-  const mapsUrl = "https://maps.app.goo.gl/KnKUJXcJ6CHmmFHn7";
-
   const [loading, setLoading] = useState(false);
-
   const [typedText, setTypedText] = useState("");
-
   const [fullText, setFullText] = useState("");
 
   /*
@@ -43,12 +39,10 @@ export default function ContactSection() {
     if (!fullText) return;
 
     let index = 0;
-
     setTypedText("");
 
     const interval = setInterval(() => {
       setTypedText(fullText.slice(0, index));
-
       index++;
 
       if (index > fullText.length) {
@@ -268,5 +262,13 @@ ${parsedTech.map((techItem) => `${techItem.name}: ${techItem.desc}`).join("\n")}
         </div>
       </div>
     </section>
+  );
+}
+
+export default function ContactSection() {
+  return (
+    <Suspense fallback={null}>
+      <ContactSectionContent />
+    </Suspense>
   );
 }
