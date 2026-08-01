@@ -2,6 +2,7 @@ import { servicesData } from "@/data/servicesData";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import LetsTalkBtn from "@/components/ui-components/buttons/LetsTalkBtn";
+import CapabilityVideoSection from "@/components/capabilities-components/CapabilityVideoSection";
 
 // Generate static params for all known services at build time
 export function generateStaticParams() {
@@ -51,8 +52,6 @@ export default async function ServiceDetail({
     "/home/cap-web.png",
   ];
 
-  const heroImage = "/home/bg-frontend.png";
-
   return (
     <main className="w-full min-h-screen bg-[#fcfcfc] pb-32 pt-32 md:pt-40">
       {/* Colossal Typography Header */}
@@ -73,151 +72,13 @@ export default async function ServiceDetail({
         </div>
       </div>
 
-      {/* Massive Hero Block */}
-      <div className="w-full px-0 md:px-[5%] lg:px-[15%] mb-20 lg:mb-32">
-        <div className="relative w-full aspect-[4/3] md:aspect-[21/9] overflow-hidden rounded-[32px] border border-neutral-200 bg-gradient-to-br from-white via-neutral-50 to-neutral-100 select-none">
-          {/* Background Blurs */}
-          <div className="absolute -top-24 -left-24 h-80 w-80 rounded-full bg-neutral-200 blur-[120px] opacity-60 animate-pulse [animation-duration:8s]" />
-          <div className="absolute bottom-0 right-0 h-80 w-80 translate-x-1/4 translate-y-1/4 rounded-full bg-neutral-300 blur-[120px] opacity-40 animate-pulse [animation-duration:10s]" />
-          <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-neutral-200 blur-[90px] opacity-40 animate-pulse [animation-duration:6s]" />
-
-          {/* Left Card */}
-          <div className="absolute left-[4%] top-[12%] z-10 w-40 sm:w-44 rounded-3xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-xl hover:-translate-y-2 transition-all duration-500 hidden sm:block">
-            <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-neutral-400">
-              PERFORMANCE
-            </p>
-            <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-bold text-neutral-900">
-              98%
-            </h2>
-            <div className="mt-4 sm:mt-5 h-2 rounded-full bg-neutral-200 overflow-hidden">
-              <div className="h-full w-[98%] rounded-full bg-black" />
-            </div>
-          </div>
-
-          {/* Right Card */}
-          <div className="absolute right-[4%] top-[12%] z-10 w-40 sm:w-44 rounded-3xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-xl hover:-translate-y-2 transition-all duration-500 hidden sm:block">
-            <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.35em] text-neutral-400">
-              LATENCY
-            </p>
-            <h2 className="mt-3 sm:mt-4 text-3xl sm:text-4xl font-bold text-neutral-900">
-              12ms
-            </h2>
-            <div className="mt-4 sm:mt-5 flex gap-2">
-              <span className="h-2 w-2 rounded-full bg-black" />
-              <span className="h-2 w-2 rounded-full bg-neutral-400" />
-              <span className="h-2 w-2 rounded-full bg-neutral-300" />
-            </div>
-          </div>
-
-          {/* Bottom Left */}
-          <div className="absolute left-[4%] bottom-[12%] z-10 w-44 sm:w-48 rounded-3xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-xl hover:-translate-y-2 transition-all duration-500 hidden sm:block">
-            <div className="flex justify-between items-center">
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-neutral-400">
-                STATUS
-              </span>
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-            </div>
-            <div className="mt-4 sm:mt-5 flex items-end gap-2 justify-between">
-              {[40, 65, 35, 80, 55].map((h, i) => (
-                <div
-                  key={i}
-                  className="w-2.5 sm:w-3 rounded-full bg-black transition-all duration-300"
-                  style={{ height: `${h}px` }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom Right */}
-          <div className="absolute right-[4%] bottom-[12%] z-10 w-48 sm:w-52 rounded-3xl border border-white/70 bg-white/80 backdrop-blur-xl p-4 sm:p-5 shadow-xl hover:-translate-y-2 transition-all duration-500 hidden sm:block">
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-neutral-400">
-              MODULES
-            </p>
-            <div className="mt-4 sm:mt-5 flex flex-wrap gap-1.5 sm:gap-2">
-              {["AI", "DATA", "API", "CLOUD"].map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-neutral-300 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10px] sm:text-xs font-medium text-neutral-700 bg-white/50"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Center Orb System */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0">
-            {/* Glow */}
-            <div className="absolute inset-0 scale-150 rounded-full bg-neutral-300 blur-3xl opacity-30 animate-pulse [animation-duration:4s]" />
-            {/* Outer Rotating Ring */}
-            <div
-              className="relative h-56 w-56 sm:h-64 sm:w-64 rounded-full border border-neutral-300 bg-white shadow-[0_25px_70px_rgba(0,0,0,0.06)] flex items-center justify-center"
-              style={{ animation: "spin 25s linear infinite" }}
-            >
-              <div className="absolute h-[84%] w-[84%] rounded-full border border-neutral-200/80" />
-              <div className="absolute h-[65%] w-[65%] rounded-full border border-neutral-300/60" />
-              <div className="absolute h-[45%] w-[45%] rounded-full border border-neutral-400/40" />
-              {/* Orbiting Nodes */}
-              <div className="absolute w-2.5 h-2.5 rounded-full bg-black top-3 left-1/2 -translate-x-1/2" />
-              <div className="absolute w-2.5 h-2.5 rounded-full bg-black bottom-3 left-1/2 -translate-x-1/2" />
-              <div className="absolute w-2.5 h-2.5 rounded-full bg-black left-3 top-1/2 -translate-y-1/2" />
-              <div className="absolute w-2.5 h-2.5 rounded-full bg-black right-3 top-1/2 -translate-y-1/2" />
-              {/* Counter-Rotating Center Core Text to keep it perfectly level */}
-              <div
-                className="text-center select-none z-10"
-                style={{ animation: "spin 25s linear infinite reverse" }}
-              >
-                <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.45em] text-neutral-400 font-medium">
-                  AI CORE
-                </p>
-                <h2 className="mt-1 sm:mt-2 text-4xl sm:text-5xl font-light text-neutral-900 leading-none">
-                  ∞
-                </h2>
-              </div>
-            </div>
-          </div>
-
-          {/* Floating Decorative Pills */}
-          <div className="absolute left-[20%] md:left-[26%] top-[14%] rounded-full bg-white/80 backdrop-blur-xl border border-neutral-200 px-4 py-1.5 shadow-md hover:scale-105 transition duration-300 z-10">
-            <span className="text-[11px] sm:text-xs font-medium text-neutral-600">
-              Analysis
-            </span>
-          </div>
-          <div className="absolute right-[20%] md:right-[24%] top-[16%] rounded-full bg-white/80 backdrop-blur-xl border border-neutral-200 px-4 py-1.5 shadow-md hover:scale-105 transition duration-300 z-10">
-            <span className="text-[11px] sm:text-xs font-medium text-neutral-600">
-              Vision
-            </span>
-          </div>
-          <div className="absolute left-[22%] md:left-[28%] bottom-[16%] rounded-full bg-white/80 backdrop-blur-xl border border-neutral-200 px-4 py-1.5 shadow-md hover:scale-105 transition duration-300 z-10">
-            <span className="text-[11px] sm:text-xs font-medium text-neutral-600">
-              Security
-            </span>
-          </div>
-          <div className="absolute right-[22%] md:right-[26%] bottom-[14%] rounded-full bg-white/80 backdrop-blur-xl border border-neutral-200 px-4 py-1.5 shadow-md hover:scale-105 transition duration-300 z-10">
-            <span className="text-[11px] sm:text-xs font-medium text-neutral-600">
-              Automation
-            </span>
-          </div>
-          <div className="absolute left-1/2 top-[8%] -translate-x-1/2 rounded-full bg-white/80 backdrop-blur-xl border border-neutral-200 px-4 py-1.5 shadow-md hover:scale-105 transition duration-300 z-10">
-            <span className="text-[11px] sm:text-xs font-medium text-neutral-600">
-              Realtime
-            </span>
-          </div>
-
-          {/* Secondary Ambient Accent Dots */}
-          <div className="absolute left-[16%] top-[48%] w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse [animation-duration:3s]" />
-          <div className="absolute right-[16%] top-[42%] w-2 h-2 rounded-full bg-black/10 animate-pulse [animation-duration:4s]" />
-          <div className="absolute right-[25%] top-[72%] w-1.5 h-1.5 rounded-full bg-black/20 animate-pulse [animation-duration:2.5s]" />
-          <div className="absolute left-[34%] top-[74%] w-1.5 h-1.5 rounded-full bg-black/10 animate-pulse [animation-duration:3.5s]" />
-
-          {/* Bottom Footer Text */}
-          <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 w-full text-center px-4 pointer-events-none z-10">
-            <p className="font-mono text-[9px] sm:text-xs uppercase tracking-[0.35em] sm:tracking-[0.45em] text-neutral-400 font-medium">
-              Intelligence &bull; Experience &bull; Innovation
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* About-Us Styled Video Banner Section */}
+      <CapabilityVideoSection
+        videoUrl={service.videoUrl}
+        vimeoId={service.vimeoId}
+        title={service.title}
+        image={service.image}
+      />
 
       {/* Sticky Editorial Split Section */}
       {/* "items-start" is crucial here to prevent the left column from stretching */}
