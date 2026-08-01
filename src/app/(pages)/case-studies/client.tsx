@@ -222,21 +222,7 @@ export default function CaseStudiesClient() {
       <div className="relative h-[680px] flex items-center justify-center">
 
         {/* Spine */}
-        <div
-          className="
-            absolute
-            left-1/2
-            top-20
-            bottom-20
-            -translate-x-1/2
-            w-[6px]
-            bg-gray-100
-            rounded-full
-            border
-            border-gray-200
-            overflow-hidden
-          "
-        >
+        <div className="absolute left-1/2 top-20 bottom-20 -translate-x-1/2 w-[6px] bg-gray-100 rounded-full border border-gray-200 overflow-hidden">
           {/* Flowing Glow */}
           <motion.div
             animate={{
@@ -247,19 +233,7 @@ export default function CaseStudiesClient() {
               repeat: Infinity,
               ease: "linear",
             }}
-            className="
-              absolute
-              left-0
-              w-full
-              h-36
-              rounded-full
-              bg-gradient-to-b
-              from-transparent
-              via-black
-              to-transparent
-              opacity-100
-              blur-sm
-            "
+            className="absolute left-0 w-full h-36 rounded-full bg-gradient-to-b from-transparent via-black to-transparent opacity-100 blur-sm"
           />
         </div>
 
@@ -278,23 +252,7 @@ export default function CaseStudiesClient() {
             y: -10,
             scale: 1.04,
           }}
-          className="
-            group
-            absolute
-            top-12
-            left-0
-            w-[260px]
-            bg-white
-            border
-            border-gray-200
-            px-8
-            py-5
-            shadow-sm
-            hover:shadow-2xl
-            transition-all
-            duration-500
-            cursor-default
-          "
+          className="group absolute top-12 left-0 w-[260px] bg-white border border-gray-200 px-8 py-5 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-default"
         >
           <div className="absolute top-1/2 -right-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
 
@@ -322,23 +280,7 @@ export default function CaseStudiesClient() {
             y: -10,
             scale: 1.04,
           }}
-          className="
-            group
-            absolute
-            top-[180px]
-            right-0
-            w-[260px]
-            bg-white
-            border
-            border-gray-200
-            px-8
-            py-5
-            shadow-sm
-            hover:shadow-2xl
-            transition-all
-            duration-500
-            cursor-default
-          "
+          className="group absolute top-[180px] right-0 w-[260px] bg-white border border-gray-200 px-8 py-5 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-default"
         >
           <div className="absolute top-1/2 -left-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
 
@@ -366,23 +308,7 @@ export default function CaseStudiesClient() {
             y: -10,
             scale: 1.04,
           }}
-          className="
-            group
-            absolute
-            top-[320px]
-            left-0
-            w-[260px]
-            bg-white
-            border
-            border-gray-200
-            px-8
-            py-5
-            shadow-sm
-            hover:shadow-2xl
-            transition-all
-            duration-500
-            cursor-default
-          "
+          className="group absolute top-[320px] left-0 w-[260px] bg-white border border-gray-200 px-8 py-5 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-default"
         >
           <div className="absolute top-1/2 -right-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
 
@@ -410,23 +336,7 @@ export default function CaseStudiesClient() {
             y: -10,
             scale: 1.04,
           }}
-          className="
-            group
-            absolute
-            top-[430px]
-            right-0
-            w-[260px]
-            bg-white
-            border
-            border-gray-200
-            px-8
-            py-5
-            shadow-sm
-            hover:shadow-2xl
-            transition-all
-            duration-500
-            cursor-default
-          "
+          className="group absolute top-[430px] right-0 w-[260px] bg-white border border-gray-200 px-8 py-5 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-default"
         >
           <div className="absolute top-1/2 -left-11 w-11 h-px bg-gray-300 group-hover:bg-black transition-all duration-500" />
 
@@ -462,18 +372,7 @@ export default function CaseStudiesClient() {
             scale: 1.05,
             y: -5,
           }}
-          className="
-            absolute
-            bottom-4
-            left-1/2
-            -translate-x-1/2
-            bg-black
-            text-white
-            px-10
-            py-6
-            shadow-2xl
-            cursor-default
-          "
+          className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black text-white px-10 py-6 shadow-2xl cursor-default"
         >
           <p className="text-xs tracking-[0.3em] text-white/60 mb-2">
             RESULT

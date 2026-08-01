@@ -9,14 +9,14 @@ export type Stat = {
 
 export const statsData: Stat[] = [
   {
-    value: 45,
+    value: 46,
     suffix: "+",
     label: "Projects Completed",
     description:
       "Delivered across web, mobile, AI, and enterprise platforms globally.",
   },
   {
-    value: 22,
+    value: 23,
     suffix: "+",
     label: "End-to-End Projects",
     description:
@@ -30,7 +30,7 @@ export const statsData: Stat[] = [
       "A focused team of engineers, designers, and product thinkers.",
   },
   {
-    value: 12,
+    value: 8,
     suffix: "+",
     label: "Active Projects",
     description:

@@ -188,4 +188,184 @@ export const caseStudies = [
       ],
     },
   },
+  {
+    slug: "flipkart-academy-scoa",
+    title:
+      "Architecting a Scalable Backend & Frontend for Flipkart Academy SCOA via ViSolutionz",
+    template: "template1",
+    tag: "Enterprise LMS / EdTech",
+    shortDesc:
+      "Delivered a mission-critical learning management system (LMS) for Flipkart SCOA. We architected a scalable Node.js backend and a high-performance Next.js frontend, enabling dynamic course creation, resilient multi-channel notifications, and high-concurrency exam processing.",
+    gradient: "from-blue-700 to-yellow-500",
+    results: {
+      scale: "High Concurrency",
+      uptime: "Near-perfect",
+      delivery: "5 Months",
+    },
+
+    client: "Flipkart",
+    domain: "https://flipkartacademy-scoa.in/",
+    platform: "Next.js Frontend + Node.js Backend + PostgreSQL + Redis",
+    role: "Comprehensive Backend Development & End-to-End Frontend Architecture",
+
+    heroImage: "/case-studies/flipkart.png",
+
+    stack: [
+      "Next.js (v16)",
+      "React 19",
+      "Node.js (v22+)",
+      "Express 5",
+      "PostgreSQL 16+",
+      "Redis 7+",
+      "BullMQ",
+      "Tailwind CSS v4",
+      "Zustand",
+      "React Hook Form",
+      "Zod",
+      "TanStack React Table",
+      "Recharts",
+      "Framer Motion",
+      "@dnd-kit",
+      "Sharp",
+    ],
+
+    overview:
+      "Over a rigorous 5-month development cycle in collaboration with ViSolutionz.com, our specialized engineering team delivered a mission-critical platform for Flipkart Academy SCOA. Tasked with building the entire core infrastructure of a modern Learning Management System (LMS), we successfully architected, developed, and deployed a highly scalable, secure, and resilient backend alongside a responsive, interactive frontend. The resulting system effortlessly powers complex workflows ranging from user onboarding and dynamic enrollments to high-concurrency exam processing and automated multi-channel notifications.",
+
+    challenge: [
+      "Handling high concurrency during exam windows and major registration drives without locking the database or crashing the server.",
+      "Designing a complex data relational model linking students, courses, dynamic forms, quiz attempts, and certificates.",
+      "Implementing asynchronous processing for notifications (Emails, SMS, WhatsApp) to avoid synchronous delays and timeouts.",
+      "Enforcing granular Role-Based Access Control (RBAC) for administrators versus standard student authentication.",
+      "Managing complex nested forms for course creation leading to sluggish UI performance.",
+      "Rendering massive datasets in the admin portal (thousands of users/records) without freezing the DOM.",
+    ],
+
+    solution: [
+      {
+        title: "Decoupled Backend Architecture & Tech Stack",
+        points: [
+          "Engineered a RESTful API built on a layered architecture (Controller → Service → Repository → Model pattern) for testability.",
+          "Utilized Node.js (v22+) with Express 5 for lightning-fast, non-blocking I/O.",
+          "Deployed PostgreSQL 16+ with Sequelize ORM for ACID compliance and Redis 7+ for high-speed caching and OTPs.",
+          "Integrated BullMQ for asynchronous job processing of multi-channel notifications.",
+        ],
+      },
+      {
+        title: "Dual-Tier Authentication & RBAC",
+        points: [
+          "Implemented stateless JWT-based access and OTP verification for the Student Module.",
+          "Built a sophisticated Role-Based Access Control (RBAC) system for administrators.",
+          "Utilized Redis for real-time invalidation of user sessions and tokens.",
+        ],
+      },
+      {
+        title: "Dynamic Course, Form, and Exam Engine",
+        points: [
+          "Built a dynamic enrollment engine supporting custom form groups and fields.",
+          "Created a robust assessment system capable of tracking granular student responses.",
+          "Integrated Sharp for server-side generation of personalized student certificates.",
+        ],
+      },
+      {
+        title: "Resilient Multi-Channel Notification System",
+        points: [
+          "Offloaded Email, WhatsApp, and SMS communications to a BullMQ worker architecture.",
+          "Configured workers to prioritize critical messages (OTPs) over standard notifications.",
+          "Designed the system for graceful degradation with third-party providers using backoff strategies and webhooks.",
+          "Implemented dedicated webhook listeners to process real-time delivery callbacks from Gupshup and Karix.",
+        ],
+      },
+      {
+        title: "Monitoring, Audit Trails, and Operations",
+        points: [
+          "Implemented comprehensive audit trails for administrative actions (admin_audit_log) and student activities (student_audit_log, student_login_log).",
+          "Tracked every dispatched message in a dedicated notification_log table.",
+          "Integrated Bull Board for a visual dashboard to monitor queue health and retry failed jobs.",
+        ],
+      },
+      {
+        title: "The Learner Dashboard & Course Consumption",
+        points: [
+          "Resume-Anywhere Functionality: Seamless state-sync feature to resume videos/modules exactly where left off.",
+          "Interactive Modules: UI supports interactive quizzes, downloadable resources, and real-time progress bars via Framer Motion.",
+          "Responsive & Accessible: Fully responsive, mobile-first, and adheres to WCAG accessibility standards.",
+        ],
+      },
+      {
+        title: "Admin & Instructor Portal",
+        points: [
+          "Advanced Data Management Grids: Built using TanStack React Table to manage thousands of users/records with server-side pagination.",
+          "Dynamic Course Builder: Multi-step form workflow utilizing React Hook Form to seamlessly add modules and assessments.",
+          "Drag-and-Drop Assessments: Built interactive question types using @dnd-kit.",
+        ],
+      },
+      {
+        title: "Analytics and Reporting",
+        points: [
+          "Visual Dashboards: Integrated Recharts to display course completion rates, scores, and growth.",
+          "Export Capabilities: Implemented client-side CSV generation to export filtered table data for offline analysis.",
+        ],
+      },
+    ],
+
+    frontendChallenges: [
+      {
+        title: "Challenge 1: Managing Complex Nested Forms",
+        issue:
+          "The course creation form was massive, involving nested arrays (Courses -> Modules -> Lessons -> Assessments), leading to sluggish UI performance on every keystroke.",
+        solution:
+          "We leveraged React Hook Form's useFieldArray combined with Zod for validation. This allowed us to isolate re-renders strictly to the specific field being edited, resulting in a buttery-smooth form experience despite the complexity.",
+      },
+      {
+        title: "Challenge 2: Performance with Large Datasets",
+        issue:
+          "The admin portal needed to display thousands of user records simultaneously, causing the DOM to freeze.",
+        solution:
+          "We implemented data virtualization alongside TanStack React Table. By only rendering the rows visible in the viewport, we kept the DOM node count low, maintaining a 60fps scrolling experience regardless of dataset size.",
+      },
+    ],
+
+    methodology: [
+      {
+        month: "Month 1: Discovery & Architecture",
+        description:
+          "Collaborated with ViSolutionz to finalize API contracts, define the UI/UX design system, and set up the Next.js repository with CI/CD pipelines.",
+      },
+      {
+        month: "Month 2-3: Core Development (Learner Portal)",
+        description:
+          "Focused on authentication, the primary dashboard, course consumption interfaces, and video player integration.",
+      },
+      {
+        month: "Month 4: Admin Portal & Complex Workflows",
+        description:
+          "Shifted focus to the heavy administrative tools, data tables, the course builder, and assessment engine.",
+      },
+      {
+        month: "Month 5: Polish, Optimization & UAT",
+        description:
+          "Dedicated entirely to performance tuning (Core Web Vitals), cross-browser testing, fixing edge cases, and User Acceptance Testing (UAT) with the client.",
+      },
+    ],
+
+    businessImpact: [
+      "Enhanced User Engagement: The modern, fluid UI drastically improved the learner experience, resulting in higher course completion rates compared to legacy systems.",
+      "Operational Efficiency: The powerful admin portal reduced the time required for instructors to create courses and manage learner cohorts.",
+      "Future-Proof Scalability: The React 19 / Next.js 16 architecture ensures the platform is ready to scale as Flipkart expands its training programs across new verticals.",
+    ],
+
+    architecturalImpact: {
+      objective: [
+        "Transformed complex business requirements into a highly functional, production-ready enterprise LMS.",
+        "Ensured backend could seamlessly handle thousands of concurrent users via Node.js, Redis, and BullMQ.",
+        "Achieved near-perfect uptime by decoupling third-party dependencies through job queues.",
+      ],
+      strategic: [
+        "Provided ViSolutionz and Flipkart with a highly maintainable, future-proof codebase ready for feature expansion.",
+        "Delivered a consumer-grade user experience that balances complex business logic effortlessly.",
+        "Established Flipkart Academy SCOA as a state-of-the-art training ecosystem for supply chain operations.",
+      ],
+    },
+  },
 ];
