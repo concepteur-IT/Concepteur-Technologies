@@ -124,12 +124,7 @@ export default function AIIntelligentAutomation({
               strokeWidth="1.5"
             />
 
-            <circle
-              cx="300"
-              cy="225"
-              r="32"
-              fill="#111827"
-            />
+            <circle cx="300" cy="225" r="32" fill="#111827" />
 
             <text
               x="300"
@@ -148,10 +143,6 @@ export default function AIIntelligentAutomation({
             <circle cx="325" cy="200" r="4" fill="#111827" />
             <circle cx="275" cy="250" r="4" fill="#111827" />
             <circle cx="325" cy="250" r="4" fill="#111827" />
-
-
-
- 
 
             {/* CENTRAL PULSE */}
 

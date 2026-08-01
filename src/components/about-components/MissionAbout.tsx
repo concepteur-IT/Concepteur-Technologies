@@ -63,179 +63,135 @@ const MissionAbout = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="w-full mt-16 lg:mt-24"
-          >
-   <motion.div
-  initial={{ opacity: 0, scale: 0.98 }}
-  whileInView={{ opacity: 1, scale: 1 }}
+       <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
-  transition={{
-    duration: 0.8,
-    delay: 0.2,
-    ease: [0.22, 1, 0.36, 1],
-  }}
+  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
   className="w-full mt-16 lg:mt-24"
 >
-  <div className="relative w-full aspect-[21/9] md:aspect-[4/1] overflow-hidden bg-[#fafafa] border border-gray-200 custom-notch-tl-br">
+  <div className="relative w-full min-h-[300px] md:aspect-[4/1] overflow-hidden bg-[#fafafa] border border-gray-100 rounded-3xl p-6 md:p-8 flex items-center shadow-[0_8px_40px_rgba(0,0,0,0.01)]">
+    
+    {/* Ambient Background Gradient Fields */}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div className="absolute -top-12 left-10 w-80 h-80 bg-gradient-to-tr from-gray-200/30 to-neutral-100/10 rounded-full blur-3xl" />
+      <div className="absolute -bottom-16 right-1/4 w-96 h-96 bg-gradient-to-br from-neutral-200/20 to-zinc-100/10 rounded-full blur-3xl" />
+    </div>
 
-    {/* Grid */}
-    <div
-      className="absolute inset-0 opacity-40"
-      style={{
-        backgroundImage: `
-          linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px)
-        `,
-        backgroundSize: "40px 40px",
-      }}
-    />
+    {/* ================= DYNAMIC GLOWING LINE SYSTEM ================= */}
+    
+    {/* Desktop Glow Line (Horizontal) */}
+    <svg className="absolute inset-0 w-full h-full pointer-events-none hidden md:block z-0">
+      <defs>
+        {/* Glow Filter */}
+        <filter id="line-glow" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        {/* Laser Gradient */}
+        <linearGradient id="laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#e5e5e5" stopOpacity="0" />
+          <stop offset="15%" stopColor="#171717" stopOpacity="1" />
+          <stop offset="50%" stopColor="#a3a3a3" stopOpacity="1" />
+          <stop offset="85%" stopColor="#171717" stopOpacity="1" />
+          <stop offset="100%" stopColor="#e5e5e5" stopOpacity="0" />
+        </linearGradient>
+      </defs>
 
-    {/* Connection Lines */}
-    <svg
-      className="absolute inset-0 w-full h-full"
-      viewBox="0 0 1200 300"
-      preserveAspectRatio="none"
-    >
-      {[
-        ["150,150", "350,100"],
-        ["350,100", "550,150"],
-        ["550,150", "750,80"],
-        ["750,80", "950,150"],
-        ["350,100", "350,220"],
-        ["550,150", "550,250"],
-        ["750,80", "750,220"],
-      ].map(([a, b], i) => (
-        <motion.line
-          key={i}
-          x1={a.split(",")[0]}
-          y1={a.split(",")[1]}
-          x2={b.split(",")[0]}
-          y2={b.split(",")[1]}
-          stroke="#111"
-          strokeWidth="1"
-          strokeDasharray="8 8"
-          initial={{ pathLength: 0 }}
-          animate={{ pathLength: 1 }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "linear",
-            delay: i * 0.2,
-          }}
-        />
-      ))}
+      {/* Dim structural base rail */}
+      <line x1="12%" y1="50%" x2="88%" y2="50%" stroke="#e5e5e5" strokeWidth="1" />
+      
+      {/* Primary glowing pulse rail */}
+      <motion.line
+        x1="12%"
+        y1="50%"
+        x2="88%"
+        y2="50%"
+        stroke="url(#laser-grad)"
+        strokeWidth="2"
+        strokeDasharray="40 120"
+        animate={{ strokeDashoffset: [0, -320] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        filter="url(#line-glow)"
+      />
     </svg>
 
-    {/* Growth Nodes */}
-    {[
-      { x: "12%", y: "50%" },
-      { x: "30%", y: "33%" },
-      { x: "46%", y: "50%" },
-      { x: "63%", y: "27%" },
-      { x: "80%", y: "50%" },
-      { x: "30%", y: "73%" },
-      { x: "46%", y: "83%" },
-      { x: "63%", y: "73%" },
-    ].map((node, i) => (
-      <div
-        key={i}
-        className="absolute"
-        style={{
-          left: node.x,
-          top: node.y,
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        {/* Pulse */}
-        <motion.div
-          className="absolute inset-0 rounded-full border border-black/20"
-          animate={{
-            scale: [1, 2.5],
-            opacity: [0.6, 0],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            delay: i * 0.3,
-          }}
-        />
-
-        {/* Core */}
-        <motion.div
-          className="w-3 h-3 rounded-full bg-black"
-          animate={{
-            scale: [1, 1.5, 1],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            delay: i * 0.2,
-          }}
-        />
-      </div>
-    ))}
-
-    {/* Data Flow */}
-    {[0, 1, 2, 3].map((i) => (
-      <motion.div
-        key={i}
-        className="absolute w-2 h-2 rounded-full bg-black"
-        initial={{
-          left: "12%",
-          top: "50%",
-        }}
-        animate={{
-          left: ["12%", "30%", "46%", "63%", "80%"],
-          top: ["50%", "33%", "50%", "27%", "50%"],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "linear",
-          delay: i * 2,
-        }}
+    {/* Mobile Glow Line (Vertical) */}
+    <svg className="absolute inset-0 w-full h-full pointer-events-none md:hidden z-0">
+      <line x1="50%" y1="8%" x2="50%" y2="92%" stroke="#e5e5e5" strokeWidth="1" />
+      <motion.line
+        x1="50%"
+        y1="8%"
+        x2="50%"
+        y2="92%"
+        stroke="#171717"
+        strokeWidth="2"
+        strokeDasharray="30 80"
+        animate={{ strokeDashoffset: [0, -220] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
       />
-    ))}
+    </svg>
 
-    {/* Sustainable Growth Rings */}
-    <div className="absolute right-16 top-1/2 -translate-y-1/2">
-      {[0, 1, 2].map((ring) => (
+    {/* =============================================================== */}
+
+    {/* Modern Connected Cards */}
+    <div className="relative z-10 w-full flex flex-col md:flex-row gap-4 md:gap-6 justify-between items-stretch my-auto">
+      {[
+        { phase: "01", title: "Foundation", desc: "Core architecture setup", active: false },
+        { phase: "02", title: "Infrastructure", desc: "Distributed framework modules", active: false },
+        { phase: "03", title: "Scalability", desc: "High-throughput optimization", active: false },
+        { phase: "04", title: "Sustainable Growth", desc: "Continuous ecosystem expansion", active: true },
+      ].map((node, idx) => (
         <motion.div
-          key={ring}
-          className="absolute border border-black/15 rounded-full"
-          style={{
-            width: 80 + ring * 60,
-            height: 80 + ring * 60,
-            left: -(40 + ring * 30),
-            top: -(40 + ring * 30),
-          }}
-          animate={{
-            rotate: ring % 2 === 0 ? 360 : -360,
-          }}
-          transition={{
-            duration: 20 + ring * 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        />
+          key={idx}
+          initial={{ opacity: 0, scale: 0.96, y: 15 }}
+          whileInView={{ opacity: 1, scale: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: idx * 0.12, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ y: -8, transition: { duration: 0.25, ease: "easeOut" } }}
+          className={`relative flex-1 flex flex-col justify-between p-5 md:p-6 rounded-2xl border transition-all ${
+            node.active 
+              ? "bg-black text-white border-transparent shadow-[0_20px_40px_rgba(0,0,0,0.15)]" 
+              : "bg-white/80 backdrop-blur-md border-gray-200/60 shadow-[0_4px_24px_rgba(0,0,0,0.01)]"
+          }`}
+        >
+          {/* Card Header */}
+          <div className="flex justify-between items-center w-full">
+            <span className={`text-[10px] font-mono tracking-widest ${node.active ? "text-neutral-400" : "text-gray-400"}`}>
+              {node.phase}
+            </span>
+            
+            {/* Status Indicator (Hooks visually into the background line) */}
+            <div className="relative w-3.5 h-3.5 flex items-center justify-center">
+              <motion.span 
+                animate={{ scale: [1, 2.2, 1], opacity: node.active ? [0.3, 0.6, 0.3] : [0.15, 0.4, 0.15] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: idx * 0.3 }}
+                className={`absolute w-full h-full rounded-full ${node.active ? "bg-white" : "bg-black"}`}
+              />
+              <span className={`relative w-2 h-2 rounded-full border ${node.active ? "bg-white border-white" : "bg-white border-black"}`} />
+            </div>
+          </div>
+
+          {/* Card Info */}
+          <div className="mt-8 md:mt-12">
+            <h3 className="text-xs md:text-sm font-semibold tracking-wider uppercase leading-none">
+              {node.title}
+            </h3>
+            <p className={`text-[11px] mt-2 tracking-normal font-normal leading-relaxed ${node.active ? "text-neutral-400" : "text-gray-500"}`}>
+              {node.desc}
+            </p>
+          </div>
+
+          {/* Inner glass accent for the active node */}
+          {node.active && (
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.06] to-transparent pointer-events-none" />
+          )}
+        </motion.div>
       ))}
     </div>
 
-    {/* Labels */}
-    <div className="absolute bottom-6 left-6 flex gap-10 text-[10px] uppercase tracking-[0.25em] text-gray-400 font-medium">
-      <span>Foundation</span>
-      <span>Infrastructure</span>
-      <span>Scalability</span>
-      <span>Sustainable Growth</span>
-    </div>
   </div>
 </motion.div>
-          </motion.div>
         </div>
 
         {/* What Drives Us - Architectural Grid */}

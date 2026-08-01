@@ -5,6 +5,7 @@ import Image from "next/image";
 import { BlogPost } from "@/data/blogData";
 import { teamData } from "@/data/teamData";
 import { motion } from "framer-motion";
+import { Settings } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -51,174 +52,158 @@ function BlogCard({
         href={`/blog/${post.slug}`}
         className={`flex flex-col ${stretch ? "flex-1" : ""}`}
       >
-        <div
-          className={`relative w-full mb-4 overflow-hidden bg-white custom-notch-tl-br border border-neutral-200 ${
-            stretch ? "flex-1 min-h-[200px]" : "aspect-[16/9]"
-          }`}
+   <div className="relative w-full h-auto md:h-[450px] overflow-hidden bg-white rounded-3xl border border-neutral-100 shadow-xl flex flex-col justify-between p-6 md:p-8 select-none">
+  
+  {/* Modern Ambient Fluid Background (Smooth light blobs) */}
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(240,240,240,0.6),transparent_50%)]" />
+  <motion.div 
+    animate={{ 
+      scale: [1, 1.15, 1], 
+      x: [0, 15, 0], 
+      y: [0, -15, 0] 
+    }}
+    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+    className="absolute -top-10 left-1/4 w-80 h-80 bg-neutral-50 rounded-full filter blur-3xl opacity-70" 
+  />
+  <motion.div 
+    animate={{ 
+      scale: [1, 1.1, 1], 
+      x: [0, -20, 0], 
+      y: [0, 10, 0] 
+    }}
+    transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+    className="absolute -bottom-20 right-1/3 w-96 h-96 bg-neutral-100/60 rounded-full filter blur-3xl opacity-60" 
+  />
+
+  {/* Top Status & Header Row */}
+  <div className="z-10 flex justify-between items-start w-full mb-6 md:mb-0">
+    <div className="flex items-center gap-3">
+      <div className="relative flex h-2 w-2">
+        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 opacity-75"></span>
+        <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-800"></span>
+      </div>
+      <div>
+        <span className="text-[10px] font-mono tracking-[0.2em] text-neutral-400 uppercase block">System Analysis</span>
+        <h3 className="text-sm font-semibold text-neutral-800 tracking-tight">ENGINE_CORE_V2</h3>
+      </div>
+    </div>
+    
+    <div className="flex items-center gap-2 px-3 py-1.5 bg-neutral-50 backdrop-blur-sm rounded-full border border-neutral-100 text-[9px] font-mono tracking-wider text-neutral-500">
+      <span>REV 02</span>
+      <span className="text-neutral-300">•</span>
+      <span className="text-neutral-700 font-bold animate-pulse">VALIDATED</span>
+    </div>
+  </div>
+
+  {/* Center Content: Organic Morphing Shapes & Redesigned Terminal Text Cards */}
+  <div className="z-10 flex flex-col md:flex-row items-center justify-between gap-8 my-auto w-full px-2">
+    
+    {/* Abstract Fluid Geometry */}
+    <div className="relative flex items-center justify-center w-40 h-40">
+      <motion.div
+        animate={{ rotate: 360, borderRadius: ["42% 58% 70% 30% / 45% 45% 55% 55%", "70% 30% 52% 48% / 60% 40% 60% 40%", "42% 58% 70% 30% / 45% 45% 55% 55%"] }}
+        transition={{ repeat: Infinity, duration: 12, ease: "linear" }}
+        className="absolute w-36 h-36 border border-neutral-200/70 bg-neutral-50/30 backdrop-blur-sm"
+      />
+      <motion.div
+        animate={{ rotate: -360, borderRadius: ["50% 50% 30% 70% / 50% 60% 40% 50%", "30% 70% 70% 30% / 50% 30% 70% 50%", "50% 50% 30% 70% / 50% 60% 40% 50%"] }}
+        transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
+        className="absolute w-28 h-28 border border-neutral-100 bg-neutral-50/50"
+      />
+      <motion.div
+        animate={{ scale: [0.96, 1.04, 0.96] }}
+        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+        className="w-16 h-16 bg-white shadow-lg shadow-neutral-200/50 rounded-full border border-neutral-100 flex items-center justify-center z-10"
+      >
+        <svg className="w-5 h-5 text-neutral-600 animate-[spin_12s_linear_infinite]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0px" />
+        </svg>
+      </motion.div>
+    </div>
+
+    {/* ================= REDESIGNED PREMIUM TEXT STACK ================= */}
+    <div className="flex flex-col gap-2.5 justify-center items-stretch w-full md:w-[320px]">
+      {[
+        { id: "01", tag: "STG", text: "Initializing Engineering Workflow..." },
+        { id: "02", tag: "SYS", text: "Building Tomorrow's Technology..." },
+        { id: "03", tag: "REQ", text: "Analyzing Project Requirements..." }
+      ].map((item, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ x: 6, backgroundColor: "rgba(250,250,250,0.8)", borderColor: "rgba(220,220,220,0.8)" }}
+          className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl border border-neutral-100/70 bg-white/40 backdrop-blur-md shadow-[0_2px_12px_rgba(0,0,0,0.01)] transition-all duration-300 group cursor-pointer"
         >
-          {/* Blueprint Grid */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-neutral-50 to-neutral-100/70" />
-          {/* Technical Labels */}
-          <div className="absolute top-5 left-5 text-[10px] uppercase tracking-[0.35em] text-neutral-500 font-mono">
-            SYSTEM DESIGN
+          {/* Hex / Step Identifier */}
+          <span className="text-[9px] font-mono font-bold tracking-tight text-neutral-400 bg-neutral-100/80 px-1.5 py-0.5 rounded-md group-hover:bg-neutral-900 group-hover:text-white transition-all duration-300">
+            {item.id}
+          </span>
+          
+          <span className="text-neutral-300 font-mono text-[10px] group-hover:text-neutral-400 transition-colors">//</span>
+          
+          {/* Main Text String Wrapper */}
+          <div className="flex-1 min-w-0">
+            <p className="font-mono text-[11px] text-neutral-500 tracking-wide truncate group-hover:text-neutral-800 transition-colors duration-200">
+              {item.text}
+              <span className="inline-block w-1 h-3 ml-1 bg-neutral-600 opacity-0 group-hover:opacity-100 animate-pulse align-middle" />
+            </p>
           </div>
 
-          <div className="absolute top-5 right-5 text-[10px] text-neutral-400 font-mono">
-            REVISION 02
+          {/* Activity State Micro-Indicator */}
+          <div className="w-1.5 h-1.5 rounded-full bg-neutral-200 group-hover:bg-neutral-900 relative flex items-center justify-center transition-colors">
+            {idx === 0 && (
+              <span className="absolute w-full h-full rounded-full bg-neutral-800 animate-ping opacity-25" />
+            )}
           </div>
+        </motion.div>
+      ))}
+    </div>
+    {/* ================================================================= */}
 
-          <div className="absolute bottom-5 left-5 text-[10px] text-neutral-400 font-mono">
-            SPECIFICATION
-          </div>
+  </div>
 
-          <div className="absolute bottom-5 right-5 flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-neutral-700 animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.3em] text-neutral-500 font-mono">
-              VALIDATED
-            </span>
-          </div>
+  {/* Bottom Controls & Compact Progress Card */}
+  <div className="z-10 flex flex-col sm:flex-row justify-between items-center sm:items-end w-full gap-4 pt-4 border-t border-neutral-50 mt-6 md:mt-0">
+    
+    {/* Minimal Tag Navigation */}
+    <div className="flex gap-4 text-[9px] font-mono tracking-[0.25em] text-neutral-400 uppercase">
+      <span className="hover:text-neutral-700 cursor-pointer transition-colors">SPECIFICATION</span>
+      <span>/</span>
+      <span className="hover:text-neutral-700 cursor-pointer transition-colors">ARCHITECTURE</span>
+      <span>/</span>
+      <span className="hover:text-neutral-700 cursor-pointer transition-colors">WORKFLOW</span>
+    </div>
 
-          <div className="absolute left-10 top-1/2 -translate-y-1/2 text-[10px] text-neutral-300 font-mono rotate-[-90deg] tracking-[0.3em]">
-            ARCHITECTURE
-          </div>
+    {/* Sleek Progress Module */}
+    <motion.div
+      animate={{ y: [0, -4, 0] }}
+      transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+      className="bg-white/60 backdrop-blur-md rounded-2xl border border-neutral-100 p-3.5 w-full sm:w-56 shadow-sm flex flex-col gap-2"
+    >
+      <div className="flex justify-between items-center">
+        <span className="text-[11px] font-semibold text-neutral-800">Engineering Progress</span>
+        <span className="text-[8px] font-mono bg-neutral-100 px-1.5 py-0.5 rounded text-neutral-500 tracking-wider animate-pulse">SYNC</span>
+      </div>
 
-          <div className="absolute right-10 top-1/2 -translate-y-1/2 text-[10px] text-neutral-300 font-mono rotate-90 tracking-[0.3em]">
-            WORKFLOW
-          </div>
-          {/* Animated Status */}
-          <div className="absolute top-14 left-5 flex items-center gap-2 text-[9px] text-neutral-400 font-mono">
-            <span className="h-1.5 w-1.5 rounded-full bg-neutral-700 animate-pulse" />
-            BUILD
-          </div>
+      <div className="w-full h-1 bg-neutral-100 rounded-full overflow-hidden">
+        <motion.div
+          animate={{ width: ["10%", "85%", "10%"] }}
+          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          className="h-full bg-neutral-800 rounded-full"
+        />
+      </div>
 
-          <div className="absolute bottom-14 right-5 text-[9px] text-neutral-400 font-mono animate-pulse">
-            SYNC
-          </div>
-
-          <div className="absolute top-1/2 right-20 h-px w-16 bg-neutral-300 overflow-hidden">
-            <div className="h-full w-4 bg-neutral-700 animate-[scanX_2.5s_linear_infinite]" />
-          </div>
-          {/* Scan */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute left-0 w-full h-px bg-neutral-400 animate-blueprintScan" />
-          </div>
-
-          <svg viewBox="0 0 800 450" className="absolute inset-0 w-full h-full">
-            {/* construction guides */}
-            <path
-              d="M120 100 H680"
-              className="stroke-neutral-300"
-              strokeWidth="1"
-              strokeDasharray="6 6"
-            />
-
-            <path
-              d="M120 350 H680"
-              className="stroke-neutral-300"
-              strokeWidth="1"
-              strokeDasharray="6 6"
-            />
-
-            {/* document */}
-            <rect
-              x="250"
-              y="90"
-              width="300"
-              height="250"
-              rx="8"
-              fill="none"
-              className="stroke-neutral-700 animate-draw"
-              strokeWidth="2"
-            />
-
-            {/* document sections */}
-            <line
-              x1="285"
-              y1="145"
-              x2="515"
-              y2="145"
-              className="stroke-neutral-500"
-              strokeWidth="2"
-            />
-
-            <line
-              x1="285"
-              y1="185"
-              x2="490"
-              y2="185"
-              className="stroke-neutral-400"
-              strokeWidth="2"
-            />
-
-            <line
-              x1="285"
-              y1="225"
-              x2="525"
-              y2="225"
-              className="stroke-neutral-400"
-              strokeWidth="2"
-            />
-
-            {/* Architecture cube */}
-            <g className="animate-float">
-              <polygon
-                points="110,170 150,145 190,170 150,195"
-                fill="none"
-                className="stroke-neutral-700"
-                strokeWidth="2"
-              />
-              <polygon
-                points="110,170 110,220 150,245 150,195"
-                fill="none"
-                className="stroke-neutral-700"
-                strokeWidth="2"
-              />
-              <polygon
-                points="190,170 190,220 150,245 150,195"
-                fill="none"
-                className="stroke-neutral-700"
-                strokeWidth="2"
-              />
-            </g>
-
-            {/* Flow connections */}
-            <line
-              x1="190"
-              y1="195"
-              x2="250"
-              y2="195"
-              className="stroke-neutral-500"
-              strokeWidth="2"
-            />
-
-            <line
-              x1="550"
-              y1="215"
-              x2="650"
-              y2="215"
-              className="stroke-neutral-500"
-              strokeWidth="2"
-            />
-
-            {/* Nodes */}
-            <circle
-              cx="250"
-              cy="195"
-              r="5"
-              className="fill-neutral-700 animate-pingOrigin"
-            />
-            <circle
-              cx="650"
-              cy="215"
-              r="5"
-              className="fill-neutral-700 animate-pingOrigin"
-            />
-          </svg>
-
-          {/* subtle gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-neutral-100/60" />
-        </div>
-
+      <div className="flex justify-between items-center text-[9px] text-neutral-400 font-mono">
+        <span>Validating Components...</span>
+        <span className="font-bold text-neutral-600">BUILD</span>
+      </div>
+    </motion.div>
+  </div>
+</div>
         <div className="flex items-center gap-3 text-[11px] font-medium text-gray-500 uppercase tracking-widest mb-2">
           <span>{post.date}</span>
           <span className="w-1 h-1 rounded-full bg-gray-300"></span>
