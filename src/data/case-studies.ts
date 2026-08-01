@@ -12,7 +12,7 @@ export const caseStudies = [
       errors: "-75%",
       sales: "Global",
     },
-    heroImage: "/case-studies/thinkerslane.png",
+    heroImage: "/case-studies/ss.png",
     client: "Thinkerslane inc.",
     platform: "Web Application",
     role: "Full-Stack Development",
@@ -31,7 +31,7 @@ export const caseStudies = [
       errors: "-90%",
       sales: "Digital",
     },
-    heroImage: "/case-studies/suprokash.png",
+    heroImage: "/case-studies/sda.png",
     client: "Suprokash Bookstore",
     platform: "React Native + API",
     role: "Full-Stack Development",
@@ -50,16 +50,17 @@ export const caseStudies = [
       errors: "Minimal",
       load: "-90%",
     },
-    heroImage: "/case-studies/video-upload.png",
+    heroImage: "/case-studies/vus.png",
     client: "Social Media Platform",
     platform: "Web Application",
     role: "Full-Stack Development & Architecture",
     stack: "React, CodeIgniter, AWS S3, FFmpeg",
   },
   {
-    slug: "nomadquest-mcp-travel-architecture",
-    title: "NomadQuest AI – Redefining Travel Infrastructure with MCP",
+    slug: "ai-mcp-travel-architecture",
+    title: "AI – Redefining Travel Infrastructure with MCP",
     template: "template1",
+    heroImage: "/case-studies/ai.png",
     tag: "AI / Travel Infrastructure",
     shortDesc:
       "A complete architectural transformation from legacy REST-based services to a modular, AI-native MCP-powered travel platform. By integrating unified Azure API Management and secure, isolated Stripe payment workflows, the system now enables intelligent, automated trip planning and highly scalable infrastructure.",
@@ -70,13 +71,9 @@ export const caseStudies = [
       aiEcosystems: "5+ AI Platforms Validated",
       paymentSecurity: "AI-Isolated Stripe Workflow",
     },
-
-    client: "NomadQuest AI",
-    domain: "https://www.f6s.com/company/nomadquest-ai-inc#about",
     platform:
       "Node.js MCP Architecture + Azure API Management + Duffel APIs + Next.js Payment Module",
     role: "System Architect, MCP Implementation Lead, AI Integration & Secure Payment Designer",
-
     stack: [
       "Node.js",
       "Model Context Protocol (MCP)",
@@ -92,7 +89,7 @@ export const caseStudies = [
     ],
 
     overview:
-      "NomadQuest AI initially launched as a travel planning platform powered by a traditional Node.js backend, REST APIs, and a React frontend. While Phase 1 successfully enabled AI-driven itinerary planning, increasing system complexity required a more scalable and AI-native foundation. In Phase 2, the platform was fully re-architected using Model Context Protocol (MCP), replacing the conventional API-driven stack with modular MCP tools, unified Azure API Management, and secure AI-triggered Stripe payments. The result is a future-ready travel infrastructure built for intelligent automation, modular growth, and enterprise-grade security.",
+      "Our AI initially launched as a travel planning platform powered by a traditional Node.js backend, REST APIs, and a React frontend. While Phase 1 successfully enabled AI-driven itinerary planning, increasing system complexity required a more scalable and AI-native foundation. In Phase 2, the platform was fully re-architected using Model Context Protocol (MCP), replacing the conventional API-driven stack with modular MCP tools, unified Azure API Management, and secure AI-triggered Stripe payments. The result is a future-ready travel infrastructure built for intelligent automation, modular growth, and enterprise-grade security.",
 
     phaseComparison: {
       phase1:
@@ -181,7 +178,7 @@ export const caseStudies = [
         "Created a reusable Node.js service structure with caching and environment key management.",
       ],
       strategic: [
-        "Positioned NomadQuest AI as a scalable AI-native travel infrastructure.",
+        "Positioned AI as a scalable AI-native travel infrastructure.",
         "Reduced orchestration complexity through unified MCP endpoints.",
         "Enhanced user trust through privacy-first payment isolation.",
         "Prepared the platform for expansion into additional travel modules beyond flights.",
@@ -202,13 +199,12 @@ export const caseStudies = [
       uptime: "Near-perfect",
       delivery: "5 Months",
     },
-
     client: "Flipkart",
     domain: "https://flipkartacademy-scoa.in/",
     platform: "Next.js Frontend + Node.js Backend + PostgreSQL + Redis",
     role: "Comprehensive Backend Development & End-to-End Frontend Architecture",
 
-    heroImage: "/case-studies/flipkart.png",
+    heroImage: "/case-studies/scoa-bro.png",
 
     stack: [
       "Next.js (v16)",
@@ -365,6 +361,85 @@ export const caseStudies = [
         "Provided ViSolutionz and Flipkart with a highly maintainable, future-proof codebase ready for feature expansion.",
         "Delivered a consumer-grade user experience that balances complex business logic effortlessly.",
         "Established Flipkart Academy SCOA as a state-of-the-art training ecosystem for supply chain operations.",
+      ],
+    },
+  },
+  {
+    slug: "keysale-pro",
+    title: "Keysale Pro Mobile App",
+    template: "template1",
+    tag: "Mobile App",
+    shortDesc:
+      "A complete offline-first mobile application built for RetailBox Sweden AB, enabling field sales and retail execution teams to perform complex store visits and order creation seamlessly with or without internet connectivity.",
+    gradient: "from-teal-800 to-black",
+    results: {
+      reliability: "Offline-First",
+      engagement: "2 Years",
+      platform: "iOS & Android",
+    },
+    heroImage: "/case-studies/ks.png",
+    client: "Par Gustaffson",
+    domain: "https://www.keysaleonline.se/",
+    platform: "React Native Mobile App (iOS & Android)",
+    role: "Complete Mobile App Development & Maintenance",
+    stack: [
+      "React Native 0.74",
+      "TypeScript",
+      "Redux Toolkit",
+      "React Context",
+      "React Navigation",
+      "Axios",
+      "SQLite",
+      "MMKV",
+      "i18next",
+    ],
+    overview:
+      "RetailBox Sweden AB needed a modern mobile application for its field sales and retail execution teams. While the backend APIs were already developed, the mobile experience needed to be rebuilt from the ground up so users could work faster, more reliably, and with less dependency on network availability in remote store locations. Over a 2-year engagement, we developed and maintained the complete Keysale Pro mobile app, turning backend capabilities into a robust production-ready offline-first field tool.",
+    challenge: [
+      "Users often worked inside retail stores where network access was highly unreliable.",
+      "Supporting store visits, order creation, and data access entirely offline.",
+      "Local saving of field activity and robust syncing back to the backend when online.",
+      "Replacing an outdated, icon-heavy previous app with a cleaner, task-focused mobile workflow.",
+      "Fast access to large product and customer datasets locally on the device.",
+      "Practical scanning and image-based retail workflows for field execution.",
+    ],
+    solution: [
+      {
+        title: "Offline-First Architecture",
+        points: [
+          "Implemented local data storage using SQLite and MMKV for critical operational data.",
+          "Enabled offline store visits, order creation, and distribution management without network blocks.",
+          "Designed a practical mobile sync model that coordinates local updates with the backend when connectivity is restored.",
+        ],
+      },
+      {
+        title: "User Experience Overhaul",
+        points: [
+          "Redesigned the mobile experience around actual field tasks, moving away from confusing icons.",
+          "Created clear navigation flows for visits, stores, orders, reports, and media.",
+          "Provided faster access to common actions and optimized layouts for complex product data.",
+          "Built native support for both Swedish and English localization via i18next.",
+        ],
+      },
+      {
+        title: "Advanced Retail Field Workflows",
+        points: [
+          "Integrated scanning, image handling, and image recognition workflows used in store environments.",
+          "Developed section screens, graph/statistics views for visual data analysis in retail execution.",
+          "Connected field observations seamlessly with reporting workflows.",
+        ],
+      },
+    ],
+    architecturalImpact: {
+      objective: [
+        "Delivered a cross-platform React Native app (iOS and Android) replacing a legacy system.",
+        "Implemented offline-first SQLite database and MMKV storage for fast local data access.",
+        "Established a reliable background sync architecture to handle data conflicts and network dropouts.",
+      ],
+      strategic: [
+        "Gave RetailBox Sweden AB a much more reliable mobile tool, significantly reducing delays and frustration in the field.",
+        "Empowered users to complete their daily retail work efficiently, regardless of store network conditions.",
+        "Provided a long-term maintained product with continuous improvements based on real field usage over two years.",
       ],
     },
   },

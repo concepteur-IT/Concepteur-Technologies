@@ -1,0 +1,149 @@
+Case Study: Keysale Pro Mobile App
+
+Client: Par Gustaffson
+Client Company: RetailBox Sweden AB
+Product: Keysale Pro
+Engagement Duration: 2 years
+Platform: iOS and Android
+Project Scope: Complete mobile app development and long-term maintenance
+
+Project Background
+
+RetailBox Sweden AB needed a modern mobile application for its field sales and retail execution teams. The backend APIs were already developed, but the mobile experience needed to be rebuilt and improved so users could work faster, more reliably, and with less dependency on network availability.
+
+Their earlier app experience was outdated, icon-heavy, difficult to use, and not efficient for day-to-day field work. Store users and sales representatives needed a practical mobile tool that could support real retail operations inside stores, during visits, while travelling, and in areas where internet access was weak or unavailable.
+
+We developed and maintained the complete Keysale Pro mobile app for two years, turning the backend capabilities into a production-ready mobile product for real field usage.
+
+The Main Challenge
+
+The biggest challenge was that the users often worked inside retail stores where network access was not reliable. In many cases, the app still had to work when the device had no internet connection.
+
+The app needed to support:
+
+- Store visits without stable internet.
+- Offline access to store, article, order, and distribution data.
+- Order creation while offline.
+- Local saving of field activity.
+- Syncing data back to the backend once internet was available.
+- Fast access to large product and customer datasets.
+- A cleaner mobile workflow than the old app.
+- Practical scanning and image-based retail workflows.
+- Long-term reliability for active field users.
+
+What We Built
+
+We built Keysale Pro as a cross-platform React Native mobile application for iOS and Android. The app connects to the existing backend APIs, but also stores key data locally so users can continue working when the network is unavailable.
+
+The app includes:
+
+- Login and secure session handling.
+- Store and customer management.
+- Store visit planning and execution.
+- Contact management.
+- Calendar and appointment workflows.
+- Order creation and cart management.
+- Order proposals.
+- Order history and status updates.
+- Distribution and goal-distribution workflows.
+- Reports and campaign tracking.
+- Mileage reporting.
+- Task management.
+- Media, presentations, slideshows, and file access.
+- Maps and location-based workflows.
+- Image recognition and section analysis screens.
+- English and Swedish localization.
+- Offline storage and sync.
+
+Offline-First Solution
+
+Because RetailBox field users often work in places with poor connectivity, offline support became one of the most important parts of the app.
+
+We implemented local data storage using SQLite and MMKV. Important data such as articles, groups, units, distributions, goal distributions, orders, order items, and order metadata can be stored directly on the device.
+
+This means the user can:
+
+- Open the app without internet.
+- View needed store and product data.
+- Continue store visits.
+- Create orders.
+- Save actions and field updates.
+- Work with distribution data.
+- Keep using the app during network dropouts.
+
+When the device gets internet access again, the app can sync the locally saved data back to the backend. This gave the field team a much more reliable workflow because their work was not blocked by store network issues.
+
+Sync and Data Handling
+
+The app was designed around a practical mobile sync model. Instead of forcing every action to depend on live API availability, the app keeps important operational data locally and coordinates updates with the backend when possible.
+
+This approach helped solve a real business problem: users in stores could continue working even if the network was slow, blocked, or unavailable. Their saved activity could later be pushed back once the device was online.
+
+Improving the User Experience
+
+The previous app experience was not suitable for efficient daily work. It relied too much on confusing icons and did not give users a smooth workflow for visits, stores, orders, and reports.
+
+We redesigned the mobile experience around actual field tasks:
+
+- Clear navigation for home, visits, stores, reports, settings, media, and stream.
+- Separate flows for orders, carts, bills, proposals, forms, contacts, tasks, and maps.
+- Better structured screens for field workers.
+- Faster access to common actions.
+- Practical mobile layouts for store and product data.
+- Support for both Swedish and English users.
+
+The goal was not only to make the app look better, but to make it easier for users to complete their daily retail work.
+
+Scanning, Images, and Retail Field Work
+
+Keysale Pro also includes image and scan-related workflows used in store environments. The app supports image handling, image details, section screens, graph/statistics views, and image-recognition related functionality.
+
+These features help users capture and review store-related visual data, analyze retail sections, and connect field observations with reporting workflows. This is especially useful in retail execution where product placement, section visibility, and store-level data matter.
+
+Technical Approach
+
+The mobile app was built using:
+
+- React Native 0.74
+- TypeScript and JavaScript
+- Redux Toolkit
+- React Context
+- React Navigation
+- Axios
+- SQLite local database
+- MMKV local storage
+- i18next localization
+- Native iOS and Android projects
+- Maps and geolocation libraries
+- PDF, media, image, chart, and calendar libraries
+
+We maintained both the JavaScript/TypeScript application layer and the native iOS and Android project setup.
+
+Long-Term Maintenance
+
+Over the two-year engagement, we continuously maintained and improved the app. This included:
+
+- Fixing bugs found during real field usage.
+- Improving offline workflows.
+- Adjusting sync behavior.
+- Updating app dependencies.
+- Maintaining iOS and Android compatibility.
+- Improving screens and user flows.
+- Adding and refining features based on client feedback.
+- Supporting production use over time.
+
+Business Impact
+
+Keysale Pro gave RetailBox Sweden AB a stronger mobile tool for field sales and retail operations.
+
+The biggest value was reliability. Users could continue working even when internet access was not available inside stores. They could save work locally and sync it later, reducing delays and frustration in the field.
+
+The app also replaced a poor previous mobile experience with a more complete, task-focused workflow for stores, visits, orders, reports, media, tasks, and retail analysis.
+
+Outcome
+
+We delivered and maintained the complete Keysale Pro mobile app for RetailBox Sweden AB. The backend APIs already existed, and we turned them into a full mobile product used for real retail field operations.
+
+The final app supports offline work, data sync, order creation, store visits, scanning and image-related workflows, reports, presentations, maps, and long-term mobile usage across iOS and Android.
+
+
