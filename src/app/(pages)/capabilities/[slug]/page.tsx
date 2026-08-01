@@ -1,6 +1,5 @@
 import { servicesData } from "@/data/servicesData";
 import { notFound } from "next/navigation";
-import Image from "next/image";
 import LetsTalkBtn from "@/components/ui-components/buttons/LetsTalkBtn";
 import CapabilityVideoSection from "@/components/capabilities-components/CapabilityVideoSection";
 
@@ -42,15 +41,6 @@ export default async function ServiceDetail({
   if (!service) {
     notFound();
   }
-
-  const homeImages = [
-    "/home/bg-frontend.png",
-    "/home/cap-uiux.png",
-    "/home/cap-cloud.png",
-    "/home/cap-ecom.png",
-    "/home/cap-backend.png",
-    "/home/cap-web.png",
-  ];
 
   return (
     <main className="w-full min-h-screen bg-[#fcfcfc] pb-32 pt-32 md:pt-40">
@@ -182,47 +172,46 @@ export default async function ServiceDetail({
           {/* Case Studies Gallery */}
           {service.projects && service.projects.length > 0 && (
             <div className="flex flex-col">
-              <div className="flex flex-col border-b border-gray-900 pb-6 mb-8">
-                <p className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-2">
-                  Proven Track Record
-                </p>
-                <h2 className="text-3xl font-light tracking-tight text-gray-900">
-                  Engineering Context
-                </h2>
+              <div className="flex items-center justify-between border-b border-gray-900 pb-6 mb-8">
+                <div className="flex flex-col">
+                  <p className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-1">
+                    Proven Track Record
+                  </p>
+                  <h2 className="text-3xl font-light tracking-tight text-gray-900">
+                    Engineering Context
+                  </h2>
+                </div>
+                <span className="text-xs font-mono text-gray-400">
+                  {String(service.projects.length).padStart(2, "0")}
+                </span>
               </div>
 
-              <div className="flex flex-col gap-0 border border-gray-200 rounded-xl overflow-hidden bg-white">
-                {service.projects.map((project, idx) => {
-                  const projectImage =
-                    homeImages[(idx + 2) % homeImages.length];
-                  return (
-                    <div
-                      key={idx}
-                      className="flex flex-col md:flex-row group border-b border-gray-200 last:border-b-0 hover:bg-[#fcfcfc] transition-colors relative"
-                    >
-                      <div className="absolute left-0 top-0 w-1 h-full bg-black scale-y-0 group-hover:scale-y-100 transition-transform duration-500 origin-top" />
-                      <div className="md:w-1/3 relative aspect-video md:aspect-square m-4 rounded-lg overflow-hidden shrink-0">
-                        <Image
-                          src={projectImage}
-                          fill
-                          className="object-cover grayscale group-hover:grayscale-0 transition-all duration-[1000ms]"
-                          alt={project.title}
-                        />
-                      </div>
-                      <div className="p-6 md:p-8 flex flex-col justify-center flex-1">
-                        <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400 mb-3">
+              <div className="flex flex-col divide-y divide-gray-200">
+                {service.projects.map((project, idx) => (
+                  <div
+                    key={idx}
+                    className="group py-8 flex flex-col md:flex-row md:items-start justify-between gap-6 transition-colors duration-300 hover:bg-gray-50/50 px-3 -mx-3 rounded-lg"
+                  >
+                    <div className="flex items-baseline gap-4 md:w-5/12 shrink-0">
+                      <span className="text-xs font-mono text-gray-400 font-medium">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <div className="flex flex-col gap-1">
+                        <span className="text-[10px] uppercase font-bold tracking-widest text-gray-400">
                           {project.client}
                         </span>
-                        <h3 className="text-2xl font-normal text-gray-900 mb-3 group-hover:translate-x-2 transition-transform duration-500">
+                        <h3 className="text-xl font-normal text-gray-900 group-hover:translate-x-1 transition-transform duration-300">
                           {project.title}
                         </h3>
-                        <p className="text-sm font-light text-gray-500 leading-relaxed line-clamp-3">
-                          {project.description}
-                        </p>
                       </div>
                     </div>
-                  );
-                })}
+                    <div className="md:w-7/12">
+                      <p className="text-sm font-light text-gray-600 leading-relaxed">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
