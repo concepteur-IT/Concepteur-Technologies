@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  turbopack: {
+    root: __dirname,
+  },
   reactCompiler: true,
   images: {
     remotePatterns: [

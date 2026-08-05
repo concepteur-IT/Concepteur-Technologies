@@ -90,7 +90,7 @@ export default function ProcessFlow() {
         duration: 6, // Slower flow
         repeat: Infinity,
         times: sortedTimes,
-        ease: "easeInOut",
+        ease: "easeInOut" as const,
         delay: 2.5, // Sync with wire animation start
       },
     };

@@ -4,6 +4,8 @@ export type ServiceData = {
   title: string;
   shortDescription: string;
   image: string;
+  videoUrl?: string;
+  vimeoId?: string;
   fullDescription: string;
   benefits: string[];
   features: string[];
@@ -24,7 +26,9 @@ export const servicesData: ServiceData[] = [
     title: "AI & Intelligent Automation",
     shortDescription:
       "Harness the power of machine learning, generative AI, and intelligent automation frameworks to unlock unprecedented operational efficiency and measurable performance advantages across your organization.",
-    image: "/services/ai.jpg",
+    image: "/services/ai-automation.png",
+    videoUrl:
+      "https://res.cloudinary.com/ojgswn0o/video/upload/v1785525231/Initial_Scene_-_2026-07-31_202608010041_dvl7jx.mp4",
     fullDescription:
       "In the era of rapid technological advancement, AI is not just an upgrade; it's a fundamental shift in how businesses operate. Our Artificial Intelligence and Intelligent Automation services are designed to integrate seamlessly into your existing workflows, transforming massive unstructured datasets into actionable intelligence and automating complex, repetitive tasks with precision.",
     benefits: [
@@ -53,28 +57,28 @@ export const servicesData: ServiceData[] = [
         client: "From AIDO",
         description:
           "Custom AI agent system designed for doctors workflow automation, smart responses, and workflow optimization using OpenRouter and Ollama models.",
-        image: "/services/ai.jpg",
+        image: "/services/ai-automation.png",
       },
       {
         title: "KEYSALE PRO",
         client: "From RETAILBOX SWEDEN",
         description:
           "AI-powered sales assistant that enhances lead qualification, automated follow-ups, and customer interaction using conversational AI models.",
-        image: "/services/ai.jpg",
+        image: "/services/ai-automation.png",
       },
       {
         title: "NomadQuest MCP",
         client: "Nomadquest INC",
         description:
           "A Model Context Protocol (MCP) system built to enable AI-driven tour and journey bookings through chat models, allowing users to search destinations, view tour details, check hotels, and book flights seamlessly via conversational AI.",
-        image: "/services/ai.jpg",
+        image: "/services/ai-automation.png",
       },
       {
         title: "KEYSALE CRM",
         client: "From RETAILBOX SWEDEN",
         description:
           "A comprehensive CRM platform for managing suppliers, products, and sales operations, including AI-driven report generation, structured database migration, and real-time sales analytics.",
-        image: "/services/ai.jpg",
+        image: "/services/ai-automation.png",
       },
     ],
   },
@@ -84,7 +88,9 @@ export const servicesData: ServiceData[] = [
     title: "Next-Gen Web Platforms",
     shortDescription:
       "Performance-optimized, highly scalable web architectures engineered to deliver rapid load times, flawless functionality, and deep user engagement.",
-    image: "/services/web.jpg",
+    image: "/services/website-development.png",
+    videoUrl:
+      "https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-41544-large.mp4",
     fullDescription:
       "Your digital storefront is often the first interaction a client has with your brand. We engineer Next-Generation Web Platforms that are blazing fast, accessible, and architected on modern technology stacks. From complex single-page applications to highly scalable corporate portals, we build systems that perform flawlessly under heavy traffic while maintaining a pristine user experience.",
     benefits: [
@@ -113,14 +119,14 @@ export const servicesData: ServiceData[] = [
         client: "From Thinkerslane",
         description:
           "Developed a bookstore platform using CodeIgniter with custom product management, order workflows, and optimized server-side rendering.",
-        image: "/services/web.jpg",
+        image: "/services/website-development.png",
       },
       {
         title: "Keysale",
         client: "From RETAILBOX SWEDEN",
         description:
           "Built a scalable retail platform using Angular and Yii framework, implementing secure APIs and dynamic product management systems.",
-        image: "/services/backend.jpg",
+        image: "/services/backend-eng.png",
       },
     ],
   },
@@ -130,7 +136,9 @@ export const servicesData: ServiceData[] = [
     title: "Mobile App Development",
     shortDescription:
       "API-driven mobile applications built with React Native and Flutter, engineered for performance, scalability, and real-time synchronization.",
-    image: "/services/mobile.jpg",
+    image: "/services/mobile-app.png",
+    videoUrl:
+      "https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-with-a-green-screen-41548-large.mp4",
     fullDescription:
       "We develop cross-platform mobile applications designed around structured backend APIs and scalable system architecture. Our apps prioritize performance, clean UI implementation, and real-time data synchronization. From commerce platforms and inventory systems to AI-powered applications, we build mobile experiences that are stable, maintainable, and production-ready.",
     benefits: [
@@ -159,42 +167,42 @@ export const servicesData: ServiceData[] = [
         client: "AI Automation Platform",
         description:
           "Developed a Flutter-based AI agent application featuring real-time conversational workflows, structured API communication, and secure authentication systems.",
-        image: "/services/mobile.jpg",
+        image: "/services/mobile-app.png",
       },
       {
         title: "Thinkerslane App",
         client: "Book Store Platform",
         description:
           "Built a React Native bookstore application integrated with structured commerce APIs for product browsing, cart management, and secure checkout.",
-        image: "/services/mobile.jpg",
+        image: "/services/mobile-app.png",
       },
       {
         title: "Keysale App",
         client: "Retailbox Sweden",
         description:
           "Developed a React Native retail application connected to backend inventory and order APIs with real-time product synchronization.",
-        image: "/services/mobile.jpg",
+        image: "/services/mobile-app.png",
       },
       {
         title: "Keysale INC",
         client: "Retail Platform",
         description:
           "Engineered an Ionic-based commerce application with secure payment workflows and scalable backend API integration.",
-        image: "/services/mobile.jpg",
+        image: "/services/mobile-app.png",
       },
       {
         title: "QuickKart",
         client: "Retail Platform",
         description:
           "Engineered a React Native real-time cart and checkout system connected to scalable backend services.",
-        image: "/services/mobile.jpg",
+        image: "/services/mobile-app.png",
       },
       {
         title: "Ghola SKUS",
         client: "Inventory Management",
         description:
           "Built a React Native SKU and product management mobile interface powered by structured backend API architecture.",
-        image: "/services/mobile.jpg",
+        image: "/services/mobile-app.png",
       },
     ],
   },
@@ -204,7 +212,9 @@ export const servicesData: ServiceData[] = [
     title: "API-First Backend Engineering",
     shortDescription:
       "Designing scalable, secure, and high-performance API-driven systems powering web, mobile, and AI applications.",
-    image: "/services/backend.jpg",
+    image: "/services/backend-eng.png",
+    videoUrl:
+      "https://assets.mixkit.co/videos/preview/mixkit-cyber-security-network-lines-wireframe-loop-42790-large.mp4",
     fullDescription:
       "All our projects are built on an API-first architecture. We design structured, secure, and scalable backend systems that act as the core engine behind web platforms, mobile applications, and AI products. From authentication systems and payment integrations to complex business logic and third-party service integrations, our APIs are built for performance, maintainability, and long-term scalability.",
     benefits: [
@@ -233,14 +243,14 @@ export const servicesData: ServiceData[] = [
         client: "Retail Platform",
         description:
           "Built a modular API backend handling product management, orders, payments, and real-time status updates.",
-        image: "/services/backend.jpg",
+        image: "/services/backend-eng.png",
       },
       {
         title: "AI Application Backend",
         client: "AI Product Suite",
         description:
           "Developed secure API layers integrating LLM services, user authentication, usage tracking, and workflow automation.",
-        image: "/services/backend.jpg",
+        image: "/services/backend-eng.png",
       },
     ],
   },
@@ -250,7 +260,9 @@ export const servicesData: ServiceData[] = [
     title: "Cloud & Infrastructure",
     shortDescription:
       "Cloud-native deployment strategies, comprehensive DevOps automation, and resilient infrastructure management.",
-    image: "/services/cloud.jpg",
+    image: "/services/cloud-eng.png",
+    videoUrl:
+      "https://assets.mixkit.co/videos/preview/mixkit-digital-network-connections-loop-42784-large.mp4",
     fullDescription:
       "Modernizing IT infrastructure requires strategically migrating and managing assets in the cloud. We provide comprehensive Cloud and Infrastructure services encompassing strategic migration planning, DevOps automation, and robust container orchestration. By utilizing infrastructure-as-code, we ensure that your deployment environments remain consistent, recoverable, and infinitely scalable.",
     benefits: [
@@ -276,14 +288,14 @@ export const servicesData: ServiceData[] = [
         client: "Financial Institution",
         description:
           "Led a zero-downtime migration of a massive legacy monolith into a containerized Kubernetes AWS architecture.",
-        image: "/services/cloud.jpg",
+        image: "/services/cloud-eng.png",
       },
       {
         title: "DevOps Pipeline Automation",
         client: "Dev Studio",
         description:
           "Implemented strict Infrastructure as Code rules combining Terraform with GitHub Actions for fully automated deployments.",
-        image: "/services/backend.jpg",
+        image: "/services/backend-eng.png",
       },
     ],
   },
@@ -293,7 +305,9 @@ export const servicesData: ServiceData[] = [
     title: "API-Driven E-Commerce Systems",
     shortDescription:
       "Scalable, custom-built commerce platforms powered by secure APIs, optimized checkout flows, and modular backend architecture.",
-    image: "/services/ecommerce.jpg",
+    image: "/services/e-commerce.png",
+    videoUrl:
+      "https://assets.mixkit.co/videos/preview/mixkit-online-shopping-on-a-mobile-phone-41551-large.mp4",
     fullDescription:
       "We build fully customized e-commerce systems designed around API-first architecture. From product management and dynamic pricing to secure payment processing and order workflows, our platforms are engineered for performance and long-term scalability. Instead of relying on rigid templates, we develop flexible backend systems that integrate seamlessly with frontend frameworks, mobile apps, and third-party services.",
     benefits: [
@@ -322,7 +336,7 @@ export const servicesData: ServiceData[] = [
         client: "From RETAILBOX SWEDEN",
         description:
           "Built a scalable retail platform using Angular and Yii with custom cart logic, secure payments, and dynamic product management APIs.",
-        image: "/services/ecommerce.jpg",
+        image: "/services/e-commerce.png",
       },
     ],
   },
@@ -332,7 +346,9 @@ export const servicesData: ServiceData[] = [
     title: "Product UI / UX Design",
     shortDescription:
       "Clean, conversion-focused interfaces designed for real-world applications and seamless backend integration.",
-    image: "/services/uiux.jpg",
+    image: "/services/ux-ui.png",
+    videoUrl:
+      "https://assets.mixkit.co/videos/preview/mixkit-graphic-designer-working-with-a-tablet-41543-large.mp4",
     fullDescription:
       "We design practical, high-performance user interfaces that align closely with backend architecture and business workflows. Our approach focuses on clarity, usability, and scalability — ensuring dashboards, commerce systems, and AI-powered applications remain intuitive and efficient. Instead of overcomplicating design, we prioritize structured layouts, consistent components, and smooth user journeys.",
     benefits: [
@@ -359,21 +375,21 @@ export const servicesData: ServiceData[] = [
         client: "From RETAILBOX SWEDEN",
         description:
           "Designed and implemented a structured retail management interface integrated with secure backend APIs and dynamic product controls.",
-        image: "/services/uiux.jpg",
+        image: "/services/ux-ui.png",
       },
       {
         title: "AIDO",
         client: "From AIDO",
         description:
           "Designed a clean conversational interface for AI agents, focusing on clarity, workflow visibility, and seamless backend API integration.",
-        image: "/services/uiux.jpg",
+        image: "/services/ux-ui.png",
       },
       {
         title: "Thinkerslane",
         client: "From Thinkerslane",
         description:
           "Created a streamlined bookstore interface with optimized product discovery, checkout flow, and structured admin management panels.",
-        image: "/services/uiux.jpg",
+        image: "/services/ux-ui.png",
       },
     ],
   },
