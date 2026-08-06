@@ -1,9 +1,26 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Concepteur",
+  title: "Privacy Policy | Concepteur Technologies",
   description:
-    "Learn how Concepteur collects, uses, and protects your information.",
+    "Learn how Concepteur Technologies collects, uses, and protects your information.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Concepteur Technologies",
+    description:
+      "Learn how Concepteur Technologies collects, uses, and protects your information.",
+    url: "https://concepteurit.com/privacy-policy",
+    siteName: "Concepteur Technologies",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Privacy Policy | Concepteur Technologies",
+    description:
+      "Learn how Concepteur Technologies collects, uses, and protects your information.",
+  },
 };
 
 const sections = [

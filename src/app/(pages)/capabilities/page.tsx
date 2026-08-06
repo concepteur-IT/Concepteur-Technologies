@@ -11,11 +11,35 @@ import ProductUIUXDesign from "@/components/capabilities/ProductUIUXDesign";
 import Reveal from "./Reveal";
 
 export const metadata: Metadata = {
-  title: "Engineering Capabilities",
+  title: "Engineering Capabilities | AI, Mobile, Web & Cloud Architecture",
   description:
-    "Explore our specialized engineering capabilities across AI Automation, Next-Gen Web, API-first Backends, and Cloud Infrastructure.",
+    "Explore our specialized engineering capabilities across AI Intelligent Automation, Next-Gen Web Platforms, Mobile Apps, API-first Backends, Cloud Infrastructure, and E-Commerce Systems.",
+  keywords: [
+    "Engineering Capabilities",
+    "AI Intelligent Automation",
+    "Next-Gen Web Platforms",
+    "Mobile App Development",
+    "API-first Backend Engineering",
+    "Cloud Infrastructure DevOps",
+    "E-Commerce Systems Architecture",
+    "Product UI UX Design"
+  ],
   alternates: {
     canonical: "/capabilities",
+  },
+  openGraph: {
+    title: "Engineering Capabilities | Concepteur Technologies",
+    description:
+      "Explore specialized engineering capabilities across AI Automation, Next-Gen Web, API-first Backends, and Cloud Infrastructure.",
+    url: "https://concepteurit.com/capabilities",
+    siteName: "Concepteur Technologies",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Engineering Capabilities | Concepteur Technologies",
+    description:
+      "Explore specialized engineering capabilities across AI Automation, Next-Gen Web, API-first Backends, and Cloud Infrastructure.",
   },
 };
 
