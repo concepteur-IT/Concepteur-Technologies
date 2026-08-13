@@ -24,9 +24,34 @@ export async function generateMetadata({
     };
   }
 
+  const title = `${service.title} | Concepteur Technologies`;
+  const description = service.shortDescription;
+  const url = `https://concepteurit.com/capabilities/${service.slug}`;
+
   return {
-    title: `${service.title} | Concepteur Technologies`,
-    description: service.shortDescription,
+    title,
+    description,
+    keywords: [
+      service.title,
+      "Concepteur Technologies capabilities",
+      "Enterprise software solutions",
+      "Custom engineering"
+    ],
+    alternates: {
+      canonical: `/capabilities/${service.slug}`,
+    },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: "Concepteur Technologies",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

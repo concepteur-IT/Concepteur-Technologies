@@ -32,8 +32,8 @@ const VideoCollage = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full lg:w-[55%] overflow-hidden rounded-2xl group cursor-pointer aspect-video bg-gray-100 shrink-0"
-              onClick={() => setActiveVideo(videoData[0].vimeoId)}
+              className="relative w-full lg:w-[55%] overflow-hidden rounded-2xl group aspect-video bg-gray-100 shrink-0"
+              // onClick={() => setActiveVideo(videoData[0].vimeoId)}
             >
               {/* Thumbnail */}
               <Image
@@ -47,7 +47,7 @@ const VideoCollage = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Play Button */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center text-white group-hover:scale-110 group-hover:bg-white/30 transition-all duration-500 shadow-2xl">
                   <svg
                     className="w-6 h-6 ml-1"
@@ -57,7 +57,7 @@ const VideoCollage = () => {
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
-              </div>
+              </div> */}
 
               {/* Bottom label */}
               <div className="absolute bottom-0 left-0 w-full p-5">
@@ -116,7 +116,7 @@ const VideoCollage = () => {
               </motion.blockquote>
             )}
 
-            {videoData[0] && (
+            {/* {videoData[0] && (
               <motion.button
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -136,16 +136,16 @@ const VideoCollage = () => {
                 </span>
                 Watch the video
               </motion.button>
-            )}
+            )} */}
           </div>
         </div>
       </div>
 
-      <VimeoModal
+      {/* <VimeoModal
         isOpen={!!activeVideo}
         onClose={() => setActiveVideo(null)}
         vimeoId={activeVideo}
-      />
+      /> */}
     </section>
   );
 };

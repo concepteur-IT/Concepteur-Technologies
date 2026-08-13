@@ -1,0 +1,654 @@
+{
+  "companyInfo": {
+    "name": "Concepteur Technologies",
+    "previousName": "Ampit",
+    "email": "info@concepteurit.com",
+    "phone": "+91 9832996894",
+    "address": {
+      "street": "Kajipara, Sukh Sagar Road",
+      "city": "Chakdaha",
+      "district": "Nadia",
+      "postalCode": "741222",
+      "state": "West Bengal",
+      "country": "India"
+    },
+    "tagline": "Transforming Ideas Into Digital Reality",
+    "description": "A forward-thinking technology company dedicated to crafting innovative software solutions, enterprise web platforms, AI systems, and mobile applications."
+  },
+  "stats": [
+    {
+      "value": "46+",
+      "label": "Projects Completed",
+      "description": "Delivered across web, mobile, AI, and enterprise platforms globally."
+    },
+    {
+      "value": "23+",
+      "label": "End-to-End Projects",
+      "description": "Trusted by startups and established businesses across multiple industries."
+    },
+    {
+      "value": "12+",
+      "label": "Team Members",
+      "description": "A focused team of engineers, designers, and product thinkers."
+    },
+    {
+      "value": "8+",
+      "label": "Active Projects",
+      "description": "Currently building and scaling solutions for clients worldwide."
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2019",
+      "title": "The Genesis",
+      "description": "Ampit is founded, establishing a foundation for innovative software solutions and starting our journey in the tech industry."
+    },
+    {
+      "year": "2020",
+      "title": "Remote Resilience",
+      "description": "Successfully delivered our initial projects with a highly dedicated core team of three remote developers."
+    },
+    {
+      "year": "2021",
+      "title": "Cultivating Talent",
+      "description": "Expanded our impact by training and mentoring interns, shaping them into elite developers while consistently delivering projects."
+    },
+    {
+      "year": "2022",
+      "title": "Global Partnerships",
+      "description": "Forged a key strategic partnership with London Sotechnology, delivering high-quality, complex projects via a specialized remote team."
+    },
+    {
+      "year": "2023",
+      "title": "Enterprise Milestone",
+      "description": "Successfully shipped our first major two-year enterprise CRM project, proving our capability for massive, long-term development."
+    },
+    {
+      "year": "2024",
+      "title": "Scaling Impact",
+      "description": "Reached a major milestone of 31 successfully delivered projects, solidifying our reputation for consistent and flawless execution."
+    },
+    {
+      "year": "2025",
+      "title": "Evolution to Concepteur",
+      "description": "Ampit officially evolves and rebrands to Concepteur. We open our first physical Office and launch our in-office presence."
+    },
+    {
+      "year": "2026",
+      "title": "Unbroken Record",
+      "description": "Achieved 41+ completed projects with a 100% success rate. Currently driving 8+ ongoing initiatives with a unified team of 11+ developers."
+    },
+    {
+      "year": "2027",
+      "title": "The Vision Ahead",
+      "description": "Growing to a 20+ member team, opening our new office in a major city, and building our first Agentic AI system for intelligent optimization.",
+      "isGoal": true
+    }
+  ],
+  "team": [
+    {
+      "slug": "mandira-chakraborty",
+      "initials": "MC",
+      "name": "Mandira Chakraborty",
+      "role": "Director",
+      "linkedin": "https://linkedin.com"
+    },
+    {
+      "slug": "provat-das",
+      "initials": "PD",
+      "name": "Provat Das",
+      "role": "CEO & Head of Operations",
+      "linkedin": "https://linkedin.com",
+      "image": "/home/Provat.PNG",
+      "bio": "Passionate about enterprise architecture and building scalable systems. Leading operations and driving digital transformation for global clients with a focus on modern web technologies and cloud infrastructure.",
+      "experienceYears": "20+",
+      "skills": [
+        "Next.js",
+        "React",
+        "Node.js",
+        "AWS",
+        "TypeScript",
+        "System Architecture",
+        "Team Leadership"
+      ],
+      "experience": [
+        {
+          "role": "Director of Operations",
+          "company": "Concepteur Technologies",
+          "duration": "2022 - Present",
+          "description": "Leading the engineering teams and overseeing the delivery of enterprise-grade solutions."
+        }
+      ],
+      "blogs": [
+        {
+          "title": "The Future of Enterprise Architecture in the Cloud",
+          "date": "March 15, 2026",
+          "link": "/blog/future-of-enterprise-architecture"
+        }
+      ]
+    },
+    {
+      "slug": "proparna-das",
+      "initials": "PD",
+      "name": "Proparna Das",
+      "role": "CTO & Tech lead",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/Pro.PNG",
+      "bio": "Experienced full-stack developer with a passion for clean code and performant user interfaces. Specializing in highly interactive applications, component-driven design systems, and frontend architecture that scales for enterprise needs.",
+      "experienceYears": "8+",
+      "experience": [
+        {
+          "role": "CTO, Senior Software Engineer",
+          "company": "Concepteur Technologies",
+          "duration": "2025 - Present",
+          "description": "Leading frontend development for enterprise clients. Architecting performant Next.js applications and establishing scalable UI component libraries."
+        }
+      ]
+    },
+    {
+      "slug": "ankur-saha",
+      "initials": "AS",
+      "name": "Ankur Saha",
+      "role": "Software Engineer",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/ankursaha.PNG"
+    },
+    {
+      "slug": "spandan-saha",
+      "initials": "SS",
+      "name": "Spandan Saha",
+      "role": "Software Engineer",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/Spandan.PNG"
+    },
+    {
+      "slug": "arpan-das",
+      "initials": "AD",
+      "name": "Arpan Das",
+      "role": "Software Engineer",
+      "linkedin": "https://linkedin.com",
+      "image": "/home/Arpan.PNG"
+    },
+    {
+      "slug": "subhankar-acharjee",
+      "initials": "SA",
+      "name": "Subhankar Acharjee",
+      "role": "Software Engineer",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/s.PNG"
+    },
+    {
+      "slug": "antar-roy",
+      "initials": "AR",
+      "name": "Antar Roy",
+      "role": "Software Engineer",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/Antar.PNG"
+    },
+    {
+      "slug": "rohit-saha",
+      "initials": "RS",
+      "name": "Rohit Saha",
+      "role": "Software Engineer",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/Rohit.PNG"
+    },
+    {
+      "slug": "sandip-basu",
+      "initials": "SB",
+      "name": "Sandip Basu",
+      "role": "UI/UX Designer",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/Sandip.PNG"
+    },
+    {
+      "slug": "rick-goswami",
+      "initials": "RG",
+      "name": "Rick Goswami",
+      "role": "Intern",
+      "linkedin": "https://www.linkedin.com/feed/",
+      "image": "/home/Rick.PNG"
+    },
+    {
+      "slug": "ishita-guha",
+      "initials": "IG",
+      "name": "Ishita Guha",
+      "role": "UI/UX Designer",
+      "linkedin": "https://www.linkedin.com/feed/"
+    }
+  ],
+  "services": [
+    {
+      "id": "ai",
+      "slug": "ai-intelligent-automation",
+      "title": "AI & Intelligent Automation",
+      "shortDescription": "Harness the power of machine learning, generative AI, and intelligent automation frameworks to unlock unprecedented operational efficiency and measurable performance advantages across your organization.",
+      "image": "/services/ai-automation.png",
+      "videoUrl": "https://res.cloudinary.com/ojgswn0o/video/upload/v1785525231/Initial_Scene_-_2026-07-31_202608010041_dvl7jx.mp4",
+      "fullDescription": "In the era of rapid technological advancement, AI is not just an upgrade; it's a fundamental shift in how businesses operate. Our Artificial Intelligence and Intelligent Automation services are designed to integrate seamlessly into your existing workflows, transforming massive unstructured datasets into actionable intelligence and automating complex, repetitive tasks with precision.",
+      "benefits": [
+        "Reduce operational costs through intelligent automation.",
+        "Enhance decision-making with AI-driven insights.",
+        "Improve customer experience using responsive AI agents.",
+        "Accelerate workflows with automated task execution.",
+        "Scalable AI systems adaptable to business growth."
+      ],
+      "features": [
+        "LLM Integration (OpenAI, Gemini, OpenRouter, Ollama)",
+        "Custom AI Agent Development",
+        "Retrieval-Augmented Generation (RAG) Systems",
+        "Conversational AI & Smart Assistants",
+        "AI Workflow Automation & API Integrations"
+      ],
+      "stats": [
+        { "label": "AI Models Used", "value": "12+" },
+        { "label": "Avg. Efficiency Gain", "value": "97%" },
+        { "label": "Processes Automated", "value": "5+" }
+      ],
+      "projects": [
+        {
+          "title": "AIDO RX",
+          "client": "From AIDO",
+          "description": "Custom AI agent system designed for doctors workflow automation, smart responses, and workflow optimization using OpenRouter and Ollama models."
+        },
+        {
+          "title": "KEYSALE PRO",
+          "client": "From RETAILBOX SWEDEN",
+          "description": "AI-powered sales assistant that enhances lead qualification, automated follow-ups, and customer interaction using conversational AI models."
+        },
+        {
+          "title": "NomadQuest MCP",
+          "client": "Nomadquest INC",
+          "description": "A Model Context Protocol (MCP) system built to enable AI-driven tour and journey bookings through chat models, allowing users to search destinations, view tour details, check hotels, and book flights seamlessly via conversational AI."
+        },
+        {
+          "title": "KEYSALE CRM",
+          "client": "From RETAILBOX SWEDEN",
+          "description": "A comprehensive CRM platform for managing suppliers, products, and sales operations, including AI-driven report generation, structured database migration, and real-time sales analytics."
+        }
+      ]
+    },
+    {
+      "id": "web",
+      "slug": "next-gen-web-platforms",
+      "title": "Next-Gen Web Platforms",
+      "shortDescription": "Performance-optimized, highly scalable web architectures engineered to deliver rapid load times, flawless functionality, and deep user engagement.",
+      "image": "/services/website-development.png",
+      "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-code-running-on-a-computer-screen-41544-large.mp4",
+      "fullDescription": "Your digital storefront is often the first interaction a client has with your brand. We engineer Next-Generation Web Platforms that are blazing fast, accessible, and architected on modern technology stacks. From complex single-page applications to highly scalable corporate portals, we build systems that perform flawlessly under heavy traffic while maintaining a pristine user experience.",
+      "benefits": [
+        "Fast-loading pages optimized for better conversions.",
+        "Modern, scalable architecture using React and Next.js.",
+        "SEO-friendly structure with Core Web Vitals optimization.",
+        "Improved user engagement through smooth interactions.",
+        "Flexible frontend systems ready for future expansion."
+      ],
+      "features": [
+        "Custom React & Next.js Development",
+        "Server-Side Rendering (SSR) & Static Site Generation (SSG)",
+        "Headless CMS Integration",
+        "Progressive Web App (PWA) Development",
+        "API-First Frontend Integration"
+      ],
+      "stats": [
+        { "label": "Web Platforms Built", "value": "18+" },
+        { "label": "Uptime Guaranteed", "value": "100%" },
+        { "label": "Avg. Load Time", "value": "< 3s" }
+      ],
+      "projects": [
+        {
+          "title": "Thinkerslane",
+          "client": "From Thinkerslane",
+          "description": "Developed a bookstore platform using CodeIgniter with custom product management, order workflows, and optimized server-side rendering."
+        },
+        {
+          "title": "Keysale",
+          "client": "From RETAILBOX SWEDEN",
+          "description": "Built a scalable retail platform using Angular and Yii framework, implementing secure APIs and dynamic product management systems."
+        }
+      ]
+    },
+    {
+      "id": "mobile",
+      "slug": "cross-platform-mobile-apps",
+      "title": "Mobile App Development",
+      "shortDescription": "API-driven mobile applications built with React Native and Flutter, engineered for performance, scalability, and real-time synchronization.",
+      "image": "/services/mobile-app.png",
+      "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-smartphone-with-a-green-screen-41548-large.mp4",
+      "fullDescription": "We develop cross-platform mobile applications designed around structured backend APIs and scalable system architecture. Our apps prioritize performance, clean UI implementation, and real-time data synchronization. From commerce platforms and inventory systems to AI-powered applications, we build mobile experiences that are stable, maintainable, and production-ready.",
+      "benefits": [
+        "Unified codebase for faster iOS and Android deployment.",
+        "Real-time synchronization with backend and AI systems.",
+        "Secure authentication and payment workflows.",
+        "Optimized performance across devices.",
+        "Scalable architecture for future feature growth."
+      ],
+      "features": [
+        "React Native & Flutter Development",
+        "REST API & WebSocket Integration",
+        "Authentication & Role-Based Access",
+        "Push Notifications & Real-Time Updates",
+        "Payment Gateway Integration"
+      ],
+      "stats": [
+        { "label": "Mobile Apps Built", "value": "7+" },
+        { "label": "API Integrations", "value": "210+" },
+        { "label": "Crash-Free Stability", "value": "98%+" }
+      ],
+      "projects": [
+        {
+          "title": "AIDO Mobile",
+          "client": "AI Automation Platform",
+          "description": "Developed a Flutter-based AI agent application featuring real-time conversational workflows, structured API communication, and secure authentication systems."
+        },
+        {
+          "title": "Thinkerslane App",
+          "client": "Book Store Platform",
+          "description": "Built a React Native bookstore application integrated with structured commerce APIs for product browsing, cart management, and secure checkout."
+        },
+        {
+          "title": "Keysale App",
+          "client": "Retailbox Sweden",
+          "description": "Developed a React Native retail application connected to backend inventory and order APIs with real-time product synchronization."
+        },
+        {
+          "title": "Keysale INC",
+          "client": "Retail Platform",
+          "description": "Engineered an Ionic-based commerce application with secure payment workflows and scalable backend API integration."
+        },
+        {
+          "title": "QuickKart",
+          "client": "Retail Platform",
+          "description": "Engineered a React Native real-time cart and checkout system connected to scalable backend services."
+        },
+        {
+          "title": "Ghola SKUS",
+          "client": "Inventory Management",
+          "description": "Built a React Native SKU and product management mobile interface powered by structured backend API architecture."
+        }
+      ]
+    },
+    {
+      "id": "backend",
+      "slug": "api-first-backend-architecture",
+      "title": "API-First Backend Engineering",
+      "shortDescription": "Designing scalable, secure, and high-performance API-driven systems powering web, mobile, and AI applications.",
+      "image": "/services/backend-eng.png",
+      "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-cyber-security-network-lines-wireframe-loop-42790-large.mp4",
+      "fullDescription": "All our projects are built on an API-first architecture. We design structured, secure, and scalable backend systems that act as the core engine behind web platforms, mobile applications, and AI products. From authentication systems and payment integrations to complex business logic and third-party service integrations, our APIs are built for performance, maintainability, and long-term scalability.",
+      "benefits": [
+        "Decoupled architecture for frontend and mobile scalability.",
+        "Secure APIs with structured authentication and validation.",
+        "Seamless integration with payments and third-party tools.",
+        "High-performance systems optimized for production traffic.",
+        "Modular backend design for long-term maintainability."
+      ],
+      "features": [
+        "RESTful API Architecture Design",
+        "JWT & Role-Based Authentication Systems",
+        "Payment & Subscription API Integrations",
+        "Database Modeling & Query Optimization",
+        "Webhook & Third-Party Integrations"
+      ],
+      "stats": [
+        { "label": "APIs Designed & Deployed", "value": "150+" },
+        { "label": "Production Systems", "value": "30+" },
+        { "label": "System Uptime", "value": "99.6%" }
+      ],
+      "projects": [
+        {
+          "title": "E-commerce API Engine",
+          "client": "Retail Platform",
+          "description": "Built a modular API backend handling product management, orders, payments, and real-time status updates."
+        },
+        {
+          "title": "AI Application Backend",
+          "client": "AI Product Suite",
+          "description": "Developed secure API layers integrating LLM services, user authentication, usage tracking, and workflow automation."
+        }
+      ]
+    },
+    {
+      "id": "cloud",
+      "slug": "cloud-infrastructure",
+      "title": "Cloud & Infrastructure",
+      "shortDescription": "Cloud-native deployment strategies, comprehensive DevOps automation, and resilient infrastructure management.",
+      "image": "/services/cloud-eng.png",
+      "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-digital-network-connections-loop-42784-large.mp4",
+      "fullDescription": "Modernizing IT infrastructure requires strategically migrating and managing assets in the cloud. We provide comprehensive Cloud and Infrastructure services encompassing strategic migration planning, DevOps automation, and robust container orchestration. By utilizing infrastructure-as-code, we ensure that your deployment environments remain consistent, recoverable, and infinitely scalable.",
+      "benefits": [
+        "Faster deployments with CI/CD automation.",
+        "Scalable and performance-optimized infrastructure.",
+        "Cost-efficient cloud resource management.",
+        "High availability with reliable failover systems."
+      ],
+      "features": [
+        "AWS, Google Cloud, and Azure Architecture",
+        "Docker Containerization & Kubernetes Orchestration",
+        "Infrastructure as Code (Terraform, CloudFormation)",
+        "Continuous Integration & Continuous Deployment (CI/CD)"
+      ],
+      "stats": [
+        { "label": "Migrations Completed", "value": "6+" },
+        { "label": "Infrastructure Cost Savings", "value": "37%" },
+        { "label": "Deploy Time Reduction", "value": "92%" }
+      ],
+      "projects": [
+        {
+          "title": "Enterprise Cloud Migration",
+          "client": "Financial Institution",
+          "description": "Led a zero-downtime migration of a massive legacy monolith into a containerized Kubernetes AWS architecture."
+        },
+        {
+          "title": "DevOps Pipeline Automation",
+          "client": "Dev Studio",
+          "description": "Implemented strict Infrastructure as Code rules combining Terraform with GitHub Actions for fully automated deployments."
+        }
+      ]
+    },
+    {
+      "id": "ecommerce",
+      "slug": "api-driven-ecommerce-systems",
+      "title": "API-Driven E-Commerce Systems",
+      "shortDescription": "Scalable, custom-built commerce platforms powered by secure APIs, optimized checkout flows, and modular backend architecture.",
+      "image": "/services/e-commerce.png",
+      "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-online-shopping-on-a-mobile-phone-41551-large.mp4",
+      "fullDescription": "We build fully customized e-commerce systems designed around API-first architecture. From product management and dynamic pricing to secure payment processing and order workflows, our platforms are engineered for performance and long-term scalability. Instead of relying on rigid templates, we develop flexible backend systems that integrate seamlessly with frontend frameworks, mobile apps, and third-party services.",
+      "benefits": [
+        "Secure and optimized checkout systems.",
+        "Scalable architecture for traffic growth.",
+        "Full control over pricing and inventory logic.",
+        "Seamless integration with third-party services.",
+        "Improved performance and faster response times."
+      ],
+      "features": [
+        "Custom E-Commerce API Development",
+        "Stripe & Payment Gateway Integration",
+        "Product, Cart & Order Management",
+        "Role-Based Admin & Vendor Panels",
+        "Inventory & Stock Synchronization"
+      ],
+      "stats": [
+        { "label": "Commerce Platforms Built", "value": "8+" },
+        { "label": "Payment Systems Integrated", "value": "3+" },
+        { "label": "Orders Processed via APIs", "value": "100+" }
+      ],
+      "projects": [
+        {
+          "title": "Keysale",
+          "client": "From RETAILBOX SWEDEN",
+          "description": "Built a scalable retail platform using Angular and Yii with custom cart logic, secure payments, and dynamic product management APIs."
+        }
+      ]
+    },
+    {
+      "id": "uiux",
+      "slug": "product-ui-ux-design",
+      "title": "Product UI / UX Design",
+      "shortDescription": "Clean, conversion-focused interfaces designed for real-world applications and seamless backend integration.",
+      "image": "/services/ux-ui.png",
+      "videoUrl": "https://assets.mixkit.co/videos/preview/mixkit-graphic-designer-working-with-a-tablet-41543-large.mp4",
+      "fullDescription": "We design practical, high-performance user interfaces that align closely with backend architecture and business workflows. Our approach focuses on clarity, usability, and scalability — ensuring dashboards, commerce systems, and AI-powered applications remain intuitive and efficient. Instead of overcomplicating design, we prioritize structured layouts, consistent components, and smooth user journeys.",
+      "benefits": [
+        "Intuitive user flows aligned with backend logic.",
+        "Reduced friction in checkout and onboarding.",
+        "Consistent design systems for scalable growth.",
+        "Optimized interfaces for better engagement."
+      ],
+      "features": [
+        "Responsive Web & Dashboard UI Design",
+        "Admin Panel & Data Visualization Interfaces",
+        "E-Commerce UX Optimization",
+        "AI Product Interface Design"
+      ],
+      "stats": [
+        { "label": "Interfaces Designed", "value": "6+" },
+        { "label": "Dashboards Built", "value": "11+" },
+        { "label": "Production Deployments", "value": "15+" }
+      ],
+      "projects": [
+        {
+          "title": "Keysale Retail Dashboard",
+          "client": "From RETAILBOX SWEDEN",
+          "description": "Designed and implemented a structured retail management interface integrated with secure backend APIs and dynamic product controls."
+        },
+        {
+          "title": "AIDO",
+          "client": "From AIDO",
+          "description": "Designed a clean conversational interface for AI agents, focusing on clarity, workflow visibility, and seamless backend API integration."
+        },
+        {
+          "title": "Thinkerslane",
+          "client": "From Thinkerslane",
+          "description": "Created a streamlined bookstore interface with optimized product discovery, checkout flow, and structured admin management panels."
+        }
+      ]
+    }
+  ],
+  "caseStudies": [
+    {
+      "slug": "thinkerslane",
+      "title": "Thinkerslane",
+      "tag": "EdTech Platform",
+      "shortDesc": "Reimagining digital education through structured coaching. We engineered a scalable, high-performance platform that empowers educators to deliver personalized learning paths, track student progress in real-time, and seamlessly integrate diverse multimedia resources for a richer educational experience.",
+      "client": "Thinkerslane inc.",
+      "platform": "Web Application",
+      "role": "Full-Stack Development",
+      "stack": "Next.js, Node.js, PostgreSQL",
+      "results": {
+        "speed": "2x",
+        "errors": "-75%",
+        "sales": "Global"
+      }
+    },
+    {
+      "slug": "suprokash",
+      "title": "Suprokash",
+      "tag": "Mobile App",
+      "shortDesc": "A comprehensive retail bookstore billing ecosystem designed to streamline daily operations. The application integrates real-time inventory management, secure digital payment processing, and advanced reporting analytics to significantly reduce manual errors and boost overall operational efficiency.",
+      "client": "Suprokash Bookstore",
+      "platform": "React Native + API",
+      "role": "Full-Stack Development",
+      "stack": "React Native, CodeIgniter 4, MySQL",
+      "results": {
+        "speed": "3x",
+        "errors": "-90%",
+        "sales": "Digital"
+      }
+    },
+    {
+      "slug": "video-upload-optimization",
+      "title": "Fast Video Upload System",
+      "tag": "Social Media Infrastructure",
+      "shortDesc": "Engineered a high-performance video processing pipeline to handle large-scale media uploads. By transitioning from server-side processing to AWS Presigned URLs and asynchronous FFmpeg compression, we eliminated backend bottlenecks, reduced server load, and achieved superior upload stability for 2GB+ files.",
+      "client": "Social Media Platform",
+      "platform": "Web Application",
+      "role": "Full-Stack Development & Architecture",
+      "stack": "React, CodeIgniter, AWS S3, FFmpeg",
+      "results": {
+        "speed": "Direct",
+        "errors": "Minimal",
+        "load": "-90%"
+      }
+    },
+    {
+      "slug": "ai-mcp-travel-architecture",
+      "title": "AI – Redefining Travel Infrastructure with MCP",
+      "tag": "AI / Travel Infrastructure",
+      "country": "Canada",
+      "shortDesc": "A complete architectural transformation from legacy REST-based services to a modular, AI-native MCP-powered travel platform. By integrating unified Azure API Management and secure, isolated Stripe payment workflows, the system now enables intelligent, automated trip planning and highly scalable infrastructure.",
+      "platform": "Node.js MCP Architecture + Azure API Management + Duffel APIs + Next.js Payment Module",
+      "role": "System Architect, MCP Implementation Lead, AI Integration & Secure Payment Designer",
+      "stack": [
+        "Node.js",
+        "Model Context Protocol (MCP)",
+        "Azure API Management",
+        "Duffel Flight APIs",
+        "Stripe",
+        "Next.js",
+        "Claude",
+        "Azure OpenAI",
+        "Gemini",
+        "LibreChat",
+        "OpenWebUI"
+      ],
+      "results": {
+        "transformation": "REST → MCP Architecture",
+        "aiEcosystems": "5+ AI Platforms Validated",
+        "paymentSecurity": "AI-Isolated Stripe Workflow"
+      }
+    },
+    {
+      "slug": "flipkart-academy-scoa",
+      "title": "Architecting a Scalable Backend & Frontend for Flipkart Academy SCOA via ViSolutionz",
+      "tag": "Enterprise LMS / EdTech",
+      "shortDesc": "Delivered a mission-critical learning management system (LMS) for Flipkart SCOA. We architected a scalable Node.js backend and a high-performance Next.js frontend, enabling dynamic course creation, resilient multi-channel notifications, and high-concurrency exam processing.",
+      "results": {
+        "scale": "High Concurrency",
+        "uptime": "Near-perfect",
+        "delivery": "5 Months"
+      }
+    }
+  ],
+  "testimonials": [
+    {
+      "company": "Keysale",
+      "author": "Par Gustaffson",
+      "quote": "It's been over two years now working together, and we've had a great experience throughout. The CRM system has been reliable and fits well into our daily workflow. Whenever we need updates or support, the team is there and responds quickly. We're not going anywhere — looking forward to continuing this partnership.",
+      "liveUrl": "https://www.keysaleonline.se/"
+    },
+    {
+      "company": "Thinkerslane",
+      "author": "Ashim Das",
+      "quote": "Concepteur made the entire process very smooth for us. They understood our requirements clearly and delivered exactly what we were looking for. Everything works properly, and managing our daily operations has become much easier now. They were responsive, professional, and easy to work with throughout the project. I appreciate their support and dedication.",
+      "liveUrl": "https://thinkerslane.com/"
+    },
+    {
+      "company": "Suprokash Publication",
+      "author": "Suprokash",
+      "quote": "From the beginning, the collaboration has been straightforward and dependable. Communication is clear, deadlines are respected, and support is always available when we need it.",
+      "liveUrl": "https://suprokashbooks.com/"
+    }
+  ],
+  "blogs": [
+    {
+      "slug": "building-ai-native-travel-infrastructure",
+      "title": "Building the Future of AI-Powered Travel Infrastructure with MCP",
+      "description": "How we transformed a traditional REST-based travel platform into a scalable AI-native MCP architecture with secure payment orchestration and multi-AI integration.",
+      "date": "May 10, 2026",
+      "readTime": "8 min read",
+      "authorName": "Proparna Das",
+      "authorRole": "CTO",
+      "authorSlug": "proparna-das"
+    }
+  ],
+  "videos": [
+    {
+      "id": "v1",
+      "vimeoId": "76979871",
+      "title": "Engineering at Concepteur",
+      "role": "Senior Software Engineer",
+      "name": "Developer Insights"
+    }
+  ]
+}

@@ -122,8 +122,8 @@ const CapabilityVideoSection: React.FC<CapabilityVideoSectionProps> = ({
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full aspect-[21/9] lg:aspect-[2.5/1] group cursor-pointer select-none"
-          onClick={() => setIsModalOpen(true)}
+          className="relative w-full aspect-[21/9] lg:aspect-[2.5/1] group select-none"
+          // onClick={() => setIsModalOpen(true)}
         >
           {/* Edge Blending Overlays - Seamless gradient into #fcfcfc background */}
           <div className="absolute inset-0 z-10 pointer-events-none">
@@ -145,7 +145,7 @@ const CapabilityVideoSection: React.FC<CapabilityVideoSectionProps> = ({
           </div>
 
           {/* Play Icon Overlay visible on the image */}
-          <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
+          {/* <div className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none">
             <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-black/40 backdrop-blur-md border border-white/40 flex items-center justify-center text-white shadow-2xl transition-all duration-500 group-hover:scale-110 group-hover:bg-black/70 group-hover:border-white pointer-events-auto">
               <svg
                 className="w-7 h-7 sm:w-9 sm:h-9 translate-x-[2px] fill-current text-white"
@@ -154,12 +154,12 @@ const CapabilityVideoSection: React.FC<CapabilityVideoSectionProps> = ({
                 <path d="M8 6v12l10-6z" />
               </svg>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
 
       {/* VIDEO PLAYER MODAL POPUP */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isModalOpen && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -169,7 +169,6 @@ const CapabilityVideoSection: React.FC<CapabilityVideoSectionProps> = ({
             className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 backdrop-blur-md p-4 sm:p-8"
             onClick={() => setIsModalOpen(false)}
           >
-            {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 sm:top-10 sm:right-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white hover:text-black transition-all duration-300 z-[101] cursor-pointer"
@@ -190,7 +189,6 @@ const CapabilityVideoSection: React.FC<CapabilityVideoSectionProps> = ({
               </svg>
             </button>
 
-            {/* Video Player Box inside Modal Overlay */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -222,7 +220,7 @@ const CapabilityVideoSection: React.FC<CapabilityVideoSectionProps> = ({
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
     </>
   );
 };

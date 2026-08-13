@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import "./globals.css";
 import Footer from "@/components/layout-components/Footer";
 import Navbar from "@/components/layout-components/Navbar";
@@ -5,9 +6,9 @@ import NavigationLoader from "@/components/layout-components/NavigationLoader";
 import GoogleAnalytics from "@/components/layout-components/GoogleAnalytics";
 import CookieConsent from "@/components/layout-components/CookieConsent";
 import ChatBot from "@/components/ui-components/ChatBot";
-import { Metadata } from "next";
 import localFont from "next/font/local";
 import SmoothScroll from "@/components/smoothScroll";
+
 const satoshi = localFont({
   src: [
     {
@@ -25,35 +26,136 @@ const satoshi = localFont({
   display: "swap",
 });
 
+const siteUrl = "https://concepteurit.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://concepteurit.com"),
+  metadataBase: new URL(siteUrl),
+
   title: {
-    default: "Concepteur Technologies",
+    default:
+      "Concepteur Technologies | AI, Web, Mobile & Software Development Company",
     template: "%s | Concepteur Technologies",
   },
+
   description:
-    "Engineering-led AI technology company delivering scalable systems, intelligent automation, and enterprise-grade digital solutions.",
+    "Concepteur Technologies is a software development company delivering AI solutions, intelligent automation, scalable web platforms, mobile applications, API-first backend systems, cloud infrastructure, e-commerce solutions, and UI/UX design.",
+
+  keywords: [
+    "Concepteur Technologies",
+    "software development company",
+    "AI development company",
+    "AI automation services",
+    "custom AI agent development",
+    "generative AI development",
+    "RAG development",
+    "MCP development",
+    "web development company",
+    "Next.js development",
+    "React development",
+    "custom web application development",
+    "mobile app development",
+    "React Native development",
+    "Flutter app development",
+    "backend development",
+    "API development",
+    "Node.js development",
+    "cloud infrastructure services",
+    "AWS development",
+    "DevOps services",
+    "e-commerce development",
+    "custom software development",
+    "UI UX design services",
+    "enterprise software development",
+    "software company in India",
+    "technology company in West Bengal",
+    "software company in Chakdaha",
+  ],
+
+  authors: [
+    {
+      name: "Concepteur Technologies",
+      url: siteUrl,
+    },
+  ],
+
+  creator: "Concepteur Technologies",
+
+  publisher: "Concepteur Technologies",
+
+  category: "Technology",
+
+  applicationName: "Concepteur Technologies",
+
+  referrer: "origin-when-cross-origin",
+
+  alternates: {
+    canonical: "/",
+  },
+
   openGraph: {
     type: "website",
-    locale: "en_US",
-    url: "https://concepteurit.com",
-    title: "Concepteur Technologies",
-    description:
-      "Engineering-led AI technology company delivering scalable systems, intelligent automation, and enterprise-grade digital solutions.",
+    locale: "en_IN",
+    url: siteUrl,
     siteName: "Concepteur Technologies",
+
+    title:
+      "Concepteur Technologies | Transforming Ideas Into Digital Reality",
+
+    description:
+      "Innovative software solutions for AI, intelligent automation, enterprise web platforms, mobile applications, API-first backend systems, cloud infrastructure, e-commerce, and UI/UX design.",
+
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Concepteur Technologies - Software, AI, Web and Mobile Development",
+      },
+    ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Concepteur Technologies",
+
+    title:
+      "Concepteur Technologies | AI, Web, Mobile & Software Development",
+
     description:
-      "Engineering-led AI technology company delivering scalable systems, intelligent automation, and enterprise-grade digital solutions.",
+      "Building innovative AI systems, scalable web platforms, mobile applications, enterprise software, cloud infrastructure, and API-driven solutions.",
+
+    images: ["/og-image.jpg"],
+
+    creator: "@concepteurit",
   },
+
   robots: {
     index: true,
     follow: true,
+
+    googleBot: {
+      index: true,
+      follow: true,
+
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+
   icons: {
     icon: "/favicon.ico",
+  },
+
+  verification: {
+    // Add your verification codes after connecting the website
+    // google: "YOUR_GOOGLE_SEARCH_CONSOLE_CODE",
+  },
+
+  other: {
+    "geo.region": "IN-WB",
+    "geo.placename": "Chakdaha, Nadia, West Bengal",
+    "geo.position": "23.08;88.52",
+    ICBM: "23.08, 88.52",
   },
 };
 
@@ -70,6 +172,7 @@ export default function RootLayout({
     logo: "https://concepteurit.com/logo.png",
     sameAs: [],
   };
+
   return (
     <html lang="en">
       <body className={`${satoshi.className} bg-white`}>
