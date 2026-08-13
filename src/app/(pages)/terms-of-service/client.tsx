@@ -166,8 +166,6 @@ export function TermsClient() {
     <div className="bg-white min-h-screen text-black selection:bg-black selection:text-white font-sans overflow-hidden">
       {/* Abstract Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-full bg-gray-100" />
-        <div className="absolute top-[20vh] left-0 w-full h-[1px] bg-gray-100" />
         <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-gradient-radial from-gray-100/50 to-transparent blur-[100px] opacity-70" />
       </div>
 
