@@ -43,8 +43,7 @@ export default function AnnouncementBanner() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
             </span>
             <span>
-              Concepteur Technologies Team currently working live on 12+
-              projects{" "}
+              Concepteur Technologies Team currently working live on 8+ projects{" "}
               <span className="hidden sm:inline mx-2 opacity-50">|</span>{" "}
               <br className="sm:hidden" />
               <span className="text-gray-400">Updated date: {today}</span>
