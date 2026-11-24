@@ -83,7 +83,7 @@ export default function AboutSection() {
         />
 
         {/* Stats row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-10">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
           {statsData.map((stat, i) => (
             <motion.div
               key={i}

@@ -99,7 +99,7 @@ const StatsAbout = () => {
     <section className="w-full bg-white pb-20 border-b border-gray-100">
       <div className="w-full px-5 md:px-[15%]">
         <div ref={sectionRef} className="w-full border-t border-gray-200 pt-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="grid grid-cols-2 gap-8 md:gap-12">
             {stats.map((stat, index) => (
               <StatItem
                 key={stat.label}

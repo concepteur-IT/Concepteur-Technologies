@@ -52,13 +52,13 @@ export const timelineData: TimelineItem[] = [
     year: "2026",
     title: "Unbroken Record",
     description:
-      "Achieved 41+ completed projects with a 100% success rate. Currently driving 8+ ongoing initiatives with a unified team of 11+ developers.",
+      "Achieved 41+ completed projects with a 100% success rate, backed by a unified team and a consistent delivery record.",
   },
   {
     year: "2027",
     title: "The Vision Ahead",
     description:
-      "Growing to a 20+ member team, opening our new office in a major city, and building our first Agentic AI system for intelligent optimization.",
+      "Growing our team, opening our new office in a major city, and building our first Agentic AI system for intelligent optimization.",
     isGoal: true,
   },
 ];

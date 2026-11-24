@@ -17,7 +17,6 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/components/logo-component/Logo";
 import { servicesData } from "@/data/servicesData";
-import AnnouncementBanner from "./AnnouncementBanner";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -95,8 +94,6 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white flex flex-col">
-      <AnnouncementBanner />
-
       {/* Main nav row */}
       <div className="w-full px-5 md:px-[15%] h-[60px] flex items-center justify-between shrink-0 border-b border-gray-100">
         {/* Logo */}

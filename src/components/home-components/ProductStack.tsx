@@ -27,6 +27,16 @@ export default function ProductStack() {
           desc: "The core backbone for our advanced machine learning and AI orchestration applications.",
         },
         {
+          name: "Agentic RAG",
+          icon: "ai-icon",
+          desc: "Retrieval-augmented generation with autonomous agents that search, reason over, and act on your private knowledge.",
+        },
+        {
+          name: "Vector Databases",
+          icon: "ai-icon",
+          desc: "Semantic search and embedding stores that ground LLM responses in accurate, up-to-date enterprise data.",
+        },
+        {
           name: "TensorFlow",
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tensorflow/tensorflow-original.svg",
           desc: "Building and training robust predictive, classification, and generative models.",
@@ -52,6 +62,16 @@ export default function ProductStack() {
           name: "Node.js",
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg",
           desc: "Event-driven asynchronous backend environment for exceptionally fast network apps.",
+        },
+        {
+          name: "Java",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg",
+          desc: "Mature, high-performance JVM platform for enterprise-grade, long-lived backend systems.",
+        },
+        {
+          name: "Spring Boot",
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg",
+          desc: "Production-ready Java framework for secure, scalable microservices and REST APIs.",
         },
         {
           name: "MongoDB",
